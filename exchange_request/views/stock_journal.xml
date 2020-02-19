@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- stock journal form view -->
+        <record model="ir.ui.view" id="view_stock_journal_form">
+            <field name="name">stock.journal.form</field>
+            <field name="model">stock.journal</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group cols="4">
+                            <field name="name"/>
+                            <field name="location_id" domain="[('usage','=','customer')]"/>
+                            <field name="exchange"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- stock journal tree view -->
+        <record model="ir.ui.view" id="view_stock_journal_tree">
+            <field name="name">stock.journal.tree</field>
+            <field name="model">stock.journal</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="location_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- stock journal action -->
+        <record model="ir.actions.act_window" id="action_stock_journal">
+            <field name="name">Stock Journals</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">stock.journal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- stock journal menu -->
+        <menuitem
+                id="stock_journal_menu"
+                name="Stock Journal"
+                groups="stock.group_stock_manager"
+                parent="stock.menu_warehouse_config"
+                action="action_stock_journal"/>
+    </data>
+</odoo>

@@ -1,0 +1,355 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* exchange_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-22 07:57+0000\n"
+"PO-Revision-Date: 2019-07-22 07:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exchange_request
+#: code:addons/exchange_request/models/exchange_request.py:184
+#, python-format
+msgid "Avialable Quantity can't be Zero or less"
+msgstr "الكمية المتوفره لا يمكن ان تكون صفراً أو أقل"
+
+#. module: exchange_request
+#: model:ir.ui.view,arch_db:exchange_request.exchange_wizard_form
+msgid "Create Picking"
+msgstr "إنشاء أمر تسليم"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_line_Uom_id
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_Uom_id
+msgid "Unit of Measure"
+msgstr "وحده القياس "
+
+#. module: exchange_request
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Calculate"
+msgstr "التحقق من توفر الكمية"
+
+#. module: exchange_request
+#: model:ir.ui.view,arch_db:exchange_request.exchange_wizard_form
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: exchange_request
+#: selection:exchange.request,state:0
+msgid "Cancel"
+msgstr "ملغي"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_category_id
+msgid "Category"
+msgstr "التصنيف"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: exchange_request
+#: selection:exchange.request,state:0
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: exchange_request
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Create Purchase Requisition"
+msgstr "إنشاء طلب الشراء"
+
+#. module: exchange_request
+#: selection:exchange.request,type:0
+msgid "Custody"
+msgstr "عهدة"
+
+#. module: exchange_request
+#: model:ir.model.fields,help:exchange_request.field_exchange_request_line_Uom_id
+#: model:ir.model.fields,help:exchange_request.field_exchange_wizard_line_Uom_id
+msgid "Default Unit of Measure used for all stock operation."
+msgstr "القيمة الإفتراضيه لوحدة القياس هي التي يتم استخدامها في جميع معاملات المخزن"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_department_id
+msgid "Department"
+msgstr "الإدارة"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_display_name
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_line_display_name
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_display_name
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_display_name
+msgid "Display Name"
+msgstr "إسم العرض"
+
+#. module: exchange_request
+#: selection:exchange.request,state:0
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Done"
+msgstr "تم"
+
+#. module: exchange_request
+#: selection:exchange.request,state:0
+msgid "Draft"
+msgstr "مبدئي"
+
+#. module: exchange_request
+#: selection:exchange.request,requisition_type:0
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_line_exchange_id
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_exchange_id
+msgid "Exchange"
+msgstr "صرف"
+
+#. module: exchange_request
+#: model:ir.ui.menu,name:exchange_request.exchange_requests_menu
+msgid "Request for insurance of products and services"
+msgstr "طلبات تأمين أصناف و خدمات"
+
+#. module: exchange_request
+#: model:ir.actions.act_window,name:exchange_request.action_exchange_requests
+msgid "Request for insurance of products and services"
+msgstr "طلب تأمين اصناف و خدمات"
+
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_id
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_line_id
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_id
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_id
+msgid "ID"
+msgstr "ID"
+
+#. module: exchange_request
+#: model:ir.model,name:exchange_request.model_stock_location
+msgid "Inventory Locations"
+msgstr "المخزن"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_location_id
+msgid "Location"
+msgstr "المخزن"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_line_name
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_name
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_requ_name
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_name
+msgid "Name"
+msgstr "الإسم"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_name
+msgid "Name"
+msgstr "مرجع الطلب"
+
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_line_note
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_note
+msgid "Note"
+msgstr "ملاحظات"
+
+#. module: exchange_request
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Other Informations"
+msgstr "معلومات أخرى"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_partner_id
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: exchange_request
+#: code:addons/exchange_request/wizard/exchange_wizard.py:37
+#, python-format
+msgid "Pickgin Quantity Can't be more than Asked Quantity"
+msgstr "الكمية المطلوبه من المخزن لا يمكن ان تكون اكبر من كمية المنتجات المطلوبه في طلب الصرف"
+
+#. module: exchange_request
+#: code:addons/exchange_request/models/exchange_request.py:310
+#, python-format
+msgid "Picking Creation"
+msgstr "إنشاء شحنه"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_picking_done
+msgid "Picking Done"
+msgstr "الكمية المشحونه"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_picking_quantity
+msgid "Picking Quantity"
+msgstr "الكمية المطلوبة"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_picking_type_id
+msgid "Picking Type"
+msgstr "نوع العملية"
+
+#. module: exchange_request
+#: code:addons/exchange_request/models/exchange_request.py:232
+#: code:addons/exchange_request/wizard/exchange_wizard.py:24
+#, python-format
+msgid "Please Select a location in your stock journal first"
+msgstr "الرجاء اختيار مخزن في يومية الصرف أولاً"
+
+#. module: exchange_request
+#: code:addons/exchange_request/models/exchange_request.py:173
+#, python-format
+msgid "Please add products before confirming your order"
+msgstr "الرجاء إضافة المنتجات قبل تأكيد الطلب"
+
+#. module: exchange_request
+#: selection:exchange.request,type:0
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_line_product_id
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_product_id
+msgid "Product"
+msgstr "المنتج"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_line_product_qty
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_product_qty
+msgid "Product Qty"
+msgstr "الكمية"
+
+#. module: exchange_request
+#: code:addons/exchange_request/models/exchange_request.py:377
+#, python-format
+msgid "Product Quantity Should be greater than zero"
+msgstr "كمية المنتج يجب ان تكون اكبر من الصفر"
+
+#. module: exchange_request
+#: code:addons/exchange_request/models/exchange_request.py:186
+#, python-format
+msgid "Product Quantity can't be more than the Available"
+msgstr "كمية المنتج المطلوبه لا يمكن ان تكون اكبر من الكمية المتوفرة في المخزن"
+
+#. module: exchange_request
+#: model:ir.ui.view,arch_db:exchange_request.exchange_wizard_form
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Products"
+msgstr "المنتجات"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_purpose
+msgid "Purpose"
+msgstr "البيان"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_line_qty_available
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_wizard_line_qty_available
+msgid "Qty Available"
+msgstr "الكمية المتوفرة"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_reference
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_request_date
+msgid "Request Date"
+msgstr "تاريخ الطلب"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_requisition_id
+msgid "Requisition"
+msgstr "طلب الشراء"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_requisition_type
+msgid "Requisition Type"
+msgstr "نوع الطلب"
+
+#. module: exchange_request
+#: selection:exchange.request,requisition_type:0
+msgid "Return"
+msgstr "إرجاع"
+
+#. module: exchange_request
+#: model:ir.actions.act_window,name:exchange_request.action_return_requests
+#: model:ir.ui.menu,name:exchange_request.return_requests_menu
+msgid "Return Requests"
+msgstr "طلب الإرجاع"
+
+#. module: exchange_request
+#: selection:exchange.request,type:0
+msgid "Service"
+msgstr "خدمة"
+
+#. module: exchange_request
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Set to dratf"
+msgstr "إرجاع إلى مبدئي"
+
+#. module: exchange_request
+#: selection:exchange.request,state:0
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Sign"
+msgstr "توقيع"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_state
+msgid "State"
+msgstr "الحالة"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_stock_journal_id
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Stock Journal"
+msgstr "الغرض من الصرف"
+
+#. module: exchange_request
+#: model:ir.ui.view,arch_db:exchange_request.exchange_request_form
+msgid "Stock Journal Return"
+msgstr "الغرض من الإرجاع"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_stock_picking
+msgid "Stock Picking"
+msgstr "الشحنة"
+
+#. module: exchange_request
+#: code:addons/exchange_request/models/exchange_request.py:201
+#, python-format
+msgid "This Request already have Purchase Reuisition"
+msgstr "هذا الطلب لديه طلب شراء مسبقاً"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_user_id
+msgid "User"
+msgstr "المستخدم"
+
+#. module: exchange_request
+#: selection:exchange.request,state:0
+msgid "Waiting For Purchase"
+msgstr "في انتظار امر الشراء"
+
+#. module: exchange_request
+#: model:ir.model.fields,field_description:exchange_request.field_exchange_request_warehouse_id
+msgid "Warehouse"
+msgstr "المستودع"
+
+#. module: exchange_request
+#: code:addons/exchange_request/models/exchange_request.py:396
+#: code:addons/exchange_request/models/exchange_request.py:404
+#, python-format
+msgid "You can't Duplicate Location"
+msgstr "لا يمكنك تكرار المخزن"
+

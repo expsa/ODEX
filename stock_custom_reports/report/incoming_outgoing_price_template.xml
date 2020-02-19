@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+    <!-- Incoming Outgoing With Prices Report template -->
+    <template id="incoming_outgoing_prices_temp">
+        <div class="header">
+            <div class="row mt32 mb32" style="text-align:left;">
+                <div style="border:1px solid white;text-align:center;" class="col-xs-4">
+                    <img src='/web/binary/company_logo' style="border:1px solid white;width:100px;max-height: 100px;" alt="Logo"/>                
+                </div>
+                <div class="col-xs-4" style="border:1px solid white;height:100px;">
+                    <div style="background-color:white;font-size:26;text-align:center;font-family:Droid Arabic Naskh">
+                        <span style="background-color:white;font-size:26;">Incoming and Outgoing With Prices Report</span>
+                    </div>
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
+        </div>
+        <div class="article">
+            <table class="table table-bordered"  style="border: 2px solid black;font-family:Droid Arabic Naskh">
+                <thead>
+                    <tr>
+                        <th colspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Duration</th>                        
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Location</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Category</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Product</th>
+
+                    </tr>
+                    <tr>
+                        <th style="border:1px solid black;text-align:center;background-color:#B0C4DE;">From</th>
+                        <th style="border:1px solid black;text-align:center;background-color:#B0C4DE;">To</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align:center;border:1px solid black;"><t t-esc="date_from"/></td>
+                        <td style="text-align:center;border:1px solid black;"><t t-esc="date_to"/></td>
+                           
+                        <td style="text-align:center;border:1px solid black;"><t t-esc="location_id"/></td>
+                        <td style="text-align:center;border:1px solid black;"><t t-esc="category"/></td>
+                        <td style="text-align:center;border:1px solid black;"><t t-esc="product_ids"/></td>
+
+                              
+                    </tr>
+                </tbody>
+            </table><br/><br/>
+            <table class="table table-bordered"  style="border: 2px solid black;width:100%;font-family:Droid Arabic Naskh">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">#</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Product Code</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Product</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Product UOM</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Cost Price</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Opening Qty</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Incoming</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Outgoing</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Qty On Hand</th>
+                        <th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Total Cost</th>
+                        <!--th rowspan="2" style="border:1px solid black;text-align:center;background-color:#B0C4DE;">Amount</th-->
+                    </tr>
+                </thead>
+                <tbody>
+                <t t-set="total" t-value="0"/>
+                <t t-set="stock_total_prices" t-value="0"/>
+                    <t t-foreach="docs" t-as="o">
+                        <tr>
+                            <td style="text-align:center;border:1px solid black;"><t t-esc="o_index + 1"/></td>   
+                            <td style="text-align:center;border:1px solid black;"><t t-esc="o['default_code']"/></td>                     
+                            <td style="text-align:center;border:1px solid black;"><t t-esc="o['product_name']"/></td>
+                            <td style="text-align:center;border:1px solid black;"><t t-esc="o['uom']"/></td>
+                            <td style="text-align:center;border:1px solid black;"><t t-esc="o['cost_price']"/></td>
+                            <td style="text-align:center;border:1px solid black;"><t t-esc="o['open_inqty'] - o['open_outqty']"/></td>
+                            <td style="text-align:center;border:1px solid black;"><t t-esc="o['inqty']"/></td>
+                            <td style="text-align:center;border:1px solid black;"><t t-esc="o['outqty']"/></td>
+                            <td style="text-align:center;border:1px solid black;"><t t-esc="(o['open_inqty'] - o['open_outqty']) + o['inqty'] - o['outqty']"/></td>
+                            <!--td style="text-align:center;"><t t-esc="o['amount']"/></td-->
+                            <td style="text-align:center;border:1px solid black;"><t t-esc="o['cost_price'] * ((o['open_inqty'] - o['open_outqty']) + o['inqty'] - o['outqty'])"/></td>
+                            <t t-set="total" t-value="o_index+1"/>
+                            <t t-set="stock_total_prices" t-value="stock_total_prices+(o['cost_price'] * ((o['open_inqty'] - o['open_outqty']) + o['inqty'] - o['outqty']))"/>
+                        </tr>
+                    </t>
+                    <!--tr>
+                        <td style="text-align:center;border:1px solid black;" colspan="9">Number Of Requests</td>
+                        <td style="text-align:center;border:1px solid black;"><t t-esc="total"/></td>
+                    </tr-->
+                    <tr>
+                        <td style="text-align:center;border:1px solid black;" colspan="9">Total of Stock Valuation</td>
+                        <td style="text-align:center;border:1px solid black;background-color:#B0C4DE;"><t t-esc="stock_total_prices"/></td>
+                    </tr>
+ 
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <div class="row text-center" style="border-top: 1px solid black;">
+                <div class="col-xs-3 col-xs-offset-9 text-right">
+                    <center>
+                        <ul class="list-inline" style="margin-top:10px;">
+                            <li>Page:</li>
+                            <li>
+                                <span class="page"/>
+                            </li>
+                            <li>/</li>
+                            <li>
+                                <span class="topage"/>
+                            </li>
+                        </ul>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    </data>
+    </odoo>
+    

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="seq_exchange_request" model="ir.sequence">
+            <field name="name">Exchange Request Sequence</field>
+            <field name="code">exchange.request</field>
+            <field name="prefix">ER%(year)s/%(month)s/</field>
+	        <field name="padding">6</field>
+            <field name="use_date_range">True</field>
+            <field eval="1" name="number_increment"/>
+        </record>
+
+        <record id="seq_exchange_return" model="ir.sequence">
+            <field name="name">Return Request Sequence</field>
+            <field name="code">return.request</field>
+            <field name="prefix">RTN%(year)s/%(month)s/</field>
+	        <field name="padding">6</field>
+            <field name="use_date_range">True</field>
+            <field eval="1" name="number_increment"/>
+        </record>
+
+    </data>
+</odoo>

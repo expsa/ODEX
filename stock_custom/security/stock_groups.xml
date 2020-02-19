@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Category -->
+    <record model="ir.module.category" id="exchange_request_custom">
+        <field name="name">Stock Custom</field>
+        <field name="description">User access level for this module</field>
+        <field name="sequence">50</field>
+    </record>
+
+    <record id="group_department_manager" model="res.groups">
+        <field name="name">Department Manager</field>
+        <field name="category_id" ref="exchange_request_custom"/>
+    </record>
+
+    <record id="group_done_exchange_request" model="res.groups">
+        <field name="name">Done Button</field>
+        <field name="category_id" ref="exchange_request_custom"/>
+    </record>
+
+    <record id="group_cancel_exchange_request" model="res.groups">
+        <field name="name">Cancel Button</field>
+        <field name="category_id" ref="exchange_request_custom"/>
+    </record>
+
+    <record id="group_set_to_draft__exchange_request" model="res.groups">
+        <field name="name">Set to Draft Button</field>
+        <field name="category_id" ref="exchange_request_custom"/>
+    </record>
+    
+
+    <record id="group_exchange_user" model="res.groups">
+        <field name="name">Exchange User</field>
+        <field name="category_id" ref="exchange_request_custom"/>
+    </record>
+
+    <record id="group_project_owner" model="res.groups">
+        <field name="name">Project Owner</field>
+        <field name="category_id" ref="exchange_request_custom"/>
+    </record>
+</odoo>

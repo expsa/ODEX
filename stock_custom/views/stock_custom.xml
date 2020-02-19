@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit the Stock Picking -->
+        <record id="stock_picking_custom_form_view" model="ir.ui.view">
+            <field name="name">stock.picking.form.custom</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='location_dest_id']" position="after">
+                    <field name="category_id" required="1" attrs="{'readonly':[('state','in',('cancel','done'))]}"/>
+                    <field name="department_id" required="1" attrs="{'readonly':[('state','in',('cancel','done'))]}"/>
+                </xpath>
+            </field>
+        </record>
+        <!-- Inherit Stock Inventory -->
+        <record id="stock_inventory_custom_form_view" model="ir.ui.view">
+            <field name="name">stock.inventory.form.custom</field>
+            <field name="model">stock.inventory</field>
+            <field name="inherit_id" ref="stock.view_inventory_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/header/button[@name='action_start']" position="after">
+                    <button type="object" groups="stock_custom.group_project_owner" name="action_confirm_custom" string="Confirm" attrs="{'invisible':[('state','!=','confirm')]}" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="/form/header/button[@name='action_done']" position="attributes">
+                    <attribute name="states">inprogress</attribute>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page[1]/field[@name='line_ids']/tree[1]/field[@name='prod_lot_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page[1]/field[@name='line_ids']/tree[1]/field[@name='package_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page[1]/field[@name='line_ids']/tree[1]/field[@name='partner_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="/form/sheet/notebook/page[1]/field[@name='line_ids']/tree[1]/field[@name='state']" position="after">
+                    <field name="remain"/>
+                    <field name="reason" attrs="{'required':[('remain','!=','0')],'readonly':[('parent.state','in',('done','cancel'))]}"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

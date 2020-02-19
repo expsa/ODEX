@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <report
+            menu="False"
+            string="Incoming/Outgoing Products Report"
+            id="action_incoming_outgoing_report"
+            model="stock.move.line"
+            report_type="qweb-pdf"
+            name="stock_custom_reports.incoming_outgoing_temp"
+            file="stock_custom_reports.incoming_outgoing_template"
+        />
+        <report
+            menu="False"
+            string="Incoming/Outgoing Products Report With Prices"
+            id="action_incoming_outgoing_with_price_report"
+            model="stock.move.line"
+            report_type="qweb-pdf"
+            name="stock_custom_reports.incoming_outgoing_prices_temp"
+            file="stock_custom_reports.incoming_outgoing_price_template"
+        />
+    </data>
+</odoo>

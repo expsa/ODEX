@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- <record model="ir.actions.act_window" id="action_purchase_requisition_list">
+            <field name="name">Request for Quotations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.requisition</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('requisition_id','=',active_id)]</field>
+            <field name="context">{"default_id":requisition_id}</field>
+        </record> -->
+        <!-- exchange requests form view -->
+        <record model="ir.ui.view" id="exchange_request_form">
+            <field name="name">exchange.request.form</field>
+            <field name="model">exchange.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm" states="draft" string="Confirm" type="object" class="oe_highlight"/>
+                        <button name="action_sign" states="confirm" string="Sign" type="object" class="oe_highlight"/>
+                        <button name="action_purchase_wizard" attrs="{'invisible':['|',('state','!=','confirm'),('requisition_type','!=','exchange')]}" string="Create Purchase Requisition"  type="object" class="oe_highlight"/>
+                        <button name="action_exchange_wizard" attrs="{'invisible':['|',('state','!=','sign'),('requisition_type','!=','exchange')]}"  string="Done" type="object" class="oe_highlight" context="{'current_id':id}"/>
+                        <button name="action_done" attrs="{'invisible':['|',('state','!=','sign'),('requisition_type','!=','return')]}" string="Done" type="object" class="oe_highlight" context="{'current_id':id}"/>
+                        <button name="action_cancel" attrs="{'invisible':[('state','in',('done','cancel','waiting'))]}" string="Cancel" type="object" class="oe_highlight"/>
+                        <button name="action_draft"  states="cancel" string="Set to dratf" type="object" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" attrs="{'invisible':[('requisition_type','=','exchange')]}" statusbar_visible="draft,confirm,sign,waiting,done"/>
+                        <field name="state" widget="statusbar" attrs="{'invisible':[('requisition_type','=','return')]}" statusbar_visible="draft,confirm,sign,done"/>
+                    </header>
+                    <sheet>
+                        <div style="font-size:23pt;margin-left:10pt">
+                            <field name="name" readonly="1"/>
+                              <div class="oe_button_box" name="button_box">
+                                <button name="action_purchase_requisition_list" type="object" class="oe_stat_button" icon="fa-list-alt"
+                                        attrs="{'invisible':['|',('requisition_type','=','return'),('state','in',('draft','cancel','done'))]}">
+                                    <field name="requisition_id_count" widget="statinfo" string="PR/Requisition"/>
+                                </button>
+                            </div>
+                            <button name="calculate" style="margin-left:520pt" icon="fa-gears" type="object" string="Check Availability" class="btn-primary" attrs="{'invisible':['|','|',('type','=','service'),('requisition_type','=','return'),('state','in',('draft','cancel','done'))]}"/>
+                        </div>
+
+                        <group colspan="4" col="2">
+                            <group>
+                                <field name="request_date" required="1" attrs="{'readonly':[('state','in',('done','cancel','waiting'))]}"/>
+                                <field name="category_id" required="1" attrs="{'readonly':[('state','in',('done','cancel','waiting'))]}"/>
+                                <field name="department_id" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="purpose" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="type" required="1" attrs="{'readonly':['|',('requisition_type','=','return'),('state','in',('done','cancel','waiting'))]}"/>
+                                <field name="stock_journal_id" required="1" attrs="{'readonly':[('state','in',('done','cancel','waiting'))]}"/>
+                                <field name="warehouse_id"  attrs="{'readonly':[('state','in',('done','cancel','waiting'))],'invisible':[('state','=','draft')],'required':[('state','not in',('draft','cancel'))]}"/>
+                                <field name="location_id"  context="{'location':location_id}" attrs="{'readonly':['|',('warehouse_id','=',False),('state','in',('done','cancel','waiting'))],'invisible':[('state','=','draft')],'required':[('state','not in',('draft','cancel'))]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Products">
+                                <field name="line_ids" attrs="{'readonly':['|',('category_id','=',False),('state','not in',('draft','sign'))]}">
+                                    <tree editable="bottom">
+                                        <field name="product_id" attrs="{'readonly':[('parent.state','not in',('draft','confirm'))]}" context="{'product_exchange':parent.line_ids}" required="1"/>
+                                        <field name="note" attrs="{'readonly':[('parent.state','not in',('draft','confirm'))]}"/>
+                                        <field name="name" invisible="1" attrs="{'readonly':[('parent.state','not in',('draft','confirm'))]}"/>
+                                        <field name="product_qty" required="1" attrs="{'readonly':[('parent.state','not in',('draft','confirm'))]}"/>
+                                        <field name="Uom_id" domain="[('category_id','=',parent.category_id)]" required="1" attrs="{'readonly':[('parent.state','not in',('draft','confirm'))]}"/>
+                                        <field name="qty_available" attrs="{'column_invisible':['|',('parent.type','=','service'),('parent.requisition_type','=','return')]}" readonly="1" required="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Other Informations">
+                                <group>
+                                    <group>
+                                        <field name="picking_type_id" readonly="1" attrs="{'invisible':[('state','=','draft')]}"/>
+                                        <field name="requisition_id" attrs="{'invisible':[('requisition_type','=','return')]}" readonly="1"/>
+                                        <field name="reference" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="requisition_type" readonly="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="user_id" required="1" readonly="1"/>
+                                        <field name="company_id" required="1" readonly="1"/>
+                                        <field name="partner_id" readonly="1"/>
+                                        <field name="stock_picking" widget="many2many_tags" readonly="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- exchange requests tree view -->
+        <record model="ir.ui.view" id="view_exchange_request_tree">
+            <field name="name">exchange.request.tree</field>
+            <field name="model">exchange.request</field>
+            <field name="arch" type="xml">
+                <tree decoration-muted="state=='cancel'" decoration-success="state=='cancel'">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="request_date"/>
+                    <field name="category_id"/>
+                    <field name="location_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- exchange requests action -->
+        <record model="ir.actions.act_window" id="action_exchange_requests">
+            <field name="name">Exchange Requests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exchange.request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_requisition_type':'exchange'}</field>
+            <field name="domain">[('requisition_type','=','exchange')]</field>
+        </record>
+        <!-- exchange requests menu -->
+        <menuitem
+                id="exchange_requests_menu"
+                name="Request for insurance of products and services"
+                parent="stock.menu_stock_warehouse_mgmt"
+                action="action_exchange_requests"
+                groups="stock.group_stock_manager,stock.group_stock_user"
+        />
+
+        <!-- return requests action -->
+        <record model="ir.actions.act_window" id="action_return_requests">
+            <field name="name">Return Requests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exchange.request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_requisition_type':'return','default_type':'product'}</field>
+            <field name="domain">[('requisition_type','=','return')]</field>
+        </record>
+
+        <!-- return requests menu -->
+        <menuitem
+                id="return_requests_menu"
+                name="Return Requests"
+                parent="stock.menu_stock_warehouse_mgmt"
+                action="action_return_requests"
+                groups="stock.group_stock_manager,stock.group_stock_user"
+        />
+
+        <!-- adding groups to existing menues -->
+        <record model='ir.ui.menu' id='stock.product_product_menu'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_user','stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_package'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_user','stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_stock_inventory_control'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_user','stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_reordering_rules_config'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_user','stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_product_variant_config_stock'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_user','stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_action_inventory_form'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_user','stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_procurement_compute'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_user','stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_action_production_lot_form'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_user','stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_routes_config'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_product_category_config_stock'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_attribute_action'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_variants_action'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_product_packagings'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.product_uom_menu'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_stock_uom_categ_form_action'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager'))]"/>
+        </record>
+        <record model='ir.ui.menu' id='stock.menu_stock_uom_form_action'>
+            <field name="groups_id" eval="[(4,ref('stock.group_stock_manager'))]"/>
+        </record>
+    </data>
+</odoo>

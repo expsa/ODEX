@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- wizard -->
+        <record id="exchange_wizard_form" model="ir.ui.view">
+            <field name="name">Done pickngs</field>
+            <field name="model">exchange.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                            <div style="font-size:20pt;margin-left:10pt" width="24" height="24">
+                                <field name="name" readonly="1"/>
+                            </div>
+                        <notebook>
+                            <page string="Products">
+                                <field name="line_ids" force_save="1">
+                                    <tree editable="bottom" create="false" delete="false">
+                                        <field name="name"  force_save="1" readonly="1"/>
+                                        <field name="Uom_id"  force_save="1" readonly="1"/>
+                                        <field name="note"  force_save="1" readonly="1"/>
+                                        <field name="product_qty"  force_save="1" readonly="1" class="prdct"/>
+                                        <field name="qty_available"  force_save="1" readonly="1" class="qty_av"/>
+                                        <field name="picking_done"  force_save="1" readonly="1" class="don"/>
+                                        <field name="picking_quantity" required="1" class="pick"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button name="print_report" id="didi" string="Create Picking" type="object" class="btn-primary"/>
+                        <!-- <button name="Test" string="Picking" type="object" class="btn-primary"/>                         -->
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- purchase wizard -->
+        <record id="purchase_wizard_form" model="ir.ui.view">
+            <field name="name">Purchase Requisition</field>
+            <field name="model">purchase.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                            <div style="font-size:20pt;margin-left:10pt" width="24" height="24">
+                                <field name="name" readonly="1"/>
+                            </div>
+                        <notebook>
+                            <page string="Products">
+                                <field name="line_ids" force_save="1">
+                                    <tree editable="bottom" create="false" delete="false">
+                                        <field name="name"  force_save="1" readonly="1"/>
+                                        <field name="Uom_id"  force_save="1" readonly="1"/>
+                                        <field name="note"  force_save="1"/>
+                                        <field name="product_qty"  force_save="1" class="prdct"/>
+                                        <field name="qty_available"  force_save="1"  class="qty_av"/>
+                                        <!-- <field name="picking_done"  force_save="1" readonly="1" class="don"/> -->
+                                        <!-- <field name="picking_quantity" required="1" class="pick"/> -->
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <footer>
+                        <button name="print_report" id="didi" string="Create Purchase Requisition" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

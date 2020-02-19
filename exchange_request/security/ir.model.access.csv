@@ -1,0 +1,13 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+exchange_request_exchange_request_line_stock_user,exchange request line,exchange_request.model_exchange_request_line,stock.group_stock_user,True,True,True,True
+exchange_request_exchange_request_stock_user,exchange request,exchange_request.model_exchange_request,stock.group_stock_user,True,True,True,False
+exchange_request_exchange_request_line_stock_manager,exchange request line,exchange_request.model_exchange_request_line,stock.group_stock_manager,True,True,True,True
+exchange_request_exchange_request_stock_manager,exchange request,exchange_request.model_exchange_request,stock.group_stock_manager,True,True,True,False
+,,,,,,,
+,,,,,,,
+exchange_request_stock_quant_stock_manager,exchange request,stock.model_stock_quant,stock.group_stock_manager,True,True,True,False
+exchange_request_stock_quant_stock_user,exchange request,stock.model_stock_quant,stock.group_stock_user,True,True,True,False
