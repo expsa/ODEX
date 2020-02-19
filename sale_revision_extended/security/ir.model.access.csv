@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_revision,sale_revision_user,model_sale_revision,base.group_user,1,1,1,0
+access_sale_revision_line,sale_revision_line_user,model_sale_revision_line,base.group_user,1,1,1,1

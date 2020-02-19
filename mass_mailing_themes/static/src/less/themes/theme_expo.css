@@ -1,0 +1,115 @@
+.o_expo_theme {
+  color: black;
+}
+.o_expo_theme .bg-beta {
+  background-color: #262b36;
+  color: white;
+}
+.o_expo_theme .bg-beta h1,
+.o_expo_theme .bg-beta h2,
+.o_expo_theme .bg-beta h3,
+.o_expo_theme .bg-beta h4,
+.o_expo_theme .bg-beta h5,
+.o_expo_theme .bg-beta h6,
+.o_expo_theme .bg-beta .h1,
+.o_expo_theme .bg-beta .h2,
+.o_expo_theme .bg-beta .h3,
+.o_expo_theme .bg-beta .h4,
+.o_expo_theme .bg-beta .h5,
+.o_expo_theme .bg-beta .h6 {
+  color: white;
+}
+.o_expo_theme .text-beta {
+  color: #262b36;
+}
+.o_expo_theme .bg-delta {
+  background-color: #ff3c00;
+  color: white;
+}
+.o_expo_theme h1,
+.o_expo_theme h2,
+.o_expo_theme h3,
+.o_expo_theme h4,
+.o_expo_theme h5,
+.o_expo_theme h6,
+.o_expo_theme .h1,
+.o_expo_theme .h2,
+.o_expo_theme .h3,
+.o_expo_theme .h4,
+.o_expo_theme .h5,
+.o_expo_theme .h6 {
+  color: black;
+}
+.o_expo_theme .btn.btn-primary {
+  color: white;
+  background-color: #ff3c00;
+}
+.o_expo_theme.o_layout {
+  background-color: white;
+}
+.o_expo_theme.o_layout > .o_mail_wrapper {
+  background-color: #f4f0e7;
+  border: none;
+}
+.o_expo_theme .o_mail_snippet_general a,
+.o_expo_theme .o_mail_snippet_general .btn.btn-link {
+  color: #e63600;
+}
+.o_expo_theme .o_mail_block_two_cols .o_mail_col_container,
+.o_expo_theme .o_mail_block_three_cols .o_mail_col_container {
+  padding: 20px;
+}
+.o_expo_theme .o_mail_block_image_text .o_mail_img_container,
+.o_expo_theme .o_mail_block_text_image .o_mail_img_container {
+  padding: 0;
+}
+.o_expo_theme .o_mail_block_event {
+  margin: 0;
+}
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general {
+  background-color: #262b36;
+  color: white;
+}
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general h1,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general h2,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general h3,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general h4,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general h5,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general h6,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general .h1,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general .h2,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general .h3,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general .h4,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general .h5,
+.o_expo_theme .o_mail_block_event .o_mail_snippet_general .h6 {
+  color: white;
+}
+.o_expo_theme .o_mail_block_image table {
+  padding: 0;
+}
+.o_expo_theme .o_mail_block_image table .o_mail_col_mv {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.o_expo_theme .o_mail_block_comparison_table tfoot .bg-gray-lighter,
+.o_expo_theme .o_mail_block_comparison_table tbody .bg-gray-lighter {
+  background-color: white;
+}
+.o_expo_theme .o_mail_block_steps {
+  background-color: #262b36;
+  color: white;
+}
+.o_expo_theme .o_mail_block_steps h1,
+.o_expo_theme .o_mail_block_steps h2,
+.o_expo_theme .o_mail_block_steps h3,
+.o_expo_theme .o_mail_block_steps h4,
+.o_expo_theme .o_mail_block_steps h5,
+.o_expo_theme .o_mail_block_steps h6,
+.o_expo_theme .o_mail_block_steps .h1,
+.o_expo_theme .o_mail_block_steps .h2,
+.o_expo_theme .o_mail_block_steps .h3,
+.o_expo_theme .o_mail_block_steps .h4,
+.o_expo_theme .o_mail_block_steps .h5,
+.o_expo_theme .o_mail_block_steps .h6 {
+  color: white;
+}

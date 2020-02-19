@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="purchase_order_revision" model="ir.ui.view">
+            <field name="name">purchase.order.revision</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('oe_title')]/h1" position="inside">
+                    <h3>
+                        <label for="revision_no"/>
+                        <field name="revision_no" readonly="1"/>
+                    </h3>
+                </xpath>
+
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="create_revisions"
+                            class="oe_inline oe_stat_button"
+                            string="Create Revision"
+                            icon="fa-reply"
+                            type="object"
+                    />
+                </xpath>
+                <notebook position="inside">
+                    <page string="Revision Lines">
+                        <field name="rev_line">
+                            <tree string="Revisions" create="false" delete="false">
+                                <field name="name"/>
+                            </tree>
+                            <form string="Revisions" version="7.0" readonly="1">
+                                <sheet>
+                                    <group>
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="state" invisible="1"/>
+                                        </group>
+                                        <group>
+                                            <button name="apply_revisions" string="Apply Revision" type="object"
+                                                    icon="fa-archive"
+                                                    attrs="{'invisible': [('state', 'not in', ('draft','sent'))]}"/>
+                                        </group>
+                                    </group>
+                                    <notebook>
+                                        <page string="Revision Lines">
+                                            <field name="revision_line">
+                                                <tree string="Revision Lines" create="false" delete="false"
+                                                      editable="bottom">
+                                                    <field name="product_id"/>
+                                                    <field name="name"/>
+                                                    <field name="product_uom_qty"/>
+                                                    <field name="tax_id"/>
+                                                    <field name="price_unit"/>
+                                                    <field name="date_planned"/>
+                                                    <field name="product_uom"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+                                    </notebook>
+                                </sheet>
+                            </form>
+                        </field>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+    </data>
+</odoo>

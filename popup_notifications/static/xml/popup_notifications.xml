@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+    <t t-name='popup_title'>
+        <p style="display:none;" id="p_id"><t t-esc="id"/></p>
+        <t t-esc="title"/>
+    </t>
+    <t t-name='popup_footer'>
+        <br/><br/>
+        <button t-attf-class='link2showed-#{note_id} oe_highlight oe_form oe_button'><span>OK</span></button>
+    </t>
+</template>

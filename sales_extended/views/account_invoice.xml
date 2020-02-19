@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sales_account_invoice_custom_form" model="ir.ui.view">
+            <field name="name">account invoice inherited</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='cash_rounding_id']" position="after">
+                     <field name="purchase_order_id"/>
+                      <field name="order_dated"/>
+                      <field name="bank_account" domain="[('currency_id' , '=' , currency_id )]"/>
+                </xpath>
+                <xpath expr="//notebook//field[@name='name']" position="attributes">
+                     <attribute name="widget">html</attribute>
+                </xpath>
+                <xpath expr="//field[@name='comment']" position="after">
+                     <field name="arabic_comment"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

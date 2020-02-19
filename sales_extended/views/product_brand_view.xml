@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="product_brand_details_tree_view" model="ir.ui.view">
+            <field name="name">product.brand.tree</field>
+            <field name="model">product.brand</field>
+            <field name="arch" type="xml">
+                <tree string="Brands">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="discount"/>
+                    <field name="currency_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="product_brand_details_form_view" model="ir.ui.view">
+            <field name="name">product.brand.form</field>
+            <field name="model">product.brand</field>
+            <field name="arch" type="xml">
+
+                <form string="Brands">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="e.g. XYZ"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                            </group>
+                            <group>
+                                <field name="discount"/>
+                                <field name="currency_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Categories" name="brand_category">
+                                <field name="line_ids">
+                                    <tree editable="bottom">
+                                        <field name="cost_type_id"/>
+                                        <field name="category_id"
+                                               context="{'default_landed_cost_ok':True,'landed_cost_ok':True}"/>
+                                        <field name="is_percent"/>
+                                        <field name="value"/>
+                                        <field name="percent_value" string="(%)"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Margins" name="brand_margin">
+                                <field name="margin_ids">
+                                    <tree editable="bottom">
+                                        <field name="category_id"/>
+                                        <field name="margin"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="product_brand_details_filter_view" model="ir.ui.view">
+            <field name="name">product.brand</field>
+            <field name="model">product.brand</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Brands">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="product_brand_details_action" model="ir.actions.act_window">
+            <field name="name">Brands</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.brand</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new Brands
+                </p>
+            </field>
+        </record>
+
+
+        <record id="cost_type_details_tree_view" model="ir.ui.view">
+            <field name="name">landed.cost.type.tree</field>
+            <field name="model">landed.cost.type</field>
+            <field name="arch" type="xml">
+                <tree string="Cost Type">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="cost_type_details_form_view" model="ir.ui.view">
+            <field name="name">landed.cost.type.form</field>
+            <field name="model">landed.cost.type</field>
+            <field name="arch" type="xml">
+
+                <form string="Cost Type">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="e.g. XYZ"/>
+                            </h1>
+                            <label for="code"/>
+                            <h2>
+                                <field name="code" placeholder="e.g. 123"/>
+                            </h2>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="cost_type_details_filter_view" model="ir.ui.view">
+            <field name="name">landed.cost.type</field>
+            <field name="model">landed.cost.type</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Cost Type">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="res_rates_details_tree_view" model="ir.ui.view">
+            <field name="name">res.rates.tree</field>
+            <field name="model">res.rates</field>
+            <field name="arch" type="xml">
+                <tree string="Rates">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="currency_id"/>
+                    <field name="rate"/>
+                </tree>
+            </field>
+        </record>
+        <record id="res_rates_details_form_view" model="ir.ui.view">
+            <field name="name">res.rates.form</field>
+            <field name="model">res.rates</field>
+            <field name="arch" type="xml">
+
+                <form string="Rates">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date_from"/>
+                                <field name="currency_id"/>
+                            </group>
+                            <group>
+                                <field name="date_to"/>
+                                <field name="rate"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="res_rates_details_filter_view" model="ir.ui.view">
+            <field name="name">res.rates</field>
+            <field name="model">res.rates</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Rates">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="currency_id"/>
+                    <field name="rate"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="cost_type_details_action" model="ir.actions.act_window">
+            <field name="name">Cost Type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">landed.cost.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new Cost Types
+                </p>
+            </field>
+        </record>
+
+
+        <record id="product_brand_details_action" model="ir.actions.act_window">
+            <field name="name">Brands</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.brand</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new Brands
+                </p>
+            </field>
+        </record>
+
+        <record id="res_rates_details_action" model="ir.actions.act_window">
+            <field name="name">Rates</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.rates</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to add a new Rates
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem
+                id="product_brand_details_action_menu"
+                name="Brands"
+                parent="sale.menu_sale_config"
+                action="product_brand_details_action"
+                groups="base.group_user"
+                sequence="6"/>
+
+        <menuitem
+                id="cost_type_details_action_menu"
+                name="Cost Types"
+                parent="sale.menu_sale_config"
+                action="cost_type_details_action"
+                groups="base.group_user"
+                sequence="7"/>
+
+        <menuitem
+                id="res_rates_details_action_menu"
+                name="Rates"
+                parent="sale.menu_sale_config"
+                action="res_rates_details_action"
+                groups="base.group_user"
+                sequence="8"/>
+
+
+    </data>
+</odoo>

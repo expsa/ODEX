@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <template id="installments_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page" dir="ltr">
+                            <body>
+                            <center>
+                                <strong><p style="font-size :20 pt">Installments Report</p></strong>
+                            </center>
+                            <table style="width: 100%;text-align:center">
+                                <thead>
+                                    <th style="border : 1px solid black;text-align:center;font-size : 18pt;background-color:#B0C4DE;">Name </th>
+                                    <th style="border : 1px solid black;text-align:center;font-size : 18pt;background-color:#B0C4DE;">Amount </th>
+                                    <th style="border : 1px solid black;text-align:center;font-size : 18pt;background-color:#B0C4DE;">Due date  </th>
+                                    <th style="border : 1px solid black;text-align:center;font-size : 18pt;background-color:#B0C4DE;">Paid </th>
+                                    <th style="border : 1px solid black;text-align:center;font-size : 18pt;background-color:#B0C4DE;">residual </th>
+                                    <th style="border : 1px solid black;text-align:center;font-size : 18pt;background-color:#B0C4DE;">State </th>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.installment_ids" t-as="i">
+                                        <t t-set="res" t-value="i.amount - i.paid_amount" />
+                                        <tr>
+                                            <td style="border : 1px solid black;text-align:center;font-size : 18pt"><span t-field="i.name"/></td>
+                                            <td style="border : 1px solid black;text-align:center;font-size : 18pt"><span t-field="i.amount"/></td>
+                                            <td style="border : 1px solid black;text-align:center;font-size : 18pt"><span t-field="i.due_date"/></td>
+                                            <td style="border : 1px solid black;text-align:center;font-size : 18pt"><span t-field="i.paid_amount"/></td>
+                                            <td style="border : 1px solid black;text-align:center;font-size : 18pt"><t t-esc="res"/></td>
+                                            <td style="border : 1px solid black;text-align:center;font-size : 18pt"><span t-field="i.state"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+
+                            </body>
+                        </div>
+                    </t>
+                </t>
+            </t>
+            <style>
+                .install_table{
+                    width:100% !important;
+                    border : 1px solid black !important;
+                }
+                table tbody td{
+                    border : 1px solid black !important;
+                }
+                table thead th{
+                    border : 1px solid black !important;
+                    background: #B0C4DE !important;
+                }
+            </style>
+        </template>
+    </data>
+</odoo>

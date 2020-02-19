@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model='ir.ui.view' id='cepco_area_config_form'>
+            <field name="name">res.country.area.form</field>
+            <field name="model">res.country.area</field>
+            <field name="arch" type="xml">
+                <form string="Area">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='cepco_area_config_tree'>
+            <field name="name">res.country.area.tree</field>
+            <field name="model">res.country.area</field>
+            <field name="arch" type="xml">
+                <tree string="Area">
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model='ir.ui.view' id='cepco_area_config_search'>
+            <field name="name">res.country.area.search</field>
+            <field name="model">res.country.area</field>
+            <field name="arch" type="xml">
+                <search string="Area">
+                    <field name="name"/>
+                    <field name="code"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record model='ir.actions.act_window' id='action_cepco_area_new'>
+            <field name="name">Visit Area</field>
+            <field name="res_model">res.country.area</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new Area.
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

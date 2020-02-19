@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Wizard Form View -->
+        <record model="ir.ui.view" id="wizard_cancel_visit_form_view">
+            <field name="name">cancel.visit.reason.wiz</field>
+            <field name="model">cancel.visit.reason</field>
+            <field name="arch" type="xml">
+                <form string="Cancel Visit">
+                    <group >
+                         <field name="cancel_reason"/>
+                    </group>
+                    <footer>
+                        <div>Are you sure you want cancel this visit ?</div>
+                        <button name="approve_cancel"
+                                string="Yes"
+                                type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button special="cancel"
+                                string="No"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_stock_res_config_form_view" model="ir.ui.view">
+            <field name="name">res.config.settings.inherit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="stock.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='production_lot_info']/div[2]" position="after">
+                    <div class="col-xs-12 col-md-6 o_setting_box"
+                         attrs="{'invisible': [('group_stock_production_lot', '=', False)]}"
+                         title="Track following dates on lots &amp; serial numbers: best before, removal, end of life, alert. Such dates are set automatically at lot/serial number creation based on values set on the product (in days).">
+                        <div class="o_setting_left_pane">
+                            <field name="expire_calibration"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="expire_calibration"/>
+                            <div class="text-muted">
+                                Set the number of days needed between each calibration
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="notify_expire"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="notify_expire"/>
+                            <div class="text-muted">
+                                Set the number of days to notify stock users after calibration expiration
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

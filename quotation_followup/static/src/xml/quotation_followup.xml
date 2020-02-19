@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<template>
+    <t t-extend="mail.activity_items">
+        <t t-jquery=".o_thread_message_tools" t-operation="replace">
+            <div class="o_thread_message_tools btn-group">
+                <t t-if="activity.activity_type_id[0]!=5">
+                    <a href="#" class="btn btn-link btn-success text-muted btn-sm o_activity_done o_activity_link mr8"
+                       t-att-data-activity-id="activity.id"
+                       t-att-data-previous-activity-type-id="activity.activity_type_id[0]" data-toggle="popover">
+                        <i class="fa fa-check"/>
+                        Mark Done
+                    </a>
+                    <a href="#" class="btn btn-link btn-default text-muted btn-sm o_activity_edit o_activity_link"
+                       t-att-data-activity-id="activity.id">
+                        <i class="fa fa-pencil"/>
+                        Edit
+                    </a>
+                    <a href="#" class="btn btn-link btn-sm btn-danger text-muted o_activity_unlink o_activity_link"
+                       t-att-data-activity-id="activity.id">
+                        <i class="fa fa-times"/>
+                        Cancel
+                    </a>
+                </t>
+                <t t-else="">
+                    <a href="#" class="btn btn-link btn-success text-muted btn-sm o_activity_done o_activity_link mr8"
+                       t-att-data-activity-id="activity.id"
+                       t-att-data-previous-activity-type-id="activity.activity_type_id[0]" data-toggle="popover">
+                        <i class="fa fa-check"/>
+                        Mark Done
+                    </a>
+
+                    <a href="#" class="btn btn-link btn-success text-muted btn-sm o_activity_snooze o_activity_link mr8"
+                       t-att-data-activity-id="activity.id"
+                       t-att-data-previous-activity-type-id="activity.activity_type_id[0]" data-toggle="popover">
+                        <i class="fa fa-check"/>
+                        Snooze
+                    </a>
+                </t>
+            </div>
+        </t>
+    </t>
+</template>

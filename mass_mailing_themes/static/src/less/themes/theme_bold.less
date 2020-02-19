@@ -1,0 +1,182 @@
+// lessc@1.4.2
+
+// =========================
+// Mass Mailing "Theme Tech"
+// =========================
+
+@o_mm_bold_color_alpha: white;
+@o_mm_bold_color_beta: #222;
+@o_mm_bold_color_gamma: #59cdcd;
+@o_mm_bold_color_delta: #222;
+@o_mm_bold_color_epsilon: #111;
+@o_mm_bold_color_zeta: #a17e92;
+
+@o_mm_bold_font: Georgia, "Times New Roman", Times, serif;
+
+.o_bold_theme {
+    font-family: @o_mm_bold_font;
+
+    // ===== Colors =====
+    .bg-beta {
+        background-color: @o_mm_bold_color_gamma;
+
+        .btn.btn-primary {
+            color: @o_mm_bold_color_alpha;
+            background-color: @o_mm_bold_color_beta;
+        }
+    }
+    .text-beta {
+        color: @o_mm_bold_color_gamma;
+    }
+    .bg-delta {
+        background-color: @o_mm_bold_color_zeta;
+    }
+
+    // ===== Layout =====
+    &.o_layout {
+        background-color: @o_mm_bold_color_alpha;
+
+        > .o_mail_wrapper {
+            background-color: transparent;
+            color: @o_mm_bold_color_delta;
+            border: none;
+        }
+    }
+
+    // ===== Snippets (general) =====
+    .o_mail_snippet_general {
+        .btn.btn-primary {
+            color: @o_mm_bold_color_alpha;
+            background-color: @o_mm_bold_color_beta;
+        }
+
+        .o_mail_full_width_padding {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a, .btn.btn-link {
+            color: darken(@o_mm_bold_color_gamma, 10%);
+        }
+
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+            color:@o_mm_bold_color_beta;
+        }
+
+        .bg-beta, .bg-delta {
+            h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+                color: @o_mm_bold_color_beta;
+            }
+        }
+
+        .bg-beta {
+            .btn.btn-primary {
+                color: @o_mm_bold_color_alpha;
+                background-color: @o_mm_bold_color_beta;
+            }
+        }
+    }
+
+    // ===== Snippets (specific) =====
+    .o_mail_block_header_social, .o_mail_block_header_text_social, .o_mail_block_header_logo {
+        .o_mail_snippet_general {
+            margin-top: 10px;
+            margin-bottom: 25px;
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 560px;
+            box-sizing: content-box;
+
+            > table {
+                padding: 0;
+                max-width: 560px;
+                border-top: 3px solid @o_mm_bold_color_beta;
+                border-bottom: 3px solid @o_mm_bold_color_beta;
+                td {
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        .o_mail_h_padding.o_mail_v_padding {
+            padding: 10px 0 5px;
+        }
+
+        .o_mail_header_social {
+            margin-right: 0px;
+            a {
+                color: @o_mm_bold_color_beta;
+            }
+        }
+    }
+
+    .o_mail_block_footer_separator {
+        .separator {
+            height: 3px;
+            background-color: @o_mm_bold_color_beta;
+        }
+    }
+
+    .o_mail_block_event {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .o_mail_block_footer_separator {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .o_mail_block_steps {
+        margin-left: 20px;
+        margin-right: 20px;
+        background-color: transparent;
+        border-top: 3px solid @o_mm_bold_color_beta;
+        border-bottom: 3px solid @o_mm_bold_color_beta;
+
+        .o_mail_full_width_padding {
+            padding-left: 0;
+            padding-right: 0;
+            > tbody > tr  {
+                color: @o_mm_bold_color_beta;
+                background-color: @o_mm_bold_color_alpha;
+            }
+        }
+    }
+
+    .o_mail_block_footer_social {
+        .o_mail_snippet_general {
+            background: rgba(0,0,0,0);
+            background: transparent;
+        }
+
+        .o_mail_table_styles {
+            border-top: none;
+        }
+
+        .o_mail_footer_social {
+            a {
+                color: @o_mm_bold_color_beta;
+            }
+        }
+
+        .o_mail_footer_links a {
+            color: @o_mm_bold_color_beta;
+        }
+
+        .o_mail_footer_copy {
+            font-weight: bold;
+            font-size: 9px;
+            color: darken(@o_mm_bold_color_beta, 30%);
+        }
+
+        &.o_mail_footer_social_left {
+            .o_mail_footer_description {
+                padding-left: 0;
+            }
+            .o_mail_footer_social {
+                padding-right: 0;
+            }
+        }
+    }
+}

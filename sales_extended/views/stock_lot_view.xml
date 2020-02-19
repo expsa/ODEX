@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_stock_lot_calibration_inherit" model="ir.ui.view">
+            <field name="name">stock.production.lot.inherit</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet" position="before">
+                    <header>
+                        <button type="object" name="update_stock_lot_calibrations" string="Update Calibration"
+                                class="oe_highlight"/>
+                    </header>
+                </xpath>
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="warranty_months" readonly="1"/>
+                    <field name="warranty_partner_id" readonly="1"/>
+                    <field name="end_user_id" />
+                </xpath>
+                <xpath expr="//group[@name='main_group']" position="after">
+                    <notebook>
+                        <page name="calibration_lines" string="Calibration">
+                            <field name="lot_calibration_ids" readonly="1">
+                                <tree>
+                                    <field name="date"/>
+                                    <field name="location_id"/>
+                                    <field name="technician_id"/>
+                                    <field name="feedback"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

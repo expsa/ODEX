@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="ir.module.category" id="module_category_visit_users">
+            <field name="name">Visit Management</field>
+            <field name="sequence">102</field>
+        </record>
+
+        <record id="group_visit_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="visit_management.module_category_visit_users"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">The user will be able to manage Visits.</field>
+        </record>
+
+        <record id="group_visit_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="visit_management.module_category_visit_users"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">The user will be able to manage Visits.</field>
+        </record>
+
+        <record id="visit_record_rule" model="ir.rule">
+            <field name="name">Visit</field>
+            <field name="model_id" ref="model_calendar_event"/>
+            <field name="domain_force">['|',('user_id.sale_team_id.user_id','=',user.id),('user_id' , '=' , user.id)]
+            </field>
+        </record>
+
+    </data>
+</odoo>

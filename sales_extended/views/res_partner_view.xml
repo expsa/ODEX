@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_res_partner_inherit_from_view" model="ir.ui.view">
+            <field name="name">res.partner.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='email']" position="before">
+
+                    <field name="fax_no"/>
+                </xpath>
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="arabic_address" />
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- res company-->
+
+        <record id="other_addr_for_company" model="ir.ui.view">
+            <field name="name">res.company.inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[last()]" position="after">
+                    <page string="other address">
+                        <group col="4" colspan="2">
+                            <field name="other_phone" />
+                            <field name="other_fax" />
+                            <field name="other_city" />
+                            <field name="other_country" />
+                            <field name="other_zip" />
+                            <field name="other_street" />
+                            <field name="other_state" />
+                        </group>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

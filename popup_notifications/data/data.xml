@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="ppp1" model="popup.notification">
+            <field name="title">15 min notif</field>
+            <field name="message">messagess</field>
+            <field name="status">draft</field>
+            <field name="partner_ids" eval="[(4,1)]"/>
+        </record>
+        <record id="ppp12" model="popup.notification">
+            <field name="title">11 min notif</field>
+            <field name="message">asdfasdfasdfasdfasdfsadf</field>
+            <field name="status">draft</field>
+            <field name="partner_ids" eval="[(4,1)]"/>
+        </record>
+        <record id="ppp13" model="popup.notification">
+            <field name="title">3 min notif</field>
+            <field name="message">zxcvzxcv</field>
+            <field name="status">draft</field>
+            <field name="partner_ids" eval="[(4,1)]"/>
+        </record>
+        <record id="ppp123" model="popup.notification">
+            <field name="title">12312f</field>
+            <field name="message">qqqq</field>
+            <field name="status">draft</field>
+            <field name="partner_ids" eval="[(4,1)]"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_brand_lines,access_product_brand_lines,model_product_brand_lines,base.group_user,1,1,1,1
+access_product_brand,access_product_brand,model_product_brand,base.group_user,1,1,1,1
+access_product_brand_margin_lines,access_product_brand_margin_lines,model_product_brand_margin_lines,base.group_user,1,1,1,1
+access_sale_terms_conditions,access_sale_terms_conditions,model_sale_terms_conditions,base.group_user,1,1,1,1
+access_product_accessory_line,access_product_accessory_line,model_product_accessory_line,base.group_user,1,1,1,1
+access_res_rates,access_res_rates,model_res_rates,base.group_user,1,1,1,1
+access_product_cost_lines,access_product_cost_lines,model_product_cost_lines,base.group_user,1,1,1,1
+access_landed_cost_type,access_landed_cost_type,model_landed_cost_type,base.group_user,1,1,1,1
+access_stock_lot_calibration,access_stock_lot_calibration,model_stock_lot_calibration,base.group_user,1,1,1,1
+access_product_margin_lines,access_product_margin_lines,model_product_margin_lines,base.group_user,1,1,1,1

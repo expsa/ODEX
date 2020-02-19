@@ -1,0 +1,105 @@
+// lessc@1.4.2
+
+// ============================
+// Mass Mailing "Theme EXPO"
+// ============================
+
+@o_mm_expo_color_alpha: #262b36;
+@o_mm_expo_color_beta: white;
+@o_mm_expo_color_gamma: #ff3c00;
+@o_mm_expo_color_delta: darken(@o_mm_expo_color_gamma, 5%);
+@o_mm_expo_color_epsilon: black;
+@o_mm_expo_color_zeta: #f4f0e7;
+
+.o_mm_expo_bg_beta () {
+    background-color: @o_mm_expo_color_alpha;
+    color: @o_mm_expo_color_beta;
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        color: @o_mm_expo_color_beta;
+    }
+}
+
+.o_expo_theme {
+    // ===== Colors =====
+     color: @o_mm_expo_color_epsilon;
+
+    .bg-beta {
+        .o_mm_expo_bg_beta;
+    }
+
+    .text-beta {
+        color: @o_mm_expo_color_alpha;
+    }
+
+    .bg-delta {
+        background-color: @o_mm_expo_color_gamma;
+        color: @o_mm_expo_color_beta;
+    }
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        color: @o_mm_expo_color_epsilon;
+    }
+
+    .btn.btn-primary {
+        color: @o_mm_expo_color_beta;
+        background-color: @o_mm_expo_color_gamma;
+    }
+
+
+    // ===== Layout =====
+    &.o_layout {
+        background-color: @o_mm_expo_color_beta;
+
+        > .o_mail_wrapper {
+            background-color: @o_mm_expo_color_zeta;
+            border: none;
+        }
+    }
+
+    // ===== Snippets (general) =====
+    .o_mail_snippet_general {
+        a, .btn.btn-link {
+            color: @o_mm_expo_color_delta;
+        }
+    }
+
+    // ===== Snippets (specific) =====
+    .o_mail_block_two_cols, .o_mail_block_three_cols {
+        .o_mail_col_container {
+            padding: 20px;
+        }
+    }
+    .o_mail_block_image_text, .o_mail_block_text_image {
+        .o_mail_img_container {
+            padding: 0
+        }
+    }
+    .o_mail_block_event {
+        margin: 0;
+        .o_mail_snippet_general {
+           .o_mm_expo_bg_beta;
+       }
+    }
+    .o_mail_block_image {
+        table {
+            padding: 0;
+            .o_mail_col_mv {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+    }
+    .o_mail_block_comparison_table {
+        tfoot, tbody {
+            // Exceptionally overwrite this color class for this location.
+            // Not a problem since these elements are not editable by the user.
+            .bg-gray-lighter {
+                background-color: @o_mm_expo_color_beta;
+            }
+        }
+    }
+    .o_mail_block_steps {
+        .o_mm_expo_bg_beta;
+    }
+}

@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <template id="custom_internal_layout">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"/>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+            <div class="header">
+                <div class="row">
+                    <div dir="rtl">
+                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height: 300px;align:right"/>
+                    </div>
+                </div>
+            </div>
+            <div class="article">
+                <t t-raw="0" />
+            </div>
+        </template>
+        <template id="report_account_voucher_pay_full">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="exp_voucher_report.custom_internal_layout">
+                        <t t-set="total_debit" t-value="0"/>
+                        <t t-set="total_credit" t-value="0"/>
+                        <t t-set="o" t-value="doc" />
+                        <style type="text/css">
+                            @font-face {
+                            font-family: 'ae_AlMohanad';
+                            src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                            url('/exp_voucher_report/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                            }
+                            *{
+                            font-family: ae_AlMohanad;
+                            }
+                        </style>
+                        <br/>
+                        <br/>
+                        <div class="page" style="font-size: 12pt !important;" dir="rtl">
+                            <!--                            <center><h3><b>رقم القيد‬</h3></center>-->
+                            <t t-if="o.voucher_type == 'purchase'">
+                                <center><h3>أمر دفع ordered to pay</h3></center>
+                            </t>
+                            <t t-if="o.voucher_type == 'sale'">
+                                <center><h3>سند قبض Catch Receipt</h3></center>
+                            </t>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <table style="width: 50%;text-align:right;display: inline-table;">
+                                <tr>
+                                    <td style="text-align:right;background-color:#B0C4DE;">التاريخ:</td>
+                                    <td><span style = "font-weight: bold;" t-field="o.date"/></td>
+                                    <td style="text-align:left;background-color:#B0C4DE;">:Date</td>
+                                </tr>
+                                <tr>
+                                    <t t-if="o.voucher_type == 'purchase'">
+                                        <td style="text-align:right;background-color:#B0C4DE;">المورد:</td>
+                                    </t>
+                                    <t t-if="o.voucher_type == 'sale'">
+                                        <td style="text-align:right;background-color:#B0C4DE;">العميل:</td>
+                                    </t>
+                                    <td><span style = "font-weight: bold;" t-field="o.partner_id"/></td>
+                                    <t t-if="o.voucher_type == 'purchase'">
+                                        <td style="text-align:left;background-color:#B0C4DE;">:Supplier</td>
+                                    </t>
+                                    <t t-if="o.voucher_type == 'sale'">
+                                        <td style="text-align:left;background-color:#B0C4DE;">:Customer</td>
+                                    </t>
+                                </tr>
+                                <tr>
+                                    <t t-if="o.voucher_type == 'sale'">
+                                        <td style="text-align:right;background-color:#B0C4DE;">طرق التحصيل:</td>
+                                    </t>
+                                    <t t-if="o.voucher_type == 'purchase'">
+                                        <td style="text-align:right;background-color:#B0C4DE;">طرق السداد:</td>
+                                    </t>
+                                    <td><span style = "font-weight: bold;" t-field="o.pay_now"/></td>
+                                    <td style="text-align:left;background-color:#B0C4DE;">:Payments</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:right;background-color:#B0C4DE;">مرجع الفاتورة:</td>
+                                    <td><span style = "font-weight: bold;" t-field="o.reference"/></td>
+                                    <td style="text-align:left;background-color:#B0C4DE;">:Reference</td>
+                                </tr>
+                            </table>
+                            <table class="box" style="width: 48%;text-align:right;display: inline-table;margin-right: 25px;">
+                                <tr>
+                                    <td style="text-align:right;background-color:#B0C4DE;width: 30%;">رقم الأمر:</td>
+                                    <td><span style = "font-weight: bold;width: 30%;" t-field="o.number"/></td>
+                                    <td style="text-align:left;background-color:#B0C4DE;width: 35%;">:No</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:right;background-color:#B0C4DE;width: 30%;">تاريخ المحاسبة:</td>
+                                    <td><span style = "font-weight: bold;" t-field="o.date_due"/></td>
+                                    <td style="text-align:left;background-color:#B0C4DE;width: 35%;">:Due Date</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:right;background-color:#B0C4DE;width: 30%;">رقم اشارة السداد:</td>
+                                    <td><span style = "font-weight: bold;" t-field="o.partner_id"/></td>
+                                    <td style="text-align:left;background-color:#B0C4DE;width: 35%;">:Payments No</td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <br/>
+                            <table class="table table-condensed" style="width: 100%;height=90%;text-align:right">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:center;background-color:#B0C4DE;width: 15%">المنتج</th>
+                                        <th style="text-align:center;background-color:#B0C4DE;width: 30%">الوصف</th>
+                                        <th style="text-align:center;background-color:#B0C4DE;width: 20%">الحساب التحليلي</th>
+                                        <th style="text-align:center;background-color:#B0C4DE;width: 10%">الكمية</th>
+                                        <th style="text-align:center;background-color:#B0C4DE;width: 30%">المبلغ من غير الضريبة</th>
+                                        <th style="text-align:center;background-color:#B0C4DE;width: 10%">الضريبة</th>
+                                        <th style="text-align:center;background-color:#B0C4DE;width: 10%">الإجمالي</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.line_ids" t-as="l">
+                                        <td style="width: 15%"><span t-field="l.product_id"/></td>
+                                        <td style="width: 30%"><span t-field="l.name"/></td>
+                                        <td style="width: 15%">
+                                            <span t-field="l.account_analytic_id"/>
+                                        </td>
+                                        <td style="width: 10%"><span t-field="l.quantity"/></td>
+                                        <td style="width: 30%"><span t-raw="l.price_subtotal"/></td>
+                                        <td style="width: 10%">
+                                            <span t-esc="', '.join(map(lambda x: (x.description or x.name), l.tax_ids))"/>
+                                        </td>
+                                        <td style="width: 10%">
+                                            <span t-esc="l.tax_ids.compute_all(l.price_unit, o.currency_id, l.quantity, l.product_id, o.partner_id)['total_included']"
+                                                  style="direction: rtl; font-size: 16px; font-weight: bold;"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <style>
+                                .box {
+                                position:absolute;
+                                top:43mm !important;
+                                bottom:100mm !important;
+                                left:20mm !important;
+                                right:110mm !important;
+                                }
+                                table {
+                                border-collapse: collapse;
+
+                                }
+
+                                table{
+                                border: 1px solid black;
+                                }
+                                td{
+                                border: 1px solid grey;
+                                padding: 5px 5px 5px 5px;
+                                }
+                                th{
+                                border: 1px solid grey;
+                                padding: 5px 5px 5px 5px;
+                                font-weight: bold;
+                                }
+                            </style>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <record model="report.paperformat" id="paperformat_voucher_report">
+            <field name="name">paperformat.voucher.header.report</field>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">55</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">55</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="action_account_full_pay_voucher"
+                model="account.voucher"
+                string="Print Receipt"
+                report_type="qweb-pdf"
+                name="exp_voucher_report.report_account_voucher_pay_full"
+                paperformat="paperformat_voucher_report"
+        />
+    </data>
+</openerp>

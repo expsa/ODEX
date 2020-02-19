@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sales_visit_target,access_sales_visit_target,model_sales_visit_target,base.group_user,1,1,1,1
+access_res_country_area,access_res_country_area,model_res_country_area,base.group_user,1,1,1,1

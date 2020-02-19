@@ -1,0 +1,67 @@
+<odoo>
+  <data>
+    <record id="view_contract_template_inherit_form" model="ir.ui.view">
+      <field name="name">recurring.contract.custom</field>
+      <field name="model">contract.contract</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="contract.contract_contract_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='fiscal_position_id']" position="after">
+          <field name="type_of_contraction" widget="radio"  options="{'horizontal': true}" />
+        </xpath>
+        <xpath expr="//page[last()]" position="before">
+          <page string="Installments">
+            <field name="installment_ids">
+              <tree editable="bottom">
+                  <field name="name" required="1" />
+                  <field name="amount" required="1" widget="monetary" sum="Amount"/>
+                  <field name="paid_amount" widget="monetary" sum="Paied Amount"/>
+                  <field name="due_date" />
+                  <field name="paied_date" />
+                  <field name="state" />
+              </tree>
+            </field>
+          </page>
+        </xpath>
+      </field>
+      
+    </record>
+
+
+    <record id="contract.action_customer_contract" model="ir.actions.act_window">
+        <field name="name">Customer Contracts</field>
+        <field name="res_model">contract.contract</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,pivot,graph,form</field>
+        <field name="domain">[('contract_type', '=', 'sale')]</field>
+        <field name="context">{'is_contract':1,
+                               'search_default_not_finished':1,
+                               'default_contract_type': 'sale'}
+        </field>
+        <field name="search_view_id" ref="contract.contract_contract_search_view"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new contract.
+            </p>
+        </field>
+    </record>
+
+    <record id="contract.action_supplier_contract" model="ir.actions.act_window">
+        <field name="name">Supplier Contracts</field>
+        <field name="res_model">contract.contract</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,pivot,graph,form</field>
+        <field name="domain">[('contract_type', '=', 'purchase')]</field>
+        <field name="context">{'is_contract':1,
+                               'search_default_not_finished':1,
+                               'default_contract_type': 'purchase'}
+        </field>
+        <field name="search_view_id" ref="contract.contract_contract_search_view"/>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new contract.
+            </p>
+        </field>
+    </record>
+  </data>
+</odoo>

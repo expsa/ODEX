@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_inherit_area_form" model="ir.ui.view">
+            <field name="name">res.partner.area.form.inherit</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="before">
+                    <field name="area_id"/>
+                </xpath>
+                <button name="toggle_active" position="before">
+                    <button class="oe_stat_button" type="object"
+                            name="schedule_meeting_calendar"
+                            icon="fa-calendar"
+                            context="{'partner_id': active_id, 'partner_name': name}">
+                        <field string="Meetings" name="meeting_count" widget="statinfo"/>
+                    </button>
+                </button>
+            </field>
+        </record>
+
+        <record id="view_calendar_event_form_popup" model="ir.ui.view">
+            <field name="name">calendar.event.form.inherit</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form_popup"/>
+            <field name="model">calendar.event</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_ids']" position="after">
+                    <field name="record_type" invisible="1"/>
+                    <field name="customer_id"
+                           attrs="{'required': [('record_type', '=', 'visit')], 'invisible': [('record_type', '!=', 'visit')]}"/>
+                    <field name="feedback" attrs="{'invisible': [('record_type', '!=', 'visit')]}"/>
+                    <field name="area_id" attrs="{'invisible': [('record_type', '!=', 'visit')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='alarm_ids']" position="after">
+                    <field name="state"
+                           attrs="{'required': [('record_type', '=', 'visit')], 'invisible': [('record_type', '!=', 'visit')]}"/>
+                    <field name="user_id"
+                           attrs="{'required': [('record_type', '=', 'visit')], 'invisible': [('record_type', '!=', 'visit')]}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="view_calendar_event_tree_view" model="ir.ui.view">
+            <field name="name">calendar.event.form.tree</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_tree"/>
+            <field name="model">calendar.event</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="record_type" invisible="1"/>
+                    <field name="user_id" attrs="{'invisible': [('record_type', '!=', 'visit')]}"/>
+                    <field name="area_id" attrs="{'invisible': [('record_type', '!=', 'visit')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='message_needaction']" position="after">
+                    <field name="state" attrs="{'invisible': [('record_type', '!=', 'visit')]}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="sale_visit_tree" model="ir.ui.view">
+            <field name="name">sales.visit.target.tree</field>
+            <field name="type">tree</field>
+            <field name="model">sales.visit.target</field>
+            <field name="arch" type="xml">
+                <tree string="Customer Visits">
+                    <field name="salesperson_user_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="target_no"/>
+                    <field name="area_customer"/>
+                    <field name="meeting_count"/>
+                    <field name="area_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_visit_form" model="ir.ui.view">
+            <field name="name">sales.visit.target</field>
+            <field name="type">form</field>
+            <field name="model">sales.visit.target</field>
+            <field name="arch" type="xml">
+                <form string="Visit Targets">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="current_meeting_calendar"
+                                    icon="fa-calendar">
+                                <field string="Targets" name="meeting_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <group>
+                            <field name="salesperson_user_id"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="date_from"/>
+                                <field name="target_no"/>
+                            </group>
+                            <group>
+                                <field name="date_to"/>
+                                <field name="area_customer"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="tag_ids" widget="many2many_tags" placeholder="Tags"
+                                       options="{'no_create_edit': True}"/>
+                            </group>
+                            <group>
+
+                                <field name="area_id"
+                                       attrs="{'invisible': [('area_customer', '!=', 'by_area')], 'required': [('area_customer', '=', 'by_area')]}"/>
+                                <field name="partner_ids" widget="many2many_tags" placeholder="Partners"
+                                       options="{'no_create_edit': True}"
+                                       attrs="{'invisible': [('area_customer', '!=', 'by_customer')], 'required': [('area_customer', '=', 'by_customer')]}"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_visit_target" model="ir.actions.act_window">
+            <field name="name">Visit Target</field>
+            <field name="res_model">sales.visit.target</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a Visit Plan
+                </p>
+            </field>
+        </record>
+
+        <record id="action_calendar_event_type" model="ir.actions.act_window">
+            <field name="name">Tags</field>
+            <field name="res_model">calendar.event.type</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="calendar.view_calendar_event_type_tree"/>
+
+        </record>
+
+        <record id="view_calendar_event_inherit" model="ir.ui.view">
+            <field name="name">calendar.event.inherit</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <field name="record_type" invisible="1"/>
+                    <header attrs="{'invisible': [('record_type', '!=', 'visit')]}">
+                        <button type="object" name="set_to_progress" string="In Progress"
+                                states="draft"/>
+                        <button type="object" name="set_to_approve" string="To Approve"
+                                states="progress"/>
+
+                        <button type="object" name="set_to_approved" string="Approved" class="oe_highlight"
+                                states="approve" groups="visit_management.group_visit_manager"/>
+
+                        <button type="object" name="set_to_cancel" string="Return"
+                                states="approve" groups="visit_management.group_visit_manager"/>
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,approve,approved"/>
+
+                    </header>
+                </xpath>
+                <xpath expr="//div[hasclass('oe_title')]" position="after">
+                    <group attrs="{'invisible': [('record_type', '!=', 'visit')]}">
+                        <group>
+                            <field name="area_id" readonly="1" attrs="{'invisible': [('record_type', '!=', 'visit')]}"/>
+                        </group>
+                        <group>
+                            <field name="customer_id"
+                                   attrs="{'required': [('record_type', '=', 'visit')], 'invisible': [('record_type', '!=', 'visit')]}"/>
+                        </group>
+                    </group>
+                </xpath>
+                <notebook position="inside">
+                    <page string="Feedback"
+                          attrs="{'invisible': ['|',('record_type', '!=', 'visit'),('state', '=', 'draft')]}">
+                        <field name="feedback"/>
+                    </page>
+                    <page string="Cancel Reason" attrs="{'invisible': [('state', '!=', 'cancel')]}">
+                        <field name="cancel_reason"/>
+                    </page>
+
+                </notebook>
+            </field>
+        </record>
+
+
+        <record id="calendar.action_calendar_event" model="ir.actions.act_window">
+            <field name="domain">[('record_type','=','normal')]</field>
+            <field name="context">{'default_record_type':'normal'}</field>
+        </record>
+
+        <record id="action_calendar_event_visit" model="ir.actions.act_window">
+            <field name="name">Visits</field>
+            <field name="res_model">calendar.event</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_id" ref="calendar.view_calendar_event_search"/>
+            <field name="search_view_id" ref="calendar.view_calendar_event_search"/>
+            <field name="domain">[('record_type','=','visit')]</field>
+            <field name="context">{'default_record_type':'visit'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to schedule a new meeting.
+                </p>
+                <p>
+                    The View is created to view the Visits
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem
+                id="menu_visit_root"
+                name="Visit Management"
+                groups="visit_management.group_visit_manager,visit_management.group_visit_user"
+                web_icon="visit_management,static/description/icon.png"
+                sequence="2"/>
+        <menuitem
+                id="menu_visit_root_sub"
+                name="Visits"
+                parent="menu_visit_root"
+                sequence="5"/>
+
+
+        <menuitem name="Visits"
+                  id="mail_menu_calendar_visit"
+                  parent="menu_visit_root_sub"
+                  sequence="10" action="action_calendar_event_visit"/>
+
+        <menuitem
+                name="Configuration"
+                id="menu_action_visit_configuration"
+                parent="menu_visit_root"
+                groups="visit_management.group_visit_manager"
+                sequence="99"/>
+
+        <menuitem
+                action="action_visit_target"
+                string="Visit Targets"
+                id="menu_action_visit_target"
+                parent="menu_action_visit_configuration"
+                sequence="10"/>
+
+
+        <menuitem
+                id="menu_menu_action_calendar_event_type"
+                parent="menu_action_visit_configuration"
+                sequence="20"
+                action="action_calendar_event_type"
+        />
+
+        <menuitem id="menu_action_cepco_area_new"
+                  name="Visit Areas"
+                  action="action_cepco_area_new"
+                  parent="menu_action_visit_configuration"
+                  sequence="30"/>
+
+
+    </data>
+</odoo>

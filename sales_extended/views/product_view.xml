@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_variant_easy_edit_view_inherit" model="ir.ui.view">
+            <field name="name">product.product.product.view.form.easy.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="lst_price" position="before">
+                        <field name="is_use_store" invisible="1"/>
+                    </field>
+                    <field name="lst_price" position="attributes">
+                        <attribute name="attrs">{"invisible": [("is_use_store", "=", True)]}</attribute>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_normal_form_view_hide_price">
+            <field name="name">product.product.hide_price</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='lst_price']" position="attributes">
+                    <attribute name="attrs">{"invisible": [("is_use_store", "=", True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='lst_price']" position="before">
+                    <field name="is_use_store" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_template_sales_inherit_form_view" model="ir.ui.view">
+            <field name="name">product.template.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="arabic_name" placeholder="Arabic Name"/>
+                </xpath>
+                <xpath expr="//sheet//page[@name='notes']//group[1]" position="after">
+                    <group name="Arabic Description">
+                        <group string="Arabic Description">
+                            <field name="arabic_desc" nolabel="1" placeholder="This is arabic description for product."/>
+                        </group>
+                    </group>
+                </xpath>
+                <xpath expr="//div[@name='options']" position="inside">
+                    <div attrs="{'invisible':[('landed_cost_ok','=',True)]}">
+                        <label for="brand_id"/>
+                        <field name="brand_id"/>
+                    </div>
+                    <div attrs="{'invisible':[('landed_cost_ok','=',True)]}">
+                        <label for="brand_categ_id"/>
+                        <field name="brand_categ_id"/>
+                    </div>
+                </xpath>
+                <xpath expr="//div[@name='standard_price_uom']" position="after">
+                    <field name="warranty_months"/>
+                    <field name="warranty_partner_id"/>
+                </xpath>
+
+                <xpath expr="//div[@name='standard_price_uom']" position="after">
+                    <field name="is_use_store" invisible="1"/>
+
+                </xpath>
+                <xpath expr="//group[@name='group_standard_price']/field[@name='list_price']" position="after">
+                    <field name="list_price_store" attrs="{'invisible':[('is_use_store','!=', True)]}"/>
+                </xpath>
+                <xpath expr="//group[@name='group_standard_price']/field[@name='list_price']" position="attributes">
+                    <attribute name="attrs">{"invisible": [("is_use_store", "=", True)]}</attribute>
+                </xpath>
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Sales Accessory" name="product_sales_accessories">
+                        <group>
+                            <field name="product_accessory_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="qty"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                    <page string="Category" name="product_brand_category"
+                          attrs="{'invisible':['|',('is_use_store','=', True),('landed_cost_ok','=',True)]}">
+                        <group>
+
+
+                            <field name="last_purchase_price"/>
+                            <field name="purchase_price_rate"/>
+                            <field name="currency_id" readonly="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Cost Lines">
+                                <field name="cost_line_ids">
+                                    <tree>
+                                        <field name="cost_id"/>
+                                        <field name="category_id"/>
+                                        <field name="item_type"/>
+                                        <field name="value"/>
+                                    </tree>
+                                </field>
+
+                            </page>
+                            <page string="Margin Lines">
+                                <field name="margin_line_ids">
+                                    <tree>
+                                        <field name="category_id"/>
+                                        <field name="margin"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </page>
+                </xpath>
+            </field>
+
+        </record>
+
+    </data>
+</odoo>

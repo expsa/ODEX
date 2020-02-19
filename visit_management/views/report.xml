@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                id="cepco_action_report_target_visit"
+                string="Targets"
+                model="sales.visit.target"
+                report_type="qweb-pdf"
+                file="visit_management.report_visit_target_document_cepco"
+                name="visit_management.report_visit_target_document_cepco"
+                print_report_name="'Target - %s' % (object.salesperson_user_id.name)"
+        />
+    </data>
+</odoo>

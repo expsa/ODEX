@@ -1,0 +1,169 @@
+.o_bold_theme {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.o_bold_theme .bg-beta {
+  background-color: #59cdcd;
+}
+.o_bold_theme .bg-beta .btn.btn-primary {
+  color: white;
+  background-color: #222;
+}
+.o_bold_theme .text-beta {
+  color: #59cdcd;
+}
+.o_bold_theme .bg-delta {
+  background-color: #a17e92;
+}
+.o_bold_theme.o_layout {
+  background-color: white;
+}
+.o_bold_theme.o_layout > .o_mail_wrapper {
+  background-color: transparent;
+  color: #222;
+  border: none;
+}
+.o_bold_theme .o_mail_snippet_general .btn.btn-primary {
+  color: white;
+  background-color: #222;
+}
+.o_bold_theme .o_mail_snippet_general .o_mail_full_width_padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.o_bold_theme .o_mail_snippet_general a,
+.o_bold_theme .o_mail_snippet_general .btn.btn-link {
+  color: #38bbbb;
+}
+.o_bold_theme .o_mail_snippet_general h1,
+.o_bold_theme .o_mail_snippet_general h2,
+.o_bold_theme .o_mail_snippet_general h3,
+.o_bold_theme .o_mail_snippet_general h4,
+.o_bold_theme .o_mail_snippet_general h5,
+.o_bold_theme .o_mail_snippet_general h6,
+.o_bold_theme .o_mail_snippet_general .h1,
+.o_bold_theme .o_mail_snippet_general .h2,
+.o_bold_theme .o_mail_snippet_general .h3,
+.o_bold_theme .o_mail_snippet_general .h4,
+.o_bold_theme .o_mail_snippet_general .h5,
+.o_bold_theme .o_mail_snippet_general .h6 {
+  color: #222;
+}
+.o_bold_theme .o_mail_snippet_general .bg-beta h1,
+.o_bold_theme .o_mail_snippet_general .bg-delta h1,
+.o_bold_theme .o_mail_snippet_general .bg-beta h2,
+.o_bold_theme .o_mail_snippet_general .bg-delta h2,
+.o_bold_theme .o_mail_snippet_general .bg-beta h3,
+.o_bold_theme .o_mail_snippet_general .bg-delta h3,
+.o_bold_theme .o_mail_snippet_general .bg-beta h4,
+.o_bold_theme .o_mail_snippet_general .bg-delta h4,
+.o_bold_theme .o_mail_snippet_general .bg-beta h5,
+.o_bold_theme .o_mail_snippet_general .bg-delta h5,
+.o_bold_theme .o_mail_snippet_general .bg-beta h6,
+.o_bold_theme .o_mail_snippet_general .bg-delta h6,
+.o_bold_theme .o_mail_snippet_general .bg-beta .h1,
+.o_bold_theme .o_mail_snippet_general .bg-delta .h1,
+.o_bold_theme .o_mail_snippet_general .bg-beta .h2,
+.o_bold_theme .o_mail_snippet_general .bg-delta .h2,
+.o_bold_theme .o_mail_snippet_general .bg-beta .h3,
+.o_bold_theme .o_mail_snippet_general .bg-delta .h3,
+.o_bold_theme .o_mail_snippet_general .bg-beta .h4,
+.o_bold_theme .o_mail_snippet_general .bg-delta .h4,
+.o_bold_theme .o_mail_snippet_general .bg-beta .h5,
+.o_bold_theme .o_mail_snippet_general .bg-delta .h5,
+.o_bold_theme .o_mail_snippet_general .bg-beta .h6,
+.o_bold_theme .o_mail_snippet_general .bg-delta .h6 {
+  color: #222;
+}
+.o_bold_theme .o_mail_snippet_general .bg-beta .btn.btn-primary {
+  color: white;
+  background-color: #222;
+}
+.o_bold_theme .o_mail_block_header_social .o_mail_snippet_general,
+.o_bold_theme .o_mail_block_header_text_social .o_mail_snippet_general,
+.o_bold_theme .o_mail_block_header_logo .o_mail_snippet_general {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 560px;
+  box-sizing: content-box;
+}
+.o_bold_theme .o_mail_block_header_social .o_mail_snippet_general > table,
+.o_bold_theme .o_mail_block_header_text_social .o_mail_snippet_general > table,
+.o_bold_theme .o_mail_block_header_logo .o_mail_snippet_general > table {
+  padding: 0;
+  max-width: 560px;
+  border-top: 3px solid #222;
+  border-bottom: 3px solid #222;
+}
+.o_bold_theme .o_mail_block_header_social .o_mail_snippet_general > table td,
+.o_bold_theme .o_mail_block_header_text_social .o_mail_snippet_general > table td,
+.o_bold_theme .o_mail_block_header_logo .o_mail_snippet_general > table td {
+  vertical-align: middle;
+}
+.o_bold_theme .o_mail_block_header_social .o_mail_h_padding.o_mail_v_padding,
+.o_bold_theme .o_mail_block_header_text_social .o_mail_h_padding.o_mail_v_padding,
+.o_bold_theme .o_mail_block_header_logo .o_mail_h_padding.o_mail_v_padding {
+  padding: 10px 0 5px;
+}
+.o_bold_theme .o_mail_block_header_social .o_mail_header_social,
+.o_bold_theme .o_mail_block_header_text_social .o_mail_header_social,
+.o_bold_theme .o_mail_block_header_logo .o_mail_header_social {
+  margin-right: 0px;
+}
+.o_bold_theme .o_mail_block_header_social .o_mail_header_social a,
+.o_bold_theme .o_mail_block_header_text_social .o_mail_header_social a,
+.o_bold_theme .o_mail_block_header_logo .o_mail_header_social a {
+  color: #222;
+}
+.o_bold_theme .o_mail_block_footer_separator .separator {
+  height: 3px;
+  background-color: #222;
+}
+.o_bold_theme .o_mail_block_event {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.o_bold_theme .o_mail_block_footer_separator {
+  margin-left: 0;
+  margin-right: 0;
+}
+.o_bold_theme .o_mail_block_steps {
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: transparent;
+  border-top: 3px solid #222;
+  border-bottom: 3px solid #222;
+}
+.o_bold_theme .o_mail_block_steps .o_mail_full_width_padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+.o_bold_theme .o_mail_block_steps .o_mail_full_width_padding > tbody > tr {
+  color: #222;
+  background-color: white;
+}
+.o_bold_theme .o_mail_block_footer_social .o_mail_snippet_general {
+  background: rgba(0, 0, 0, 0);
+  background: transparent;
+}
+.o_bold_theme .o_mail_block_footer_social .o_mail_table_styles {
+  border-top: none;
+}
+.o_bold_theme .o_mail_block_footer_social .o_mail_footer_social a {
+  color: #222;
+}
+.o_bold_theme .o_mail_block_footer_social .o_mail_footer_links a {
+  color: #222;
+}
+.o_bold_theme .o_mail_block_footer_social .o_mail_footer_copy {
+  font-weight: bold;
+  font-size: 9px;
+  color: #000000;
+}
+.o_bold_theme .o_mail_block_footer_social.o_mail_footer_social_left .o_mail_footer_description {
+  padding-left: 0;
+}
+.o_bold_theme .o_mail_block_footer_social.o_mail_footer_social_left .o_mail_footer_social {
+  padding-right: 0;
+}

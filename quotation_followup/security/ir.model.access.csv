@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_followup_line,access_sale_followup_line,model_sale_followup_line,base.group_user,1,1,1,1
+access_sale_quote_followup,access_sale_quote_followup,model_sale_quote_followup,base.group_user,1,1,1,1

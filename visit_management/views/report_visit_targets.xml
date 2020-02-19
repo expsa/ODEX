@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_visit_target_document_cepco">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="page">
+                        <p style="color: rgb(0, 0, 0);font-family: &quot;Calibri&quot;, sans-serif;margin-bottom: 0in;line-height: 100%;text-align: center;">
+                            <h3>
+                                <strong>Visit Target</strong>
+                            </h3>
+                        </p>
+                        <br/>
+                        <table style="width: 100%" cellpadding="7">
+                            <tbody>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: 1px solid #000000;border-right: none;padding-top: 0in;padding-bottom: 0in;padding-left: 0.08in;padding-right: 0in;"
+                                        width="21.598639455782312%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <u>
+                                                <strong>For</strong>
+                                            </u>
+                                        </p>
+                                    </td>
+                                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: 1px solid #000000;border-right: none;padding-top: 0in;padding-bottom: 0in;padding-left: 0.08in;padding-right: 0in;"
+                                        width="45.91836734693877%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <strong>
+                                                <span t-field="o.salesperson_user_id"/>
+                                            </strong>
+                                        </p>
+                                    </td>
+                                    <td style="border: 1px solid #000000;padding: 0in 0.08in;"
+                                        width="32.48299319727891%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <strong>Dated :
+
+                                                <span t-esc="time.strftime('%d %B %Y',time.strptime(o.date_from,'%Y-%m-%d'))"/>
+                                                to
+                                                <span t-esc="time.strftime('%d %B %Y',time.strptime(o.date_to,'%Y-%m-%d'))"/>
+
+                                            </strong>
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: 1px solid #000000;border-right: none;padding-top: 0in;padding-bottom: 0in;padding-left: 0.08in;padding-right: 0in;"
+                                        width="21.598639455782312%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <u>
+                                                <strong>Type</strong>
+                                            </u>
+                                        </p>
+                                    </td>
+                                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: 1px solid #000000;border-right: none;padding-top: 0in;padding-bottom: 0in;padding-left: 0.08in;padding-right: 0in;"
+                                        width="45.91836734693877%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <strong>
+                                                <span t-field="o.area_customer"/>
+                                            </strong>
+                                        </p>
+                                    </td>
+                                    <td style="border: 1px solid #000000;padding: 0in 0.08in;"
+                                        width="32.48299319727891%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <strong>Target No :
+                                                <span t-field="o.target_no"/>
+                                            </strong>
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: 1px solid #000000;border-right: none;padding-top: 0in;padding-bottom: 0in;padding-left: 0.08in;padding-right: 0in;"
+                                        width="21.598639455782312%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <u>
+                                                <strong>Area</strong>
+                                            </u>
+                                        </p>
+                                    </td>
+                                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: 1px solid #000000;border-right: none;padding-top: 0in;padding-bottom: 0in;padding-left: 0.08in;padding-right: 0in;"
+                                        width="45.91836734693877%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <strong>
+                                                <span t-field="o.area_id"/>
+                                            </strong>
+                                        </p>
+                                    </td>
+                                    <td style="border: 1px solid #000000;padding: 0in 0.08in;"
+                                        width="32.48299319727891%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <strong>Meeting No. :
+                                                <span t-field="o.meeting_count"/>
+
+                                            </strong>
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: 1px solid #000000;border-right: none;padding-top: 0in;padding-bottom: 0in;padding-left: 0.08in;padding-right: 0in;"
+                                        width="21.598639455782312%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <u>
+                                                <strong>Tags</strong>
+                                            </u>
+                                        </p>
+                                    </td>
+                                    <td style="border-top: 1px solid #000000;border-bottom: 1px solid #000000;border-left: 1px solid #000000;border-right: none;padding-top: 0in;padding-bottom: 0in;padding-left: 0.08in;padding-right: 0in;"
+                                        width="45.91836734693877%">
+                                        <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                            <strong>
+                                                <span t-esc="', '.join(x.name for x in o.tag_ids)"/>
+                                            </strong>
+                                        </p>
+                                    </td>
+                                    <td style="border: 1px solid #000000;padding: 0in 0.08in;"
+                                        width="32.48299319727891%">
+                                        <t t-if="o.partner_ids">
+                                            <p style="margin-bottom: 0.1in;color: #000000;line-height: 115%;font-family: &quot;Calibri&quot;, sans-serif;font-size:15px;">
+                                                <strong>Partners :
+                                                    <span t-esc="', '.join(x.name for x in o.partner_ids)"/>
+
+                                                </strong>
+                                            </p>
+
+                                        </t>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <br/>
+                        <table style="width:100%; border: 0.75pt solid #000000; ">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 15%; border-right-style: solid; border-right-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; vertical-align: top; background-color: #c5d9f0;">
+                                        <p style="margin: 0pt 3.95pt 0pt 10.05pt; text-indent: -4.7pt; line-height: 13.8pt; widows: 0; orphans: 0;">
+                                            <strong>
+                                                <span style="font-family: 'Times New Roman'; font-size: 12pt;">Date
+                                                </span>
+                                            </strong>
+                                        </p>
+                                    </td>
+                                    <td style="width: 50%; border-right-style: solid; border-right-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; vertical-align: top; background-color: #c5d9f0;">
+                                        <p style=" text-align: center; widows: 0; orphans: 0; font-size: 12pt;">
+                                            <strong>
+                                                <span style="font-family: 'Times New Roman';">Customer</span>
+                                            </strong>
+                                        </p>
+                                    </td>
+                                    <td style="width: 20%; border-right-style: solid; border-right-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; vertical-align: top; background-color: #c5d9f0;">
+                                        <p style="text-align: center; widows: 0; orphans: 0; font-size: 12pt;">
+                                            <strong>
+                                                <span style="font-family: 'Times New Roman';">Area</span>
+                                            </strong>
+                                        </p>
+                                    </td>
+                                    <td style=" width: 20%; border-left-style: solid; border-left-width: 0.75pt; border-bottom-style: solid; border-bottom-width: 0.75pt; vertical-align: top; background-color: #c5d9f0;">
+                                        <p style="font-size: 12pt;">
+                                            <strong>
+                                                <span style="font-family: 'Times New Roman';">Duration</span>
+                                            </strong>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="o.get_meetings()" t-as="meeting">
+                                    <td style="width: 34.05pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; vertical-align: top;">
+                                        <p style="margin-top: 0pt; margin-left: 9.1pt; margin-bottom: 0pt; line-height: 12.35pt; widows: 0; orphans: 0;">
+                                            <span style="font-family: 'Times New Roman'; font-size: 11pt;"
+                                                  t-esc="time.strftime('%d %B %Y',time.strptime(meeting.start,'%Y-%m-%d %H:%M:%S'))"/>
+                                        </p>
+                                    </td>
+                                    <td style="width: 86pt; border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; vertical-align: top;">
+                                        <p style="margin: 0pt 8.85pt 0pt 9.05pt; text-align: center; line-height: 12.35pt; widows: 0; orphans: 0;">
+                                            <span style="font-family: 'Times New Roman'; font-size: 11pt;">
+                                                <span t-field="meeting.customer_id"/>
+                                            </span>
+                                        </p>
+                                    </td>
+                                    <td style="border-top-style: solid; border-top-width: 0.75pt; border-right-style: solid; border-right-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; vertical-align: top;">
+                                        <p style="margin-top: 0pt; margin-left: 5.3pt; margin-bottom: 0pt; line-height: 14.9pt; widows: 0; orphans: 0;">
+                                            <strong>
+                                                <span style="font-family: 'Times New Roman'; font-size: 13pt;">
+                                                    <span t-field="meeting.area_id"/>
+                                                </span>
+                                            </strong>
+                                        </p>
+
+                                    </td>
+                                    <td style="border-top-style: solid; border-top-width: 0.75pt; border-left-style: solid; border-left-width: 0.75pt; vertical-align: top;">
+                                        <p style="margin: 0pt 7.2pt 0pt 7.75pt; text-align: center; line-height: 12.35pt; widows: 0; orphans: 0;">
+                                            <span style="font-family: 'Times New Roman'; font-size: 11pt;"
+                                                  t-field="meeting.duration"/>
+                                        </p>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

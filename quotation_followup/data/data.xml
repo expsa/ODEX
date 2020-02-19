@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="quota_followup_popup_cron" model="ir.cron">
+            <field name="name">Send Quota Followup notify</field>
+            <field name="model_id" ref="quotation_followup.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">model.create_followup_activity()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+        <record id="demo_followup1" model="sale.quote.followup" forcecreate="False">
+            <field name="name">Quotation Follow up</field>
+        </record>
+
+        <record id="demo_followup_line1" model="sale.followup.line" forcecreate="False">
+            <field name="name">Remainder For Budget</field>
+            <field name="sequence">1</field>
+            <field name="delay">7</field>
+            <field name="sale_followup_type">budget</field>
+            <field name="followup_id" ref="demo_followup1"/>
+            <field name="send_popup" eval="True"/>
+            <field name="send_activity" eval="True"/>
+        </record>
+        <record id="demo_followup_line2" model="sale.followup.line" forcecreate="False">
+            <field name="name">Remainder For Undirected Tender</field>
+            <field name="sequence">2</field>
+            <field name="delay">7</field>
+            <field name="sale_followup_type">undirected_tender</field>
+            <field name="followup_id" ref="demo_followup1"/>
+            <field name="send_popup" eval="True"/>
+            <field name="send_activity" eval="True"/>
+        </record>
+
+        <record id="demo_followup_line3" model="sale.followup.line" forcecreate="False">
+            <field name="name">Remainder For Directed Tender</field>
+            <field name="sequence">3</field>
+            <field name="delay">7</field>
+            <field name="sale_followup_type">directed_tender</field>
+            <field name="followup_id" ref="demo_followup1"/>
+            <field name="send_popup" eval="True"/>
+            <field name="send_activity" eval="True"/>
+        </record>
+
+        <record id="demo_followup_line4" model="sale.followup.line" forcecreate="False">
+            <field name="name">Remainder For Project</field>
+            <field name="sequence">4</field>
+            <field name="delay">7</field>
+            <field name="sale_followup_type">project</field>
+            <field name="followup_id" ref="demo_followup1"/>
+            <field name="send_popup" eval="True"/>
+            <field name="send_activity" eval="True"/>
+        </record>
+
+        <record id="mail_activity_follow_quota" model="mail.activity.type">
+            <field name="name">Follow Quota</field>
+            <field name="icon">fa-users</field>
+            <field name="un_remove_able" eval="True"/>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,26 @@
+.o_newsletter_theme .bg-beta {
+  background-color: #906784;
+  color: #ffffff;
+}
+.o_newsletter_theme .text-beta {
+  color: #906784;
+}
+.o_newsletter_theme .bg-delta {
+  background-color: #87a6b5;
+}
+.o_newsletter_theme .o_mail_snippet_general .btn.btn-primary {
+  color: #ffffff;
+  background-color: #1cc1a9;
+}
+.o_newsletter_theme .o_mail_snippet_general a,
+.o_newsletter_theme .o_mail_snippet_general .btn.btn-link {
+  color: #19ab96;
+}
+.o_newsletter_theme .o_mail_snippet_general .bg-delta .btn.btn-primary {
+  color: #ffffff;
+  background-color: #906784;
+}
+.o_newsletter_theme .o_mail_snippet_general .bg-delta a,
+.o_newsletter_theme .o_mail_snippet_general .bg-delta .btn.btn-link {
+  color: #906784;
+}

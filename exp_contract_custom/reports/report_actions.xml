@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <report
+            string="Installments Report"
+            id="action_report_installments"
+            model="contract.contract"
+            report_type="qweb-pdf"
+            name="exp_contract_custom.installments_report"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,221 @@
+// lessc@1.4.2
+
+// ============================
+// Mass Mailing "Solar"
+// ============================
+
+@o_mm_solar_color_alpha: #EAECED;
+@o_mm_solar_color_beta: white;
+@o_mm_solar_color_gamma: #f2d13e;
+@o_mm_solar_color_delta: darken(@o_mm_solar_color_gamma, 5%);
+@o_mm_solar_color_epsilon: black;
+@o_mm_solar_color_zeta: #262b36;
+
+
+.o_mm_solar_bg_variant (@bg, @text) {
+    background-color: @bg;
+    color: @text;
+
+    .o_mail_snippet_general {
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+            color: @text;
+        }
+        a, .btn.btn-link {
+            color: @text;
+        }
+    }
+}
+
+.o_solar_theme {
+
+    // ===== Colors =====
+    .bg-beta {
+        .o_mm_solar_bg_variant(@o_mm_solar_color_gamma, @o_mm_solar_color_beta);
+    }
+    .text-beta {
+        color: @o_mm_solar_color_gamma;
+    }
+    .bg-delta {
+        .o_mm_solar_bg_variant(@o_mm_solar_color_zeta, @o_mm_solar_color_beta);
+
+        .btn.btn-primary {
+            color: @o_mm_solar_color_gamma;
+            background-color: @o_mm_solar_color_beta;
+            font-weight: bold;
+        }
+    }
+
+
+    // ===== Layout =====
+    &.o_layout {
+        background-color: @o_mm_solar_color_alpha;
+
+        > .o_mail_wrapper {
+            background: rgba(0, 0, 0, 0);
+            background: transparent;
+            border: none;
+
+            > * {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    // ===== Snippets (general) =====
+
+    .o_mail_snippet_general {
+        .btn.btn-primary {
+            background-color: @o_mm_solar_color_gamma;
+            color: @o_mm_solar_color_beta;
+        }
+
+        a, .btn.btn-link {
+            color: @o_mm_solar_color_delta;
+        }
+    }
+
+    // ===== Snippets (specific) =====
+    [class^="o_mail_block"]:not([class*="bg-"]) {
+        background-color: @o_mm_solar_color_beta;
+        color: @o_mm_solar_color_epsilon;
+
+        &.o_mail_block_header_social, &.o_mail_block_header_text_social, &.o_mail_block_header_logo {
+            .o_mm_solar_bg_variant(@o_mm_solar_color_gamma, @o_mm_solar_color_beta);
+            .o_mail_snippet_general {
+                background: rgba(0,0,0,0);
+                background: transparent;
+            }
+        }
+        &.o_mail_block_two_cols, &.o_mail_block_three_cols {
+            background: rgba(0,0,0,0);
+            background: transparent;
+            .o_mail_snippet_general {
+                background: rgba(0,0,0,0);
+                background: transparent;
+            }
+        }
+        &.o_mail_block_footer_social {
+            .o_mm_solar_bg_variant(@o_mm_solar_color_gamma, @o_mm_solar_color_beta);
+        }
+    }
+
+    .o_mail_block_header_social, .o_mail_block_header_text_social, .o_mail_block_header_logo {
+        margin-bottom: 0;
+
+        .o_mail_h_padding {
+            padding: 5px 20px;
+        }
+    }
+
+    .o_mail_block_banner {
+        border-bottom: 5px solid @o_mm_solar_color_gamma;
+    }
+
+    .o_mail_block_event {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .o_mail_block_footer_separator {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .o_mail_block_image {
+        .o_mail_h_padding {
+            padding: 0;
+            .o_mail_col_mv {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            > img {
+                padding: 0;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    .o_mail_block_footer_separator {
+        .o_mail_snippet_general {
+            background: rgba(0,0,0,0);
+            background: transparent;
+
+            .separator {
+                height: 3px;
+                background-color: darken(@o_mm_solar_color_alpha, 10%);
+                border-bottom: 2px solid darken(white, 3%);
+            }
+        }
+    }
+
+    .o_mail_block_two_cols, .o_mail_block_three_cols {
+        @tmp-gap: 10px;
+
+        table {
+            width: 110%;
+            max-width: (600+(@tmp-gap*2));
+            margin: auto (@tmp-gap*-1);
+        }
+
+        .o_mail_col_container {
+            padding: 0 0 (@tmp-gap*2);
+            margin: 0 @tmp-gap;
+            border-top: 1px solid darken(@o_mm_solar_color_beta, 10%);
+            border-bottom: 1px solid darken(@o_mm_solar_color_alpha, 5%);
+            background-color: @o_mm_solar_color_beta;
+
+            > * {
+                padding: 0 (@tmp-gap*2);
+            }
+
+            img {
+                padding: 0!important;
+            }
+        }
+    }
+
+    .o_mail_block_footer_tag_line {
+        table.o_mail_h_padding {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .o_mail_block_image_text {
+        .o_mail_img_container {
+            padding: 0
+        }
+    }
+
+    .o_mail_block_text_image {
+        .o_mail_img_container {
+            padding: 0
+        }
+    }
+
+    .o_mail_block_footer_social {
+        .o_mail_table_styles {
+            border-top: none;
+            padding: 20px;
+        }
+
+        .o_mail_footer_social {
+            border: none;
+        }
+
+        .o_mail_footer_copy {
+            font-weight: bold;
+            font-size: 9px;
+        }
+
+        &.o_mail_footer_social_left {
+            .o_mail_footer_description {
+                padding-left: 0;
+            }
+            .o_mail_footer_social {
+                padding-right: 0;
+            }
+        }
+    }
+}
+

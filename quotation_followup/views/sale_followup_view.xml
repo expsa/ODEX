@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_followup_followup_line_form" model="ir.ui.view">
+            <field name="name">sale.followup.line.form</field>
+            <field name="model">sale.followup.line</field>
+            <field name="arch" type="xml">
+                <form string="Follow-up Steps">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <div class="oe_inline">
+                        Before/After
+                        <field name="delay" class="oe_inline"/>
+                        days
+                    </div>
+                    <div>
+                        <field name="send_activity" class="oe_inline"/>
+                        <label for="send_activity"/>
+                    </div>
+                    <div>
+                        <field name="send_popup" class="oe_inline"/>
+                        <label for="send_popup"/>
+                    </div>
+
+                    <group>
+                        <field name="sale_followup_type"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sale_followup_followup_form" model="ir.ui.view">
+            <field name="name">sale.quote.followup.form</field>
+            <field name="model">sale.quote.followup</field>
+            <field name="arch" type="xml">
+                <form string="Follow-up" create="0">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <p class="oe_grey">
+                        To remind sales persons of their quotes
+                    </p>
+                    <field name="followup_line"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sale_followup_followup_tree" model="ir.ui.view">
+            <field name="name">sale.quote.followup.tree</field>
+            <field name="model">sale.quote.followup</field>
+            <field name="arch" type="xml">
+                <tree string="Follow-up" create="0">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_sale_followup_definition_form" model="ir.actions.act_window">
+            <field name="name">Quotation Follow-ups</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.quote.followup</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to define follow-up levels and their related actions.
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+                id="menu_action_sale_followup_definition_form"
+                name="Quotation Follow up"
+                parent="sale.menu_sale_config"
+                action="action_sale_followup_definition_form"
+                groups="base.group_user"
+                sequence="6"/>
+
+    </data>
+</odoo>

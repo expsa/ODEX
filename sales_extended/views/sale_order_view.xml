@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="sale.menu_sale_order"
+            name="Orders Confirmation"
+            action="sale.action_orders"
+            parent="sale.sale_order_menu"
+            sequence="2" groups="sales_team.group_sale_salesman"/>
+        <record id="view_sale_order_job_card_from_view" model="ir.ui.view">
+            <field name="name">sale.order.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="quote_print_total"/>
+                     <field name="purchase_order_id"/>
+                      <field name="order_dated"/>
+                      <field name="our_order_num"/>
+                      <field name="our_order_date"/>
+                      <field name="ref_no"/>
+                </xpath>
+
+                <xpath expr="//field[@name='note']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='validity_date']" position="after">
+                    <field name="valid_period"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="before">
+                    <field name="line_no" string="No."/>
+                    <field name="parent_product_id" invisible="1"/>
+                    <field name="marked_done" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree//field[@name='name']" position="after">
+                    <field name="warranty_months"/>
+                    <field name="warranty_partner_id"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//form//field[@name='product_id']" position="after">
+                    <field name="line_no" string="No."/>
+                    <field name="parent_product_id" invisible="1"/>
+                    <field name="marked_done" invisible="1"/>
+                    <field name="warranty_months"/>
+                    <field name="warranty_partner_id"/>
+                </xpath>
+                <xpath expr="//field[@name='note']" position="before">
+                    <label for="terms_id" class="oe_inline" string="Terms&amp;Conditions"/>
+                    <field name="terms_id" class="oe_inline" string="Terms&amp;Conditions"/>
+                    <br/>
+                    <field name="terms_desc" attrs="{'invisible':[('terms_id','=',False)]}" readonly="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="sale.action_orders" model="ir.actions.act_window">
+            <field name="name">
+                Order Confirmation
+            </field>
+
+        </record>
+
+    </data>
+</odoo>
