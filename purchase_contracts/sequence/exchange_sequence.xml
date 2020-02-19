@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="seq_purchase_contract" model="ir.sequence">
+            <field name="name">Purchas Contract Sequence</field>
+            <field name="code">purchase.contract.seq</field>
+            <field name="prefix">PC%(year)s/%(month)s/</field>
+	        <field name="padding">6</field>
+            <field name="use_date_range">True</field>
+            <field eval="1" name="number_increment"/>
+        </record>
+
+    </data>
+</odoo>

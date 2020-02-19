@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id='view_late_mail_reminder_form' model='ir.ui.view'>
+            <field name="name">late.mail.reminder.form</field>
+            <field name="model">late.email.reminder</field>
+            <field name="arch" type="xml">
+                <form string="Late Email Reminder" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight" />
+                        <div>
+                            or
+                        </div>
+                        <div/>
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="number_of_days" required="1"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Email Late Line">
+                                <group>
+                                    <field name="line_ids" nolabel="1">
+                                        <form string="Late Email Line">
+                                            <group>
+                                                <group>
+                                                    <field name="model_id"/>
+                                                    <field name="order_date"/>
+                                                </group>
+                                                <group>
+                                                    <field name="record_state_ids" widget="many2many_tags"/>
+                                                    <field name="group_ids" widget="many2many_tags"/>
+                                                    <field name="template_id"/>
+                                                </group>
+                                            </group>
+                                        </form>
+                                        <tree string="Late Email Lines" editable="bottom">
+                                            <field name="model_id" required="1"/>
+                                            <field name="order_date" required="1"/>
+                                            <field name="record_state_ids" widget="many2many_tags" required="1"/>
+                                            <field name="group_ids" widget="many2many_tags" required="1"/>
+                                            <field name="template_id" required="1"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id='action_late_email_reminder' model='ir.actions.act_window'>
+            <field name="name">late Email Reminder</field>
+            <field name="res_model">late.email.reminder</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="res_id" ref="exp_late_mail_reminder.exp_late_email_reminder"/>
+            <field name="target">inline</field>
+        </record>
+        <menuitem action="action_late_email_reminder" name="Late Email Reminder" parent="base.menu_email" id="menu_late_reminder_email" sequence="115"/>
+    </data>
+</odoo>

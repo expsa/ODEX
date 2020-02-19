@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Category -->
+    <record model="ir.module.category" id="purchase_contract_category_id">
+        <field name="name">Purcahse Contract</field>
+        <field name="description">User access level for this module</field>
+        <field name="sequence">50</field>
+    </record>
+
+    <record id="group_purchase_contract_manager" model="res.groups">
+        <field name="name">Contract Manager</field>
+        <field name="category_id" ref="purchase_contract_category_id"/>
+    </record>
+
+    <record id="group_purchase_contract_user" model="res.groups">
+        <field name="name">Contract User</field>
+        <field name="category_id" ref="purchase_contract_category_id"/>
+    </record>
+</odoo>

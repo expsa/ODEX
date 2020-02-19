@@ -1,0 +1,288 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* purchase_contracts
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-26 07:37+0000\n"
+"PO-Revision-Date: 2019-08-26 07:37+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_amount
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_amount
+msgid "Amount"
+msgstr "القيمة"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_attachment_id
+msgid "Attachment"
+msgstr "اتفاقية عدم الإفصاح"
+
+#. module: purchase_contracts
+#: selection:purchase.contract,state:0
+msgid "Cancel"
+msgstr "ملغي"
+
+#. module: purchase_contracts
+#: model:ir.ui.view,arch_db:purchase_contracts.purchase_contract_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: purchase_contracts
+#: model:ir.ui.view,arch_db:purchase_contracts.purchase_contract_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: purchase_contracts
+#: selection:purchase.contract,state:0
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_contract_id
+msgid "Contract"
+msgstr "Contract"
+
+#. module: purchase_contracts
+#: model:ir.ui.view,arch_db:purchase_contracts.purchase_contract_form
+msgid "Contract Informations"
+msgstr "معلومات العقد"
+
+#. module: purchase_contracts
+#: model:ir.ui.menu,name:purchase_contracts.contracts_menu
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_create_uid
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_create_date
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: purchase_contracts
+#: selection:purchase.contract,type:0
+msgid "Customer"
+msgstr "عميل"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_date_of_pay
+msgid "Date Of Pay"
+msgstr "تاريخ السداد"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_department_id
+msgid "Department"
+msgstr "الإدارة"
+
+#. module: purchase_contracts
+#: code:addons/purchase_contracts/models/purchase_contract.py:114
+#, python-format
+msgid "You can't Delete a paid line"
+msgstr "لا يمكنك حذف المبلغ المدفوع"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_display_name
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: purchase_contracts
+#: selection:purchase.contract,state:0
+msgid "Done"
+msgstr "منتهي"
+
+#. module: purchase_contracts
+#: model:ir.ui.view,arch_db:purchase_contracts.purchase_contract_form
+msgid "Done"
+msgstr "تم"
+
+#. module: purchase_contracts
+#: selection:purchase.contract,state:0
+#: selection:purchase.contract.line,state:0
+msgid "Draft"
+msgstr "مبدئي"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_end_date
+msgid "End Date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_first_company
+msgid "First Company"
+msgstr "طرف التعاقد الأول"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_first_terms
+msgid "First Terms"
+msgstr "الشروط والأحكام"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_id
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract___last_update
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_write_uid
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_write_date
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_ids
+msgid "Line"
+msgstr "بند"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_nda
+msgid "Nda"
+msgstr "إرفاق مستند اتفاقية عدم الإفصاح"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_note
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_note
+msgid "Note"
+msgstr "ملاحظات"
+
+#. module: purchase_contracts
+#: model:ir.ui.view,arch_db:purchase_contracts.purchase_contract_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_paid
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: purchase_contracts
+#: code:addons/purchase_contracts/models/purchase_contract.py:115
+#, python-format
+msgid "Paid amount can't be more than the contract amount"
+msgstr "Paid amount can't be more than the contract amount"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_partner_id
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_second_company
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: purchase_contracts
+#: model:ir.ui.view,arch_db:purchase_contracts.purchase_contract_form
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: purchase_contracts
+#: model:ir.actions.act_window,name:purchase_contracts.action_purchase_contract
+#: model:ir.ui.menu,name:purchase_contracts.purchase_contract_menu
+msgid "Purchase Contract"
+msgstr "عقود الشراء"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_remain
+msgid "Remain"
+msgstr "الفرق بين الكميتين"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_second_terms
+msgid "Second Terms"
+msgstr "الشروط والأحكام"
+
+#. module: purchase_contracts
+#: model:ir.ui.view,arch_db:purchase_contracts.purchase_contract_form
+msgid "Set to Draft"
+msgstr "تعيين كمسودة"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_line_state
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_state
+msgid "State"
+msgstr "الحالة"
+
+#. module: purchase_contracts
+#: selection:purchase.contract,type:0
+msgid "Supplier"
+msgstr "المورد"
+
+#. module: purchase_contracts
+#: model:ir.model.fields,field_description:purchase_contracts.field_purchase_contract_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: purchase_contracts
+#: code:addons/purchase_contracts/models/purchase_contract.py:58
+#, python-format
+msgid "You can't change the state to done while there's remaining amount"
+msgstr "لا يمكن إتمام العقد اذا لم يتم دفع كل المبلغ"
+
+#. module: purchase_contracts
+#: model:ir.model,name:purchase_contracts.model_match_match
+msgid "match.match"
+msgstr "match.match"
+
+#. module: purchase_contracts
+#: selection:purchase.contract.line,state:0
+msgid "paid"
+msgstr "مدفوع"
+
+#. module: purchase_contracts
+#: model:ir.ui.view,arch_db:purchase_contracts.purchase_contract_form
+msgid "pay"
+msgstr "إدفع"
+
+#. module: purchase_contracts
+#: model:ir.model,name:purchase_contracts.model_player_player
+msgid "player.player"
+msgstr "player.player"
+
+#. module: purchase_contracts
+#: model:ir.model,name:purchase_contracts.model_purchase_contract
+msgid "purchase.contract"
+msgstr "purchase.contract"
+
+#. module: purchase_contracts
+#: model:ir.model,name:purchase_contracts.model_purchase_contract_line
+msgid "purchase.contract.line"
+msgstr "purchase.contract.line"
+

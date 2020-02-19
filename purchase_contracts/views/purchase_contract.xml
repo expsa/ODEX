@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- main menu contract -->
+        <menuitem
+            id="contracts_menu"
+            name="Contracts"
+            parent="purchase.menu_purchase_root"
+        />
+        <!-- purchase contract tree view -->
+        <record id="purchase_contract_view_tree" model="ir.ui.view">
+        <field name="name">purchase.contract.view.tree</field>
+        <field name="model">purchase.contract</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="partner_id"/>
+                <field name="amount"/>
+                <field name="paid"/>
+                <field name="remain"/>
+                <field name="state"/>
+            </tree>
+        </field>
+        </record>
+        <!-- purchase contract form view -->
+        <record model="ir.ui.view" id="purchase_contract_form">
+        <field name="name">purchase.contract.form</field>
+        <field name="model">purchase.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" states="draft" string="Confirm" type="object" class="oe_highlight"/>
+                    <button name="action_done" states="confirm" string="Done" type="object" class="oe_highlight"/>                    
+                    <button name="action_set_to_draft" states="cancel" string="Set to Draft" type="object" class="oe_highlight"/>                                                            
+                    <button name="action_cancel" states="confirm,draft" string="Cancel" type="object" class="oe_highlight"/>                                        
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <div style="font-size:23pt;margin-left:10pt" width="24" height="24">    
+                        <field name="name" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                    </div>
+                    <group colspan="4" col="2">
+                        <group>
+                            <field name="partner_id" required="1" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                            <field name="start_date" required="1" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                            <field name="type" required="1" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                            <field name="amount" attrs="{'invisible':[('contract_type','in',['nda','mou'])],'readonly':[('state','in',('done','cancel'))],'required':[('contract_type','not in',['nda','mou'])]}"/>
+                            <field name="paid" readonly="1" attrs="{'invisible':[('contract_type','in',['nda','mou'])]}"/>                        
+                            <field name="remaining_days" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="contract_type" required="1" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                            <field name="end_date" required="1" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                            <field name="purchase_id" domain="[('state','!=',('cancel'))]" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                            <field name="currency_id" attrs="{'readonly':[('state','in',('done','cancel'))]}" required="1"/>
+                            <field name="remain" attrs="{'invisible':[('contract_type','in',['nda','mou'])]}"/>
+                            <field name="attachment_id" attrs="{'invisible':[('contract_type','!=','nda')],'required':[('contract_type','=','nda')]}"/>
+                            <field name="department_id" required="1" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Contract Informations">
+                            <group>
+                                <group>
+                                    <field name="first_company" required="1" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                                    <field name="first_terms" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                                </group>
+                                <group>
+                                    <field name="second_company" required="1" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                                    <field name="second_terms" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Payments" attrs="{'invisible':[('contract_type','in',['nda','mou'])]}">
+                            <field name="line_ids" attrs="{'readonly':[('state','in',('done','cancel'))]}">
+                                <tree editable="bottom" delete="false">
+                                    <field name="date_of_pay" attrs="{'required':[('parent.contract_type','not in',['nda','mou'])],'readonly':[('state','=','paid')]}"/>
+                                    <field name="amount" attrs="{'required':[('parent.contract_type','not in',['nda','mou'])],'readonly':[('state','=','paid')]}"/>
+                                    <field name="note" attrs="{'required':[('parent.contract_type','not in',['nda','mou'])],'readonly':[('state','=','paid')]}"/>
+                                    <field name="state" readonly="1"/>
+                                    <button name="action_paid" type="object" string="pay" class="oe_highlight"
+                                        attrs="{'invisible':['|',('state','!=','draft'),('parent.state','!=','confirm')]}"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <field name="note" attrs="{'readonly':[('state','in',('done','cancel'))]}"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+        <!-- Purchase Contract action -->
+        <record model="ir.actions.act_window" id="action_purchase_contract">
+            <field name="name">Purchase Contract</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <!-- Purchase Contract menu -->
+        <menuitem
+            id="purchase_contract_menu"
+            name="Purchase Contract"
+            parent="contracts_menu"
+            action="action_purchase_contract"
+        />
+    </data>
+</odoo>
