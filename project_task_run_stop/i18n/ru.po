@@ -1,0 +1,356 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_task_run_stop
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20180521\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-18 14:35+0000\n"
+"PO-Revision-Date: 2018-07-18 14:35+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.stop_fast_timesheet_view_wizard
+msgid "<span> - Do you want to start the paused task?</span>"
+msgstr "<span> - Вы хотите запустить приостановленную задачу?</span>"
+
+#. module: project_task_run_stop
+#: model:ir.model,name:project_task_run_stop.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Позиция аналитики"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.stop_fast_timesheet_view_wizard
+#: model:ir.ui.view,arch_db:project_task_run_stop.task_pause_view_wizard
+#: model:ir.ui.view,arch_db:project_task_run_stop.task_stop_view_wizard
+msgid "Cancel"
+msgstr "Отменить"
+
+#. module: project_task_run_stop
+#. openerp-web
+#: code:addons/project_task_run_stop/static/src/xml/pause.xml:6
+#, python-format
+msgid "Click to fast Timesheet"
+msgstr "Таймер для табеля"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_pause_wizard_create_uid
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_stop_wizard_create_uid
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet_create_uid
+msgid "Created by"
+msgstr "Создано"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_pause_wizard_create_date
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_stop_wizard_create_date
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet_create_date
+msgid "Created on"
+msgstr "Создан"
+
+#. module: project_task_run_stop
+#. openerp-web
+#: code:addons/project_task_run_stop/models/models.py:82
+#: code:addons/project_task_run_stop/static/src/js/pause.js:77
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_stop_wizard_description
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet_description
+#: model:ir.ui.view,arch_db:project_task_run_stop.stop_fast_timesheet_view_wizard
+#: model:ir.ui.view,arch_db:project_task_run_stop.task_stop_view_wizard
+#, python-format
+msgid "Description of work"
+msgstr "Полное описание результатов деятельности"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_pause_wizard_display_name
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_stop_wizard_display_name
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet_display_name
+msgid "Display Name"
+msgstr "Отображаемое Имя"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.res_config_settings_view_form
+msgid "Fast timesheet"
+msgstr "Регистрация табелей"
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:197
+#, python-format
+msgid "Fast timesheet in progress"
+msgstr "Табель еще в работе"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_type_final_stage
+msgid "Final Stage"
+msgstr "Финальный этап"
+
+#. module: project_task_run_stop
+#. openerp-web
+#: code:addons/project_task_run_stop/static/src/js/pause.js:66
+#, python-format
+msgid "First, install the default project in the settings"
+msgstr "Сначала установите проект по умолчанию в настройках"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_pause_wizard_id
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_stop_wizard_id
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet_id
+msgid "ID"
+msgstr "Номер"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_pause_wizard___last_update
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_stop_wizard___last_update
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet___last_update
+msgid "Last Modified on"
+msgstr "Последнее изменение"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_pause_wizard_write_uid
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_stop_wizard_write_uid
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet_write_uid
+msgid "Last Updated by"
+msgstr "Последний раз обновлено"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_pause_wizard_write_date
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_stop_wizard_write_date
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet_write_date
+msgid "Last Updated on"
+msgstr "Последний раз обновлено"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.task_pause_view_wizard
+msgid "Ok"
+msgstr "Ok"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.view_task_form_inherit_run_stop
+msgid "Pause task"
+msgstr "Пауза"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.res_config_settings_view_form
+msgid "Project"
+msgstr "Проект"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_res_config_settings_project_fast_timesheet
+msgid "Project for fast timesheet"
+msgstr "Проект для регистрации табелей"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.view_task_form_inherit_run_stop
+msgid "Run task"
+msgstr "Запустить"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_account_analytic_line_run_time
+msgid "Run time"
+msgstr "Время начала"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_account_analytic_line_running
+msgid "Running"
+msgstr "Запущено"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet_project_id
+msgid "Select project"
+msgstr "Выберите проект"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.res_config_settings_view_form
+msgid "Setup Default Project for fast timesheet"
+msgstr "Установите проект по умолчанию для регистрации табелей"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.view_task_form_inherit_run_stop
+msgid "Stop task"
+msgstr "Остановить"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_account_analytic_line_stop_time
+msgid "Stop time"
+msgstr "Время окончания"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.stop_fast_timesheet_view_wizard
+#: model:ir.ui.view,arch_db:project_task_run_stop.task_stop_view_wizard
+msgid "Submit"
+msgstr "Подтвердить"
+
+#. module: project_task_run_stop
+#: model:ir.model,name:project_task_run_stop.model_project_task
+msgid "Task"
+msgstr "Задача"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_task_pause
+msgid "Task Pause"
+msgstr "Пауза"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_task_pause_last_time
+msgid "Task Pause Last Time"
+msgstr "Task Pause Last Time"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_account_analytic_line_task_paused
+msgid "Task Paused"
+msgstr "На паузе"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_task_run
+msgid "Task Run"
+msgstr "Задача запущена"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_task_run_sum
+msgid "Task Run Sum"
+msgstr "Task Run Sum"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_task_run_time
+msgid "Task Run Time"
+msgstr "Время начала"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_task_run_user
+msgid "Task Run User"
+msgstr "Пользователь"
+
+#. module: project_task_run_stop
+#: model:ir.model,name:project_task_run_stop.model_project_task_type
+msgid "Task Stage"
+msgstr "Этап задачи"
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:28
+#, python-format
+msgid "Task already started."
+msgstr "Задача уже запущена."
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:84
+#, python-format
+msgid "Task already stopped."
+msgstr "Задача уже остановлена."
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:53
+#, python-format
+msgid "Task don't started."
+msgstr "Задача не запущена."
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,help:project_task_run_stop.field_project_task_type_final_stage
+msgid "The final stage. The task is automatically transferred to this stage after pressing the Stop button."
+msgstr "Заключительный этап. Задача автоматически переносится на этот этап после нажатия кнопки «Стоп»."
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.res_config_settings_view_form
+msgid "This project is default for fast timesheet"
+msgstr "Это проект по умолчанию для регистрации табелей"
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:57
+#, python-format
+msgid "This task is not assigned to you, but %s\n"
+"You must be a Manager to pause this task"
+msgstr "Эта задача назначена для %s\n"
+"Вы должны быть менеджером, чтобы поставить на паузу"
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:32
+#, python-format
+msgid "This task is not assigned to you, but %s\n"
+"You must be a Manager to run this task"
+msgstr "Эта задача назначена для %s\n"
+"Вы должны быть менеджером, чтобы запустить ее."
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:88
+#, python-format
+msgid "This task was launched not by you, but by %s\n"
+"You must be a Manager to complete this task"
+msgstr "Эта задача была запущена пользователем: %s\n"
+"Вы должны быть менеджером, чтобы остановить ее."
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet_unpause
+msgid "Unpause"
+msgstr "Снять с паузы"
+
+#. module: project_task_run_stop
+#: model:ir.model.fields,field_description:project_task_run_stop.field_project_task_run_stop_wizard_stop_fast_timesheet_unpause_flag
+msgid "Unpause Flag"
+msgstr "Unpause Flag"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.view_task_form_inherit_run_stop
+msgid "Unpause task"
+msgstr "Задача для снятия с паузы"
+
+#. module: project_task_run_stop
+#: model:ir.ui.view,arch_db:project_task_run_stop.task_pause_view_wizard
+msgid "You already have a running task. Do you want to pause it?"
+msgstr "У вас уже запущена задача. Вы хотите приостановить ее?"
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:36
+#: code:addons/project_task_run_stop/models/models.py:68
+#, python-format
+msgid "You are have running task"
+msgstr "У вас уже запущена задача"
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:86
+#, python-format
+msgid "You can not complete the task, because you are not an employee."
+msgstr "Вы не можете остановить задачу, потому что вы не являетесь сотрудником."
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:55
+#, python-format
+msgid "You can not pause the task, because you are not an employee."
+msgstr "Вы не можете остановить задачу, потому что вы не являетесь сотрудником."
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:30
+#, python-format
+msgid "You can not start the task, because you are not an employee."
+msgstr "Вы не можете запустить задачу, потому что вы не являетесь сотрудником."
+
+#. module: project_task_run_stop
+#: code:addons/project_task_run_stop/models/models.py:26
+#: code:addons/project_task_run_stop/models/models.py:51
+#: code:addons/project_task_run_stop/models/models.py:81
+#, python-format
+msgid "You have a fast Timesheet."
+msgstr "У Вас запущена регистрация табеля (в верхнем правом углу)."
+
+#. module: project_task_run_stop
+#: model:ir.model,name:project_task_run_stop.model_project_task_run_stop_pause_wizard
+msgid "project_task_run_stop.pause_wizard"
+msgstr "project_task_run_stop.pause_wizard"
+
+#. module: project_task_run_stop
+#: model:ir.model,name:project_task_run_stop.model_project_task_run_stop_stop_wizard
+msgid "project_task_run_stop.stop_wizard"
+msgstr "project_task_run_stop.stop_wizard"
+
+#. module: project_task_run_stop
+#: model:ir.model,name:project_task_run_stop.model_project_task_run_stop_wizard_stop_fast_timesheet
+msgid "project_task_run_stop.wizard_stop_fast_timesheet"
+msgstr "project_task_run_stop.wizard_stop_fast_timesheet"
+
+#. module: project_task_run_stop
+#: model:ir.model,name:project_task_run_stop.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
+

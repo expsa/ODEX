@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  
+        <record model="ir.ui.view" id="view_project_task_search">
+            <field name="name">project.task.search.form.task_recurrent</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_search_form"/>
+            <field name="arch" type="xml">
+              
+                <filter name="starred" position="before">
+                   <filter string="All running tasks" name="all_running tasks" domain="[('task_run','=',True)]"/>
+                   <filter string="My running tasks" name="my_running tasks" domain="[('task_run','=',True),('task_run_user','=',uid)]"/>
+                </filter>
+              
+            </field>
+        </record>
+  
+        <template id="assets_ext" inherit_id="web.assets_backend">
+          <xpath expr="." position="inside">
+             <script type="text/javascript" src="/project_task_run_stop/static/src/js/timer.js"></script>
+             <script type="text/javascript" src="/project_task_run_stop/static/src/js/refresh.js"></script>
+             <script type="text/javascript" src="/project_task_run_stop/static/src/js/pause.js"></script>
+          </xpath>
+        </template>
+  
+        <record id="task_stop_view_wizard" model="ir.ui.view">
+            <field name="name">task.stop.view.wizard</field>
+            <field name="model">project_task_run_stop.stop_wizard</field>
+            <field name="arch" type="xml">
+                <form string="Description of work">
+                    <group class="oe_title">
+                        <field name="description" required="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_stop_task" string="Submit" type="object" class="btn btn-sm btn-primary"/>
+                        <button string="Cancel" class="btn btn-sm btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+  
+        <record id="task_pause_view_wizard" model="ir.ui.view">
+            <field name="name">task.pause.view.wizard</field>
+            <field name="model">project_task_run_stop.pause_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="row">
+                      <div class="h3 ml32 mr32">
+                        You already have a running task. Do you want to pause it?
+                      </div>
+                    </div>
+                    <footer>
+                        <button name="action_pause_task" string="Ok" type="object" class="btn btn-sm btn-primary"/>
+                        <button string="Cancel" class="btn btn-sm btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+  
+        <record id="view_task_form_inherit_run_stop" model="ir.ui.view">
+            <field name="name">project.task.form.run.stop</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+              
+                <field name="project_id" position="after">
+                    <field name="task_run" invisible="1"/>
+                    <field name="task_pause" invisible="1"/>
+                    <field name="task_run_user" invisible="1"/>
+                    <field name="task_run_time" invisible="1"/>
+                    <field name="task_run_sum" invisible="1"/>
+                    <field name="task_pause_last_time" invisible="1"/>
+                </field>
+                  
+                <button name="action_assign_to_me" position="after">
+                  <button name="run_task" type="object" class="btn text-success fa fa-play" attrs="{'invisible' : [('task_run', '=', True)]}" title="Run task"/>
+                  <button name="pause_task" type="object" class="btn text-danger fa fa-forward" attrs="{'invisible' : ['|',('task_run', '=', False),('task_pause', '=', False)]}" title="Unpause task"/>
+                  <button name="pause_task" type="object" class="btn text-danger fa fa-pause" attrs="{'invisible' : ['|',('task_run', '=', False),('task_pause', '!=', False)]}" title="Pause task"/>
+                  <button name="stop_task" type="object" class="btn text-danger fa fa-stop" attrs="{'invisible' : [('task_run', '=', False)]}" title="Stop task"/>
+                </button>
+              
+            </field>
+       </record>
+  
+       <record id="view_task_kanban_inherit_run_stop" model="ir.ui.view">
+            <field name="name">project.task.kanban.run.stop</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+              
+                <field name="color" position="after">
+                    <field name="task_run"/>
+                    <field name="task_pause"/>
+                    <field name="task_run_user"/>
+                    <field name="task_run_time"/>
+                    <field name="task_run_sum"/>
+                    <field name="task_pause_last_time"/>
+                </field>
+                  
+                <div class="oe_kanban_bottom_left" position="inside">
+                  <button name="run_task" type="object" class="btn btn-sm btn-default" 
+                          attrs="{'invisible' : [('task_run', '=', True)]}"><i class="text-success fa fa-2 fa-play" aria-hidden="true"></i></button>
+                  <button name="pause_task" type="object" class="btn btn-sm btn-default" style="padding: 5px;" 
+                          attrs="{'invisible' : ['|',('task_run', '=', False),('task_pause', '!=', False)]}"><i class="text-danger fa fa-2 fa-pause" aria-hidden="true"></i></button>
+                  <button name="pause_task" type="object" class="btn btn-sm btn-default" style="padding: 5px;" 
+                          attrs="{'invisible' : ['|',('task_run', '=', False),('task_pause', '=', False)]}"><i class="text-danger fa fa-2 fa-forward" aria-hidden="true"></i></button>
+                  <button name="stop_task" type="object" class="btn btn-sm btn-default" style="padding: 5px;" 
+                          attrs="{'invisible' : [('task_run', '=', False)]}"><i class="text-danger fa fa-2 fa-stop" aria-hidden="true"></i></button>
+                  <div id="timer" class="text-center text-danger" attrs="{'invisible' : [('task_run', '=', False)]}"/>
+                </div>
+
+            </field>
+       </record>
+  
+       <record model="ir.ui.view" id="ptrs_task_type_edit">
+            <field name="name">ptrs.type.form</field>
+            <field name="model">project.task.type</field>
+            <field name="inherit_id" ref="project.task_type_edit"/>
+            <field name="arch" type="xml">
+              
+                <field name="mail_template_id" position="after">
+                  <field name="final_stage"/>
+                </field>
+              
+            </field>
+        </record>
+  
+       <record model="ir.ui.view" id="ptrs_task_type_tree">
+            <field name="name">ptrs.type.tree</field>
+            <field name="model">project.task.type</field>
+            <field name="inherit_id" ref="project.task_type_tree"/>
+            <field name="arch" type="xml">
+              
+                <field name="name" position="after">
+                  <field name="final_stage"/>
+                </field>
+              
+            </field>
+        </record>
+  
+  
+       <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.project_task_run_stop</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="project.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+              <xpath expr="//div[@data-string='Project']" position="inside">
+                        <h2>Fast timesheet</h2>
+                        <div class="row mt16 o_settings_container">
+                                <div class="col-xs-12 col-md-6 o_setting_box">
+                                    <div class="o_setting_left_pane"/>
+                                    <div class="o_setting_right_pane">
+                                        <label string="Setup  Default Project for fast timesheet"/>
+                                        <div class="text-muted">
+                                            This project is default for fast timesheet
+                                        </div>
+                                        <div class="content-group">
+                                            <div class="row mt16">
+                                                <label string="Project" class="col-md-3 o_light_label"/>
+                                                <field name="project_fast_timesheet" widget="selection"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+              </xpath>
+            </field>
+        </record>
+  
+        <record id="stop_fast_timesheet_view_wizard" model="ir.ui.view">
+            <field name="name">stop.fast.timesheet.view.wizard</field>
+            <field name="model">project_task_run_stop.wizard_stop_fast_timesheet</field>
+            <field name="arch" type="xml">
+                <form string="Description of work">
+                    <group class="oe_title">
+                        <field name="description" required="1"/>
+                        <field name="project_id"/>
+                        <field name="unpause_flag" invisible="1"/>
+                    </group>
+                    <div class="row" attrs="{'invisible' : [('unpause_flag', '=', False)]}">
+                      <div class="ml32 mr32">
+                        <field name="unpause" /> <span> - Do you want to start the paused task?</span>
+                      </div>
+                    </div>
+                    <footer>
+                        <button name="stop_fast_timesheet" string="Submit" type="object" class="btn btn-sm btn-primary"/>
+                        <button string="Cancel" class="btn btn-sm btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+  
+</odoo>

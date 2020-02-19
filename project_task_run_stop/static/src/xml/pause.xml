@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  
+    <t t-name="project_task_run_stop.ButtonPause">
+        <li class="o_mail_navbar_item o_no_notification" >
+          <a class="dropdown-toggle" data-toggle="" aria-expanded="false" title="Click to fast Timesheet" href="#">
+                <i id="fast_timesheet_icon" class="fa fa-play"/> <span id="fast_timesheet_timer"/>
+            </a>
+        </li>
+    </t>
+  
+</templates>
