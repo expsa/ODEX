@@ -1,0 +1,252 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * website_sale_stock
+# 
+# Translators:
+# Svante Suominen <svante.suominen@web-veistamo.fi>, 2017
+# Martin Trigaux, 2017
+# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2017
+# Jussi Lehto <jussi@gulfeo.com>, 2017
+# Veikko Väätäjä <veikko.vaataja@gmail.com>, 2018
+# Mikko Närjänen <mikko.narjanen@web-veistamo.fi>, 2018
+# Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-02 11:26+0000\n"
+"PO-Revision-Date: 2017-09-20 10:28+0000\n"
+"Last-Translator: Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2019\n"
+"Language-Team: Finnish (https://www.transifex.com/odoo/teams/41243/fi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: website_sale_stock
+#: model:ir.ui.view,arch_db:website_sale_stock.portal_order_page_shipping
+msgid ""
+"<span class=\"label label-danger label-text-align\"><i class=\"fa fa-fw fa-"
+"times\"/> Cancelled</span>"
+msgstr ""
+"<span class=\"label label-danger label-text-align\"><i class=\"fa fa-fw fa-"
+"times\"/> Peruutettu</span>"
+
+#. module: website_sale_stock
+#: model:ir.ui.view,arch_db:website_sale_stock.portal_order_page_shipping
+msgid ""
+"<span class=\"label label-info label-text-align\"><i class=\"fa fa-fw fa-"
+"clock-o\"/> Preparation</span>"
+msgstr ""
+"<span class=\"label label-info label-text-align\"><i class=\"fa fa-fw fa-"
+"clock-o\"/> Valmistelu</span>"
+
+#. module: website_sale_stock
+#: model:ir.ui.view,arch_db:website_sale_stock.portal_order_page_shipping
+msgid ""
+"<span class=\"label label-success label-text-align\"><i class=\"fa fa-fw fa-"
+"truck\"/> Shipped</span>"
+msgstr ""
+"<span class=\"label label-success label-text-align\"><i class=\"fa fa-fw fa-"
+"truck\"/> Toimitettu</span>"
+
+#. module: website_sale_stock
+#: model:ir.ui.view,arch_db:website_sale_stock.portal_order_page_shipping
+msgid ""
+"<span class=\"label label-warning label-text-align\"><i class=\"fa fa-fw fa-"
+"clock-o\"/> Partially Available</span>"
+msgstr ""
+"<span class=\"label label-warning label-text-align\"><i class=\"fa fa-fw fa-"
+"clock-o\"/> Osittain saatavilla</span>"
+
+#. module: website_sale_stock
+#: model:ir.ui.view,arch_db:website_sale_stock.portal_order_page_shipping
+msgid "<strong>Delivery Orders</strong>"
+msgstr "<strong>Toimitustilaukset</strong>"
+
+#. module: website_sale_stock
+#: model:ir.ui.view,arch_db:website_sale_stock.website_sale_stock_cart_lines
+#: model:ir.ui.view,arch_db:website_sale_stock.website_sale_stock_payment
+msgid "<strong>Warning!</strong>"
+msgstr "<strong>Varoitus!</strong>"
+
+#. module: website_sale_stock
+#: model:ir.model.fields,help:website_sale_stock.field_product_product_inventory_availability
+#: model:ir.model.fields,help:website_sale_stock.field_product_template_inventory_availability
+msgid "Adds an inventory availability status on the web product page."
+msgstr "Lisää varastosaldojen tilanteen tuotesivulle"
+
+#. module: website_sale_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_product_available_threshold
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_template_available_threshold
+#: model:ir.model.fields,field_description:website_sale_stock.field_res_config_settings_available_threshold
+msgid "Availability Threshold"
+msgstr "Saatavuusraja"
+
+#. module: website_sale_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_product_cart_qty
+msgid "Cart Qty"
+msgstr "Ostoskorin määrä"
+
+#. module: website_sale_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_product_custom_message
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_template_custom_message
+msgid "Custom Message"
+msgstr "Näytettävä viesti"
+
+#. module: website_sale_stock
+#: model:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
+msgid "Default Availability Mode"
+msgstr ""
+
+#. module: website_sale_stock
+#: model:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
+msgid ""
+"Default availability mode set on newly created stockable products. This can "
+"be changed at the product level."
+msgstr ""
+
+#. module: website_sale_stock
+#: model:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
+msgid "Default threshold"
+msgstr "Vakioraja"
+
+#. module: website_sale_stock
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:16
+#, python-format
+msgid "In stock"
+msgstr "Varastossa"
+
+#. module: website_sale_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_res_config_settings_inventory_availability
+msgid "Inventory"
+msgstr "Varasto"
+
+#. module: website_sale_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_product_inventory_availability
+#: model:ir.model.fields,field_description:website_sale_stock.field_product_template_inventory_availability
+msgid "Inventory Availability"
+msgstr "Varastosaldot"
+
+#. module: website_sale_stock
+#: model:ir.ui.view,arch_db:website_sale_stock.res_config_settings_view_form
+msgid ""
+"Manage the inventory of your products and display their availability status "
+"on the website."
+msgstr ""
+
+#. module: website_sale_stock
+#: model:ir.model,name:website_sale_stock.model_product_product
+msgid "Product"
+msgstr "Tuote"
+
+#. module: website_sale_stock
+#: model:ir.model,name:website_sale_stock.model_product_template
+msgid "Product Template"
+msgstr "Tuotemalli"
+
+#. module: website_sale_stock
+#: model:ir.model,name:website_sale_stock.model_sale_order
+msgid "Quotation"
+msgstr "Tarjous"
+
+#. module: website_sale_stock
+#: model:ir.model,name:website_sale_stock.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Myyntitilauksen rivi"
+
+#. module: website_sale_stock
+#: selection:product.template,inventory_availability:0
+#: selection:res.config.settings,inventory_availability:0
+msgid "Sell regardless of inventory"
+msgstr "Salli myynti riippumatta varastosaldosta"
+
+#. module: website_sale_stock
+#: selection:product.template,inventory_availability:0
+#: selection:res.config.settings,inventory_availability:0
+msgid "Show inventory below a threshold and prevent sales if not enough stock"
+msgstr ""
+"Näytä varastosaldo, kun se on alle rajan ja estä myynti jos ei varastosaldoa"
+
+#. module: website_sale_stock
+#: selection:product.template,inventory_availability:0
+#: selection:res.config.settings,inventory_availability:0
+msgid "Show inventory on website and prevent sales if not enough stock"
+msgstr "Näytä varastosaldo verkkokaupassa ja estä myynti jos ei varastosaldoa"
+
+#. module: website_sale_stock
+#: selection:product.template,inventory_availability:0
+#: selection:res.config.settings,inventory_availability:0
+msgid "Show product-specific notifications"
+msgstr "Näytä tuotekohtainen huomautusteksti"
+
+#. module: website_sale_stock
+#: code:addons/website_sale_stock/models/sale_order.py:28
+#, python-format
+msgid ""
+"Some products became unavailable and your cart has been updated. We're sorry"
+" for the inconvenience."
+msgstr ""
+"Osa ostoskorissasi olleista tuotteista ei ole enää saatavilla ja siksi "
+"ostoskoriasi on päivitetty. Pahoittelut mahdollisesta haitasta!"
+
+#. module: website_sale_stock
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:22
+#, python-format
+msgid "Temporarily out of stock"
+msgstr "Toistaiseksi loppu varastosta"
+
+#. module: website_sale_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_sale_order_line_warning_stock
+#: model:ir.model.fields,field_description:website_sale_stock.field_sale_order_warning_stock
+msgid "Warning"
+msgstr "Varoitus"
+
+#. module: website_sale_stock
+#: model:ir.model,name:website_sale_stock.model_website
+msgid "Website"
+msgstr "Verkkosivu"
+
+#. module: website_sale_stock
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:19
+#, python-format
+msgid "You already added"
+msgstr "Lisäsit jo"
+
+#. module: website_sale_stock
+#: code:addons/website_sale_stock/models/sale_order.py:26
+#, python-format
+msgid "You ask for %s products but only %s is available"
+msgstr "Halusit tuotetta %s kappaletta, mutta vain %s on saatavilla"
+
+#. module: website_sale_stock
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:20
+#, python-format
+msgid "all"
+msgstr "kaikki"
+
+#. module: website_sale_stock
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:9
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:14
+#, python-format
+msgid "available"
+msgstr "saatavilla"
+
+#. module: website_sale_stock
+#. openerp-web
+#: code:addons/website_sale_stock/static/src/xml/website_sale_stock_product_availability.xml:20
+#, python-format
+msgid "in your cart."
+msgstr "ostoskorissasi."
+
+#. module: website_sale_stock
+#: model:ir.model,name:website_sale_stock.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"

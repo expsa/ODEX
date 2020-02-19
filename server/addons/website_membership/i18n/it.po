@@ -1,0 +1,87 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * website_membership
+# 
+# Translators:
+# Paolo Valier, 2018
+# David Minneci <david@numeko.it>, 2018
+# Martin Trigaux, 2018
+# Simone Bernini <simone@aperturelabs.it>, 2018
+# mymage <stefano.consolaro@mymage.it>, 2018
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-20 09:54+0000\n"
+"PO-Revision-Date: 2017-09-20 10:27+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>, 2018\n"
+"Language-Team: Italian (https://www.transifex.com/odoo/teams/41243/it/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: website_membership
+#: model:ir.ui.view,arch_db:website_membership.index
+msgid "All"
+msgstr "Tutto"
+
+#. module: website_membership
+#: code:addons/website_membership/controllers/main.py:83
+#, python-format
+msgid "All Countries"
+msgstr "Tutte le Nazioni"
+
+#. module: website_membership
+#: model:ir.ui.view,arch_db:website_membership.index
+msgid "Associations"
+msgstr "Associazioni"
+
+#. module: website_membership
+#: model:ir.ui.view,arch_db:website_membership.index
+msgid "Find a business partner"
+msgstr "Cerca un business partner"
+
+#. module: website_membership
+#: code:addons/website_membership/controllers/main.py:126
+#, python-format
+msgid "Free Members"
+msgstr "Soci gratuiti"
+
+#. module: website_membership
+#: model:ir.ui.view,arch_db:website_membership.opt_index_country
+msgid "Location"
+msgstr "Location"
+
+#. module: website_membership
+#: model:ir.ui.view,arch_db:website_membership.footer_custom
+#: model:ir.ui.view,arch_db:website_membership.index
+msgid "Members"
+msgstr "Soci"
+
+#. module: website_membership
+#: model:ir.ui.view,arch_db:website_membership.index
+msgid "No result found."
+msgstr "Nessun risultato trovato."
+
+#. module: website_membership
+#: model:ir.ui.view,arch_db:website_membership.index
+msgid "Our Members Directory"
+msgstr "L'elenco dei nostri soci"
+
+#. module: website_membership
+#: model:ir.ui.view,arch_db:website_membership.opt_index_google_map
+msgid "World Map"
+msgstr "Mappa del mondo"
+
+#. module: website_membership
+#: model:ir.model,name:website_membership.model_membership_membership_line
+msgid "membership.membership_line"
+msgstr "membership.membership_line"
+
+#. module: website_membership
+#: model:ir.ui.view,arch_db:website_membership.index
+msgid "pull-left"
+msgstr "pull-left"

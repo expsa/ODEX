@@ -1,0 +1,2210 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * purchase
+# 
+# Translators:
+# Robert Kirschner <robertkirschner@yahoo.com>, 2018
+# Pavol Krnáč <pavol.krnac@ekoenergo.sk>, 2018
+# Martin Trigaux, 2018
+# Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>, 2018
+# Stefan Stieranka <stieranka@itec.sk>, 2018
+# gebri <gebri@inmail.sk>, 2018
+# Jan Prokop, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-03 15:06+0000\n"
+"PO-Revision-Date: 2017-09-20 10:22+0000\n"
+"Last-Translator: Jan Prokop, 2019\n"
+"Language-Team: Slovak (https://www.transifex.com/odoo/teams/41243/sk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: sk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+
+#. module: purchase
+#: model:mail.template,body_html:purchase.email_template_edi_purchase
+msgid ""
+"\n"
+"<p>Dear\n"
+"% if object.partner_id.is_company and object.partner_id.child_ids:\n"
+"    ${object.partner_id.child_ids[0].name}\n"
+"% else :\n"
+"    ${object.partner_id.name}\n"
+"% endif\n"
+",</p><p>\n"
+"Here is, in attachment, a ${object.state in ('draft', 'sent') and 'request for quotation' or 'purchase order confirmation'} <strong>${object.name}</strong>\n"
+"% if object.partner_ref:\n"
+"    with reference: ${object.partner_ref}\n"
+"% endif\n"
+"% if object.origin:\n"
+"    (RFQ origin: ${object.origin})\n"
+"% endif\n"
+"amounting in <strong>${format_amount(object.amount_total, object.currency_id)}</strong>\n"
+"from ${object.company_id.name}.\n"
+"</p>\n"
+"\n"
+"<p>Do not hesitate to contact us if you have any further question.</p>\n"
+"<p>Best regards,</p>\n"
+"<p style=\"color:#888888;\">\n"
+"% if object.sudo().create_uid and object.sudo().create_uid.signature:\n"
+"    ${object.sudo().create_uid.signature | safe}\n"
+"% endif\n"
+"</p>\n"
+msgstr ""
+
+#. module: purchase
+#: model:mail.template,body_html:purchase.email_template_edi_purchase_done
+msgid ""
+"\n"
+"<p>Dear ${object.partner_id.name}\n"
+"% if object.partner_id.parent_id:\n"
+"    (<i>${object.partner_id.parent_id.name}</i>)\n"
+"% endif\n"
+",</p>\n"
+"<p>\n"
+"Please find in attachment a <strong>${object.state in ('draft', 'sent') and 'request for quotation' or 'purchase order confirmation'} ${object.name}</strong>\n"
+"% if object.partner_ref:\n"
+"    with reference: ${object.partner_ref}\n"
+"% endif\n"
+"% if object.origin:\n"
+"    (RFQ origin: ${object.origin})\n"
+"% endif\n"
+"amounting <strong>${format_amount(object.amount_total, object.currency_id)}</strong>\n"
+"from ${object.company_id.name}.\n"
+"</p>\n"
+"\n"
+"<p>You can reply to this email if you have any questions.</p>\n"
+"<p>Thank you,</p>\n"
+"<p style=\"color:#888888;\">\n"
+"% if object.sudo().create_uid and object.sudo().create_uid.signature:\n"
+"    ${object.sudo().create_uid.signature | safe}\n"
+"% endif\n"
+"</p>\n"
+msgstr ""
+
+#. module: purchase
+#: code:addons/purchase/models/stock.py:98
+#, python-format
+msgid " Buy"
+msgstr "Kúpiť"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_product_product_purchase_count
+#: model:ir.model.fields,field_description:purchase.field_product_template_purchase_count
+msgid "# Purchases"
+msgstr "# Nákupy"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_partner_supplier_invoice_count
+#: model:ir.model.fields,field_description:purchase.field_res_users_supplier_invoice_count
+msgid "# Vendor Bills"
+msgstr "# Účtov predajcu"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_invoice_count
+msgid "# of Bills"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_nbr_lines
+msgid "# of Lines"
+msgstr "# riadky"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_partner_purchase_order_count
+#: model:ir.model.fields,field_description:purchase.field_res_users_purchase_order_count
+msgid "# of Purchase Order"
+msgstr "# Objednávok"
+
+#. module: purchase
+#: model:mail.template,subject:purchase.email_template_edi_purchase
+#: model:mail.template,subject:purchase.email_template_edi_purchase_done
+msgid "${object.company_id.name} Order (Ref ${object.name or 'n/a' })"
+msgstr "${object.company_id.name} Objednávka (Ref ${object.name or 'n/a' })"
+
+#. module: purchase
+#: model:mail.template,subject:purchase.mail_template_data_notification_email_purchase_order
+msgid "${object.subject}"
+msgstr ""
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "3-way matching"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_module_account_3way_match
+msgid "3-way matching: purchases, receptions and bills"
+msgstr ""
+
+#. module: purchase
+#: model:mail.template,body_html:purchase.mail_template_data_notification_email_purchase_order
+msgid ""
+"<html>\n"
+"                <head></head>\n"
+"                % set company = record and record.company_id or ctx.get('company')\n"
+"                <body style=\"margin: 0; padding: 0;\">\n"
+"                <table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: #ededed\" summary=\"o_mail_notification\">\n"
+"                    <tbody>\n"
+"\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: rgb(135,90,123); padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\">\n"
+"                                  <span style=\"font-size:20px; color:white; font-weight: bold;\">\n"
+"                                      ${object.record_name}\n"
+"                                  </span>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                  <img src=\"/logo.png?company=${company.id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${company.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px;\">\n"
+"                            <tbody>\n"
+"                              <td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                                ${object.body | safe}\n"
+"                              </td>\n"
+"                            </tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: rgb(135,90,123); padding: 20px;\">\n"
+"                            <tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${company.name}<br/>\n"
+"                                ${company.phone or ''}\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                % if company.email:\n"
+"                                <a href=\"mailto:${company.email}\" style=\"text-decoration:none; color: white;\">${company.email}</a><br/>\n"
+"                                % endif\n"
+"                                % if company.website:\n"
+"                                    <a href=\"${company.website}\" style=\"text-decoration:none; color: white;\">\n"
+"                                        ${company.website}\n"
+"                                    </a>\n"
+"                                % endif\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                        <td align=\"center\">\n"
+"                            Powered by <a href=\"https://www.odoo.com\">Odoo</a>.\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"                </body>\n"
+"                </html>\n"
+"            "
+msgstr ""
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_stock
+msgid ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
+"specific.\" groups=\"base.group_multi_company\"/>"
+msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Nastavené hodnoty sú "
+"špecifické pre spoločnosť.\" groups=\"base.group_multi_company\"/>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_orders
+msgid ""
+"<span class=\"label label-default\"><i class=\"fa fa-fw fa-remove\"/> "
+"Cancelled</span>"
+msgstr ""
+"<span class=\"label label-default\"><i class=\"fa fa-fw fa-remove\"/> "
+"Zrušené</span>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Amount</strong>"
+msgstr "​<strong>Množstvo</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Date Req.</strong>"
+msgstr "<strong>Dátum žiad.</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_order
+msgid "<strong>Date:</strong>"
+msgstr "<strong>Dátum:</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+#: model:ir.ui.view,arch_db:purchase.report_purchasequotation_document
+msgid "<strong>Description</strong>"
+msgstr "<strong>Popis</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchasequotation_document
+msgid "<strong>Expected Date</strong>"
+msgstr "<strong>Očakávaný dátum</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Order Date:</strong>"
+msgstr "<strong>Dátum objednávky:</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Our Order Reference:</strong>"
+msgstr "<strong>Naša referencia objednávky:</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_order
+msgid "<strong>Product</strong>"
+msgstr "<strong>Produkt</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+#: model:ir.ui.view,arch_db:purchase.report_purchasequotation_document
+msgid "<strong>Qty</strong>"
+msgstr "<strong>Množstvo</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_order
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>Množstvo</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+#: model:ir.ui.view,arch_db:purchase.report_purchasequotation_document
+msgid "<strong>Shipping address:</strong>"
+msgstr "<strong>Dodacia adresa:</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_order
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Medzisúčet</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Taxes</strong>"
+msgstr "<strong>Dane</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.track_po_line_template
+msgid "<strong>The ordered quantity has been updated.</strong>"
+msgstr "<strong>Objednané množstvo bolo upravené.</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_order
+msgid "<strong>Total:</strong>"
+msgstr "<strong>Spolu:</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>Celkom</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_order
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Unit Price</strong>"
+msgstr "<strong>Jednotková cena</strong>"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "<strong>Your Order Reference:</strong>"
+msgstr "<strong>Vaša referencia objednávky:</strong>"
+
+#. module: purchase
+#: code:addons/purchase/models/stock.py:72
+#, python-format
+msgid ""
+"A sale order that generated this purchase order has been deleted. Check if "
+"an action is needed."
+msgstr ""
+
+#. module: purchase
+#: model:res.groups,name:purchase.group_warning_purchase
+msgid "A warning can be set on a product or a customer (Purchase)"
+msgstr "Na produkt alebo zákazníka (Nákup) môže byť nastavené varovanie"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_account_invoice_purchase_id
+msgid "Add Purchase Order"
+msgstr "Pridať nákupnú objednávku"
+
+#. module: purchase
+#: code:addons/purchase/controllers/portal.py:53
+#, python-format
+msgid "All"
+msgstr "Všetko"
+
+#. module: purchase
+#: selection:res.company,po_lock:0
+msgid "Allow to edit purchase orders"
+msgstr "Povoliť zmenu nákupnej objednávky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_account
+msgid "Allows you to specify an analytic account on purchase order lines."
+msgstr ""
+"Umožňuje vám špecifikovať analytický účet na riadkoch nákupnej objednávky."
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_account_analytic_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_account_analytic_id
+msgid "Analytic Account"
+msgstr "Analytický účet"
+
+#. module: purchase
+#: model:res.groups,name:purchase.group_analytic_accounting
+msgid "Analytic Accounting for Purchases"
+msgstr "Analytické účtovníctvo pre Nákupy"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_analytic_tag_ids
+msgid "Analytic Tags"
+msgstr "Analytické štítky "
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_group_analytic_account_for_purchases
+msgid "Analytic accounting for purchases"
+msgstr "Analytické účtovníctvo pre nákupy"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_date_approve
+msgid "Approval Date"
+msgstr "Dátum schválenia"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Approve Order"
+msgstr "Schváliť objednávku"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_account_invoice_line_purchase_id
+msgid ""
+"Associated Purchase Order. Filled in automatically when a PO is chosen on "
+"the vendor bill."
+msgstr ""
+"Pridružená nákupná objednávka.Automaticky vyplnené keď je nákupná objednávka"
+" zvolená na účte predajcu."
+
+#. module: purchase
+#: model:ir.filters,name:purchase.filter_purchase_order_average_delivery_time
+msgid "Average Delivery Time"
+msgstr "Priemerná dodacia doba"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_price_average
+msgid "Average Price"
+msgstr "Priemerná cena"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_default_purchase_method
+msgid "Bill Control"
+msgstr "Kontrola účtenky"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_invoice_lines
+msgid "Bill Lines"
+msgstr "Riadky účtenky"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_qty_invoiced
+msgid "Billed Qty"
+msgstr "Účtované množ."
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.track_po_line_template
+msgid "Billed Quantity:"
+msgstr "Účtované množstvo:"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_invoice_status
+msgid "Billing Status"
+msgstr "Stav účtovania"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_invoice_ids
+msgid "Bills"
+msgstr "Účtenky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Bills Received"
+msgstr "Prijaté účtenky"
+
+#. module: purchase
+#: selection:product.template,purchase_line_warn:0
+#: selection:res.partner,purchase_warn:0
+msgid "Blocking Message"
+msgstr "Blokovacia správa"
+
+#. module: purchase
+#: code:addons/purchase/models/stock.py:92
+#: model:stock.location.route,name:purchase.route_warehouse0_buy
+#, python-format
+msgid "Buy"
+msgstr "Kúpiť"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_stock_warehouse_buy_pull_id
+msgid "Buy rule"
+msgstr "Pravidlo kupovania"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid ""
+"By default, vendor prices can be set manually in the product detail form. If"
+" your vendors provide you with pricelist files, this option allows you to "
+"easily import them into the system from ‘Purchase > Vendor Pricelists’ menu."
+msgstr ""
+"Štandardne sa dodávateľské ceny nastavujú ručne v detaile produktu. Ak "
+"dodávateľ poskytuje súbory s cenníkmi, je možné ich importovať cez menu "
+"'Nákup > Dodávateľské cenníky'."
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_calendar
+msgid "Calendar View"
+msgstr "Zobrazenie kalendára"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid ""
+"Calls for tenders are used when you want to generate requests for quotations"
+" to several vendors for a given set of products. You can configure per "
+"product if you directly do a Request for Quotation to one vendor or if you "
+"want a Call for Tenders to compare offers from several vendors."
+msgstr ""
+
+#. module: purchase
+#: code:addons/purchase/models/stock.py:95
+#, python-format
+msgid "Can't find any generic Buy route."
+msgstr "Nemožno nájsť žiadnu generickú trasu Kúpiť."
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#. module: purchase
+#: code:addons/purchase/controllers/portal.py:55
+#: selection:purchase.order,state:0 selection:purchase.report,state:0
+#, python-format
+msgid "Cancelled"
+msgstr "Zrušené"
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:757
+#, python-format
+msgid "Cannot delete a purchase order line which is in state '%s'."
+msgstr "Nie je možné zmazať nákupnú objednávku ktorá je v stave '%s'."
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.act_res_partner_2_supplier_invoices
+msgid "Click here to record a vendor bill."
+msgstr "Kliknite sem pre nahratie účtenky predajcu."
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.purchase_form_action
+msgid ""
+"Click to create a quotation that will be converted into a purchase order."
+msgstr ""
+"Kliknite pre vytvorenie cenovej ponuky ktorá bude konvertovaná na nákupnú "
+"objednávku."
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.purchase_rfq
+msgid "Click to create a request for quotation."
+msgstr "Kliknite pre vytvorenie žiadosti o cenovú ponuku."
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.action_invoice_pending
+msgid "Click to create a vendor bill."
+msgstr ""
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.product_normal_action_puchased
+#: model:ir.actions.act_window,help:purchase.product_product_action
+msgid "Click to define a new product."
+msgstr "Kliknite pre definovanie nového produktu."
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.purchase_open_invoice
+msgid "Click to record a vendor bill related to this purchase."
+msgstr "Kliknite pre vytvorenie účtenky predajcu spojenej s týmto nákupom."
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_commercial_partner_id
+msgid "Commercial Entity"
+msgstr "Komerčný subjekt"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_res_company
+msgid "Companies"
+msgstr "Spoločnosti"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_company_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_company_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_company_id
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Company"
+msgstr "Spoločnost"
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:313
+#, python-format
+msgid "Compose Email"
+msgstr "Vytvoriť Email"
+
+#. module: purchase
+#: model:ir.ui.menu,name:purchase.menu_purchase_config
+msgid "Configuration"
+msgstr "Konfigurácia"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Confirm Order"
+msgstr "Potvrdiť objednávku"
+
+#. module: purchase
+#: selection:res.company,po_double_validation:0
+msgid "Confirm purchase orders in one step"
+msgstr "Potvrdiť nákupné objednávky v jednom kroku"
+
+#. module: purchase
+#: selection:res.company,po_lock:0
+msgid "Confirmed purchase orders are not editable"
+msgstr "Potvrdené nákupné objednávky nie je možné zmeniť"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: purchase
+#: model:ir.ui.menu,name:purchase.menu_purchase_control
+msgid "Control"
+msgstr "Kontrola"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_product_product_purchase_method
+#: model:ir.model.fields,field_description:purchase.field_product_template_purchase_method
+msgid "Control Policy"
+msgstr "Kontrolná politika"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_stock_move_created_purchase_line_id
+msgid "Created Purchase Order Line"
+msgstr "Vytvorená položka nákupnej objednávky"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_create_uid
+msgid "Created by"
+msgstr "Vytvoril"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_create_date
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_create_date
+msgid "Created on"
+msgstr "Vytvorené"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_currency_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_currency_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_currency_id
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_company_currency_id
+msgid "Currency"
+msgstr "Mena"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_date_approve
+msgid "Date Approved"
+msgstr "Dátum schválený"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_report_date_order
+msgid "Date on which this document has been created"
+msgstr "Odo dňa, keď bol tento dokument vytvorený"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_delay_pass
+msgid "Days to Deliver"
+msgstr "Dni na doručenie"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_delay
+msgid "Days to Validate"
+msgstr "Dni na overenie"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Define your terms and conditions ..."
+msgstr "Zadefinujte svoje pojmy a podmienky..."
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_picking_type_id
+msgid "Deliver To"
+msgstr "Doručiť"
+
+#. module: purchase
+#: selection:res.config.settings,default_purchase_method:0
+msgid "Delivered quantities"
+msgstr "Dodané množstvá"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Deliveries & Invoices"
+msgstr "Doručenia & Faktúry"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_order_date_order
+#: model:ir.model.fields,help:purchase.field_purchase_order_line_date_order
+msgid ""
+"Depicts the date where the Quotation should be validated and converted into "
+"a purchase order."
+msgstr ""
+"Znázorňuje dátum keď mala byť cenová ponuka overená a prekonvertovaná na "
+"nákupnú objednávku."
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_name
+msgid "Description"
+msgstr "Popis"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_product_supplier_inherit
+msgid "Description for Vendors"
+msgstr "Popis pre predajcov"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_default_location_dest_id_usage
+msgid "Destination Location Type"
+msgstr "Typ cieľovej lokácie"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_display_name
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_display_name
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_display_name
+msgid "Display Name"
+msgstr "Zobraziť meno"
+
+#. module: purchase
+#: selection:purchase.report,state:0
+msgid "Done"
+msgstr "Hotovo"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_company_po_double_validation_amount
+msgid "Double validation amount"
+msgstr "Množstvo dvojitej validácie"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_move_dest_ids
+msgid "Downstream Moves"
+msgstr ""
+
+#. module: purchase
+#: selection:purchase.report,state:0
+msgid "Draft RFQ"
+msgstr "Koncept RFQ"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_dest_address_id
+msgid "Drop Ship Address"
+msgstr "Dropship adresa"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_module_stock_dropshipping
+msgid "Dropshipping"
+msgstr "Dropshipping"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "Sprievodca zostavovaním emailov"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_account_invoice_purchase_id
+msgid ""
+"Encoding help. When selected, the associated purchase order lines are added "
+"to the vendor bill. Several PO can be selected."
+msgstr ""
+"Kódovacia pomoc. Pri výbere pridružené príkazu k nákupu riadky sú pridané do"
+" účtenky predajcu. Možno zvoliť niekoľko PO."
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Expected Date"
+msgstr "Očakávaný dátum"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Extended Filters"
+msgstr "Rozšírené filtre"
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:590
+#, python-format
+msgid "Extra line with %s "
+msgstr "Zvláštny riadok s %s "
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_fiscal_position_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_fiscal_position_id
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Fiscal Position"
+msgstr "Fiškálna pozícia"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Future Activities"
+msgstr "Budúce aktivity"
+
+#. module: purchase
+#: selection:res.company,po_double_validation:0
+msgid "Get 2 levels of approvals to confirm a purchase order"
+msgstr "Získať 2 úrovne schválení pre potvrdenie nákupnej objednávky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "Get warnings in orders for products or vendors"
+msgstr "Dostávajte varovania pre produkty alebo dodávateľov"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_weight
+msgid "Gross Weight"
+msgstr "Hrubá hmotnosť"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_search
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Group By"
+msgstr "Zoskupiť podľa"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_search
+msgid "Hide cancelled lines"
+msgstr "Skryť zrušené riadky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "How to import"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_id
+msgid "ID"
+msgstr "ID"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid ""
+"If enabled, activates 3-way matching on vendor bills : the items must be "
+"received in order to pay the invoice."
+msgstr ""
+"Ak je povolené, aktivovuje 3-cestnú kontrolu dodávateľských faktúr: položky "
+"musia byť dodané aby bolo možné platiť faktúry"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "Import vendor pricelists"
+msgstr "Import dodávateľských cenníkov"
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:206
+#, python-format
+msgid "In order to delete a purchase order, you must cancel it first."
+msgstr "Pre zmazanie nákupnej objednávky ju musíte najskôr zrušiť."
+
+#. module: purchase
+#: model:ir.ui.menu,name:purchase.menu_action_picking_tree_in_move
+msgid "Incoming  Products"
+msgstr "Prichádzajúce produkty"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Incoming Shipments"
+msgstr "Prichádzajúce zásielky"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_incoterm_id
+msgid "Incoterm"
+msgstr "Incoterm"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_order_incoterm_id
+msgid ""
+"International Commercial Terms are a series of predefined commercial terms "
+"used in international transactions."
+msgstr ""
+"Medzinárodné obchodné podmienky (Incoterms) sú zbierka predefinovaných "
+"obchodných podmienok používaných pri medzinárodných transakciách."
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_account_invoice
+msgid "Invoice"
+msgstr "Faktúra"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Položky faktúry"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Invoices and Incoming Shipments"
+msgstr "Faktúry a prichádzajúce zásielky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "Invoicing"
+msgstr "Fakturácia"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_is_shipped
+msgid "Is Shipped"
+msgstr "Je dodané"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_is_installed_sale
+msgid "Is the Sale Module Installed"
+msgstr "Je inštalovaný modul predaja"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order___last_update
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line___last_update
+#: model:ir.model.fields,field_description:purchase.field_purchase_report___last_update
+msgid "Last Modified on"
+msgstr "Posledná modifikácia"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_write_uid
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_write_uid
+msgid "Last Updated by"
+msgstr "Naposledy upravoval"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_write_date
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_write_date
+msgid "Last Updated on"
+msgstr "Naposledy upravované"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Late Activities"
+msgstr "Neskoršie aktivity"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_company_po_double_validation
+msgid "Levels of Approvals"
+msgstr "Úrovne schvaľovania"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_po_double_validation
+msgid "Levels of Approvals *"
+msgstr "Úrovne schvaľovania *"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Lock"
+msgstr "Zamknúť"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_lock_confirmed_po
+msgid "Lock Confirmed Orders"
+msgstr "Zamknúť potvrdené objednávky"
+
+#. module: purchase
+#: code:addons/purchase/controllers/portal.py:56
+#: selection:purchase.order,state:0
+#, python-format
+msgid "Locked"
+msgstr "Uzamknuté"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "Logistics"
+msgstr "Logistika"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid ""
+"Make sure you only pay bills for which you received the goods you ordered"
+msgstr "Uistite sa že platíte účty len za dodané tovary ktoré ste objednali"
+
+#. module: purchase
+#: model:res.groups,name:purchase.group_manage_vendor_price
+msgid "Manage Vendor Price"
+msgstr "Spravovať cenu predajcu"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "Manage your purchase agreements (call for tenders, blanket orders)"
+msgstr ""
+
+#. module: purchase
+#: model:res.groups,name:purchase.group_purchase_manager
+msgid "Manager"
+msgstr "Manažér"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "Managers must approve orders"
+msgstr "Objednávky musia byť schválené vedením"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_form2
+msgid "Manual Invoices"
+msgstr "Manuálne faktúry"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_res_company_po_lead
+#: model:ir.model.fields,help:purchase.field_res_config_settings_po_lead
+msgid ""
+"Margin of error for vendor lead times. When the system generates Purchase "
+"Orders for procuring products, they will be scheduled that many days earlier"
+" to cope with unexpected vendor delays."
+msgstr ""
+"Odchýlka pre dodacie lehoty predajcov. Keď systém vygeneruje nákupnú "
+"objednávku pre obstaranie výrobkov, budú naplánované o toľko dní skôr pre "
+"vysporiadanie sa s nečakaným oneskorením predajcov."
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_res_config_settings_use_po_lead
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_stock
+msgid ""
+"Margin of error for vendor lead times. When the system generates Purchase "
+"Orders for reordering products,they will be scheduled that many days earlier"
+" to cope with unexpected vendor delays."
+msgstr ""
+"Odchýlka pre dodacie lehoty predajcov. Keď systém vygeneruje nákupnú "
+"objednávku pre obstaranie výrobkov, budú naplánované o toľko dní skôr pre "
+"vysporiadanie sa s nečakaným oneskorením dodavateľov."
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_partner_purchase_warn_msg
+#: model:ir.model.fields,field_description:purchase.field_res_users_purchase_warn_msg
+msgid "Message for Purchase Order"
+msgstr "Správa pre nákupnú objednávku"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_product_product_purchase_line_warn_msg
+#: model:ir.model.fields,field_description:purchase.field_product_template_purchase_line_warn_msg
+msgid "Message for Purchase Order Line"
+msgstr "Správa pre riadok nákupnej objednávky"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_po_double_validation_amount
+msgid "Minimum Amount"
+msgstr "Minimálne množstvo"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_stock_warehouse_orderpoint
+msgid "Minimum Inventory Rule"
+msgstr "Pravidlo minimálneho inventára"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_res_company_po_double_validation_amount
+#: model:ir.model.fields,help:purchase.field_res_config_settings_po_double_validation_amount
+msgid "Minimum amount for which a double validation is required"
+msgstr "Minimálne množstvo pre ktoré je vyžadované dvojité overenie"
+
+#. module: purchase
+#: model:ir.filters,name:purchase.filter_purchase_order_monthly_purchases
+msgid "Monthly Purchases"
+msgstr "Mesačné nákupy"
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.purchase_rfq
+msgid ""
+"Most propositions of purchase orders are created automatically\n"
+"                by Odoo based on inventory needs."
+msgstr ""
+"Väčšina návrhov nákupných objednávok sú vytvorené automaticky\n"
+"                podľa Odoo na základe nastavených minimálnych zásob."
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_stock
+msgid "Move forward expected delivery dates by"
+msgstr "Dodacie dátumy viac vpredu podľa"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "My Activities"
+msgstr "Moje aktivity"
+
+#. module: purchase
+#: code:addons/purchase/controllers/portal.py:44
+#, python-format
+msgid "Name"
+msgstr "Meno"
+
+#. module: purchase
+#: code:addons/purchase/controllers/portal.py:43
+#, python-format
+msgid "Newest"
+msgstr "Najnovšie"
+
+#. module: purchase
+#: selection:purchase.order,invoice_status:0
+msgid "No Bill to Receive"
+msgstr "Žiadne obdržané účtenky"
+
+#. module: purchase
+#: selection:product.template,purchase_line_warn:0
+#: selection:res.partner,purchase_warn:0
+msgid "No Message"
+msgstr "Žiadna správa"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "No longer edit orders once confirmed"
+msgstr "Nemožno editovať objednávky po potvrdení"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_order_line_product_image
+msgid ""
+"Non-stored related field to allow portal user to see the image of the "
+"product he has ordered"
+msgstr ""
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Notes"
+msgstr "Poznámky"
+
+#. module: purchase
+#: selection:purchase.order,invoice_status:0
+msgid "Nothing to Bill"
+msgstr "Nič na účtovanie"
+
+#. module: purchase
+#: selection:product.template,purchase_method:0
+msgid "On ordered quantities"
+msgstr "Na objednaných množstvách"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_product_product_purchase_method
+#: model:ir.model.fields,help:purchase.field_product_template_purchase_method
+msgid ""
+"On ordered quantities: control bills based on ordered quantities.\n"
+"On received quantities: control bills based on received quantity."
+msgstr ""
+
+#. module: purchase
+#: selection:product.template,purchase_method:0
+msgid "On received quantities"
+msgstr "Na obdržaných množstvách"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_po_order_approval
+msgid "Order Approval"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_date_order
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_date_order
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_date_order
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_orders
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Order Date"
+msgstr "Dátum objednávky"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_order_line
+msgid "Order Lines"
+msgstr "Riadky objednávky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Order Month"
+msgstr "Mesiac objednávky"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_order_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_name
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_search
+msgid "Order Reference"
+msgstr "Odkaz na objednávku"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_state
+msgid "Order Status"
+msgstr "Stav objednávky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Order of Day"
+msgstr "Objednávka dňa"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.track_po_line_template
+msgid "Ordered Quantity:"
+msgstr "Objednané množstvo:"
+
+#. module: purchase
+#: selection:res.config.settings,default_purchase_method:0
+msgid "Ordered quantities"
+msgstr "Objednané množstvá"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_orderpoint_id
+msgid "Orderpoint"
+msgstr "Bod objednávky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Orders"
+msgstr "Objednávky"
+
+#. module: purchase
+#: model:mail.template,report_name:purchase.email_template_edi_purchase_done
+msgid "PO_${(object.name or '').replace('/','_')}"
+msgstr "PO_${(object.name or '').replace('/','_')}"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_partner_id
+msgid "Partner"
+msgstr "Partner"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_country_id
+msgid "Partner Country"
+msgstr "Partnerská krajina"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Partner's Country"
+msgstr "Krajina partnera"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_payment_term_id
+msgid "Payment Terms"
+msgstr "Termíny platby"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_product_category_property_account_creditor_price_difference_categ
+#: model:ir.model.fields,field_description:purchase.field_product_product_property_account_creditor_price_difference
+#: model:ir.model.fields,field_description:purchase.field_product_template_property_account_creditor_price_difference
+msgid "Price Difference Account"
+msgstr "Cenový rozdiel účtu"
+
+#. module: purchase
+#: model:ir.filters,name:purchase.filter_purchase_order_price_per_supplier
+msgid "Price Per Vendor"
+msgstr "Cena za predajcu"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Print RFQ"
+msgstr "Vytlačiť RFQ"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_group_id
+msgid "Procurement Group"
+msgstr "Skupina obstarávania"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_procurement_group
+msgid "Procurement Requisition"
+msgstr "Rekvizícia obstarávania"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_procurement_rule
+msgid "Procurement Rule"
+msgstr "Pravidlo obstarávania"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_product_product
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_product_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_product_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_product_id
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_search
+msgid "Product"
+msgstr "Produkt"
+
+#. module: purchase
+#: model:ir.ui.menu,name:purchase.menu_product_category_config_purchase
+msgid "Product Categories"
+msgstr "Kategórie produktu"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_product_category
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_category_id
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Product Category"
+msgstr "Kategória produktu"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_product_image
+msgid "Product Image"
+msgstr "Obrázok produktu"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_unit_quantity
+msgid "Product Quantity"
+msgstr "Množstvo produktu"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_product_template
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_product_tmpl_id
+msgid "Product Template"
+msgstr "šablona produktu"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_product_uom
+msgid "Product Unit of Measure"
+msgstr "Merná jednotka produktu"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.product_product_action
+#: model:ir.ui.menu,name:purchase.product_product_menu
+msgid "Product Variants"
+msgstr "Varianty produktu"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.product_normal_action_puchased
+#: model:ir.ui.menu,name:purchase.menu_procurement_partner_contact_form
+#: model:ir.ui.menu,name:purchase.menu_product_in_config_purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "Products"
+msgstr "Produkty"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_price_standard
+msgid "Products Value"
+msgstr "Hodnota produktov"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_res_company_po_double_validation
+#: model:ir.model.fields,help:purchase.field_res_config_settings_po_double_validation
+msgid "Provide a double validation mechanism for purchases"
+msgstr "Poskytnite mechanizmus dvojitého overovania pre nákupy"
+
+#. module: purchase
+#: model:ir.ui.menu,name:purchase.menu_procurement_management
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+#: model:ir.ui.view,arch_db:purchase.view_product_supplier_inherit
+msgid "Purchase"
+msgstr "Nákup"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_module_purchase_requisition
+msgid "Purchase Agreements"
+msgstr "Nákupné dohody"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.action_purchase_order_report_all
+msgid "Purchase Analysis"
+msgstr "Nákupná analýza"
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.action_purchase_order_report_all
+msgid ""
+"Purchase Analysis allows you to easily check and analyse your company "
+"purchase history and performance. From this menu you can track your "
+"negotiation performance, the delivery performance of your vendors, etc."
+msgstr ""
+"Nákupná anlýza vám umožňuje jednoducho skontrolovať a analyzovať históriu "
+"nákupov a výkon vašej spoločnosti. Z tohto menu môžete sledovať výkon vašých"
+" vyjednávaní, výkon dodávania vašich predajcov, atď"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_account
+msgid "Purchase Analytics"
+msgstr ""
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_product_supplier_inherit
+msgid "Purchase Bills"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_company_po_lead
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_po_lead
+msgid "Purchase Lead Time"
+msgstr "Dodacia doba nákupu"
+
+#. module: purchase
+#: code:addons/purchase/controllers/portal.py:54
+#: model:ir.actions.report,name:purchase.action_report_purchase_order
+#: model:ir.model,name:purchase.model_purchase_order
+#: model:ir.model.fields,field_description:purchase.field_account_invoice_line_purchase_id
+#: model:ir.model.fields,field_description:purchase.field_res_partner_purchase_warn
+#: model:ir.model.fields,field_description:purchase.field_res_users_purchase_warn
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_order
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+#: model:ir.ui.view,arch_db:purchase.purchase_order_graph
+#: model:ir.ui.view,arch_db:purchase.purchase_order_pivot
+#: model:ir.ui.view,arch_db:purchase.purchase_order_tree
+#: selection:purchase.order,state:0 selection:purchase.report,state:0
+#: model:res.request.link,name:purchase.req_link_purchase_order
+#, python-format
+msgid "Purchase Order"
+msgstr "Objednávka"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Purchase Order Confirmation #"
+msgstr "Potvrdenie nákupnej objednávky #"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Purchase Order Fiscal Position"
+msgstr "Fiškálna pozícia nákupnej objednávky"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_purchase_order_line
+#: model:ir.model.fields,field_description:purchase.field_account_invoice_line_purchase_line_id
+#: model:ir.model.fields,field_description:purchase.field_product_product_purchase_line_warn
+#: model:ir.model.fields,field_description:purchase.field_product_template_purchase_line_warn
+#: model:ir.model.fields,field_description:purchase.field_stock_move_purchase_line_id
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_form2
+msgid "Purchase Order Line"
+msgstr "Riadok nákupnej objednávky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_tree
+msgid "Purchase Order Lines"
+msgstr "Riadky nákupnej objednávky"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_company_po_lock
+msgid "Purchase Order Modification"
+msgstr "Úprava nákupnej objednávky"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_po_lock
+msgid "Purchase Order Modification *"
+msgstr "Úprava nákupnej objednávky *"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_res_company_po_lock
+#: model:ir.model.fields,help:purchase.field_res_config_settings_po_lock
+msgid ""
+"Purchase Order Modification used when you want to purchase order editable "
+"after confirm"
+msgstr ""
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.purchase_form_action
+#: model:ir.actions.act_window,name:purchase.purchase_order_action_generic
+#: model:ir.model.fields,field_description:purchase.field_stock_picking_purchase_id
+#: model:ir.ui.menu,name:purchase.menu_purchase_form_action
+#: model:ir.ui.view,arch_db:purchase.portal_my_home_menu_purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_home_purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_orders
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Purchase Orders"
+msgstr "Nakupné objednávky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_orders
+msgid "Purchase Orders #"
+msgstr "Nakupné objednávky #"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_graph
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_pivot
+msgid "Purchase Orders Statistics"
+msgstr "Štatistiky nákupných objednávok"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Purchase orders that have been invoiced."
+msgstr "Fakturované nákupné objednávky."
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Purchase orders that include lines not invoiced."
+msgstr "Nákupné objednávky ktoré obsahuú nevyfaktúrované riadky."
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_stock_warehouse_buy_to_resupply
+msgid "Purchase to resupply this warehouse"
+msgstr "Nákup na doplnenie tohto skladiska"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_negociation
+msgid "Purchase-Standard Price"
+msgstr "Nákup-Štandardná cena"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.action_purchase_line_product_tree
+#: model:ir.ui.menu,name:purchase.menu_purchase_root
+#: model:ir.ui.view,arch_db:purchase.res_partner_view_purchase_buttons
+#: model:ir.ui.view,arch_db:purchase.view_product_template_purchase_buttons_from
+#: model:ir.ui.view,arch_db:purchase.view_warehouse_orderpoint_purchase_form
+msgid "Purchases"
+msgstr "Nákupy"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_purchase_report
+msgid "Purchases Orders"
+msgstr "Nákupy objednávok"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_stock_location_path
+msgid "Pushed Flow"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_order_dest_address_id
+msgid ""
+"Put an address if you want to deliver directly from the vendor to the "
+"customer. Otherwise, keep empty to deliver to your own company."
+msgstr ""
+"Poskytnite adresu ak chcete doručenie od predajcu priamo zákaznikovi. V "
+"opačnom prípade, nechajte prázdne pre doručenie do vašej spoločnosti."
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "Quantities billed by vendors"
+msgstr "Množstvá účtované dodávateľom"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_product_qty
+msgid "Quantity"
+msgstr "Množstvo"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Quotations"
+msgstr "Cenové ponuky"
+
+#. module: purchase
+#: selection:purchase.order,state:0
+msgid "RFQ"
+msgstr "RFQ"
+
+#. module: purchase
+#: model:mail.message.subtype,name:purchase.mt_rfq_approved
+msgid "RFQ Approved"
+msgstr "RFQ schválené"
+
+#. module: purchase
+#: model:mail.message.subtype,name:purchase.mt_rfq_confirmed
+msgid "RFQ Confirmed"
+msgstr "RFQ potvrdené"
+
+#. module: purchase
+#: model:mail.message.subtype,name:purchase.mt_rfq_done
+msgid "RFQ Done"
+msgstr "RFQ dokončené"
+
+#. module: purchase
+#: selection:purchase.order,state:0 selection:purchase.report,state:0
+msgid "RFQ Sent"
+msgstr "RFQ poslané"
+
+#. module: purchase
+#: model:mail.template,report_name:purchase.email_template_edi_purchase
+msgid "RFQ_${(object.name or '').replace('/','_')}"
+msgstr "RFQ_${(object.name or '').replace('/','_')}"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.act_res_partner_2_purchase_order
+msgid "RFQs and Purchases"
+msgstr "RFQ a Nákupy"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Re-Send RFQ by Email"
+msgstr "Preposlať RFQ emailom"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Receive Products"
+msgstr "Prijať produkty"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_qty_received
+msgid "Received Qty"
+msgstr "Prijaté množstvo"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.track_po_line_template
+msgid "Received Quantity:"
+msgstr "Prijaté množstvo:"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.purchase_open_picking
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_picking_count
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_picking_ids
+msgid "Receptions"
+msgstr "Prijatia"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_tree
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_product_uom
+msgid "Reference Unit of Measure"
+msgstr "Referencia mernej jednotky"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_order_origin
+msgid ""
+"Reference of the document that generated this purchase order request (e.g. a"
+" sales order)"
+msgstr ""
+"Odkaz na dokument, ktorý vytvoril túto požiadavku nákupnej objednávky (napr."
+" objednávka predaja)"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_order_partner_ref
+msgid ""
+"Reference of the sales order or bid sent by the vendor. It's used to do the "
+"matching when you receive the products as this reference is usually written "
+"on the delivery order sent by your vendor."
+msgstr ""
+"Odkaz na predajné objednávky alebo ponuky zaslanej dodávateľom. Používa sa "
+"na vytvorenie zhody keď dostanete produkty, keďže tento odkaz je zvyčajne "
+"napísaný na dodacej objenávke zaslanej vašim predajcom."
+
+#. module: purchase
+#: model:ir.ui.menu,name:purchase.purchase_report
+msgid "Reporting"
+msgstr "Výkazy"
+
+#. module: purchase
+#: model:ir.actions.report,name:purchase.report_purchase_quotation
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+#: model:ir.ui.view,arch_db:purchase.report_purchasequotation_document
+msgid "Request for Quotation"
+msgstr "Žiadosť o cenovú ponuku"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Request for Quotation #"
+msgstr "Žiadosť o cenovu ponuku #"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid "Request your vendors to deliver to your customers"
+msgstr "Vyžiadať doručenie dodávateľom priamo vašim zákazníkom"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.purchase_rfq
+#: model:ir.ui.menu,name:purchase.menu_purchase_rfq
+msgid "Requests for Quotation"
+msgstr "Žiadosti o cenovú ponuku"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_move_ids
+msgid "Reservation"
+msgstr "Rezervácia"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_create_uid
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_user_id
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Responsible"
+msgstr "Zodpovedný"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_stock_return_picking
+msgid "Return Picking"
+msgstr "Vrátiť výber"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_stock
+msgid "Schedule receivings earlier to avoid delays"
+msgstr "Plánovať príjmy tovaru skôr pre obmedzenie meškaní"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_date_planned
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_date_planned
+msgid "Scheduled Date"
+msgstr "Naplánovaný dátum"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_search
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Search Purchase Order"
+msgstr "Vyhľadať nákupnú objednávku"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_use_po_lead
+msgid "Security Lead Time for Purchase"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_product_product_purchase_line_warn
+#: model:ir.model.fields,help:purchase.field_product_template_purchase_line_warn
+#: model:ir.model.fields,help:purchase.field_res_partner_purchase_warn
+#: model:ir.model.fields,help:purchase.field_res_users_purchase_warn
+msgid ""
+"Selecting the \"Warning\" option will notify user with the message, "
+"Selecting \"Blocking Message\" will throw an exception with the message and "
+"block the flow. The Message has to be written in the next field."
+msgstr ""
+"Zvolenie možnosti \"Varovanie\" notifikuje používateľa správou, Zvolenie "
+"\"Blokovanie správy\" hodí výnimku so správou a zablokuje tok. Správa musí "
+"byť napísaná v ďalšom poli."
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Send PO by Email"
+msgstr "Poslať PO emailom"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Send RFQ by Email"
+msgstr "Poslať RFQ emailom"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_sequence
+msgid "Sequence"
+msgstr "Postupnosť"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_account
+msgid "Set analytic accounts in purchase orders"
+msgstr ""
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Set date to all order lines"
+msgstr "Nastav dátum pre všetky riadky objednávky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Set to Draft"
+msgstr "Nastaviť na koncept"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.action_purchase_configuration
+#: model:ir.ui.menu,name:purchase.menu_purchase_general_settings
+msgid "Settings"
+msgstr "Nastavenia"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Shipment"
+msgstr "Zásielka"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Show all records which has next action date is before today"
+msgstr "Zobraz všetky záznamy ktorých následná aktivita je pred dnešným dňom"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_origin
+msgid "Source Document"
+msgstr "Zdrojový dokument"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_state
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_state
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_search
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Status"
+msgstr "Stav"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_stock_move
+msgid "Stock Move"
+msgstr "Pohyb Skladu"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_form2
+msgid "Stock Moves"
+msgstr "Skladové pohyby"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_price_subtotal
+msgid "Subtotal"
+msgstr "Medzisúčet"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_partner_property_purchase_currency_id
+#: model:ir.model.fields,field_description:purchase.field_res_users_property_purchase_currency_id
+msgid "Supplier Currency"
+msgstr "Mena dodávateľa"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_price_tax
+msgid "Tax"
+msgstr "Daň"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_amount_tax
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_taxes_id
+#: model:ir.ui.view,arch_db:purchase.report_purchaseorder_document
+msgid "Taxes"
+msgstr "Dane"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_order
+msgid "Taxes:"
+msgstr "Dane :"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_order_default_location_dest_id_usage
+msgid "Technical field used to display the Drop Ship Address"
+msgstr "Technické pole používané na zobrazenie Dropshippingovej adresy"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_notes
+msgid "Terms and Conditions"
+msgstr "Pojmy a podmienky"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_order_website_url
+msgid "The full URL to access the document through the website."
+msgstr "Úplná URL na prístup k dokumentu cez webové stránky."
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.product_product_action
+msgid ""
+"The product form contains detailed information to improve the\n"
+"                purchase process: prices, procurement logistics, accounting data,\n"
+"                available vendors, etc."
+msgstr ""
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.product_normal_action_puchased
+msgid ""
+"The product form contains detailed information to improve the\n"
+"            purchase process: prices, procurement logistics, accounting data,\n"
+"            available vendors, etc."
+msgstr ""
+"Formulár produktu podrobné obsahuje informácie pre zjednodušenie \n"
+"nákupného procesu: ceny, logistiky obstarávania, účtovné údaje,\n"
+"dostupných predajcov, atď."
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:662
+#, python-format
+msgid ""
+"The quantities on your purchase order indicate less than billed. You should "
+"ask for a refund. "
+msgstr ""
+"Množstvá na nákupnej objednávke sú menšie ako zaplatené. Treba žiadať "
+"dobropis."
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.purchase_rfq
+msgid ""
+"The quotation contains the history of the discussion/negotiation\n"
+"                you had with your vendor. Once confirmed, a request for\n"
+"                quotation is converted into a purchase order."
+msgstr ""
+"Cenová ponuka obsahuje históriu diskusie/vyjednávania\n"
+"ktoré ste mali s predajcom. Keď sa potvrdí, žiadosť o\n"
+"cenovú ponuku je prekonvertovaná na nákupnú objednávku."
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.act_res_partner_2_purchase_order
+msgid ""
+"The request for quotation is the first step of the purchases flow. Once\n"
+"                    converted into a purchase order, you will be able to control the receipt\n"
+"                    of the products and the vendor bill."
+msgstr ""
+"Žiadosť o cenovú ponuku je prvý krok toku nákupov. Akonáhle\n"
+"prekonvertované na nákupnú objednávku, budete môcť kontrolovať príjem\n"
+"produktov a účetnku predajcu."
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:898
+#, python-format
+msgid ""
+"There is no vendor associated to the product %s. Please define a vendor for "
+"this product."
+msgstr ""
+"K produktu %s nie je priradený dodávateľ. Zadefinujte prosím dodávateľa "
+"tohto produktu."
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_product_category_property_account_creditor_price_difference_categ
+msgid ""
+"This account will be used to value price difference between purchase price "
+"and accounting cost."
+msgstr ""
+"Tento účet bude používaný na hodnotenie cenového rozdielu medzi nákupnou "
+"cenou a účtovným nákladom."
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_product_product_property_account_creditor_price_difference
+#: model:ir.model.fields,help:purchase.field_product_template_property_account_creditor_price_difference
+msgid ""
+"This account will be used to value price difference between purchase price "
+"and cost price."
+msgstr ""
+"tento účet bude použitý na vyčíslenie rozdielu medzi nákupnou cenou a "
+"skutočným nákladom."
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid ""
+"This adds a dropshipping route to apply on products in order to request your"
+" vendors to deliver to your customers. A product to dropship will generate a"
+" purchase request for quotation once the sales order confirmed. This is a "
+"on-demand flow. The requested delivery address will be the customer delivery"
+" address and not your warehouse."
+msgstr ""
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "This changes the scheduled date of all order lines to the given date"
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_res_partner_property_purchase_currency_id
+#: model:ir.model.fields,help:purchase.field_res_users_property_purchase_currency_id
+msgid ""
+"This currency will be used, instead of the default one, for purchases from "
+"the current partner"
+msgstr ""
+"Táto mena bude pouźitá, namiesto predvolenej, pre nákupy od aktuálneho "
+"partnera"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_res_config_settings_default_purchase_method
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_purchase
+msgid ""
+"This default value is applied to any new product created. This can be "
+"changed in the product detail form."
+msgstr ""
+"Táto preddefinovaná hodnota bude prevzatá pre každý nový produkt. Dá sa to "
+"zmeniť v detailnom formulári produktu."
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_product_supplier_inherit
+msgid "This note will show up on purchase orders."
+msgstr "Poznámka sa zobrazí na nákupných objednávkach."
+
+#. module: purchase
+#: code:addons/purchase/models/account_invoice.py:218
+#, python-format
+msgid "This vendor bill has been created from: %s"
+msgstr "Dodacia faktúra vytvorená: %s"
+
+#. module: purchase
+#: code:addons/purchase/models/account_invoice.py:232
+#, python-format
+msgid "This vendor bill has been modified from: %s"
+msgstr "Dodacia faktúra zmenená: %s"
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.act_res_partner_2_purchase_order
+msgid "This vendor has no purchase order. Click to create a new RfQ."
+msgstr ""
+"Predajca nemá žiadnu nákpnú objedávku. Kliknite pre vytvorenie novej RFQ."
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_purchase_order_picking_type_id
+msgid "This will determine operation type of incoming shipment"
+msgstr "Toto určí typ operácie prichádzajúcej zásielky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+#: selection:purchase.order,state:0 selection:purchase.report,state:0
+msgid "To Approve"
+msgstr "Na schválenie"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Today Activities"
+msgstr "Dnešné aktivity"
+
+#. module: purchase
+#: code:addons/purchase/controllers/portal.py:45
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_amount_total
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_price_total
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_orders
+#, python-format
+msgid "Total"
+msgstr "Celkom"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_price_total
+msgid "Total Price"
+msgstr "Celková cena"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_tree
+msgid "Total Untaxed amount"
+msgstr "Celková nezdanená suma"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_tree
+msgid "Total amount"
+msgstr "Celková suma"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_stock_picking
+msgid "Transfer"
+msgstr "Prevod"
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:363
+#, python-format
+msgid ""
+"Unable to cancel purchase order %s as some receptions have already been "
+"done."
+msgstr ""
+"Nemožno zrušiť nákupnú objednávku %s, keďže niektoré príjmy už boli urobené."
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:366
+#, python-format
+msgid ""
+"Unable to cancel this purchase order. You must first cancel related vendor "
+"bills."
+msgstr ""
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_line_price_unit
+msgid "Unit Price"
+msgstr "Jednotková cena"
+
+#. module: purchase
+#: model:ir.ui.menu,name:purchase.menu_purchase_uom_categ_form_action
+msgid "Unit of Measure Categories"
+msgstr "Kategórie merných jednotiek"
+
+#. module: purchase
+#: model:ir.ui.menu,name:purchase.menu_purchase_uom_form_action
+msgid "Units of Measure"
+msgstr "Merné jednotky"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+msgid "Unlock"
+msgstr "Odomkni"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+msgid "Unread Messages"
+msgstr "Neprečítané správy"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.purchase_order_tree
+msgid "Untaxed"
+msgstr "Základ"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_amount_untaxed
+msgid "Untaxed Amount"
+msgstr "Suma bez DPH"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.portal_my_purchase_order
+msgid "Untaxed Amount:"
+msgstr "Nezdanená suma:"
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.action_invoice_pending
+msgid ""
+"Use this menu to control the invoices to be received from your\n"
+"            vendors. When registering a new bill, set the purchase order\n"
+"            and Odoo will fill the bill automatically according to ordered\n"
+"            or received quantities."
+msgstr ""
+"Použite toto menu na kontrolu faktúr ktoré obdržíte od vášho \n"
+"dodávateľa. keď registrujete novú účtenku, nastavte nákupnú objednávku \n"
+"a Odoo vyplní účtenku automaticky podľa objednaného\n"
+"alebo obdržaného množstva."
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.purchase_form_action
+msgid ""
+"Use this menu to search within your purchase orders by\n"
+"                references, vendor, products, etc. For each purchase order,\n"
+"                you can track the related discussion with the vendor, control\n"
+"                the products received and control the vendor bills."
+msgstr ""
+"Použite toto menu na vyhľadávanie vo vašich nákupných objednávkach podľa\n"
+"referencií, predajcu, produktov, atď. Pre každú nákupnú objednávku,\n"
+"môžete sledovať súvisiacu diskusiu s predajcom, konrolovať\n"
+"prijaté produkty, a kontrolovať účtenky predajcu."
+
+#. module: purchase
+#: model:res.groups,name:purchase.group_purchase_user
+msgid "User"
+msgstr "Používateľ"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_res_config_settings_company_currency_id
+msgid "Utility field to express amount currency"
+msgstr "Úžitkové pole na vyjadrenie meny sumy"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_partner_id
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_partner_id
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_search
+#: model:ir.ui.view,arch_db:purchase.purchase_order_line_tree
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_search
+msgid "Vendor"
+msgstr "Predajca"
+
+#. module: purchase
+#: model:ir.actions.act_window,name:purchase.act_res_partner_2_supplier_invoices
+#: model:ir.actions.act_window,name:purchase.action_invoice_pending
+#: model:ir.actions.act_window,name:purchase.purchase_open_invoice
+#: model:ir.ui.menu,name:purchase.menu_procurement_management_pending_invoice
+#: model:ir.ui.view,arch_db:purchase.purchase_order_form
+#: model:ir.ui.view,arch_db:purchase.res_partner_view_purchase_account_buttons
+msgid "Vendor Bills"
+msgstr "Účtenky predajcu"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_group_manage_vendor_price
+#: model:ir.ui.menu,name:purchase.menu_product_pricelist_action2_purchase
+msgid "Vendor Pricelists"
+msgstr "Dodávateľský cenník"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_partner_ref
+msgid "Vendor Reference"
+msgstr "Referencia predajcu"
+
+#. module: purchase
+#: model:ir.ui.menu,name:purchase.menu_procurement_management_supplier_name
+#: model:ir.ui.view,arch_db:purchase.view_product_supplier_inherit
+msgid "Vendors"
+msgstr "Predajcovia"
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.act_res_partner_2_supplier_invoices
+msgid ""
+"Vendors bills can be pre-generated based on purchase\n"
+"                    orders or receipts. This allows you to control bills\n"
+"                    you receive from your vendor according to the draft\n"
+"                    document in Odoo."
+msgstr ""
+"Účtenky predajcu môžu byť predvytvorené, na základe nákupných\n"
+"objednávok alebo príjmov. Toto vám umožňuje kontrolovať účtenky\n"
+"ktoré obdržíte od vášho predajcu, na základe konceptu \n"
+"dokumentu v Odoo."
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_volume
+msgid "Volume"
+msgstr "Objem"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_purchase_order_filter
+#: selection:purchase.order,invoice_status:0
+msgid "Waiting Bills"
+msgstr "Čakajúce účtenky"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_stock_warehouse
+#: model:ir.model.fields,field_description:purchase.field_purchase_report_picking_type_id
+msgid "Warehouse"
+msgstr "Sklad"
+
+#. module: purchase
+#: selection:product.template,purchase_line_warn:0
+#: selection:res.partner,purchase_warn:0
+msgid "Warning"
+msgstr "Varovanie"
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:268
+#: code:addons/purchase/models/purchase.py:828
+#, python-format
+msgid "Warning for %s"
+msgstr "Varovanie pre %s"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_partner_view_purchase_buttons
+msgid "Warning on the Purchase Order"
+msgstr "Varovanie na nákupnej objednávke"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.view_product_supplier_inherit
+msgid "Warning when Purchasing this Product"
+msgstr "Varovanie pri nákupe tohto produktu"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_res_config_settings_group_warning_purchase
+msgid "Warnings"
+msgstr "Varovania"
+
+#. module: purchase
+#: model:ir.model.fields,field_description:purchase.field_purchase_order_website_url
+msgid "Website URL"
+msgstr "URL Webových stránok"
+
+#. module: purchase
+#: model:ir.model.fields,help:purchase.field_stock_warehouse_buy_to_resupply
+msgid "When products are bought, they can be delivered to this warehouse"
+msgstr "Keď sú produkty zakúpené, môźu byť doručené do tohto skladiska"
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.purchase_open_invoice
+msgid ""
+"You can control the invoice from your vendor according to\n"
+"            what you purchased (services) or received (products)."
+msgstr ""
+"Môžete kontrolovať faktúru od svojho predajcu podľa\n"
+"toho, čo ste si zakúpili (služby) alebo dostali (produkty)."
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.product_product_action
+msgid ""
+"You must define a product for everything you purchase, whether\n"
+"                it's a physical product, a consumable or services you buy to\n"
+"                subcontractors."
+msgstr ""
+
+#. module: purchase
+#: model:ir.actions.act_window,help:purchase.product_normal_action_puchased
+msgid ""
+"You must define a product for everything you purchase, whether\n"
+"            it's a physical product, a consumable or services you buy to\n"
+"            subcontractors."
+msgstr ""
+
+#. module: purchase
+#: code:addons/purchase/models/purchase.py:408
+#, python-format
+msgid "You must set a Vendor Location for this partner %s"
+msgstr "Musíš nastaviť Predajcovu Polohu pre tohoto partnera %s"
+
+#. module: purchase
+#: model:ir.ui.view,arch_db:purchase.res_config_settings_view_form_stock
+msgid "days"
+msgstr "dni"
+
+#. module: purchase
+#: model:ir.model,name:purchase.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
