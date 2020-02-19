@@ -1,4 +1,4 @@
-<img src="A.png" />
+<img src="A.jpg" />
 
 #  [Expert Co. Ltd.](http://exp-sa.com/)
 
