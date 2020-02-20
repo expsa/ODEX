@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="form_internal_barcode_print_button" model="ir.ui.view">
+            <field name="name">print internal barcode</field>
+            <field name="model">internal.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.internal_transaction_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button type="action" name="%(act_transaction_internal_barcode)d" string="Print Barcode" class="oe_highlight"/>
+                </xpath>
+                <field name="type" position="after">
+                    <field name="create_uid" invisible="1"/>
+                </field>
+                <xpath expr="/form/sheet/notebook/page[3]" position="after">
+                    <page string="Review Barcode">
+                        <group>
+                            <field name="binary_barcode" widget="image"/>
+                        </group>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <!---->
+        <record id="form_outgoing_barcode_print_button" model="ir.ui.view">
+            <field name="name">print barcode</field>
+            <field name="model">outgoing.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.outgoing_external_transaction_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button type="action" name="%(act_transaction_out_barcode)d" string="Print Barcode" class="oe_highlight"/>
+                </xpath>
+                <field name="type" position="after">
+                    <field name="create_uid" invisible="1"/>
+                </field>
+                <xpath expr="/form/sheet/notebook/page[3]" position="after">
+                    <page string="Review Barcode">
+                        <group>
+                            <field name="binary_barcode" widget="image"/>
+                        </group>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <!---->
+        <record id="form_incoming_barcode_print_button" model="ir.ui.view">
+            <field name="name">print incoming barcode</field>
+            <field name="model">incoming.transaction</field>
+            <field name="inherit_id" ref="exp_transaction_documents.incoming_external_transaction_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button type="action" name="%(act_transaction_in_barcode)d" string="Print Barcode" class="oe_highlight"/>
+                </xpath>
+                <field name="type" position="after">
+                    <field name="create_uid" invisible="1"/>
+                </field>
+                <xpath expr="/form/sheet/notebook/page[3]" position="after">
+                    <page string="Review Barcode">
+                        <group>
+                            <field name="binary_barcode" widget="image"/>
+                        </group>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

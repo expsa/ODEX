@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2016 Flavio Corpa <flavio.corpa@tecnativa.com>
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+
+<odoo>
+<data>
+
+<template id="assets_backend" inherit_id="web.assets_backend">
+    <xpath expr=".">
+        <script type="text/javascript"
+            src="/cm_odex_barcode/static/src/js/cm_odex_barcode.js"/>
+    </xpath>
+</template>
+
+</data>
+</odoo>

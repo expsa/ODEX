@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+        <template id="report_assets_pdf" inherit_id="web.report_assets_pdf">
+            <xpath expr="." position="inside">
+                <link href="/web_rtl_v11/static/src/css/bootstrap-rtl.min.css" rel="stylesheet"/>
+                <link href="/report_rtl_v11/static/src/css/rtl.css" rel="stylesheet"/>
+            </xpath>
+        </template>
+    </data>
+</openerp>

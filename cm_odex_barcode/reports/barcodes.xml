@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Translatable template -->
+        <template id="report_transaction_barcode">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="row text-center" style="direction: rtl;">
+                        <table style="margin-right:70%;">
+                            <tr>
+                                <td style="font-weight: bold;">Number:</td>
+                                <td style="direction: ltr !important;">
+                                    <t t-esc="o.name"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table style="margin-right:70%;">
+                            <tr>
+                                <td><span style="font-weight:bold">Date:</span>
+
+                                    <t t-set="date_hijri" t-value="o.transaction_date_hijri"/>
+
+                                    <t t-set="date_hijri2" t-value="date_hijri.split('-')"/>
+
+                                    <t t-esc="date_hijri2[0]"/>/<t t-esc="date_hijri2[1]"/>/<t t-esc="date_hijri2[2]"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span style="font-weight:bold">Reference:</span>
+                                    <span t-field="o.transaction_date" t-field-options='{"format": "yyyy/MM/dd"}'/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span style="font-weight:bold">Attachment:</span>
+                                    <span style="direction: ltr !important;">
+                                        <t t-esc="o.attachment_num"></t>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 600, 100)"
+                                         style="width:250px;height:40px;margin-top:5px;"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_internal_transaction_barcode">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="cm_odex_barcode.report_transaction_barcode"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_incoming_transaction_barcode">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="cm_odex_barcode.report_transaction_barcode"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_outgoing_transaction_barcode">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="cm_odex_barcode.report_transaction_barcode"/>
+                </t>
+            </t>
+        </template>
+
+        <record id="paperformat_transactions" model="report.paperformat">
+            <field name="name">European A4 Transactions</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">28</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="act_transaction_out_barcode" model="ir.actions.report">
+            <field name="name">Outgoing Transaction Barcode</field>
+            <field name="model">outgoing.transaction</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cm_odex_barcode.report_outgoing_transaction_barcode</field>
+            <field name="attachment_use" eval="False"/>
+            <field name="paperformat_id" ref="paperformat_transactions"/>
+        </record>
+
+        <record id="act_transaction_in_barcode" model="ir.actions.report">
+            <field name="name">Incoming Transaction Barcode</field>
+            <field name="model">incoming.transaction</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cm_odex_barcode.report_incoming_transaction_barcode</field>
+            <field name="attachment_use" eval="False"/>
+            <field name="paperformat_id" ref="paperformat_transactions"/>
+        </record>
+
+        <record id="act_transaction_internal_barcode" model="ir.actions.report">
+            <field name="name">Internal Transaction Barcode</field>
+            <field name="model">internal.transaction</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cm_odex_barcode.report_internal_transaction_barcode</field>
+            <field name="attachment_use" eval="False"/>
+            <field name="paperformat_id" ref="paperformat_transactions"/>
+        </record>
+    </data>
+</odoo>
