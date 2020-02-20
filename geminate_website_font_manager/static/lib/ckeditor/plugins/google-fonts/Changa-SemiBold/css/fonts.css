@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Changa SemiBold';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Changa-SemiBold/Changa-SemiBold.ttf');
+  src: url('../fonts/Changa-SemiBold/Changa-SemiBold.ttf') format('truetype'),
+       local('Changa SemiBold'),
+       local('Changa-SemiBold'),
+       url('../fonts/Changa-SemiBold/Changa-SemiBold.ttf') format('truetype'));
+}
+

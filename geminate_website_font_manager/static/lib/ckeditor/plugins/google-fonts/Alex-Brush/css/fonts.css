@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Alex Brush';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Alex-Brush-regular/Alex-Brush-regular.eot');
+  src: url('../fonts/Alex-Brush-regular/Alex-Brush-regular.eot?#iefix') format('embedded-opentype'),
+       local('Alex Brush'),
+       local('Alex-Brush-regular'),
+       url('../fonts/Alex-Brush-regular/Alex-Brush-regular.woff2') format('woff2'),
+       url('../fonts/Alex-Brush-regular/Alex-Brush-regular.woff') format('woff'),
+       url('../fonts/Alex-Brush-regular/Alex-Brush-regular.ttf') format('truetype'),
+       url('../fonts/Alex-Brush-regular/Alex-Brush-regular.svg#AlexBrush') format('svg');
+}
+

@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Adamina';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Adamina-regular/Adamina-regular.eot');
+  src: url('../fonts/Adamina-regular/Adamina-regular.eot?#iefix') format('embedded-opentype'),
+       local('Adamina'),
+       local('Adamina-regular'),
+       url('../fonts/Adamina-regular/Adamina-regular.woff2') format('woff2'),
+       url('../fonts/Adamina-regular/Adamina-regular.woff') format('woff'),
+       url('../fonts/Adamina-regular/Adamina-regular.ttf') format('truetype'),
+       url('../fonts/Adamina-regular/Adamina-regular.svg#Adamina') format('svg');
+}
+

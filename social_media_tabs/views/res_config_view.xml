@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<odoo>
+    <data>
+        <record id="wk_social_network_tabs" model="ir.ui.view">
+            <field name="name">social.tab.config.settings.config</field>
+            <field name="model">social.tab.config.settings</field>
+            <field name="arch" type="xml">
+                <form string="Social Network Tabs" class="oe_form_configuration">
+                    <group col="4">
+                        <field name="tabs_position"  widget="radio"/>
+                        <field name="tab_event"  widget="radio"/>
+                    </group>
+                    <group string="Social Network Tabs">
+                       <field name="tab_ids" nolabel="1"/>
+                    </group>
+                    <footer>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>or
+                        <button string="Cancel" special="cancel" type="button" name="cancel" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_window_social_network_tabs" model="ir.actions.act_window">
+            <field name="name">Social Network Tabs</field>
+            <field name="res_model">social.tab.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

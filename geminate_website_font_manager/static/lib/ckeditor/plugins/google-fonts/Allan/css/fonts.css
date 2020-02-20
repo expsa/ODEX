@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Allan';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Allan-regular/Allan-regular.eot');
+  src: url('../fonts/Allan-regular/Allan-regular.eot?#iefix') format('embedded-opentype'),
+       local('Allan'),
+       local('Allan-regular'),
+       url('../fonts/Allan-regular/Allan-regular.woff2') format('woff2'),
+       url('../fonts/Allan-regular/Allan-regular.woff') format('woff'),
+       url('../fonts/Allan-regular/Allan-regular.ttf') format('truetype'),
+       url('../fonts/Allan-regular/Allan-regular.svg#Allan') format('svg');
+}
+

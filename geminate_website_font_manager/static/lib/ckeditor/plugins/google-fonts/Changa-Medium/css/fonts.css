@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Changa Medium';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Changa-Medium/Changa-Medium.ttf');
+  src: url('../fonts/Changa-Medium/Changa-Medium.ttf') format('truetype'),
+       local('Changa Medium'),
+       local('Changa-Medium'),
+       url('../fonts/Changa-Medium/Changa-Medium.ttf') format('truetype'));
+}
+

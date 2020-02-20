@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Akronim';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Akronim-regular/Akronim-regular.eot');
+  src: url('../fonts/Akronim-regular/Akronim-regular.eot?#iefix') format('embedded-opentype'),
+       local('Akronim'),
+       local('Akronim-regular'),
+       url('../fonts/Akronim-regular/Akronim-regular.woff2') format('woff2'),
+       url('../fonts/Akronim-regular/Akronim-regular.woff') format('woff'),
+       url('../fonts/Akronim-regular/Akronim-regular.ttf') format('truetype'),
+       url('../fonts/Akronim-regular/Akronim-regular.svg#Akronim') format('svg');
+}
+

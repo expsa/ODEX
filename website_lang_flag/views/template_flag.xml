@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <template id="language_flag" inherit_id="website.layout" name="Language Flag">
+            <xpath expr="//ul[@id='top_menu']" position="inside">
+                <li t-if="(request and request.is_frontend_multilang and len(languages) &gt; 1) or (website and (editable or translatable))">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                        <img
+                                t-attf-src="/web/image/res.lang/#{request.website.get_id_lg(lang)}/flag_image"
+                                t-att-alt="request.website.get_name_lg(lang).split('/').pop()"
+                                width="24"/>
+
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu js_user_menu" role="menu" style="min-width: 73px;">
+                        <li t-foreach="languages" t-as="lg">
+                            <a
+                                    t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+                                    t-att-data-default-lang="(editable or translatable) and 'true' if website and lg[0] == website.default_lang_code else None"
+                                    t-att-data-lang="lg[0]"
+                                    class="js_change_lang"
+                                    >
+                                <img t-attf-src="/web/image/res.lang/#{request.website.get_id_lg(lg[0])}/flag_image"
+                                     t-att-alt="request.website.get_name_lg(lang).split('/').pop()"
+                                     width="16"/>
+                                <t t-esc="lg[1].split('/').pop()"/>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </xpath>
+        </template>
+
+
+    </data>
+</openerp>

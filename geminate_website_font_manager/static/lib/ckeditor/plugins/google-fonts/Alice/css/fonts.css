@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Alice';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Alice-regular/Alice-regular.eot');
+  src: url('../fonts/Alice-regular/Alice-regular.eot?#iefix') format('embedded-opentype'),
+       local('Alice'),
+       local('Alice-regular'),
+       url('../fonts/Alice-regular/Alice-regular.woff2') format('woff2'),
+       url('../fonts/Alice-regular/Alice-regular.woff') format('woff'),
+       url('../fonts/Alice-regular/Alice-regular.ttf') format('truetype'),
+       url('../fonts/Alice-regular/Alice-regular.svg#Alice') format('svg');
+}
+

@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Alike';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Alike-regular/Alike-regular.eot');
+  src: url('../fonts/Alike-regular/Alike-regular.eot?#iefix') format('embedded-opentype'),
+       local('Alike'),
+       local('Alike-regular'),
+       url('../fonts/Alike-regular/Alike-regular.woff2') format('woff2'),
+       url('../fonts/Alike-regular/Alike-regular.woff') format('woff'),
+       url('../fonts/Alike-regular/Alike-regular.ttf') format('truetype'),
+       url('../fonts/Alike-regular/Alike-regular.svg#Alike') format('svg');
+}
+

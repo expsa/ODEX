@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+,,,,,,,
+access_social_media_tabs,social.media.tabs,social_media_tabs.model_social_media_tabs,website.group_website_designer,1,1,1,1
+access_social_media_tabs_manager,social.media.tabs,social_media_tabs.model_social_media_tabs,,1,1,1,1
+access_social_media_tabs_manager,social.media.tabs,social_media_tabs.model_social_media_tabs,website.group_website_designer,1,1,1,1

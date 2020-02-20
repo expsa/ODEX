@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Alfa Slab One';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Alfa-Slab-One-regular/Alfa-Slab-One-regular.eot');
+  src: url('../fonts/Alfa-Slab-One-regular/Alfa-Slab-One-regular.eot?#iefix') format('embedded-opentype'),
+       local('Alfa Slab One'),
+       local('Alfa-Slab-One-regular'),
+       url('../fonts/Alfa-Slab-One-regular/Alfa-Slab-One-regular.woff2') format('woff2'),
+       url('../fonts/Alfa-Slab-One-regular/Alfa-Slab-One-regular.woff') format('woff'),
+       url('../fonts/Alfa-Slab-One-regular/Alfa-Slab-One-regular.ttf') format('truetype'),
+       url('../fonts/Alfa-Slab-One-regular/Alfa-Slab-One-regular.svg#AlfaSlabOne') format('svg');
+}
+

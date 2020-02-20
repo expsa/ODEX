@@ -1,0 +1,163 @@
+<odoo>
+    <data noupdate="1">
+        <!--<function id="show_estimated_delivery_id" model="ir.values" name="set_default"
+        eval="('social.tab.config.settings', 'show_estimated_delivery', True)"/>-->
+        <record id="facebook_social_tab" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/fb.png"/>
+            <field name="media_type">social_tab</field>
+            <field name="social_tab">facebook</field>
+            <field name="tab_sequence">1</field>
+            <field name="color">#283593</field>
+            <field name="title">Facebook</field>
+            <field name="folow">Follow on facebook</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/facebook.png"/>
+            <field name="limit">10</field>
+            <field name="facebook_id">536094026575748</field>
+            <field name="fb_token">EAAHnkx4FL4QBAOeguBkP9oQswlLiLbjEcfPXqBTVGkYvYoYORZCcPrzKkDXu1LHqAyHsPsow4BeP2MxJCI4xsDNvVwm9E2jVbdNuV5meHBJ65D8QWuedFum0phcc243ZCuH5ryXA7SlrUx19rDzBcXe0Kaeo0ZD</field>
+        </record>
+
+        <record id="youtube_social_tab" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/yt.png"/>
+            <field name="media_type">social_tab</field>
+            <field name="social_tab">youtube</field>
+            <field name="tab_sequence">2</field>
+            <field name="color">#F5005</field>
+            <field name="title">Youtube</field>
+            <field name="folow">Follow on youtube</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/youtube.png"/>
+            <field name="limit">10</field>
+            <field name="yt_api_key">123123123213</field>
+            <field name="yt_channel_id">sdfdsfdsfdsfdsf</field>
+            <field name="yt_user_id">sdfdsfdsfdsfdsf</field>
+            <field name="yt_show_subscribe">True</field>
+        </record>
+         <record id="facebook_like_social_tab" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/fblike.jpg"/>
+            <field name="media_type">social_tab</field>
+            <field name="social_tab">fblike</field>
+            <field name="tab_sequence">3</field>
+            <field name="color">#2196F3</field>
+            <field name="title">facebook like</field>
+            <field name="folow">Follow on facebook</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/fblike.png"/>
+            <field name="limit">10</field>
+            <field name="facebook_id">536094026575748</field>
+            <field name="fb_token">EAAHnkx4FL4QBAOeguBkP9oQswlLiLbjEcfPXqBTVGkYvYoYORZCcPrzKkDXu1LHqAyHsPsow4BeP2MxJCI4xsDNvVwm9E2jVbdNuV5meHBJ65D8QWuedFum0phcc243ZCuH5ryXA7SlrUx19rDzBcXe0Kaeo0ZD</field>
+        </record>
+
+
+        <record id="fliker_social_tab" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/fkr.png"/>
+            <field name="media_type">social_tab</field>
+            <field name="social_tab">flickr</field>
+            <field name="tab_sequence">4</field>
+            <field name="color">#FF40813</field>
+            <field name="title">Flickr</field>
+            <field name="folow">Follow on flickr</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/flickr.png"/>
+            <field name="limit">10</field>
+            <field name="flickr_id">143668410@N03</field>
+        </record>
+    
+
+         <record id="pintrest_social_tab" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/pt.png"/>
+            <field name="media_type">social_tab</field>
+            <field name="social_tab">pinterest</field>
+            <field name="tab_sequence">5</field>
+            <field name="color">#C6282</field>
+            <field name="title">Pinterest</field>
+            <field name="folow">Follow on pinterest</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/pinterest.png"/>
+            <field name="limit">10</field>
+            <field name="pinterest_id">vipinsahu</field>
+        </record>
+        
+        <record id="vimeo_social_tab" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/vmo.png"/>
+            <field name="media_type">social_tab</field>
+            <field name="social_tab">vimeo</field>
+            <field name="tab_sequence">5</field>
+            <field name="color">#C6282</field>
+            <field name="title">Vimeo</field>
+            <field name="folow">Follow on Vimeo</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/vimeo.png"/>
+            <field name="limit">10</field>
+            <field name="vimeo_id">143668410@N03</field>
+        </record>
+        
+       
+        <record id="tumblr_social_tab" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/tmblr.png"/>
+            <field name="media_type">social_tab</field>
+            <field name="social_tab">tumblr</field>
+            <field name="tab_sequence">6</field>
+            <field name="color">#2196F3</field>
+            <field name="title">Tumblr</field>
+            <field name="folow">Follow on tumblr</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/tumblr.png"/>
+            <field name="limit">10</field>
+            <field name="tumblr_id">captainjahangir</field>
+        </record>
+
+        <record id="stumbleupon_social_tab" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/stmlupon.png"/>
+            <field name="media_type">social_tab</field>
+            <field name="social_tab">stumbleupon</field>
+            <field name="tab_sequence">7</field>
+            <field name="color">#FF5722</field>
+            <field name="title">Stumbleupon</field>
+            <field name="folow">Follow on stumbleupon</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/stumbleupon.png"/>
+            <field name="limit">10</field>
+            <field name="stumbleupon_id">prakash1983</field>
+        </record>
+
+        <record id="google_social_tab" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/gle.jpg"/>
+            <field name="media_type">social_tab</field>
+            <field name="social_tab">google</field>
+            <field name="tab_sequence">7</field>
+            <field name="color">#FF5722</field>
+            <field name="title">Google Plus</field>
+            <field name="folow">Follow on google+</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/google.png"/>
+            <field name="limit">10</field>
+            <field name="google_id">143668410@N03</field>
+            <field name="google_api_key">143668410@N03</field>
+        </record>
+
+        <record id="custom_tab_1" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/contact.jpg"/>
+            <field name="media_type">custom</field>
+            <field name="tab_sequence">9</field>
+            <field name="color">#64DD17</field>
+            <field name="title">Contact Us</field>
+            <field name="custom_tab_name">Contact Us</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/shares.png"/>
+            <field name="custom_html"><![CDATA[
+                <address> <div data-oe-model="res.company" data-oe-id="1" data-oe-field="partner_id" data-oe-type="contact" data-oe-expression="res_company.partner_id">
+                <address class="mb0"> <div><b>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <font class="bg-white">&nbsp;&nbsp;</font><font class="bg-white" style="font-size: 24px;">&nbsp;</font><font style="font-size: 24px;" class="bg-white text-delta">Contact Us<div style="text-align: justify;"><b style="color: rgb(0, 0, 0); font-family: inherit; font-size: initial; font-variant-ligatures: initial; font-variant-caps: initial;"><font style="color: rgb(49, 24, 115); font-size: 18px;" class="bg-white">This is a test customizable Contact us page you can </font></b><span style="color: rgb(49, 24, 115); font-family: inherit; font-size: initial; font-variant-caps: initial; font-variant-ligatures: initial;">C</span><b style="color: rgb(0, 0, 0); font-family: inherit; font-size: initial; font-variant-ligatures: initial; font-variant-caps: initial;"><font style="color: rgb(49, 24, 115); font-size: 18px;">ustomize&nbsp;it according to your own choice. You can create as many as customizable custom tabs as you &nbsp;wish. You can add images and links etc.</font></b><b style="color: rgb(0, 0, 0); font-family: inherit; font-size: initial; font-variant-ligatures: initial; font-variant-caps: initial;"><font style="color: rgb(49, 24, 115); font-size: 18px;"><br></font></b></div></font></b></div></address></div> </address>
+                <div class="col-md-4  col-lg-3" id="info"><h4 data-oe-id="555" data-oe-model="ir.ui.view" data-oe-field="arch"><font style="font-size: 10px;">Connect with us</font></h4><ul class="list-unstyled" data-oe-id="555" data-oe-model="ir.ui.view" data-oe-field="arch"><li><a href="/page/website.contactus"><font style="font-size: 10px;">Contact us</font></a></li></ul><ul class="list-unstyled"><li><i class="fa fa-phone" style="font-size: 10px;"></i><font style="font-size: 10px;">+1 555 123 8069</font></li><li><i class="fa fa-envelope" style="font-size: 10px;"></i><font style="font-size: 10px;">info@yourcompany.example.com</font></li></ul><h2><a data-oe-id="555" data-oe-model="ir.ui.view" data-oe-field="arch" href="https://www.facebook.com/Odoo"><i class="fa fa-facebook-square"></i></a><a data-oe-id="555" data-oe-model="ir.ui.view" data-oe-field="arch" href="https://twitter.com/Odoo"><i class="fa fa-twitter"></i></a><a data-oe-id="555" data-oe-model="ir.ui.view" data-oe-field="arch" href="https://www.linkedin.com/company/odoo"><i class="fa fa-linkedin"></i></a><a rel="publisher" data-oe-id="555" data-oe-model="ir.ui.view" data-oe-field="arch" href="https://plus.google.com/+Odooapps"><i class="fa fa-google-plus-square"></i></a></h2></div>]]></field>
+        </record>
+       
+        <record id="custom_tab_2" model="social.media.tabs">
+            <field name="icon" type="base64" file="social_media_tabs/static/src/images/custom.jpg"/>
+            <field name="media_type">custom</field>
+            <field name="tab_sequence">8</field>
+            <field name="color">#9E9E9E</field>
+            <field name="title">Contact Us</field>
+            <field name="custom_tab_name">Custom Tab</field>
+            <field name="logo" type="base64" file="social_media_tabs/static/src/images/shares.png"/>
+            <field name="custom_html"><![CDATA[
+                <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<font style="font-size: 36px;" class="text-epsilon">CUSTOM TAB</font></p><p>&nbsp;&nbsp;&nbsp;&nbsp;<font style="color: rgb(255, 0, 255); font-size: 36px;">&nbsp; &nbsp; </font><font style="color: rgb(57, 123, 33); font-size: 36px;">This is a test custom tab</font></p><p>&nbsp;&nbsp;&nbsp;&nbsp;<font style="color: rgb(57, 123, 33); font-size: 36px;">&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color: rgb(57, 123, 33); font-size: 36px;">&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color: rgb(57, 123, 33); font-size: 36px;">&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font style="color: rgb(57, 123, 33); font-size: 36px;">&nbsp;</font>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/website/static/src/img/library/sweet.jpg" class="pull-left" style="width: 100%;" title=""><font style="color: rgb(57, 123, 33); font-size: 36px;"><br></font><br></p>]]></field>
+        </record>
+    <function id="tabs_position_id" model="ir.default" name="set"
+        eval="('social.tab.config.settings', 'tabs_position', 'left')"/>facebook_like_social_tab
+    <function id="tab_event_id" model="ir.default" name="set"
+        eval="('social.tab.config.settings', 'tab_event', 'click')"/>
+    <function id="tab_ids_id" model="ir.default" name="set"
+        eval="('social.tab.config.settings', 'tab_ids', [ref('facebook_social_tab'),ref('youtube_social_tab'),ref('facebook_like_social_tab'),ref('fliker_social_tab'),ref('pintrest_social_tab'),ref('vimeo_social_tab'),ref('tumblr_social_tab'),ref('stumbleupon_social_tab'),ref('google_social_tab'),ref('custom_tab_1'),ref('custom_tab_2')])"/>
+   
+    </data>
+</odoo>

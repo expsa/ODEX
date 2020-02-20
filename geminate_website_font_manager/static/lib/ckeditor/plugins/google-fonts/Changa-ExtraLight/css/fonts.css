@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Changa ExtraLight';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Changa-ExtraLight/Changa-ExtraLight.ttf');
+  src: url('../fonts/Changa-ExtraLight/Changa-ExtraLight.ttf') format('truetype'),
+       local('Changa'),
+       local('Changa-ExtraLight'),
+       url('../fonts/Changa-ExtraLight/Changa-ExtraLight.ttf') format('truetype'));
+}
+

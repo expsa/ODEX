@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'PT Sans Caption';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/PT-Sans-Caption-regular/PT-Sans-Caption-regular.eot');
+  src: url('../fonts/PT-Sans-Caption-regular/PT-Sans-Caption-regular.eot?#iefix') format('embedded-opentype'),
+       local('PT Sans Caption'),
+       local('PT-Sans-Caption-regular'),
+       url('../fonts/PT-Sans-Caption-regular/PT-Sans-Caption-regular.woff2') format('woff2'),
+       url('../fonts/PT-Sans-Caption-regular/PT-Sans-Caption-regular.woff') format('woff'),
+       url('../fonts/PT-Sans-Caption-regular/PT-Sans-Caption-regular.ttf') format('truetype'),
+       url('../fonts/PT-Sans-Caption-regular/PT-Sans-Caption-regular.svg#PTSansCaption') format('svg');
+}
+

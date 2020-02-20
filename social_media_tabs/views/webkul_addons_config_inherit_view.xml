@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<odoo>
+    <data>
+        <record id="wk_socaial_media_tabs_config" model="ir.ui.view">
+            <field name="name">Addons Setting</field>
+            <field name="model">webkul.website.addons</field>
+            <field name="inherit_id" ref="website_webkul_addons.config_webkul_website_addons_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//td[@name='module_social_network_tabs']" position="replace">
+                    <td>
+                        <button type="action" name="social_media_tabs.action_window_social_network_tabs" string="Configuration" class="oe_link"></button>
+                     </td>
+                </xpath>  
+            </field>
+        </record>
+    </data>
+</odoo>

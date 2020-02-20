@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Lora';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Lora-regular/Lora-regular.eot');
+  src: url('../fonts/Lora-regular/Lora-regular.eot?#iefix') format('embedded-opentype'),
+       local('Lora'),
+       local('Lora-regular'),
+       url('../fonts/Lora-regular/Lora-regular.woff2') format('woff2'),
+       url('../fonts/Lora-regular/Lora-regular.woff') format('woff'),
+       url('../fonts/Lora-regular/Lora-regular.ttf') format('truetype'),
+       url('../fonts/Lora-regular/Lora-regular.svg#Lora') format('svg');
+}
+

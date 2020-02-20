@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Changa Light';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Changa-Light/Changa-Light.ttf');
+  src: url('../fonts/Changa-Light/Changa-Light.ttf') format('truetype'),
+       local('Changa Light'),
+       local('Changa-Light'),
+       url('../fonts/Changa-Light/Changa-Light.ttf') format('truetype'));
+}
+

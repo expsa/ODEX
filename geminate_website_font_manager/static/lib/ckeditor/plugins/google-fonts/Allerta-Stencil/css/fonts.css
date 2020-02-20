@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Allerta Stencil';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Allerta-Stencil-regular/Allerta-Stencil-regular.eot');
+  src: url('../fonts/Allerta-Stencil-regular/Allerta-Stencil-regular.eot?#iefix') format('embedded-opentype'),
+       local('Allerta Stencil Regular'),
+       local('Allerta-Stencil-regular'),
+       url('../fonts/Allerta-Stencil-regular/Allerta-Stencil-regular.woff2') format('woff2'),
+       url('../fonts/Allerta-Stencil-regular/Allerta-Stencil-regular.woff') format('woff'),
+       url('../fonts/Allerta-Stencil-regular/Allerta-Stencil-regular.ttf') format('truetype'),
+       url('../fonts/Allerta-Stencil-regular/Allerta-Stencil-regular.svg#AllertaStencil') format('svg');
+}
+

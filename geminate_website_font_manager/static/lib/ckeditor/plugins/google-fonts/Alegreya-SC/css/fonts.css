@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Alegreya SC';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Alegreya-SC-regular/Alegreya-SC-regular.eot');
+  src: url('../fonts/Alegreya-SC-regular/Alegreya-SC-regular.eot?#iefix') format('embedded-opentype'),
+       local('Alegreya SC'),
+       local('Alegreya-SC-regular'),
+       url('../fonts/Alegreya-SC-regular/Alegreya-SC-regular.woff2') format('woff2'),
+       url('../fonts/Alegreya-SC-regular/Alegreya-SC-regular.woff') format('woff'),
+       url('../fonts/Alegreya-SC-regular/Alegreya-SC-regular.ttf') format('truetype'),
+       url('../fonts/Alegreya-SC-regular/Alegreya-SC-regular.svg#AlegreyaSC') format('svg');
+}
+

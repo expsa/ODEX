@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Yesteryear';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Yesteryear-regular/Yesteryear-regular.eot');
+  src: url('../fonts/Yesteryear-regular/Yesteryear-regular.eot?#iefix') format('embedded-opentype'),
+       local('Yesteryear'),
+       local('Yesteryear-regular'),
+       url('../fonts/Yesteryear-regular/Yesteryear-regular.woff2') format('woff2'),
+       url('../fonts/Yesteryear-regular/Yesteryear-regular.woff') format('woff'),
+       url('../fonts/Yesteryear-regular/Yesteryear-regular.ttf') format('truetype'),
+       url('../fonts/Yesteryear-regular/Yesteryear-regular.svg#Yesteryear') format('svg');
+}
+

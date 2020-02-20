@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Changa ExtraBold';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Changa-ExtraBold/Changa-ExtraBold.ttf');
+  src: url('../fonts/Changa-ExtraBold/Changa-ExtraBold.ttf') format('truetype'),
+       local('Changa ExtraBold'),
+       local('Changa-ExtraBold'),
+       url('../fonts/Changa-ExtraBold/Changa-ExtraBold.ttf') format('truetype'));
+}
+

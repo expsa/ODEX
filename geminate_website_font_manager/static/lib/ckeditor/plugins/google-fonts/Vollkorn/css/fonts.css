@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Vollkorn';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Vollkorn-regular/Vollkorn-regular.eot');
+  src: url('../fonts/Vollkorn-regular/Vollkorn-regular.eot?#iefix') format('embedded-opentype'),
+       local('Vollkorn Regular'),
+       local('Vollkorn-regular'),
+       url('../fonts/Vollkorn-regular/Vollkorn-regular.woff2') format('woff2'),
+       url('../fonts/Vollkorn-regular/Vollkorn-regular.woff') format('woff'),
+       url('../fonts/Vollkorn-regular/Vollkorn-regular.ttf') format('truetype'),
+       url('../fonts/Vollkorn-regular/Vollkorn-regular.svg#Vollkorn') format('svg');
+}
+

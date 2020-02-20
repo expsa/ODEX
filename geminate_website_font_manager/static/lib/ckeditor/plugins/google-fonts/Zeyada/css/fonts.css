@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Zeyada';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Zeyada-regular/Zeyada-regular.eot');
+  src: url('../fonts/Zeyada-regular/Zeyada-regular.eot?#iefix') format('embedded-opentype'),
+       local('Zeyada'),
+       local('Zeyada-regular'),
+       url('../fonts/Zeyada-regular/Zeyada-regular.woff2') format('woff2'),
+       url('../fonts/Zeyada-regular/Zeyada-regular.woff') format('woff'),
+       url('../fonts/Zeyada-regular/Zeyada-regular.ttf') format('truetype'),
+       url('../fonts/Zeyada-regular/Zeyada-regular.svg#Zeyada') format('svg');
+}
+

@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Abel';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Abel-regular/Abel-regular.eot');
+  src: url('../fonts/Abel-regular/Abel-regular.eot?#iefix') format('embedded-opentype'),
+       local('Abel'),
+       local('Abel-regular'),
+       url('../fonts/Abel-regular/Abel-regular.woff2') format('woff2'),
+       url('../fonts/Abel-regular/Abel-regular.woff') format('woff'),
+       url('../fonts/Abel-regular/Abel-regular.ttf') format('truetype'),
+       url('../fonts/Abel-regular/Abel-regular.svg#Abel') format('svg');
+}
+

@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Advent Pro';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Advent-Pro-regular/Advent-Pro-regular.eot');
+  src: url('../fonts/Advent-Pro-regular/Advent-Pro-regular.eot?#iefix') format('embedded-opentype'),
+       local('Advent Pro Regular'),
+       local('Advent-Pro-regular'),
+       url('../fonts/Advent-Pro-regular/Advent-Pro-regular.woff2') format('woff2'),
+       url('../fonts/Advent-Pro-regular/Advent-Pro-regular.woff') format('woff'),
+       url('../fonts/Advent-Pro-regular/Advent-Pro-regular.ttf') format('truetype'),
+       url('../fonts/Advent-Pro-regular/Advent-Pro-regular.svg#AdventPro') format('svg');
+}
+

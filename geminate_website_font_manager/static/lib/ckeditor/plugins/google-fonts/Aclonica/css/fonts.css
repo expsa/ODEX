@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Aclonica';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Aclonica-regular/Aclonica-regular.eot');
+  src: url('../fonts/Aclonica-regular/Aclonica-regular.eot?#iefix') format('embedded-opentype'),
+       local('Aclonica'),
+       local('Aclonica-regular'),
+       url('../fonts/Aclonica-regular/Aclonica-regular.woff2') format('woff2'),
+       url('../fonts/Aclonica-regular/Aclonica-regular.woff') format('woff'),
+       url('../fonts/Aclonica-regular/Aclonica-regular.ttf') format('truetype'),
+       url('../fonts/Aclonica-regular/Aclonica-regular.svg#Aclonica') format('svg');
+}
+

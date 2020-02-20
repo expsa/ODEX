@@ -1,0 +1,178 @@
+/* Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) */
+/* See LICENSE file for full copyright and licensing details. */
+.tab_main_div_right , .tab_main_div_left {
+    max-height:100%;
+	position:fixed;
+	top:17%;
+	border-color: #29B6F6;
+	width:60px;
+}
+.tab_main_div_right{
+	right: -41px;
+	
+}
+.tab_main_div_left
+{
+	
+	left:-40px;
+}
+.tabs_div_right , .tabs_div_left{
+	margin-bottom:2px;
+	max-height:100%;
+	width:40px;
+}
+.tabs_div_right{
+	float: right;
+}
+.tabs_div_left{
+	float: left;
+}
+
+.tab_image_div_right  , .tab_image_div_left{
+	margin-bottom:1px;
+	width:40px;
+	max-width: 100%;
+	cursor: pointer;
+}
+.hover_out_right , .hover_in_right{
+	height:20px;
+	width:40px;
+	text-align:center;
+	background-color: #03A9F4;
+	position:fixed;
+	right:0px;
+	top:14%;
+	z-index:1000;
+	border: 1px solid;
+	border-radius: 5px 0px 0px 5px;
+	cursor: pointer;
+
+	
+}
+.hover_in_right {
+	
+	display:none;
+	background: url(../images/icon-arrow-right.png);
+	background-position-x: 15px;
+    background-position-y: 5px;
+    background-repeat: no-repeat;
+    background-color: #337ab7;
+    
+	
+}
+.hover_out_right{
+	background: url(../images/icon-arrow-left.png);
+	background-color: #337ab7;
+	background-repeat: no-repeat;
+	background-position-x: 15px;
+    background-position-y: 5px;
+
+}
+
+.hover_out_left , .hover_in_left{
+	height:20px;
+	width:40px;
+	text-align:center;
+	background-color: #03A9F4;
+	position:fixed;
+	top:14%;
+	z-index:1000;
+	left:0px;
+	border: 1px solid;
+	cursor: pointer;
+	border-radius: 0px 5px 5px 0px;
+	background-color: #337ab7;
+}
+
+.hover_in_left{
+	display:none;
+	background: url(../images/icon-arrow-left.png);
+	background-color: #337ab7;
+	background-repeat: no-repeat;
+	background-position-x: 15px;
+    background-position-y: 5px;
+}
+.hover_out_left{
+	
+	background: url(../images/icon-arrow-right.png);
+	background-repeat: no-repeat;
+	background-position-x: 15px;
+    background-position-y: 5px;
+    background-color: #337ab7;
+}
+#footer{
+	z-index:-5
+}
+
+.tab-inner{
+	width:500px;
+	height:540px;
+	background-color: white;
+	position:absolute;
+	display:none;
+	top:0%;
+	outline: 5px solid white;
+	outline-offset: -5px;
+	z-index: -5;
+}
+
+.content_header{
+width:100%;
+height:10%;
+background-color:#BDBDBD;
+border-bottom: solid 1px #616161;
+}
+
+.content_body{
+ overflow-y:scroll;
+ height:88%
+
+}
+.content_body{
+ background: url(../images/loader.gif) no-repeat center 200px;
+}
+.div_border{
+	border:solid 3px;
+}
+
+.follow_on_button
+{
+	position: absolute;
+    top: 10px;
+    right: 30px;
+    cursor: pointer;
+    font: bold 12px/14px Arial,sans-serif;
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    padding: 5px 8px;
+    background: #fcfcfc;
+    color: white;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.wk_logo{
+	top: 18px;
+    position: absolute;
+    left: 35px;
+    color:#000000;
+}
+.wk_logo span .img-responsive
+{
+	display:inline !important;
+}
+.iframe {
+	padding-left:5px ;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	height:100%;
+	background: url(../images/loader.gif) no-repeat center 200px;
+
+}
+.youtube_subscribe
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+}

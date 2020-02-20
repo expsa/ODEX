@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Actor';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Actor-regular/Actor-regular.eot');
+  src: url('../fonts/Actor-regular/Actor-regular.eot?#iefix') format('embedded-opentype'),
+       local('Actor Regular'),
+       local('Actor-regular'),
+       url('../fonts/Actor-regular/Actor-regular.woff2') format('woff2'),
+       url('../fonts/Actor-regular/Actor-regular.woff') format('woff'),
+       url('../fonts/Actor-regular/Actor-regular.ttf') format('truetype'),
+       url('../fonts/Actor-regular/Actor-regular.svg#Actor') format('svg');
+}
+

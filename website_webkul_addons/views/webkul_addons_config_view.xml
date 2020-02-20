@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="config_webkul_website_addons_form" model="ir.ui.view">
+            <field name="name">Webkul Website Addons Setting</field>
+            <field name="model">webkul.website.addons</field>
+            <field name="arch" type="xml">
+               <form string="Webkul Website Addons Settings" class="oe_form_configuration">
+                    <header  class="col-md-12" style="position:fixed;z-index:10" >
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object" name="cancel" class="oe_link"/>
+                    </header>
+                    <div style="height:10px;">
+                    </div>
+
+                    <center><u><separator string="Product Management"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%;">Serial No.</th>
+                                <th style="width:45%;">Module Name</th>
+                                <th style="width:20%;">Is Installed ?</th>
+                                <th style="width:20%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                         <tr>
+                                <td>1</td>
+                                <td><label for="module_dynamic_bundle_products"/></td>
+                                <td><field name="module_dynamic_bundle_products"/></td>
+                                <td name="module_dynamic_bundle_products">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <center><u><separator string="Stock Management"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><label for="module_website_stock"/></td>
+                                <td><field name="module_website_stock"/></td>
+                                <td name="module_website_stock">-</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><label for="module_website_hide_out_of_stock"/></td>
+                                <td><field name="module_website_hide_out_of_stock"/></td>
+                                <td name="module_website_hide_out_of_stock">-</td>
+                            </tr>
+                             <tr>
+                                <td>3</td>
+                                <td><label for="module_website_stock_notifiy"/></td>
+                                <td><field name="module_website_stock_notifiy"/></td>
+                                <td name="module_website_stock_notifiy">-</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                    <center><u><separator string="Delivery Method"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><label for="module_website_store_pickup"/></td>
+                                <td><field name="module_website_store_pickup"/></td>
+                                <td name="module_website_store_pickup">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <center><u><separator string="Sales Promotion"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><label for="module_website_daily_deals"/></td>
+                                <td><field name="module_website_daily_deals"/></td>
+                                <td name="module_website_daily_deals">-</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><label for="module_website_terms_conditions"/></td>
+                                <td><field name="module_website_terms_conditions"/></td>
+                                <td name="module_website_terms_conditions">-</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><label for="module_website_first_order_discount"/></td>
+                                <td><field name="module_website_first_order_discount"/></td>
+                                <td name="module_website_first_order_discount">-</td>
+                            </tr>
+                             <tr>
+                                <td>4</td>
+                                <td><label for="module_social_network_tabs"/></td>
+                                <td><field name="module_social_network_tabs"/></td>
+                                <td name="module_social_network_tabs">-</td>
+                            </tr>
+                             <tr>
+                                <td>5</td>
+                                <td><label for="module_website_sales_count"/></td>
+                                <td><field name="module_website_sales_count"/></td>
+                                <td name="module_website_sales_count">-</td>
+                            </tr>
+                             <tr>
+                                <td>6</td>
+                                <td><label for="module_website_product_vote"/></td>
+                                <td><field name="module_website_product_vote"/></td>
+                                <td name="module_website_product_vote">-</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><label for="module_website_cart_settings"/></td>
+                                <td><field name="module_website_cart_settings"/></td>
+                                <td name="module_website_cart_settings">-</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><label for="module_website_facebook_wallfeed"/></td>
+                                <td><field name="module_website_facebook_wallfeed"/></td>
+                                <td name="module_website_facebook_wallfeed">-</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><label for="module_website_newsletter"/></td>
+                                <td><field name="module_website_newsletter"/></td>
+                                <td name="module_website_newsletter">-</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><label for="module_website_mega_menus"/></td>
+                                <td><field name="module_website_mega_menus"/></td>
+                                <td name="module_website_mega_menus">-</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><label for="module_website_also_bought_products"/></td>
+                                <td><field name="module_website_also_bought_products"/></td>
+                                <td name="module_website_also_bought_products">-</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><label for="module_frequently_bought_together_products"/></td>
+                                <td><field name="module_frequently_bought_together_products"/></td>
+                                <td name="module_frequently_bought_together_products">-</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td><label for="module_website_quote_system"/></td>
+                                <td><field name="module_website_quote_system"/></td>
+                                <td name="module_website_quote_system">-</td>
+                            </tr>
+							<tr>
+                                <td>14</td>
+                                <td><label for="module_review_after_purchase"/></td>
+                                <td><field name="module_review_after_purchase"/></td>
+                                <td name="module_review_after_purchase">-</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td><label for="module_website_auction"/></td>
+                                <td><field name="module_website_auction"/></td>
+                                <td name="module_website_auction">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <center><u><separator string="Product Web Page"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+                        </thead>
+                         <tbody>
+                             <tr>
+                                <td>1</td>
+                                <td><label for="module_website_360degree_view"/></td>
+                                <td><field name="module_website_360degree_view"/></td>
+                                <td name="module_website_360degree_view">-</td>
+                            </tr>
+                             <tr>
+                                <td>2</td>
+                                <td><label for="module_email_verification"/></td>
+                                <td><field name="module_email_verification"/></td>
+                                <td name="module_email_verification">-</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><label for="module_website_onepage_checkout"/></td>
+                                <td><field name="module_website_onepage_checkout"/></td>
+                                <td name="module_website_onepage_checkout">-</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><label for="module_wk_review"/></td>
+                                <td><field name="module_wk_review"/></td>
+                                <td name="module_wk_review">-</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><label for="module_website_order_notes"/></td>
+                                <td><field name="module_website_order_notes"/></td>
+                                <td name="module_website_order_notes">-</td>
+                            </tr>
+                             <tr>
+                                <td>6</td>
+                                <td><label for="module_website_product_quickview"/></td>
+                                <td><field name="module_website_product_quickview"/></td>
+                                <td name="module_website_product_quickview">-</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><label for="module_website_recently_viewed_products"/></td>
+                                <td><field name="module_website_recently_viewed_products"/></td>
+                                <td name="module_website_recently_viewed_products">-</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><label for="module_website_store_locator"/></td>
+                                <td><field name="module_website_store_locator"/></td>
+                                <td name="module_website_store_locator">-</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><label for="module_share_the_love"/></td>
+                                <td><field name="module_share_the_love"/></td>
+                                <td name="module_share_the_love">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <center><u><separator string="Web Page"/></u></center>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:15%%;">Serial No.</th>
+                                <th style="width:45%%;">Module Name</th>
+                                <th style="width:20%%;">Is Installed ?</th>
+                                <th style="width:20%%;">Configuration</th>
+                            </tr>
+
+                        </thead>
+                         <tbody>
+                           <tr>
+                                <td>1</td>
+                                <td><label for="module_website_seo"/></td>
+                                <td><field name="module_website_seo"/></td>
+                                <td name="module_website_seo">-</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><label for="module_website_country_restriction"/></td>
+                                <td><field name="module_website_country_restriction"/></td>
+                                <td name="module_website_country_restriction">-</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><label for="module_website_estimated_delivery"/></td>
+                                <td><field name="module_website_estimated_delivery"/></td>
+                                <td name="module_website_estimated_delivery">-</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><label for="module_products_az_list"/></td>
+                                <td><field name="module_products_az_list"/></td>
+                                <td name="module_products_az_list">-</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><label for="module_website_product_tags"/></td>
+                                <td><field name="module_website_product_tags"/></td>
+                                <td name="module_website_product_tags">-</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><label for="module_website_product_price_range"/></td>
+                                <td><field name="module_website_product_price_range"/></td>
+                                <td name="module_website_product_price_range">-</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><label for="module_hidden_products"/></td>
+                                <td><field name="module_hidden_products"/></td>
+                                <td name="module_hidden_products">-</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><label for="module_products_az_filter"/></td>
+                                <td><field name="module_products_az_filter"/></td>
+                                <td name="module_products_az_filter">-</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><label for="module_google_rich_snippets"/></td>
+                                <td><field name="module_google_rich_snippets"/></td>
+                                <td name="module_google_rich_snippets">-</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><label for="module_website_block_content_copy"/></td>
+                                <td><field name="module_website_block_content_copy"/></td>
+                                <td name="module_website_block_content_copy">-</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><label for="module_website_banner_slider"/></td>
+                                <td><field name="module_website_banner_slider"/></td>
+                                <td name="module_website_banner_slider">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </field>
+        </record>
+        <record id="action_webkul_website_addons" model="ir.actions.act_window">
+            <field name="name">Webkul Website Addons Setting</field>
+            <field name="res_model">webkul.website.addons</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="menu_webkul_website_addons" parent="website.menu_website_configuration" action="action_webkul_website_addons" sequence="218" name="Webkul Website Addons"/>
+
+    </data>
+</odoo>

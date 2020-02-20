@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+     
+		 <record id="base.main_company" model="res.company">
+			<field name="name">Clarico</field>
+			<field name="phone">9537952122</field>
+			<field name="email">info@emiprotechnologies.com</field>
+			<field name="website">www.emiprotechnologies.com</field>
+			<field name="street">Safal Commercial Complex 3rd &amp; 4th Floor Behind Jaddu's Food Field</field>
+			<field name="street2">Opp. Jakatnaka ,Kalavad Road</field>
+			<field name="city">Rajkot</field>
+			<field name="country_id" ref="base.in" />
+			<field name="logo" type="base64"
+				file="theme_clarico/static/src/img/data_img/company_logo.png">
+			</field>
+			<field name="currency_id" ref="base.USD" />
+		</record>
+		
+	</data>
+</odoo>

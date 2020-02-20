@@ -1,0 +1,1495 @@
+.social-tabs li {
+
+    padding: 3px 3px 3px 4px;
+
+    width: 27px;
+
+    height: 26px;
+
+    background: none repeat scroll 0 0 #3cade7;
+
+    z-index: 10;
+
+}
+
+
+.active .social-tabs li {
+
+    z-index: 10;
+
+    -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
+
+    -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
+
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
+
+}
+
+
+
+.active .social-tabs li.active {
+
+    z-index: 11;
+
+    -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.6);
+
+    -moz-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.6);
+
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.6);
+
+}/** Static **/.static .social-tabs {
+
+    padding-left: 8px;
+
+}
+
+
+
+.static .social-tabs li {
+
+    float: left;
+
+    margin-right: 2px;
+
+    border-radius: 5px 5px 0 0;
+
+    -webkit-border-radius: 5px 5px 0 0;
+
+    -moz-border-radius: 5px 5px 0 0;
+
+}/** Top **/.top .social-tabs {
+
+    padding-left: 8px;
+
+}
+
+
+
+.top.align-right .social-tabs {
+
+    padding-left: 0;
+
+    padding-right: 8px;
+
+}
+
+
+
+.top .social-tabs li {
+
+    padding: 3px 4px;
+
+    margin-right: 2px;
+
+    float: left;
+
+    border-radius: 0 0 5px 5px;
+
+    -webkit-border-radius: 0 0 5px 5px;
+
+    -moz-border-radius: 0 0 5px 5px;
+
+}/** Right **/.right .social-tabs {
+
+    padding-top: 8px;
+
+}
+
+
+
+.right .social-tabs li {
+
+    margin: 0 0 2px 0;
+
+    border-radius: 5px 0 0 5px;
+
+    -webkit-border-radius: 5px 0 0 5px;
+
+    -moz-border-radius: 5px 0 0 5px;
+
+}/** Bottom **/.bottom .social-tabs {
+
+    padding-left: 8px;
+
+}
+
+
+
+.bottom.align-right .social-tabs {
+
+    padding-left: 0;
+
+    padding-right: 8px;
+
+}
+
+
+
+.bottom .social-tabs li {
+
+    padding: 4px 4px 2px 4px;
+
+    margin: 0 2px 0 0;
+
+    float: left;
+
+    border-radius: 5px 5px 0 0;
+
+    -webkit-border-radius: 5px 5px 0 0;
+
+    -moz-border-radius: 5px 5px 0 0;
+
+}/** Left **/.left .social-tabs {
+
+    padding-top: 8px;
+
+}
+
+
+
+.left .social-tabs li {
+
+    margin: 0 0 2px 0;
+
+    border-radius: 0 5px 5px 0;
+
+    -webkit-border-radius: 0 5px 5px 0;
+
+    -moz-border-radius: 0 5px 5px 0;
+
+}/* Tab Content */
+
+
+
+.tab-content {
+
+    position: relative;
+
+    overflow: hidden;
+
+    z-index: 11;
+
+    background: url(../images/loader.gif) no-repeat center 200px;
+
+}
+
+
+
+.tab-content ul {
+
+    font-size: 11px;
+
+}
+
+
+
+.tab-content .tab-inner {
+
+    background: #fff;
+
+    overflow: hidden;
+
+}
+
+
+
+.tab-inner ul {
+
+    padding: 0 10px;
+
+}
+
+.tab-inner .profile {
+
+    position: relative;
+
+    padding: 10px;
+
+    border-bottom: 1px solid #ccc;
+
+    background: #ececec;
+
+}
+
+
+
+.tab-inner .profile h3 {
+
+    margin: 0;
+
+    padding: 5px 0 3px 26px;
+
+    position: relative;
+
+    font-size: 14px;
+
+    line-height: 20px;
+
+}
+
+
+
+.tab-inner .profile h3 a {
+
+    text-decoration: none;
+
+}
+
+
+
+.tab-inner .profile h3, .tab-inner .profile h3 a {
+
+    color: #555;
+
+    text-shadow: 0 1px 0 #fff;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.tab-inner .profile a.avatar {
+
+    display: block;
+
+    float: left;
+
+    text-decoration: none;
+
+    outline: none;
+
+    margin: 0 10px 0 0;
+
+}
+
+
+
+.tab-inner .profile a.avatar img {
+
+    padding: 1px;
+
+    background: #fff;
+
+    border: 3px solid #ccc;
+
+    display: block;
+
+}/** Network specific profile header **/.tab-rss .profile h3 {
+
+    background: url(../images/rss.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-flickr .profile h3 {
+
+    background: url(../images/flickr.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-delicious .profile h3 {
+
+    background: url(../images/delicious.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-twitter .profile h3 {
+
+    background: url(../images/twitter.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-facebook .profile h3 {
+
+    background: url(../images/facebook.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-fblike .profile h3 {
+
+    background: url(../images/fblike.png) no-repeat 0 1px;
+
+}
+
+.tab-google .profile h3 {
+
+    background: url(../images/google.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-youtube .profile h3 {
+
+    background: url(../images/youtube.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-pinterest .profile h3 {
+
+    background: url(../images/pinterest.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-lastfm .profile h3 {
+
+    background: url(../images/lastfm.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-dribbble .profile h3 {
+
+    background: url(../images/dribbble.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-vimeo .profile h3 {
+
+    background: url(../images/vimeo.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-stumbleupon .profile h3 {
+
+    background: url(../images/stumbleupon.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-tumblr .profile h3 {
+
+    background: url(../images/tumblr.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-deviantart .profile h3 {
+
+    background: url(../images/deviantart.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-linkedin .profile h3 {
+
+    background: url(../images/linkedin.png) no-repeat 0 1px;
+
+}
+
+
+
+.tab-instagram .profile h3 {
+
+    background: url(../images/instagram.png) no-repeat 0 1px;
+
+}
+
+
+
+.static .tab-content {
+
+    padding: 10px;
+
+}
+
+
+
+.static .tab-inner {
+
+    border-radius: 5px;
+
+    -webkit-border-radius: 5px;
+
+    -moz-border-radius: 5px;
+
+}/** Top **/.top .dcsmt-slider {
+
+    border-radius: 0 0 10px 10px;
+
+    -webkit-border-radius: 0 0 10px 10px;
+
+    -moz-border-radius: 0 0 10px 10px;
+
+}
+
+
+
+.top .tab-inner {
+
+    border-radius: 0 0 5px 5px;
+
+    -webkit-border-radius: 0 0 5px 5px;
+
+    -moz-border-radius: 0 0 5px 5px;
+
+}
+
+
+
+.top .tab-content {
+
+    padding: 0 10px 10px 10px;
+
+}/** Right **/.right .dcsmt-slider {
+
+    border-radius: 10px 0 0 10px;
+
+    -moz-border-radius: 10px 0 0 10px;
+
+    -webkit-border-radius: 10px 0 0 10px;
+
+}
+
+
+
+.right .tab-inner {
+
+    border-radius: 5px 0 0 5px;
+
+    -webkit-border-radius: 5px 0 0 5px;
+
+    -moz-border-radius: 5px 0 0 5px;
+
+}
+
+
+
+.right .tab-content {
+
+    padding: 10px 0 10px 10px;
+
+}/** Bottom **/.bottom .dcsmt-slider {
+
+    border-radius: 10px 10px 0 0;
+
+    -webkit-border-radius: 10px 10px 0 0;
+
+    -moz-border-radius: 10px 10px 0 0;
+
+}
+
+
+
+.bottom .tab-inner {
+
+    border-radius: 5px 5px 0 0;
+
+    -webkit-border-radius: 5px 5px 0 0;
+
+    -moz-border-radius: 5px 5px 0 0;
+
+}
+
+
+
+.bottom .tab-content {
+
+    padding: 10px 10px 0 10px;
+
+}/** Left **/.left .dcsmt-slider {
+
+    border-radius: 0 10px 10px 0;
+
+    -webkit-border-radius: 0 10px 10px 0;
+
+    -moz-border-radius: 0 10px 10px 0;
+
+}
+
+
+
+.left .tab-inner {
+
+    border-radius: 0 5px 5px 0;
+
+    -webkit-border-radius: 0 5px 5px 0;
+
+    -moz-border-radius: 0 5px 5px 0;
+
+}
+
+
+
+.left .tab-content {
+
+    padding: 10px 10px 10px 0;
+
+}
+
+
+
+.stream p {
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+
+.tab-inner ul.stream > li {
+
+    padding: 5px 0 25px 0;
+
+    margin: 0;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background: none;
+
+    border-bottom: 1px solid #ccc;
+
+    border-top: 1px solid #fff;
+
+    line-height: 1.4em;
+
+}
+
+
+
+.tab-inner ul li .thumb {
+
+    float: left;
+
+    margin: 0 10px 0 0;
+
+}
+
+
+
+.tab-inner ul li .thumb img {
+
+    border: 3px solid #ececec;
+
+    padding: 1px;
+
+    background: #fff;
+
+    width: 96%;
+
+}
+
+
+
+.tab-inner ul li .logo {
+
+    margin-bottom: 3px;
+
+}
+
+
+
+.tab-inner ul li .title {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: 3px;
+    word-wrap:break-word;
+    font-size: 12px;
+
+}
+
+.tab-inner ul li{
+    font-size: 12px;
+}
+
+
+.tab-inner ul li .title.clear {
+    clear: both;
+}
+
+
+
+.tab-inner ul li .text {
+
+    display: block;
+
+}
+
+
+
+.tab-inner ul li  br {
+
+    display: block;
+
+}
+
+
+
+.tab-inner ul li .date {
+
+    position: absolute;
+
+    bottom: 5px;
+
+    left: 0;
+
+    font-style: italic;
+
+    color: #999;
+
+    font-size: 80%;
+
+}
+
+
+
+.tab-inner ul li .meta {
+
+    display: block;
+
+    font-size: 90%;
+
+    color: #999;
+
+}
+
+
+
+.tab-inner ul li .meta span {
+
+    margin: 0 8px 5px 0;
+
+    display: block;
+
+    float: left;
+
+    padding: 0 0 0 15px;
+
+    line-height: 12px;
+
+}
+
+
+
+.tab-inner ul li .meta.item-comments {
+
+    padding: 0 0 0 35px;
+
+    margin: 0 0 5px 0;
+
+    min-height: 30px;
+
+    position: relative;
+
+    clear: both;
+
+    line-height: 1.3em;
+
+}
+
+
+
+.tab-inner ul li .meta.item-comments img {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 30px;
+
+}
+
+
+
+.tab-inner ul li .meta.item-likes {
+
+    padding: 0;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    clear: both;
+
+    line-height: 1.3em;
+
+}
+
+
+
+.tab-inner ul li .meta.item-likes img {
+
+    float: left;
+
+    margin: 0 5px 5px 0;
+
+    width: 30px;
+
+    border: 1px solid #ddd;
+
+    padding: 1px;
+
+    background: #fff;
+
+}
+
+
+
+.tab-inner ul li .section-share {
+
+    bottom: 5px;
+
+    right: 0;
+
+    position: absolute;
+
+    z-index: 2;
+
+}
+
+
+
+.tab-inner ul li .section-share a {
+
+    display: block;
+
+    width: 16px;
+
+    height: 16px;
+
+    float: left;
+
+    margin: 0 2px 0 0;
+
+    background: url(../images/share.png) no-repeat 0 0;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-twitter {
+
+    background-position: 0 -16px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-reply {
+
+    background-position: 0 -32px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-retweet {
+
+    background-position: 0 -48px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-favorite {
+
+    background-position: 0 -64px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-google {
+
+    background-position: 0 -80px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-linkedin {
+
+    background-position: 0 -96px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-facebook:hover {
+
+    background-position: -16px 0;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-twitter:hover {
+
+    background-position: -16px -16px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-reply:hover {
+
+    background-position: -16px -32px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-retweet:hover {
+
+    background-position: -16px -48px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-favorite:hover {
+
+    background-position: -16px -64px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-google:hover {
+
+    background-position: -16px -80px;
+
+}
+
+
+
+.tab-inner ul li .section-share a.share-linkedin:hover {
+
+    background-position: -16px -96px;
+
+}/* feeds network specific styles */.tab-dribbble .tab-inner ul li .thumb img {
+
+    margin-bottom: 5px;
+
+}
+
+
+
+.tab-lastfm .tab-inner ul li .title {
+
+    background: url(../images/tracks.png) no-repeat 0 0;
+
+    padding-left: 17px;
+
+    margin-bottom: 0;
+
+}
+
+
+
+.tab-google .tab-inner ul li .title {
+
+    margin-bottom: 5px;
+
+}
+
+
+
+.tab-vimeo .tab-inner ul li .text {
+
+    margin-bottom: 5px;
+
+}
+
+
+
+.tab-inner ul li .meta span.plusones {
+
+    padding-left: 0;
+
+}
+
+
+
+.tab-inner ul li .meta span.shares {
+
+    background: url(../images/shares.png) no-repeat 0 0;
+
+    padding-left: 20px;
+
+}
+
+
+
+.tab-inner ul li .meta span.views {
+
+    background: url(../images/views.png) no-repeat 0 0;
+
+    padding-left: 18px;
+
+}
+
+
+
+.tab-inner ul li .meta span.likes {
+
+    background: url(../images/likes.png) no-repeat 0 0;
+
+    padding-left: 16px;
+
+}
+
+
+
+.tab-inner ul li .meta span.comments {
+
+    background: url(../images/comments.png) no-repeat 0 0;
+
+}
+
+
+
+.tab-inner ul li .meta span.users {
+
+    background: url(../images/users.png) no-repeat 0 0;
+
+}
+
+
+
+.tab-inner ul li .meta span.videos {
+
+    background: url(../images/videos.png) no-repeat 0 0;
+
+    padding-left: 16px;
+
+}
+
+
+
+/* twitter */.tab-twitter .tab-inner ul li a {
+
+    color: #38AEAE;
+
+}
+
+
+
+.tab-twitter .tab-inner ul li a:hover {
+
+    color: #38AEAE;
+
+    text-decoration: underline;
+
+}
+
+
+
+.tab-twitter .tab-inner ul li span.twitter-user a {
+
+    color: #AEAEAE;
+
+    line-height: 1.5em;
+
+}
+
+
+
+.tab-twitter .tab-inner ul li span.twitter-user a:hover {
+
+    color: #AEAEAE;
+
+    text-decoration: none;
+
+}
+
+
+
+.tab-twitter .tab-inner ul li span.twitter-user a strong {
+
+    color: #666;
+
+}
+
+
+
+.tab-twitter .tab-inner ul li span.twitter-user a:hover strong {
+
+    color: #38AEAE;
+
+    text-decoration: underline;
+
+}
+
+
+
+.tab-twitter .tab-inner ul li .thumb img {
+
+    border: 1px solid #ececec;
+
+    padding: 1px;
+
+    background: #fff;
+
+}
+
+
+
+.tab-twitter .tab-inner ul li .twitter-image {
+
+    display: block;
+
+    clear: both;
+
+    text-align: center;
+
+}
+
+
+
+.tab-twitter .tab-inner ul li .twitter-image img {
+
+    border: 1px solid #ececec;
+
+    padding: 1px;
+
+    background: #fff;
+
+}/* google */.tab-google .tab-inner .google-page {
+
+    overflow: hidden;
+
+    height: 55px;
+
+    border-bottom: 1px solid #ccc;
+
+}
+
+
+
+.tab-google .tab-inner .google-page.standard {
+
+    height: 117px;
+
+}
+
+
+
+.tab-google .tab-inner .google-page.small iframe {
+
+    height: 69px;
+
+    margin-bottom: 0;
+
+}
+
+
+
+.tab-google .tab-inner .google-page.standard iframe {
+
+    height: 131px;
+
+    margin-bottom: 0;
+
+}/** rss **/.tab-rss .tab-inner ul li p {
+
+    padding: 3px 0;
+
+}/** Facebook **/.tab-facebook .tab-inner ul li p {
+
+    padding: 3px 0;
+
+}
+
+
+
+.tab-facebook .tab-inner li img {
+
+    float: left;
+
+    margin: 0 7px 5px 0;
+
+    padding: 2px;
+
+    background: #fff;
+
+    border: 1px solid #ececec;
+
+}
+
+
+
+.tab-facebook .tab-inner li .section-share .share-facebook {
+
+    display: none;
+
+}/** Flickr **/.tab-flickr .tab-inner ul {
+
+    padding-top: 5px;
+
+}
+
+
+
+.tab-flickr .tab-inner ul.stream li {
+
+    float: left;
+
+    clear: both;
+
+    padding: 0;
+
+    margin: 0 5px 5px 0;
+
+    border: none;
+
+}
+
+
+
+.tab-flickr .tab-inner li .thumb {
+
+    margin: 0;
+
+}
+
+
+
+.tab-flickr .tab-inner li img {
+
+    max-width: 100%;
+
+}
+
+
+
+.tab-flickr .tab-inner li .section-share {
+
+    bottom: 10px;
+
+    right: 5px;
+
+}/** Youtube **/.youtube-subscribe {
+
+    overflow: hidden;
+
+    height: 90px;
+
+    width: 100%;
+
+    border: 0;
+
+}/* Digg */.tab-digg .digg-widget .digg-widget-head.premium, .tab-digg .digg-widget .digg-widget-head {
+
+    height: auto;
+
+    overflow: hidden;
+
+    padding: 10px;
+
+    position: relative;
+
+    white-space: nowrap;
+
+    border: none;
+
+    border-radius: 0;
+
+    -webkit-border-radius: 0;
+
+}
+
+
+
+.tab-digg .digg-widget .digg-widget-head h2 {
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    line-height: 20px;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    padding: 0 0 0 26px;
+
+    white-space: nowrap;
+
+    text-shadow: 0 1px 0 #fff;
+
+    background: url(../images/digg.png) no-repeat 0 0;
+
+}
+
+
+
+.tab-digg .digg-widget .digg-widget-head a {
+
+    top: 12px;
+
+}
+
+
+
+.tab-digg .digg-widget-content {
+
+    border-top: 1px solid #ccc;
+
+}/* custom */.tab-custom .digg-widget .digg-widget-head.premium, .tab-custom .custom-widget .custom-widget-head {
+
+    height: auto;
+
+    overflow: hidden;
+
+    padding: 10px;
+
+    position: relative;
+
+    white-space: nowrap;
+
+    border: none;
+
+    border-radius: 0;
+
+    -webkit-border-radius: 0;
+
+}
+
+
+
+.tab-custom .custom-widget .custom-widget-head h2 {
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    line-height: 20px;
+
+    margin: 0;
+
+    overflow: auto;
+
+    padding: 0 0 0 26px;
+
+    height: auto;
+
+    white-space: nowrap;
+
+    text-shadow: 0 1px 0 #fff;
+
+    background: url(../images/digg.png) no-repeat 0 0;
+
+}
+
+
+
+.tab-custom .custom-widget .custom-widget-head a {
+
+    top: 12px;
+
+}
+
+
+
+.tab-custom .custom-widget-content {
+
+    border-top: 1px solid #ccc;
+
+}/* Pinterest */.tab-pinterest .tab-inner ul li {
+
+    background-color: #FFFFFF;
+
+    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+
+    font-size: 11px;
+
+    padding: 15px 15px 45px 15px;
+
+    width: 94%;
+
+    margin: 10px auto;
+
+}
+
+
+
+.tab-pinterest .tab-inner ul li a {
+
+}
+
+
+
+.tab-pinterest .tab-inner ul li img {
+
+    background: #fff;
+
+    margin-bottom: 2px;
+
+    border: none;
+
+    padding: none;
+
+}
+
+
+
+.tab-pinterest .tab-inner ul li p {
+
+    text-align: left;
+
+    padding: 0;
+
+    line-height: 1.35em;
+
+}
+
+
+
+.tab-pinterest .tab-inner ul li .date {
+
+    background-color: #F2F0F0;
+
+    padding: 10px 15px;
+
+    width: 192px;
+
+    left: -5px;
+
+    bottom: 0;
+
+    color: #8C7E7E;
+
+    font-style: normal;
+
+    font-weight: bold;
+
+}
+
+
+
+.tab-pinterest .tab-inner ul li .date {
+    margin-left: 0;
+}
+
+
+
+.tab-pinterest .tab-inner ul li .section-share {
+
+    right: 5px;
+
+    bottom: 9px;
+
+}/* dribbble */.tab-dribbble .tab-inner li .meta {
+
+    clear: both;
+
+}/* deviantart */.tab-deviantart .tab-inner li img {
+
+    margin: 5px 0;
+
+}/* tumblr */.tab-tumblr .tab-inner ul li img {
+
+    margin: 0 7px 5px 0;
+
+    float: left;
+
+    border: 1px solid #ddd;
+
+    padding: 1px;
+
+    background: #fff;
+
+}
+
+
+
+.tab-tumblr .tab-inner ul li p {
+
+    padding: 3px 0;
+
+}
+
+
+
+.tab-tumblr .tab-inner ul li .track {
+
+    display: block;
+
+    background: url(../images/tracks.png) no-repeat 0 5px;
+
+    padding: 5px 0 0 17px;
+
+    margin-bottom: 0;
+
+}/* instagram */.tab-instagram .tab-inner ul li .thumb {
+
+    margin-bottom: 3px;
+
+}
+
+
+
+.tab-instagram .tab-inner ul li .meta .comments, .tab-instagram .tab-inner ul li .meta .likes {
+
+    margin-top: 5px;
+
+}
+
+
+
+.title:hover {
+
+    color: #3B5998!important;
+
+    background: none;
+
+}
+
+
+
+.social-tabs li a:hover, .social-tabs li a:link, .social-tabs li a:visited {
+
+    background: none;
+
+}
+
+
+
+
+.tab-slideshare .profile h3{
+
+background:url("../images/slideshare.png") no-repeat scroll 0 1px rgba(0, 0, 0, 0);
+
+}
+
+
+

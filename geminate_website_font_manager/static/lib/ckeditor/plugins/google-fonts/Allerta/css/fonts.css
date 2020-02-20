@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Allerta';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Allerta-regular/Allerta-regular.eot');
+  src: url('../fonts/Allerta-regular/Allerta-regular.eot?#iefix') format('embedded-opentype'),
+       local('Allerta Regular'),
+       local('Allerta-regular'),
+       url('../fonts/Allerta-regular/Allerta-regular.woff2') format('woff2'),
+       url('../fonts/Allerta-regular/Allerta-regular.woff') format('woff'),
+       url('../fonts/Allerta-regular/Allerta-regular.ttf') format('truetype'),
+       url('../fonts/Allerta-regular/Allerta-regular.svg#Allerta') format('svg');
+}
+

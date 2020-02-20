@@ -1,0 +1,43 @@
+id,code,name,state_id/id,country_id/id
+city_riyadh,1,الرياض,territory_riyadh,base.sa
+city_makkah,2,مكة,territory_makkah,base.sa
+city_madinah,3,المدينة المنورة,territory_madinah,base.sa
+city_bridah,4,بريدة,territory_qassim,base.sa
+city_tabouk,5,تبوك,territory_tabouk,base.sa
+city_dammam,6,الدمام,territory_eastern,base.sa
+city_ihsaa,7,الاحساء,territory_eastern,base.sa
+city_qatif,8,القطيف,territory_eastern,base.sa
+city_kamis_musheet,9,خميس مشيط,territory_aseer,base.sa
+city_taif,10,الطائف,territory_makkah,base.sa
+city_najran,11,نجران,territory_najran,base.sa
+city_hafr_batin,12,حفر الباطن,territory_eastern,base.sa
+city_jubail,13,الجبيل,territory_eastern,base.sa
+city_dubaa,14,ضباء,territory_tabouk,base.sa
+city_kharj,15,الخرج,territory_riyadh,base.sa
+city_thuqba,16,الثقبة,territory_eastern,base.sa
+city_yanbu_albahr,17,ينبع البحر,territory_madinah,base.sa
+city_khubar,18,الخبر,territory_eastern,base.sa
+city_arar,19,عرعر,territory_northern_rim,base.sa
+city_huwaya,20,الحوية,territory_makkah,base.sa
+city_onaiza,21,عنيزة,territory_qassim,base.sa
+city_sakaka,22,سكاكا,territory_gouf,base.sa
+city_jeezan,23,جيزان,territory_jazan,base.sa
+city_quriat,24,القريات,territory_gouf,base.sa
+city_zahran,25,الظهران,territory_eastern,base.sa
+city_baha,26,الباحة,territory_albaha,base.sa
+city_zulfa,27,الزلفي,territory_riyadh,base.sa
+city_rus,28,الرس,territory_qassim,base.sa
+city_wadi_aldawasir,29,وادي الدواسر,territory_riyadh,base.sa
+city_beesha,30,بيشه,territory_aseer,base.sa
+city_seehat,31,سيهات,territory_eastern,base.sa
+city_shroora,32,شروره,territory_najran,base.sa
+city_bahraa,33,بحره,territory_makkah,base.sa
+city_tarout,34,تاروت,territory_eastern,base.sa
+city_dwadmi,35,الدوادمي,territory_riyadh,base.sa
+city_sabia,36,صبياء,territory_jazan,base.sa
+city_beesh,37,بيش,territory_jazan,base.sa
+city_ahad_rufaida,38,أحد رفيدة,territory_aseer,base.sa
+city_freesh,39,الفريش,territory_madinah,base.sa
+city_bariq,40,بارق,territory_aseer,base.sa
+city_houta,41,الحوطة,territory_riyadh,base.sa
+city_aflag,42,الأفلاج,territory_riyadh,base.sa

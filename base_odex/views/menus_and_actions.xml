@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="country_menu" name="Countries"
+                  parent="base.menu_custom" />
+
+
+
+        <record model="ir.actions.act_window" id="res_state_list_action">
+            <field name="name">Country States</field>
+            <field name="res_model">res.country.state</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first State
+                </p>
+            </field>
+        </record>
+        <menuitem id="res_state_menu" name="Country States"
+                  parent="country_menu" action="res_state_list_action" />
+        
+        
+
+        <!-- Cities -->
+        <record model="ir.actions.act_window" id="res_city_list_action">
+            <field name="name">Country Cities</field>
+            <field name="res_model">res.country.city</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first City
+                </p>
+            </field>
+        </record>
+        <menuitem id="res_city_menu" name="Cities"
+                  parent="country_menu" action="res_city_list_action" />
+    </data>
+</odoo>

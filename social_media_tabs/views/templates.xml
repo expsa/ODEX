@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2016-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) -->
+<!-- See LICENSE file for full copyright and licensing details. -->
+<odoo>
+	<data>	
+		<template id="assets_frontend" name="website_ribbon_assets_frontend" inherit_id="website.layout">
+			<xpath expr="." position="inside">
+            <link rel="stylesheet" href="/social_media_tabs/static/src/css/social_tabs.css"/> 
+            <link rel="stylesheet" href="/social_media_tabs/static/src/css/dcsmt.css"/> 
+		        <link rel="stylesheet" href="/social_media_tabs/static/src/css/jscrollpane.css"/>	
+             <script type="text/javascript" src="/social_media_tabs/static/src/js/social_tabs_library.js"></script>    
+             <script type="text/javascript" src="/social_media_tabs/static/src/js/social_tabs.js"></script>    
+             
+		           
+
+		    </xpath>
+		</template>
+
+<template id="wk_sider_menu_social_tabs" inherit_id="website.layout" name="Social Tabs" >
+    <xpath expr="//main" position="inside">
+            <div groups="sales_team.group_sale_manager,website.group_website_designer" t-if="website.tab_ids and website.tabs_position =='right'" class="tab_main_div_right" t-att-value="website.tab_event_website">
+             	<div class="hover_out_right">
+             	</div>
+             	<div class="hover_in_right">
+             	</div>
+              <t t-foreach="website.tab_ids" t-as="tab_obj">
+             	  <div class="tabs_div_right tab-facebook">
+                  	<div class="tab_image_div_right"  t-att-data-tab_id="tab_obj.id" t-att-data-color="tab_obj.color">
+     					        <span  t-field="tab_obj.icon" t-field-options='{"widget": "image"}'/>
+                    </div>
+                    <t t-call="social_media_tabs.social_tabs_content_template"/>
+                </div>
+               </t>
+            </div>
+            <div  groups="sales_team.group_sale_manager,website.group_website_designer" t-if="website.tab_ids and website.tabs_position =='left'" class="tab_main_div_left" t-att-value="website.tab_event_website">
+              <div class="hover_out_left">
+              </div>
+              <div class="hover_in_left">
+              </div>
+                  <t if="website.tab_ids" t-foreach="website.tab_ids" t-as="tab_obj">
+                      <div class="tabs_div_left tab-facebook">
+                    	<div class="tab_image_div_left" t-att-data-tab_id="tab_obj.id" t-att-data-color="tab_obj.color">
+                    		<span  t-field="tab_obj.icon" t-field-options='{"widget": "image"}'/>
+                    	</div>
+                      <t t-call="social_media_tabs.social_tabs_content_template"/>
+                  </div>
+                </t>
+              
+            </div>
+    </xpath>
+</template>
+
+  <template id="social_tabs_content_template" name="Social Tabs Content Template">
+        <div t-if="tab_obj.social_tab != 'fblike'" class="tab-inner" t-att-data-content_id="tab_obj.id">
+          <div class="content_header">
+              <a t-if="tab_obj.social_tab == 'facebook'" class="follow_on_button" t-att-href="'https://www.facebook.com/%s' % tab_obj.facebook_id">
+                <span  t-field="tab_obj.folow"/>
+              </a>
+              <a t-if="tab_obj.social_tab == 'youtube'" class="follow_on_button" t-att-href="'https://www.youtube.com/user/%s' % tab_obj.yt_user_id">
+                <span  t-field="tab_obj.folow"/>
+              </a>
+              <a t-if="tab_obj.social_tab == 'pinterest'" class="follow_on_button" t-att-href="'https://www.pinterest.com/%s' % tab_obj.pinterest_id">
+                <span  t-field="tab_obj.folow"/>
+              </a>
+              <a t-if="tab_obj.social_tab == 'vimeo'" class="follow_on_button" t-att-href="'https://vimeo.com/%s' % tab_obj.vimeo_id">
+                <span  t-field="tab_obj.folow"/>
+              </a>
+              <a t-if="tab_obj.social_tab == 'tumblr'" class="follow_on_button" t-att-href="'https://%s.tumblr.com' % tab_obj.tumblr_id">
+                <span  t-field="tab_obj.folow"/>
+              </a>
+               <a t-if="tab_obj.social_tab == 'stumbleupon'" class="follow_on_button" t-att-href="'https://www.stumbleupon.com/stumbler/%s' % tab_obj.stumbleupon_id">
+                <span  t-field="tab_obj.folow"/>
+              </a>
+                <a t-if="tab_obj.social_tab == 'google'" class="follow_on_button" t-att-href="'https://plus.google.com/%s/posts/' % tab_obj.google_id">
+                <span  t-field="tab_obj.folow"/>
+              </a>
+              <div class="wk_logo" ><span t-if="tab_obj.logo" t-field="tab_obj.logo" t-field-options='{"widget": "image"}' ></span><span t-field="tab_obj.title"></span></div>
+          </div>
+          <div  t-if="tab_obj.social_tab == 'youtube' and tab_obj.yt_show_subscribe == True" class="youtube_subscribe loaded">
+          </div>
+          <div class="content_body">
+            
+            <ul id="" class="stream"></ul>
+          </div>
+        </div>
+        <div t-if="tab_obj.social_tab == 'fblike'" class="tab-inner" t-att-data-content_id="tab_obj.id">
+          <div class="iframe">
+            <ul id="" class="stream"></ul>
+          </div>
+        </div>
+  </template>
+
+
+
+</data>
+</odoo>

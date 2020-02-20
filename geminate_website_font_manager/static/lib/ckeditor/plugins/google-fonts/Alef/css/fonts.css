@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Alef';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Alef-regular/Alef-regular.eot');
+  src: url('../fonts/Alef-regular/Alef-regular.eot?#iefix') format('embedded-opentype'),
+       local('Alef Regular'),
+       local('Alef-regular'),
+       url('../fonts/Alef-regular/Alef-regular.woff2') format('woff2'),
+       url('../fonts/Alef-regular/Alef-regular.woff') format('woff'),
+       url('../fonts/Alef-regular/Alef-regular.ttf') format('truetype'),
+       url('../fonts/Alef-regular/Alef-regular.svg#Alef') format('svg');
+}
+

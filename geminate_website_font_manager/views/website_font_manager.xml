@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+		<template id="assets_editor" inherit_id="website.assets_editor" name="Website font manager">
+    		<xpath expr="." position="inside">
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-Bold/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-ExtraLight/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-ExtraBold/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-Light/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-Regular/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-Medium/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-SemiBold/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/ABeeZee/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Abel/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Abril-Fatface/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Aclonica/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Acme/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Actor/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Adamina/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Advent-Pro/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Aguafina-Script/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Akronim/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Aladin/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Aldrich/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alef/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alegreya/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alegreya-Sans/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alegreya-Sans-SC/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alegreya-SC/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alex-Brush/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alfa-Slab-One/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alice/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alike/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alike-Angular/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Allan/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Allerta/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Allerta-Stencil/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Vollkorn/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Work-Sans/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Yellowtail/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Yesteryear/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Zeyada/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Droid-Sans/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Lato/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Lora/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Open-Sans/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Open-Sans-Condensed/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/PT-Sans/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/PT-Sans-Caption/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/PT-Sans-Narrow/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Source-Sans-Pro/css/fonts.css'/>
+
+				<script type="text/javascript" src="/geminate_website_font_manager/static/js/geminate_website_font_mananger.js"/>
+   			</xpath>
+		</template>
+
+		<template id="fontmanagerFrontend" inherit_id="website.assets_frontend" name="fontmanager">
+        	<xpath expr="/t" position="inside">
+			    <link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-Regular/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-Bold/css/fonts.css'/>
+                <link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-ExtraLight/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-Light/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-Medium/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-SemiBold/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Changa-ExtraBold/css/fonts.css'/>
+        		<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/ABeeZee/css/fonts.css'/>
+        		<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Abel/css/fonts.css'/>
+        		<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Abril-Fatface/css/fonts.css'/>
+        		<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Aclonica/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Acme/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Actor/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Adamina/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Advent-Pro/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Aguafina-Script/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Akronim/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Aladin/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Aldrich/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alef/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alegreya/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alegreya-Sans/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alegreya-Sans-SC/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alegreya-SC/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alex-Brush/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alfa-Slab-One/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alice/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alike/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Alike-Angular/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Allan/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Allerta/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Allerta-Stencil/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Vollkorn/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Work-Sans/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Yellowtail/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Yesteryear/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Zeyada/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Droid-Sans/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Lato/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Lora/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Open-Sans/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Open-Sans-Condensed/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/PT-Sans/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/PT-Sans-Caption/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/PT-Sans-Narrow/css/fonts.css'/>
+				<link rel='stylesheet' href='/geminate_website_font_manager/static/lib/ckeditor/plugins/google-fonts/Source-Sans-Pro/css/fonts.css'/>
+
+
+   			</xpath>
+		</template>
+</odoo>
+

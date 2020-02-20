@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_msg_form_wizard" model="ir.ui.view">
+            <field name="name">Summary wizard</field>
+            <field name="model">website.message.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+               <form string="Message" >
+                    <separator string="Message" colspan="6"/>
+                    <h3><field name="message" colspan="4" nolabel="1" readonly="1" widget="html"/></h3>                                                         
+                    <newline/>
+                    <separator colspan="6"/>
+                    <footer>
+                        <button type="object" class="oe_highlight" name="update_latest_record" string="Deactive Previous And Active New Configuration" />
+
+                        <button type="object" class="oe_highlight" string="Cancel" name="cancel" />
+                    </footer>
+                                    
+                </form>
+            </field>
+        </record>
+		<record id="message_wizard_action" model="ir.actions.act_window">
+            <field name="name">Message Wizard</field>
+            <field name="res_model">website.message.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+</data>
+</odoo>

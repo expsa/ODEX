@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Alike Angular';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Alike-Angular-regular/Alike-Angular-regular.eot');
+  src: url('../fonts/Alike-Angular-regular/Alike-Angular-regular.eot?#iefix') format('embedded-opentype'),
+       local('Alike Angular'),
+       local('Alike-Angular-regular'),
+       url('../fonts/Alike-Angular-regular/Alike-Angular-regular.woff2') format('woff2'),
+       url('../fonts/Alike-Angular-regular/Alike-Angular-regular.woff') format('woff'),
+       url('../fonts/Alike-Angular-regular/Alike-Angular-regular.ttf') format('truetype'),
+       url('../fonts/Alike-Angular-regular/Alike-Angular-regular.svg#AlikeAngular') format('svg');
+}
+

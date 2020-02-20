@@ -1,0 +1,14 @@
+id,code,name,country_id/id
+territory_riyadh,1,منطقة الرياض,base.sa
+territory_qassim,2,منطقة القصيم,base.sa
+territory_makkah,3,منطقة مكة المكرمة,base.sa
+territory_madinah,4,منطقة المدينة المنورة,base.sa
+territory_hail,5,منطقة حائل,base.sa
+territory_gouf,6,منطقة الجوف,base.sa
+territory_tabouk,7,منطقة تبوك,base.sa
+territory_northern_rim,8,منطقة الحدود الشمالية,base.sa
+territory_aseer,9,منطقة عسير,base.sa
+territory_jazan,10,منطقة جازان,base.sa
+territory_najran,11,منطقة نجران,base.sa
+territory_albaha,12,منطقة الباحة,base.sa
+territory_eastern,13,المنطقة الشرقية,base.sa

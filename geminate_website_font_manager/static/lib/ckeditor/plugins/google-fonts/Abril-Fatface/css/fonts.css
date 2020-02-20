@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Abril Fatface';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Abril-Fatface-regular/Abril-Fatface-regular.eot');
+  src: url('../fonts/Abril-Fatface-regular/Abril-Fatface-regular.eot?#iefix') format('embedded-opentype'),
+       local('Abril Fatface'),
+       local('Abril-Fatface-regular'),
+       url('../fonts/Abril-Fatface-regular/Abril-Fatface-regular.woff2') format('woff2'),
+       url('../fonts/Abril-Fatface-regular/Abril-Fatface-regular.woff') format('woff'),
+       url('../fonts/Abril-Fatface-regular/Abril-Fatface-regular.ttf') format('truetype'),
+       url('../fonts/Abril-Fatface-regular/Abril-Fatface-regular.svg#AbrilFatface') format('svg');
+}
+

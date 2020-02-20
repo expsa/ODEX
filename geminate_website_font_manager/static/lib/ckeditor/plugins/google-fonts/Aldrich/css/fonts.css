@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Aldrich';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Aldrich-regular/Aldrich-regular.eot');
+  src: url('../fonts/Aldrich-regular/Aldrich-regular.eot?#iefix') format('embedded-opentype'),
+       local('Aldrich'),
+       local('Aldrich-regular'),
+       url('../fonts/Aldrich-regular/Aldrich-regular.woff2') format('woff2'),
+       url('../fonts/Aldrich-regular/Aldrich-regular.woff') format('woff'),
+       url('../fonts/Aldrich-regular/Aldrich-regular.ttf') format('truetype'),
+       url('../fonts/Aldrich-regular/Aldrich-regular.svg#Aldrich') format('svg');
+}
+

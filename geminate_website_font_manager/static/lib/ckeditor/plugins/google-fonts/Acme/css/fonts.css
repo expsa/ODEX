@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Acme';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Acme-regular/Acme-regular.eot');
+  src: url('../fonts/Acme-regular/Acme-regular.eot?#iefix') format('embedded-opentype'),
+       local('Acme'),
+       local('Acme-regular'),
+       url('../fonts/Acme-regular/Acme-regular.woff2') format('woff2'),
+       url('../fonts/Acme-regular/Acme-regular.woff') format('woff'),
+       url('../fonts/Acme-regular/Acme-regular.ttf') format('truetype'),
+       url('../fonts/Acme-regular/Acme-regular.svg#Acme') format('svg');
+}
+

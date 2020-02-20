@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Aladin';
+  font-weight: 400;
+  font-style: normal;
+  src: url('../fonts/Aladin-regular/Aladin-regular.eot');
+  src: url('../fonts/Aladin-regular/Aladin-regular.eot?#iefix') format('embedded-opentype'),
+       local('Aladin Regular'),
+       local('Aladin-regular'),
+       url('../fonts/Aladin-regular/Aladin-regular.woff2') format('woff2'),
+       url('../fonts/Aladin-regular/Aladin-regular.woff') format('woff'),
+       url('../fonts/Aladin-regular/Aladin-regular.ttf') format('truetype'),
+       url('../fonts/Aladin-regular/Aladin-regular.svg#Aladin') format('svg');
+}
+
