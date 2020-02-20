@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+    Initiatives
+    -->
+    <record id="view_initiative_product_search" model="ir.ui.view">
+        <field name="name">initiative.product.product.search</field>
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+            <search string="Services">
+                <field name="name" filter_domain="[('name','ilike',self)]" string="Initiative"/>
+                <field name="nature" />
+                <field name="initiative_id" />
+                <field name="department_id" />
+                <separator/>
+                <filter string="nature" domain="[]" context="{'group_by': 'nature'}"/>
+                <filter string="Initiative" domain="[]" context="{'group_by': 'initiative_id'}"/>
+                <filter string="Department" domain="[]" context="{'group_by': 'department_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_initiative_product_tree" model="ir.ui.view">
+        <field name="name">initiative.product.product.tree</field>
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+            <tree string="Initiative">
+                <field name="name"/>
+                <field name="nature" />
+                <field name="initiative_id" />
+                <field name="department_id" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_initiative_product_form">
+        <field name="name">initiative.product.product.form</field>
+        <field name="model">product.product</field>
+        <field name="arch" type="xml">
+            <form string="Initiative">
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="type" invisible="1"/>
+                        <field name="initiative_service" invisible="1"/>
+                        <field name="nature" required="1"/>
+                        <field name="property_account_income_id" options="{'no_open': True, 'no_create': True}" domain="[('internal_type','!=','liquidity'),('deprecated','=',False)]" groups="account.group_account_user" attrs="{'invisible':[('nature','not in',['income'])],'required':[('nature','in',['income'])]}"/>
+                        
+                        <field name="property_account_expense_id" options="{'no_open': True, 'no_create': True}" domain="[('internal_type','!=','liquidity'),('deprecated','=',False)]" groups="account.group_account_user" attrs="{'invisible':[('nature','not in',['expense','custody'])],'required':[('nature','in',['expense','custody'])]}"/>
+                        <field name="account_restricted_income_id" options="{'no_open': True, 'no_create': True}" domain="[('internal_type','!=','liquidity'),('deprecated','=',False)]" groups="account.group_account_user" attrs="{'invisible':[('nature','not in',['expense'])]}"/>
+                        <field name="account_restricted_expense_id" options="{'no_open': True, 'no_create': True}" domain="[('internal_type','!=','liquidity'),('deprecated','=',False)]" groups="account.group_account_user" attrs="{'invisible':[('nature','not in',['expense'])]}"/>
+
+
+                        <field name="department_id" options="{'no_open': True, 'no_create': True}" attrs="{'invisible':True}"/>
+                        <field name="initiative_id" readonly="1" options="{'no_open': True, 'no_create': True}" attrs="{'invisible':True}"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="open_initiative_product_action" model="ir.actions.act_window">
+        <field name="name">Services</field>
+        <field name="res_model">product.product</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="search_view_id" ref="view_initiative_product_search"/>
+        <field name="domain">[('type', '=', 'service'),('initiative_service', '=', True)]</field>
+        <field name="context">{'default_type':'service','default_initiative_service': True,'initiative_service': True}</field>
+    </record>
+
+    <record id="open_initiative_product_tree" model="ir.actions.act_window.view">
+        <field eval="1" name="sequence"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_initiative_product_tree"/>
+        <field name="act_window_id" ref="open_initiative_product_action"/>
+    </record>
+
+    <record id="open_initiative_product_form" model="ir.actions.act_window.view">
+        <field eval="2" name="sequence"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_initiative_product_form"/>
+        <field name="act_window_id" ref="open_initiative_product_action"/>
+    </record>
+
+    <menuitem action="open_initiative_product_action" id="menu_initiative_product_form" parent="sub_menu_initiative" sequence="5" groups="group_initiative_manager"/>
+
+</odoo>

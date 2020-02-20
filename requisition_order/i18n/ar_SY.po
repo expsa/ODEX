@@ -1,0 +1,657 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* requisition_order
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181220\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-03 08:52+0000\n"
+"PO-Revision-Date: 2019-04-03 08:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:282
+#, python-format
+msgid " no budget for this service "
+msgstr "عذراً !!! لا توجد موازنة لهذه الخدمة"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:694
+#, python-format
+msgid " no enough budget "
+msgstr "عذراً !!! لا توجد موازنة"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:237
+#: code:addons/requisition_order/models/RequisitionRequest.py:460
+#, python-format
+msgid " payment have to be confirmed first "
+msgstr "لطفاً ... قم بتأكيد الدفعية المرتبطة بهذا الطلب أولاً"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:473
+#, python-format
+msgid " payment have to be enter closing date first "
+msgstr "برجاء إدخال تاريخ الاغلاق أولاً"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:477
+#, python-format
+msgid " payment have to be enter closing journal first "
+msgstr "برجاء إدخال دفتر يومية الاغلاق أولاً"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:469
+#, python-format
+msgid " payment have to be enter payment method type first "
+msgstr "برجاء إدخال طريقة الدفع أولاً"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:550
+#, python-format
+msgid " please set Beneficiary's payable and receivable accounts first "
+msgstr "لطفاً ... قم باسناد حسابات دائنة ومدينة لهذا المستفيد في الشاشة الخاصة بالمستفيدين"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:295
+#: code:addons/requisition_order/models/RequisitionRequest.py:320
+#: code:addons/requisition_order/models/RequisitionRequest.py:355
+#: code:addons/requisition_order/models/RequisitionRequest.py:388
+#: code:addons/requisition_order/models/RequisitionRequest.py:539
+#, python-format
+msgid " please set expenses journal in settings "
+msgstr "برجاء قم باسناد دفتر يومية المصروفات في شاشة الاعدادات العامة "
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:231
+#, python-format
+msgid " you have to enter details first "
+msgstr "معذرةً قم بادخال كل التفاصيل الخاصة بالطلب أولاً"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_custody_amount
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_amount
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_total_amount
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_analytic_account_id
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_analytic_account_id
+msgid "Analytic Account"
+msgstr "الحساب التحليلي"
+
+#. module: requisition_order
+#: model:ir.model,name:requisition_order.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "البنود التحليلية"
+
+#. module: requisition_order
+#: selection:requisition.request,state:0
+msgid "Approved"
+msgstr "مصدقة"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_beneficiary_id
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_beneficiary_id
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_search
+msgid "Beneficiary"
+msgstr "المستفيد"
+
+#. module: requisition_order
+#: model:ir.model,name:requisition_order.model_budget_confirmation
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_budget_confirmation_id
+msgid "Budget Confirmation"
+msgstr "تصديق الموازنة"
+
+#. module: requisition_order
+#: selection:requisition.request,state:0
+msgid "Budget Confirmed"
+msgstr "تم تصديق الموازنة"
+
+#. module: requisition_order
+#: selection:requisition.request,state:0
+msgid "Budget Not Confirmed"
+msgstr "الموازنة لا تكفي"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_account_payment_requisition_form
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+#: selection:requisition.request,state:0
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "Close"
+msgstr "إقفال"
+
+#. module: requisition_order
+#: selection:requisition.request,state:0
+msgid "Closed"
+msgstr "مغلقة"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_closing_date
+msgid "Closing Date"
+msgstr "تاريخ الإغلاق"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_company_id
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: requisition_order
+#: selection:requisition.request,state:0
+msgid "Confirmed"
+msgstr "مؤكدة"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_account_payment_requisition_form
+msgid "Create"
+msgstr "إنشــاء"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_create_uid
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_create_date
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_currency_id
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: requisition_order
+#: selection:requisition.request,purpose:0
+#: selection:requisition.request.line,purpose:0
+msgid "Custodies"
+msgstr "العُهــد"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_account_payment_custody_id
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_custody_id
+msgid "Custody"
+msgstr "العُهــده"
+
+#. module: requisition_order
+#: model:ir.actions.act_window,name:requisition_order.action_custody_reconcile_form
+#: model:ir.ui.menu,name:requisition_order.menu_custody_reconcile
+msgid "Custody Reconcile"
+msgstr "تصفية عُهــده مالية"
+
+#. module: requisition_order
+#: model:ir.actions.act_window,name:requisition_order.action_custody_request_form
+#: model:ir.ui.menu,name:requisition_order.menu_custody_request
+msgid "Custody Requests"
+msgstr "طلب عُهــده مالية"
+
+#. module: requisition_order
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_custody_amount
+msgid "Custody amount"
+msgstr "مبلغ العُهــده"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_search
+msgid "Department"
+msgstr "الإدارة/الوحدة/الفرع"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_description
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_lines_ids
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "Details"
+msgstr "التفاصيل"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_display_name
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: requisition_order
+#: selection:requisition.request,state:0
+msgid "Done"
+msgstr "تم"
+
+#. module: requisition_order
+#: selection:requisition.request,state:0
+msgid "Draft"
+msgstr "مبدئي"
+
+#. module: requisition_order
+#: selection:requisition.request,purpose:0
+#: selection:requisition.request.line,purpose:0
+msgid "Expense"
+msgstr "المصروف"
+
+#. module: requisition_order
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_date
+msgid "Get the current date"
+msgstr "جلب التاريخ الحالي"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_id
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_account_invoice_line_initiative_id
+#: model:ir.model.fields,field_description:requisition_order.field_account_move_line_initiative_id
+msgid "Initiative"
+msgstr "مبادرة"
+
+#. module: requisition_order
+#: model:ir.model,name:requisition_order.model_account_invoice
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_invoice_id
+msgid "Invoice"
+msgstr "الفاتورة"
+
+#. module: requisition_order
+#: model:ir.model,name:requisition_order.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "بند الفاتورة"
+
+#. module: requisition_order
+#: model:ir.model,name:requisition_order.model_account_invoice_tax
+msgid "Invoice Tax"
+msgstr "ضريبة الفاتورة"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_move_id
+msgid "Journal Entry"
+msgstr "قيد يومية"
+
+#. module: requisition_order
+#: model:ir.model,name:requisition_order.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر يومية"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request___last_update
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_write_uid
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_write_date
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: requisition_order
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_closing_payment_method_id
+msgid "Manual: Get paid by cash, check or any other method outside of Odoo.\n"
+"Electronic:Get paid automatically through a payment acquirer by requesting a transaction\n"
+"on a card saved by the customer when buying or subscribing online (payment token).\n"
+"Check: Pay bill by check and print it from Odoo.\n"
+"Batch Deposit: Encase several customer checks at once by generating a batch deposit to \n"
+"submit to your bank. When encoding the bank statement in Odoo, you are suggested to \n"
+"reconcile the transaction with the batch deposit.To enable batch deposit,module \n"
+"account_batch_deposit must be installed.\n"
+"SEPA Credit Transfer: Pay bill from a SEPA Credit Transfer file you submit to your bank.\n"
+"To enable sepa credit transfer, module account_sepa must be installed "
+msgstr "Manual: Get paid by cash, check or any other method outside of Odoo.\n"
+"Electronic:Get paid automatically through a payment acquirer by requesting a transaction\n"
+"on a card saved by the customer when buying or subscribing online (payment token).\n"
+"Check: Pay bill by check and print it from Odoo.\n"
+"Batch Deposit: Encase several customer checks at once by generating a batch deposit to \n"
+"submit to your bank. When encoding the bank statement in Odoo, you are suggested to \n"
+"reconcile the transaction with the batch deposit.To enable batch deposit,module \n"
+"account_batch_deposit must be installed.\n"
+"SEPA Credit Transfer: Pay bill from a SEPA Credit Transfer file you submit to your bank.\n"
+"To enable sepa credit transfer, module account_sepa must be installed "
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_name
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_search
+msgid "Name"
+msgstr "الاسم"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_closing_payment_id
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_payment_id
+msgid "Payment"
+msgstr "مرجع دفعية السداد"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_closing_journal_id
+msgid "Payment Journal"
+msgstr "يومية السداد"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_closing_payment_method_id
+msgid "Payment Method Type"
+msgstr "طريقة البيع"
+
+#. module: requisition_order
+#: model:ir.model,name:requisition_order.model_account_payment
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:363
+#, python-format
+msgid "Please activate the sequence of selected journal !"
+msgstr "برجاء قم بتفعيل متسلسل لدفتر اليومية الذي قمت باختياره"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:366
+#, python-format
+msgid "Please define a sequence on the journal."
+msgstr "برجاء قم بانشاء متسلسل لدفتر اليومية الذي قمت باختياره"
+
+#. module: requisition_order
+#: selection:requisition.request,state:0
+msgid "Posted"
+msgstr "مرحلة"
+
+#. module: requisition_order
+#: model:ir.model,name:requisition_order.model_product_product
+msgid "Product"
+msgstr "المنتج"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_purpose
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_purpose
+msgid "Purpose"
+msgstr "الغرض"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "Re-Request"
+msgstr "إعادة الطلب"
+
+#. module: requisition_order
+#: model:ir.actions.act_window,name:requisition_order.action_account_requisition_payment
+#: model:ir.ui.view,arch_db:requisition_order.view_account_payment_requisition_form
+msgid "Register Payment"
+msgstr "تسجيل السداد"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_account_invoice_res_id
+msgid "Related Document ID"
+msgstr "المعرف المتعلق بالمستند"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_account_invoice_res_model
+msgid "Related Document Model Name"
+msgstr "Related Document Model Name"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_date
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_search
+msgid "Request Date"
+msgstr "تاريخ الطلب"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_user_id
+msgid "Request user"
+msgstr "المستخدم الطالب"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_department_id
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_department_id
+msgid "Requesting Party"
+msgstr "الجهة الطالبة"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_request_id
+msgid "Requisition Request"
+msgstr "طلب الصرف"
+
+#. module: requisition_order
+#: model:ir.actions.act_window,name:requisition_order.action_requisition_request_form
+#: model:ir.ui.menu,name:requisition_order.menu_requisition_request
+#: model:ir.ui.menu,name:requisition_order.menu_requisition_request_main
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_tree
+msgid "Requisition Requests"
+msgstr "طلبات الصرف"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "Run"
+msgstr "بدء الصرف"
+
+#. module: requisition_order
+#: selection:requisition.request,state:0
+msgid "Running"
+msgstr "مستمرة"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_account_analytic_line_service_id
+#: model:ir.model.fields,field_description:requisition_order.field_account_invoice_line_service_id
+#: model:ir.model.fields,field_description:requisition_order.field_account_move_line_service_id
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_service_id
+msgid "Service"
+msgstr "الخدمة"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_search
+msgid "State"
+msgstr "المحافظة"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_state
+msgid "Status"
+msgstr "الحالة "
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.invoice_supplier_form
+msgid "Taxes"
+msgstr "ضرائب"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "To Draft"
+msgstr "إلى مبدئي"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "Total"
+msgstr "الإجمالي "
+
+#. module: requisition_order
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_total_amount
+msgid "Total amount"
+msgstr "المبلغ الإجمالي"
+
+#. module: requisition_order
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_line_amount
+msgid "Total amount in services request line"
+msgstr "المبلغ"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:175
+#, python-format
+msgid "Total amount must be greater than zero"
+msgstr "Total amount must be greater than zero"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/account_payment.py:28
+#, python-format
+msgid "Transfer account not defined on the company."
+msgstr "الحساب المحول اليه غير معرف لهذه الشركة"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:652
+#, python-format
+msgid "amount must be greater than zero for service : "
+msgstr "معذرةً ... مبلغ الخدمة يجب أن يكون أكبر من الصفر"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "approve"
+msgstr "تصديق"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "close details"
+msgstr "إغلاق التفاصيل"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "confirm"
+msgstr "مصدق"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_custody_total_amount
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_custody_total_amount
+msgid "custody lines amount"
+msgstr "مبلغ إجمالي العُهــد"
+
+#. module: requisition_order
+#: code:addons/requisition_order/models/RequisitionRequest.py:178
+#, python-format
+msgid "custody lines amount can not be greater than custody total amount"
+msgstr "معذرةً ... مبلغ إجمالي العُهــد يجب أن يكون أكبر من الصفر"
+
+#. module: requisition_order
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_custody_residual_amount
+msgid "custody residual amount"
+msgstr "متبقي مبلغ العُهــده"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "done"
+msgstr "تم"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_line_initiative_id
+msgid "initiative"
+msgstr "مبادرة"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "pay"
+msgstr "إدفع"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_form
+msgid "post"
+msgstr "ترحيل"
+
+#. module: requisition_order
+#: model:ir.model,name:requisition_order.model_requisition_request_line
+msgid "requisition request details"
+msgstr "تفاصيل طلب الصرف"
+
+#. module: requisition_order
+#: model:ir.ui.view,arch_db:requisition_order.view_requisition_request_search
+msgid "requisition.request"
+msgstr "requisition.request"
+
+#. module: requisition_order
+#: model:ir.model.fields,field_description:requisition_order.field_requisition_request_custody_residual_amount
+msgid "residual amount"
+msgstr "المبلغ المتبقي"
+
+#. module: requisition_order
+#: model:ir.model.fields,help:requisition_order.field_account_payment_custody_id
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_closing_payment_id
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_custody_id
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_move_id
+#: model:ir.model.fields,help:requisition_order.field_requisition_request_payment_id
+msgid "used for custody purpose"
+msgstr "تستخدم للعهدة"
+
+#. module: requisition_order
+#: model:ir.model,name:requisition_order.model_requisition_request
+msgid "users Requisition Requests"
+msgstr "طلبات الصرف للمستخدمين"
+
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_invoice_line_account_analytic_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_report_account_analytic_id
+#: model:ir.model.fields,field_description:account.field_account_move_line_analytic_account_id
+#: model:ir.model.fields,field_description:account.field_account_move_line_reconcile_writeoff_analytic_id
+#: model:ir.model.fields,field_description:account.field_account_reconcile_model_analytic_account_id
+#: model:ir.model.fields,field_description:account_budget.field_crossovered_budget_lines_analytic_account_id
+#: model:ir.model.fields,field_description:account_voucher.field_account_voucher_line_account_analytic_id
+#: model:ir.ui.view,arch_db:account.view_account_invoice_report_search
+#: model:ir.ui.view,arch_db:account.view_account_reconcile_model_form
+msgid "Analytic Account"
+msgstr "مركز التكلفة"
+
+
+#. openerp-web
+#: code:addons/account/static/src/xml/account_reconciliation.xml:232
+#: code:addons/account/static/src/xml/account_reconciliation.xml:249
+#: model:ir.model.fields,field_description:account.field_account_abstract_payment_partner_id
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line_partner_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_line_partner_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_partner_id
+#: model:ir.model.fields,field_description:account.field_account_invoice_report_partner_id
+#: model:ir.model.fields,field_description:account.field_account_move_line_partner_id
+#: model:ir.model.fields,field_description:account.field_account_move_partner_id
+#: model:ir.model.fields,field_description:account.field_account_payment_partner_id
+#: model:ir.model.fields,field_description:account.field_account_register_payments_partner_id
+#: model:ir.ui.view,arch_db:account.report_generalledger
+#: model:ir.ui.view,arch_db:account.report_journal
+#: model:ir.ui.view,arch_db:account.view_account_analytic_line_filter_inherit_account
+#: model:ir.ui.view,arch_db:account.view_account_invoice_filter
+#: model:ir.ui.view,arch_db:account.view_account_invoice_report_search
+#: model:ir.ui.view,arch_db:account.view_account_move_filter
+#: model:ir.ui.view,arch_db:account.view_account_move_line_filter
+#: model:ir.ui.view,arch_db:account.view_account_payment_search
+#, python-format
+msgid "Partner"
+msgstr "المستفيد"
+
+
+#. module: account
+#. openerp-web
+#: code:addons/account/static/src/xml/account_reconciliation.xml:251
+#: model:ir.model.fields,field_description:account.field_account_account_type_note
+#: model:ir.model.fields,field_description:account.field_account_invoice_line_name
+#: model:ir.ui.view,arch_db:account.portal_invoice_report
+#: model:ir.ui.view,arch_db:account.report_invoice_document
+#: model:ir.ui.view,arch_db:account.view_account_payment_search
+#: model:ir.ui.view,arch_db:account.view_account_type_form
+#, python-format
+msgid "Description"
+msgstr "البيان"
+
+
+
+#. module: account
+#. openerp-web
+#: code:addons/account/static/src/js/reconciliation/reconciliation_renderer.js:522
+#: code:addons/account/static/src/xml/account_reconciliation.xml:189
+#: code:addons/account/static/src/xml/account_reconciliation.xml:230
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line_name
+#: model:ir.model.fields,field_description:account.field_account_move_line_name
+#: model:ir.ui.view,arch_db:account.report_journal
+#: model:ir.ui.view,arch_db:account.view_account_payment_invoice_form
+#, python-format
+msgid "Label"
+msgstr "البيان"
+

@@ -1,0 +1,126 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_financial_report_fiscalyear
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-17 07:26+0000\n"
+"PO-Revision-Date: 2019-07-17 07:26+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_financial_report_fiscalyear
+#: model:ir.model,name:account_financial_report_fiscalyear.model_account_common_report
+msgid "Account Common Report"
+msgstr "تقرير مشترك للحساب"
+
+#. module: account_financial_report_fiscalyear
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_aged_trial_balance_date_period_type
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_balance_report_date_period_type
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_account_report_date_period_type
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_journal_report_date_period_type
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_partner_report_date_period_type
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_report_date_period_type
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_print_journal_date_period_type
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_report_general_ledger_date_period_type
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_report_partner_ledger_date_period_type
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_tax_report_date_period_type
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_accounting_report_date_period_type
+msgid "Date Period Type"
+msgstr "نوع الفترة"
+
+#. module: account_financial_report_fiscalyear
+#: selection:account.aged.trial.balance,date_period_type:0
+#: selection:account.balance.report,date_period_type:0
+#: selection:account.common.account.report,date_period_type:0
+#: selection:account.common.journal.report,date_period_type:0
+#: selection:account.common.partner.report,date_period_type:0
+#: selection:account.common.report,date_period_type:0
+#: selection:account.print.journal,date_period_type:0
+#: selection:account.report.general.ledger,date_period_type:0
+#: selection:account.report.partner.ledger,date_period_type:0
+#: selection:account.tax.report,date_period_type:0
+#: selection:accounting.report,date_period_type:0
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_aged_trial_balance_fiscalyear_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_balance_report_fiscalyear_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_account_report_fiscalyear_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_journal_report_fiscalyear_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_partner_report_fiscalyear_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_report_fiscalyear_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_print_journal_fiscalyear_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_report_general_ledger_fiscalyear_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_report_partner_ledger_fiscalyear_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_tax_report_fiscalyear_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_accounting_report_fiscalyear_id
+msgid "Fiscal Year"
+msgstr "سنة الموازنة"
+
+#. module: account_financial_report_fiscalyear
+#: selection:account.aged.trial.balance,date_period_type:0
+#: selection:account.balance.report,date_period_type:0
+#: selection:account.common.account.report,date_period_type:0
+#: selection:account.common.journal.report,date_period_type:0
+#: selection:account.common.partner.report,date_period_type:0
+#: selection:account.common.report,date_period_type:0
+#: selection:account.print.journal,date_period_type:0
+#: selection:account.report.general.ledger,date_period_type:0
+#: selection:account.report.partner.ledger,date_period_type:0
+#: selection:account.tax.report,date_period_type:0
+#: selection:accounting.report,date_period_type:0
+msgid "Fiscal Year Period"
+msgstr "فترة مالية"
+
+#. module: account_financial_report_fiscalyear
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_aged_trial_balance_period_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_balance_report_period_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_account_report_period_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_journal_report_period_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_partner_report_period_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_common_report_period_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_print_journal_period_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_report_general_ledger_period_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_report_partner_ledger_period_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_account_tax_report_period_id
+#: model:ir.model.fields,field_description:account_financial_report_fiscalyear.field_accounting_report_period_id
+msgid "Period"
+msgstr "الفترة"
+
+#. module: account_financial_report_fiscalyear
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_aged_trial_balance_fiscalyear_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_balance_report_fiscalyear_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_common_account_report_fiscalyear_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_common_journal_report_fiscalyear_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_common_partner_report_fiscalyear_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_common_report_fiscalyear_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_print_journal_fiscalyear_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_report_general_ledger_fiscalyear_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_report_partner_ledger_fiscalyear_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_tax_report_fiscalyear_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_accounting_report_fiscalyear_id
+msgid "The fiscalyear\n"
+"                                used for this report."
+msgstr "The fiscalyear\n"
+"                                used for this report."
+
+#. module: account_financial_report_fiscalyear
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_aged_trial_balance_period_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_balance_report_period_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_common_account_report_period_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_common_journal_report_period_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_common_partner_report_period_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_common_report_period_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_print_journal_period_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_report_general_ledger_period_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_report_partner_ledger_period_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_account_tax_report_period_id
+#: model:ir.model.fields,help:account_financial_report_fiscalyear.field_accounting_report_period_id
+msgid "The fiscalyear period\n"
+"                                used for this report."
+msgstr "The fiscalyear period\n"
+"                                used for this report."

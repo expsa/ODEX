@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_voucher_tree">
+        <field name="name">account.voucher.fiscalyear.inherit.tree</field>
+        <field name="model">account.voucher</field>
+        <field name="inherit_id" ref="account_voucher.view_voucher_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="period_id" groups="fiscalyears.group_fiscalyear_user"/>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_voucher_tree_purchase">
+        <field name="name">account.voucher.tree.fiscalyear.inherit.supplier</field>
+        <field name="model">account.voucher</field>
+        <field name="inherit_id" ref="account_voucher.view_voucher_tree_purchase" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="period_id" groups="fiscalyears.group_fiscalyear_user"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_voucher_filter" model="ir.ui.view">
+        <field name="name">account.voucher.fiscalyear.inherit.select</field>
+        <field name="model">account.voucher</field>
+        <field name="inherit_id" ref="account_voucher.view_voucher_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" />
+                <filter name="current_period" string="Current Period" domain="[ ('period_id.start_date', '&lt;=', time.strftime('%%Y-%%m-%%d')), ('period_id.end_date', '&gt;=', time.strftime('%%Y-%%m-%%d'))]" help="invoices in the current fiscal year period" groups="fiscalyears.group_fiscalyear_user"/>
+
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter name="group_by_period_id" string="Period" groups="fiscalyears.group_fiscalyear_user" context="{'group_by':'period_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_voucher_filter_vendor" model="ir.ui.view">
+        <field name="name">account.voucher.purchase.fiscalyear.inherit.select</field>
+        <field name="model">account.voucher</field>
+        <field name="inherit_id" ref="account_voucher.view_voucher_filter_vendor" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" />
+                <filter name="current_period" string="Current Period" domain="[ ('period_id.start_date', '&lt;=', time.strftime('%%Y-%%m-%%d')), ('period_id.end_date', '&gt;=', time.strftime('%%Y-%%m-%%d'))]" help="invoices in the current fiscal year period" groups="fiscalyears.group_fiscalyear_user"/>
+
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter name="group_by_period_id" string="Period" groups="fiscalyears.group_fiscalyear_user" context="{'group_by':'period_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_voucher_filter_sale" model="ir.ui.view">
+        <field name="name">account.voucher.sale.fiscalyear.inherit.select</field>
+        <field name="model">account.voucher</field>
+        <field name="inherit_id" ref="account_voucher.view_voucher_filter_sale" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" />
+                <filter name="current_period" string="Current Period" domain="[ ('period_id.start_date', '&lt;=', time.strftime('%%Y-%%m-%%d')), ('period_id.end_date', '&gt;=', time.strftime('%%Y-%%m-%%d'))]" help="invoices in the current fiscal year period" groups="fiscalyears.group_fiscalyear_user"/>
+
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter name="group_by_period_id" string="Period" groups="fiscalyears.group_fiscalyear_user" context="{'group_by':'period_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sale_receipt_form">
+        <field name="name">account.voucher.sale.fiscalyear.inherit.form</field>
+        <field name="model">account.voucher</field>
+        <field name="inherit_id" ref="account_voucher.view_sale_receipt_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" domain="[('state','=','open'),('start_date','&lt;=',date),('end_date','&gt;=',date)]"/>
+            </xpath>
+            <xpath expr="//field[@name='date']" position="attributes">
+                <attribute name="required">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!--  Purchase Vouchers -->
+    <record model="ir.ui.view" id="view_purchase_receipt_form">
+        <field name="name">account.voucher.purchase.fiscalyear.inherit.form</field>
+        <field name="model">account.voucher</field>
+        <field name="inherit_id" ref="account_voucher.view_purchase_receipt_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" domain="[('state','=','open'),('start_date','&lt;=',date),('end_date','&gt;=',date)]"/>
+            </xpath>
+            <xpath expr="//field[@name='date']" position="attributes">
+                <attribute name="required">True</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

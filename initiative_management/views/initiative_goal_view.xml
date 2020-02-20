@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+    Initiatives goals
+    -->
+    <record id="view_initiative_goal_search" model="ir.ui.view">
+        <field name="name">initiative.goal.search</field>
+        <field name="model">initiative.goal</field>
+        <field name="arch" type="xml">
+            <search string="Initiative Goals">
+                <field name="name" filter_domain="[('name','ilike',self)]" string="Initiative"/>
+                <field name="parent_id" />
+                <separator/>
+                <filter string="Parent Strategic Goal" domain="[('parent_id','!=',False)]" context="{'group_by': 'parent_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_initiative_goal_tree" model="ir.ui.view">
+        <field name="name">initiative.goal.tree</field>
+        <field name="model">initiative.goal</field>
+        <field name="arch" type="xml">
+            <tree string="Initiative Goals">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_initiative_goal_form">
+        <field name="name">initiative.goal.form</field>
+        <field name="model">initiative.goal</field>
+        <field name="arch" type="xml">
+            <form string="Initiative Goals">
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                </div>
+                <group>
+                    <field name="parent_id" invisible="1"/>
+                </group>
+
+                <notebook attrs="{'invisible':[('parent_id','!=',False)]}">
+                    <page string="Sub Goals">
+                        <field name="sub_goals">
+                            <tree editable="top" delete="0">
+                                <field name="name"/>
+                                <button name="unlink" type="object" class="fa fa-trash-o o_list_record_delete_btn"/>
+                            </tree>
+                            <form>
+                                <sheet>
+                                    <group>
+                                        <field name="name" readonly="1"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="open_initiative_goal_form" model="ir.actions.act_window">
+        <field name="name">Strategic Goals</field>
+        <field name="res_model">initiative.goal</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="view_initiative_goal_tree"/>
+        <field name="search_view_id" ref="view_initiative_goal_search"/>
+        <field name="domain">[('parent_id','=',False)]</field>
+    </record>
+
+    <menuitem action="open_initiative_goal_form" id="menu_initiative_goal_form" parent="sub_menu_initiative" sequence="6" groups="group_initiative_manager"/>
+
+</odoo>

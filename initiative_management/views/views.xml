@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+    Initiatives
+    -->
+    <record id="view_initiative_search" model="ir.ui.view">
+        <field name="name">initiative.search</field>
+        <field name="model">initiative</field>
+        <field name="arch" type="xml">
+            <search string="Initiative">
+                <field name="name" filter_domain="[('name','ilike',self)]" string="Initiative"/>
+                <field name="initiative_owner" />
+                <field name="initiative_manager" />
+                <field name="strategic_goal_id" />
+                <field name="department_id" />
+                <separator/>
+                <filter string="Initiative Owner" domain="[]" context="{'group_by': 'initiative_owner'}"/>
+                <filter string="Initiative Manager" domain="[]" context="{'group_by': 'initiative_manager'}"/>
+                <filter string="Strategic Goal" domain="[]" context="{'group_by': 'strategic_goal_id'}"/>
+                <filter string="Department" domain="[]" context="{'group_by': 'department_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_initiative_tree" model="ir.ui.view">
+        <field name="name">initiative.tree</field>
+        <field name="model">initiative</field>
+        <field name="arch" type="xml">
+            <tree string="Initiative">
+                <field name="name"/>
+                <field name="initiative_owner" />
+                <field name="initiative_manager" />
+                <field name="strategic_goal_id" />
+                <field name="department_id" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_initiative_form">
+        <field name="name">initiative.form</field>
+        <field name="model">initiative</field>
+        <field name="arch" type="xml">
+            <form string="Initiative">
+                <header>
+                    <button name="open" states="draft,closed,cancel" string="Open" type="object" class="oe_highlight"/>
+                    <button name="close" states="open" string="Close" type="object" class="oe_highlight"/>
+                    <button name="cancel" states="draft,open" string="Cancel" type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="open,close"/>
+                </header>
+
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name" attrs="{'readonly':[('state','not in',['draft','open'])]}"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="initiative_owner" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',['draft','open'])]}"/>
+                        <field name="initiative_manager" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',['draft','open'])]}"/>
+                    </group>
+
+                    <group>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <label for="start_date" string="From"></label>
+                                <field name="start_date" class="oe_inline" attrs="{'readonly':[('state','not in',['draft','open'])]}"/>
+                            </div>
+                            <div class="col-sm-5">
+                                <label for="end_date" string="To"></label>
+                                <field name="end_date" class="oe_inline" attrs="{'readonly':[('state','not in',['draft','open'])]}"/>
+                            </div>
+                        </div>
+                    </group>
+
+                    <group>
+                        <field name="type" attrs="{'readonly':[('state','not in',['draft','open'])]}" required="1"/>
+                        <field name="department_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',['draft','open'])]}"/>
+                        <field name="strategic_goal_id" options="{'no_create': True, 'no_open': True}" domain="[('parent_id', '=', False)]" attrs="{'readonly':[('state','not in',['draft','open'])]}"/>
+                    </group>
+                </group>
+
+
+                <notebook>
+                    <page string="Services">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-6" attrs="{'invisible':[('type','not in',['expense','both'])]}">
+                                    <label for="expense_service_ids"></label>
+                                    <field name="expense_service_ids" context="{'initiative_service': True,'tree_view_ref':'initiative.view_initiative_product_tree'}" attrs="{'readonly':[('state','not in',['draft','open'])]}" widget="many2many" options="{'no_create': True, 'no_open': True}" domain="[('type', '=', 'service'), ('initiative_id', '=', False), ('nature','=','expense')]">
+                                        <tree>
+                                            <field name="name"/>
+                                        </tree>
+                                        <form>
+                                            <group>
+                                                <field name="name" readonly="1"/>
+                                            </group>
+                                        </form>
+                                    </field>
+                                </div>
+                                <div class="col-sm-6" attrs="{'invisible':[('type','not in',['income','both'])]}">
+                                    <label for="income_service_ids"></label>
+                                    <field name="income_service_ids" context="{'initiative_service': True,'tree_view_ref':'initiative.view_initiative_product_tree'}" attrs="{'readonly':[('state','not in',['draft','open'])]}" options="{'no_create': True, 'no_open': True}" widget="many2many" domain="[('type', '=', 'service'), ('initiative_id', '=', False), ('nature','=','income')]">
+                                        <tree>
+                                            <field name="name"/>
+                                        </tree>
+                                        <form>
+                                            <group>
+                                                <field name="name" readonly="1"/>
+                                            </group>
+                                        </form>
+                                    </field>
+                                </div>
+                            </div>
+                        </div>
+                    </page>
+
+                    <page string="Goals">
+                        <field name="goals_ids" attrs="{'readonly':[('state','not in',['draft','open'])]}" options="{'no_create': True, 'no_open': True}" domain="[('parent_id','=',strategic_goal_id)]">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="name" readonly="1"/>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="open_initiative_form" model="ir.actions.act_window">
+        <field name="name">Initiatives</field>
+        <field name="res_model">initiative</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="view_initiative_tree"/>
+        <field name="search_view_id" ref="view_initiative_search"/>
+        <field name="context">{'initiative_service': True}</field>
+
+    </record>
+
+    <menuitem id="main_menu_initiative" name="Initiatives" sequence="1" groups="group_initiative_manager"/>
+    <menuitem id="sub_menu_initiative" name="Management" parent="main_menu_initiative" sequence="1" groups="group_initiative_manager"/>
+    <menuitem action="open_initiative_form" id="menu_initiative_form" parent="sub_menu_initiative" sequence="5" groups="group_initiative_manager"/>
+
+</odoo>

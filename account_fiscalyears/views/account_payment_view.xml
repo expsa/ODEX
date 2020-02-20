@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_account_payment_tree" model="ir.ui.view">
+            <field name="name">account.payment.fiscalyear.inherit.tree</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_supplier_payment_tree" model="ir.ui.view">
+            <field name="name">account.supplier.payment.fiscalyear.inherit.tree</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_supplier_payment_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_search" model="ir.ui.view">
+            <field name="name">account.payment.fiscalyear.inherit.search</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_search" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" />
+                    <filter name="current_period" string="Current Period" domain="[ ('period_id.start_date', '&lt;=', time.strftime('%%Y-%%m-%%d')), ('period_id.end_date', '&gt;=', time.strftime('%%Y-%%m-%%d'))]" help="invoices in the current fiscal year period"  groups="fiscalyears.group_fiscalyear_user"/>
+                    <filter name="group_by_period_id" string="Period" groups="fiscalyears.group_fiscalyear_user" context="{'group_by':'period_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_form" model="ir.ui.view">
+            <field name="name">account.payment.fiscalyear.inherit.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_date']" position="after">
+                    <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" domain="[('state','=','open'),('start_date','&lt;=',payment_date),('end_date','&gt;=',payment_date)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_graph" model="ir.ui.view">
+            <field name="name">account.payment.fiscalyear.inherit.graph</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_graph" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_invoice_form" model="ir.ui.view">
+            <field name="name">account.payment.invoice.fiscalyear.inherit.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_invoice_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_date']" position="after">
+                    <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" domain="[('state','=','open'),('start_date','&lt;=',payment_date),('end_date','&gt;=',payment_date)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_from_invoices" model="ir.ui.view">
+            <field name="name">account.register.payments.fiscalyear.inherit.wizard</field>
+            <field name="model">account.register.payments</field>
+            <field name="inherit_id" ref="account.view_account_payment_from_invoices" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_date']" position="after">
+                    <field name="period_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" domain="[('state','=','open'),('start_date','&lt;=',payment_date),('end_date','&gt;=',payment_date)]"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

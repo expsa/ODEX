@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="module_fiscalyear_category" model="ir.module.category">
+            <field name="name">Fiscal Years</field>
+        </record>
+        <record id="group_fiscalyear_user" model="res.groups">
+            <field name="name">Fiscal Years User</field>
+            <field name="category_id" ref="fiscalyears.module_fiscalyear_category"/>
+        </record>
+        <record id="group_fiscalyear_manager" model="res.groups">
+            <field name="name">Fiscal Years Manager</field>
+            <field name="category_id" ref="fiscalyears.module_fiscalyear_category"/>
+            <field name="implied_ids" eval="[(4, ref('fiscalyears.group_fiscalyear_user'))]"/>
+        </record>
+
+    </data>
+</odoo>

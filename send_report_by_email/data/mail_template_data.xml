@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--Email template -->
+        <record id="email_template_edi_report" model="mail.template">
+            <field name="name">${object.name or '' } Report - Send by Email</field>
+            <field name="email_from">${(object.create_uid.email and '%s &lt;%s&gt;' % (object.create_uid.name, object.create_uid.email) or '')|safe}</field>
+            <field name="subject">${object.company_id.name} ${object.name or '' } Report</field>
+            <field name="partner_to"></field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_template" ref="report_purchase_quotation"/>
+            <field name="report_name">${(object.name or '').replace('/','_')} Report</field>
+            <field name="lang">${object.create_uid.lang}</field>
+            <field name="body_html">
+ <![CDATA[
+<p>Dear ,</p>
+<p>
+Here is, in attachment, a <strong>${object.name}</strong> Report
+</p>
+
+<p>Best regards,</p>
+<p style="color:#888888;">
+% if object.create_uid and object.create_uid.signature:
+    ${object.create_uid.signature | safe}
+% endif
+</p>
+]]>
+            </field>
+        </record>
+    </data>
+</odoo>

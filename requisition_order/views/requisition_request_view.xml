@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+    Requisition Requests
+    -->
+    <record id="view_requisition_request_search" model="ir.ui.view">
+        <field name="name">requisition.request.search</field>
+        <field name="model">requisition.request</field>
+        <field name="arch" type="xml">
+            <search string="requisition.request">
+                <field name="name" filter_domain="[('name','ilike',self)]" string="Name"/>
+                <field name="date"/>
+                <field name="beneficiary_id" />
+                <field name="department_id" />
+                <field name="total_amount" />
+                <field name="state" />
+                <separator/>
+                <filter string="Request Date" domain="[]" context="{'group_by': 'date'}"/>
+                <filter string="Beneficiary" domain="[]" context="{'group_by': 'beneficiary_id'}"/>
+                <filter string="Department" domain="[]" context="{'group_by': 'department_id'}"/>
+                <filter string="State" domain="[]" context="{'group_by': 'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_requisition_request_tree" model="ir.ui.view">
+        <field name="name">requisition.request.tree</field>
+        <field name="model">requisition.request</field>
+        <field name="arch" type="xml">
+            <tree string="Requisition Requests">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="beneficiary_id" />
+                <field name="department_id" />
+                <field name="total_amount" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_requisition_request_form">
+        <field name="name">requisition.request.form</field>
+        <field name="model">requisition.request</field>
+        <field name="arch" type="xml">
+            <form string="Requisition Requests">
+                <header>
+                    <button name="request" attrs="{'invisible':['|',('state','!=','draft'),('purpose','!=','expense')]}" string="request" type="object" class="oe_highlight" groups="requisition_order.group_requisition_user"/>
+
+                    <button name="request" attrs="{'invisible':['|',('state','!=','draft'),('purpose','!=','custodies')]}" string="request" type="object" class="oe_highlight" groups="requisition_order.group_department_manager"/>
+
+
+                    <button name="approve" attrs="{'invisible':['|',('state','!=','requested'),('purpose','!=','expense')]}" string="approve" type="object" class="oe_highlight" groups="requisition_order.group_service_officer"/>
+
+                    <button name="%(action_account_requisition_payment)d" type="action" attrs="{'invisible':['|','|',('state','!=','requested'),('purpose','!=','custodies'),('payment_id','!=',False)]}" string="pay" class="oe_highlight" groups="account_custom.group_financial_controller"/>
+
+                    <!-- <button name="running" attrs="{'invisible':['|','|',('state','!=','requested'),('purpose','!=','custodies'),('payment_id','=',False)]}" string="Run" type="object" class="oe_highlight"/> -->
+
+                    <button name="done" attrs="{'invisible':[('state','not in',['approved','running'])]}" string="done" type="object" class="oe_highlight" groups="requisition_order.group_department_manager"/>
+
+                    <!-- <button name="post" states="budget_confirmed" string="post" type="object" class="oe_highlight"/> -->
+
+                    <!-- <button name="done_custody" states="running" string="done" type="object" class="oe_highlight"/> -->
+                    <button name="cancel" attrs="{'invisible':['|',('state','!=','draft'),('purpose','!=','expense')]}" string="Cancel" type="object" class="oe_highlight" groups="requisition_order.group_requisition_user"/>
+
+                    <button name="cancel" attrs="{'invisible':['|',('state','!=','draft'),('purpose','!=','custodies')]}" string="Cancel" type="object" class="oe_highlight" groups="requisition_order.group_department_manager"/>
+
+
+                    <button name="cancel" states="requested" string="Cancel" type="object" class="oe_highlight" groups="requisition_order.group_service_officer,account_custom.group_financial_controller"/>
+
+                    <button name="cancel" states="approved" string="Cancel" type="object" class="oe_highlight" groups="requisition_order.group_department_manager"/>
+
+
+                    <button name="cancel" attrs="{'invisible':['|',('state','!=','budget_not_confirmed'),('purpose','!=','expense')]}" string="Cancel" type="object" class="oe_highlight" groups="requisition_order.group_department_manager"/>
+
+                    <button name="close_all" attrs="{'invisible':['|',('state','!=','budget_not_confirmed'),('purpose','!=','custodies')]}" string="Close" type="object" class="oe_highlight" groups="requisition_order.group_department_manager"/>
+                    
+                    <button name="running" attrs="{'invisible':['|',('state','!=','budget_not_confirmed'),('purpose','!=','custodies')]}" string="Re open Custody" type="object" class="oe_highlight" groups="requisition_order.group_department_manager"/>
+
+
+                    <button name="to_draft" states="cancel" string="To Draft" type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" attrs="{'readonly':True}"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                            <field name="beneficiary_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                            <field name="department_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                            <field name="analytic_account_id" invisible="1"/>
+                        </group>
+
+                        <group attrs="{'invisible':['|',('state','not in',['approved','done','posted']),('purpose','!=','expense')]}">
+                            <field name="request_type" attrs="{'readonly':[('state','not in',['approved'])],'required':[('state','in',['approved'])]}" groups="requisition_order.group_department_manager" readonly_groups="requisition_order.group_requisition_user,requisition_order.group_service_officer"/>
+                        </group>
+
+                        <group>
+                            <field name="budget_confirmation_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':True, 'invisible':[('budget_confirmation_id','=',False)]}"/>
+                            <field name="invoice_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':True, 'invisible':[('invoice_id','=',False)]}"/>
+
+                            <field name="payment_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':True, 'invisible':[('payment_id','=',False)]}"/>
+
+                            <field name="move_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':True, 'invisible':[('move_id','=',False)]}"/>
+
+
+                            <field name="purpose" attrs="{'readonly':[('state','not in',['draft'])],'invisible':True}"/>
+
+                            <field name="custody_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',['draft'])],'invisible':[('purpose','=','expense')],'required':[('purpose','=','custodies')]}" context="{'get_my_services_by_budget':analytic_account_id,'purpose':purpose,'initiative_service': True}"/>
+
+                            <field name="description" required="1" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                        </group>
+                    </group>
+                    <notebook attrs="{'invisible':[('purpose','=','custodies'),('state','not in',['running','done','budget_confirmed','budget_not_confirmed','posted','closed'])]}">
+                        <page string="Details">
+                            <field name="lines_ids" attrs="{'readonly':[('state','not in',['draft','approved','running'])]}" options="{'no_create': True, 'no_open': True}" context="{'default_beneficiary_id':beneficiary_id,'default_description':description,'default_analytic_account_id':analytic_account_id,'default_department_id':department_id,'default_purpose':purpose}">
+                                <tree editable="top">
+                                    <field name="beneficiary_id" options="{'no_create': True, 'no_open': True}" attrs="{'column_invisible':[('parent.purpose','!=','custodies')]}"/>
+                                    <field name="department_id" options="{'no_create': True, 'no_open': True}" />
+                                    <field name="analytic_account_id" options="{'no_create': True, 'no_open': True}" invisible="1"/>
+                                    <field name="service_id" options="{'no_create': True, 'no_open': True}" context="{'get_my_services_by_budget':'no_need','purpose':'expense','initiative_service': True}"/>
+
+                                    <field name="amount" sum="Total"/>
+                                    <field name="description" required="1"/>
+                                    <field name="restriction" domain="[('state','=','done'),('restriction_remain','&gt;=',amount)]" options="{'no_create': True, 'no_open': True}" attrs="{'required':[('parent.purpose','=','expense'),('parent.request_type','=','restriction'),('parent.state','in',['approved'])],'column_invisible':[('parent.request_type','!=','restriction')]}" context="{'get_my_restrictions':analytic_account_id,'beneficiary_id':beneficiary_id,'expense_service':service_id}"/>
+
+                                    <field name="purpose" invisible="1"/>
+
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <group>
+                        <group>
+                            <field name="total_amount" readonly="1" attrs="{'invisible':[('purpose','!=','expense')]}"/>
+                            <field name="custody_amount" attrs="{'readonly':['|',('state','not in',['draft']),('purpose','!=','custodies')],'invisible':[('purpose','!=','custodies')],'required':[('purpose','=','custodies')]}" />
+                            <field name="custody_residual_amount" attrs="{'readonly':['|',('state','not in',['draft']),('purpose','!=','custodies')],'invisible':['|','|',('purpose','!=','custodies'),('custody_residual_amount','=',0.0),('state','not in',['running','done','budget_confirmed','budget_not_confirmed','posted','closed'])]}" />
+                        </group>
+
+                        <group groups="requisition_order.group_department_manager">
+                            <button name="re_request" attrs="{'invisible':['|','|',('purpose','!=','custodies'),('state','!=','posted')]}" string="Re-Request" type="object" class="oe_highlight"/>
+                            <button name="close" attrs="{'invisible':['|','|',('purpose','!=','custodies'),('state','not in',['running','posted'])]}" string="Close" type="object" class="oe_highlight"/>
+                        </group>
+
+
+                    </group>
+
+                    <group>
+
+                        <group string="close details" attrs="{'invisible':['|','|',('purpose','!=','custodies'),('custody_residual_amount','=',0.0),('state','not in',['running','posted','closed','budget_not_confirmed'])]}" groups="requisition_order.group_department_manager">
+                            <field name="closing_journal_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',['running','posted','budget_not_confirmed'])]}"/>
+                            <field name="closing_payment_method_id" widget="radio" attrs="{'readonly':[('state','not in',['running','posted','budget_not_confirmed'])],'invisible':[('closing_journal_id','=',False)]}"/>
+                            <field name="closing_date" attrs="{'readonly':[('state','not in',['running','posted','budget_not_confirmed'])]}"/>
+                            <field name="closing_payment_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':True, 'invisible':[('closing_payment_id','=',False)]}"/>
+
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_requisition_request_form" model="ir.actions.act_window">
+        <field name="name">Requisition Requests</field>
+        <field name="res_model">requisition.request</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('purpose','=','expense')]</field>
+        <field name="context">{'initiative_service': True,'default_purpose':'expense'}</field>
+
+    </record>
+
+    <record id="action_custody_request_form" model="ir.actions.act_window">
+        <field name="name">Custody Requests</field>
+        <field name="res_model">requisition.request</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('purpose','=','custodies')]</field>
+        <field name="context">{'initiative_service': True,'default_purpose':'custodies'}</field>
+    </record>
+
+    <record id="action_custody_reconcile_form" model="ir.actions.act_window">
+        <field name="name">Custody Reconcile</field>
+        <field name="res_model">requisition.request</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('purpose','=','custodies'),('state','in',['running','done','budget_confirmed','budget_not_confirmed','posted'])]</field>
+        <field name="context">{'initiative_service': True,'default_purpose':'custodies','create': False}</field>
+    </record>
+
+
+    <menuitem id="menu_requisition_request_main" name="Requisition Requests" sequence="1" groups="requisition_order.group_requisition_user,requisition_order.group_service_officer,account_custom.group_financial_controller"/>
+
+    <menuitem action="action_requisition_request_form" id="menu_requisition_request" parent="menu_requisition_request_main" sequence="1" groups="requisition_order.group_requisition_user,requisition_order.group_service_officer"/>
+
+    <menuitem action="action_custody_request_form" id="menu_custody_request" parent="menu_requisition_request_main" sequence="1" groups="requisition_order.group_department_manager,account_custom.group_financial_controller"/>
+
+    <menuitem action="action_custody_reconcile_form" id="menu_custody_reconcile" parent="menu_requisition_request_main" sequence="1"/>
+
+</odoo>

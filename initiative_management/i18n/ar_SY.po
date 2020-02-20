@@ -1,0 +1,353 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* initiative_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181220\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-03 11:04+0000\n"
+"PO-Revision-Date: 2019-04-03 11:04+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: initiative_management
+#: selection:initiative,type:0
+msgid "Both"
+msgstr "معاً"
+
+#. module: initiative_management
+#: selection:initiative,state:0
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: initiative_management
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_form
+msgid "Close"
+msgstr "إقفال"
+
+#. module: initiative_management
+#: selection:initiative,state:0
+msgid "Closed"
+msgstr "مقفلة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_create_uid
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_create_date
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: initiative_management
+#: selection:product.product,nature:0
+msgid "Custody"
+msgstr "عُهـدة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_department_id
+#: model:ir.model.fields,field_description:initiative_management.field_product_product_department_id
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_product_search
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_search
+msgid "Department"
+msgstr "اﻹدارة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_display_name
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: initiative_management
+#: selection:initiative,state:0
+msgid "Draft"
+msgstr "مبدئي"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_duration
+msgid "Duration"
+msgstr "المدة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_end_date
+msgid "End Date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: initiative_management
+#: selection:initiative,type:0
+#: selection:product.product,nature:0
+msgid "Expense"
+msgstr "منصرف"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_expense_service_ids
+msgid "Expense Services"
+msgstr "خدمات المنصرف"
+
+#. module: initiative_management
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_form
+msgid "From"
+msgstr "مِن"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goals_ids
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_form
+msgid "Goals"
+msgstr "اﻷهداف"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal_id
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: initiative_management
+#: selection:initiative,type:0
+#: selection:product.product,nature:0
+msgid "Income"
+msgstr "إيراد"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_income_service_ids
+msgid "Income Services"
+msgstr "خدمات الإيراد"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_product_product_initiative_id
+#: model:ir.module.category,name:initiative_management.module_initiative_category
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_form
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_goal_search
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_product_form
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_product_search
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_product_tree
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_search
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_tree
+msgid "Initiative"
+msgstr "مبادرة"
+
+#. module: initiative_management
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_goal_form
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_goal_search
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_goal_tree
+msgid "Initiative Goals"
+msgstr "أهداف المبادرة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_initiative_manager
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_search
+#: model:res.groups,name:initiative_management.group_initiative_manager
+msgid "Initiative Manager"
+msgstr "مدير المبادرة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_initiative_owner
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_search
+msgid "Initiative Owner"
+msgstr "مالك المبادرة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_product_product_initiative_service
+msgid "Initiative Service"
+msgstr "خدمة المبادرة"
+
+#. module: initiative_management
+#: model:res.groups,name:initiative_management.group_initiative_user
+msgid "Initiative User"
+msgstr "مستخدم المبادرة"
+
+#. module: initiative_management
+#: model:ir.actions.act_window,name:initiative_management.open_initiative_form
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal_initiative_ids
+#: model:ir.ui.menu,name:initiative_management.main_menu_initiative
+#: model:ir.ui.menu,name:initiative_management.menu_initiative_form
+msgid "Initiatives"
+msgstr "المبادرات"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative___last_update
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal_write_uid
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal_write_date
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: initiative_management
+#: model:ir.ui.menu,name:initiative_management.sub_menu_initiative
+msgid "Management"
+msgstr "الإدارة "
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal_name
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_product_product_nature
+msgid "Nature"
+msgstr "الطبيعة"
+
+#. module: initiative_management
+#: selection:initiative,state:0
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_form
+msgid "Open"
+msgstr "فتح"
+
+#. module: initiative_management
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_goal_search
+msgid "Parent Strategic Goal"
+msgstr "الهدف اﻹستراتيجي"
+
+#. module: initiative_management
+#: model:ir.model,name:initiative_management.model_product_product
+msgid "Product"
+msgstr "المنتج"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_product_product_sub_products
+msgid "Products"
+msgstr "المنتجات"
+
+#. module: initiative_management
+#: selection:product.product,nature:0
+msgid "Restricted"
+msgstr "مقيدة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_product_product_service_id
+msgid "Service"
+msgstr "الخدمة"
+
+#. module: initiative_management
+#: model:ir.actions.act_window,name:initiative_management.open_initiative_product_action
+#: model:ir.ui.menu,name:initiative_management.menu_initiative_product_form
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_form
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_product_search
+msgid "Services"
+msgstr "الخدمات"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_state
+msgid "State"
+msgstr "الحالة"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal_parent_id
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_strategic_goal_id
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_search
+msgid "Strategic Goal"
+msgstr "الهدف اﻹستراتيجي"
+
+#. module: initiative_management
+#: model:ir.actions.act_window,name:initiative_management.open_initiative_goal_form
+#: model:ir.ui.menu,name:initiative_management.menu_initiative_goal_form
+msgid "Strategic Goals"
+msgstr "اﻷهداف اﻹستراتيجية"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_goal_sub_goals
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_goal_form
+msgid "Sub Goals"
+msgstr "اﻷهداف الفرعية"
+
+#. module: initiative_management
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_form
+msgid "To"
+msgstr "إلى"
+
+#. module: initiative_management
+#: model:ir.model.fields,field_description:initiative_management.field_initiative_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: initiative_management
+#: code:addons/initiative_management/models/models.py:81
+#, python-format
+msgid "You cannot copy a initiative ."
+msgstr "معذرةً !!! لا يمكن نسخ المبادرة"
+
+#. module: initiative_management
+#: code:addons/initiative_management/models/product.py:49
+#, python-format
+msgid "You cannot delete a service linked to initiative."
+msgstr "معذرةً !!! لا يمكن مسح خدمة مسنده لمبادرة"
+
+#. module: initiative_management
+#: code:addons/initiative_management/models/models.py:123
+#, python-format
+msgid "You cannot delete an initiative not in cancel or draft state."
+msgstr "لا يمكن حذف مبادرة ليست في الحالة المبدئية أو ملغية"
+
+#. module: initiative_management
+#: model:ir.model,name:initiative_management.model_initiative
+msgid "initiative"
+msgstr "مبادرة"
+
+#. module: initiative_management
+#: model:ir.model,name:initiative_management.model_initiative_goal
+msgid "initiative.goal"
+msgstr "اﻷهداف"
+
+#. module: initiative_management
+#: model:ir.ui.view,arch_db:initiative_management.view_initiative_product_search
+msgid "nature"
+msgstr "الطبيعة"
+
+#. module: initiative_management
+#: code:addons/initiative_management/models/models.py:74
+#, python-format
+msgid "start date must be before end date"
+msgstr "معذرةً !!! تاريخ البداية يجب أن يكون قبل تاريخ النهاية"
+
+#. module: initiative_management
+#: model:ir.model.fields,help:initiative_management.field_initiative_end_date
+msgid "the end of the initiative"
+msgstr "نهاية المبادرة"
+
+#. module: initiative_management
+#: model:ir.model.fields,help:initiative_management.field_product_product_nature
+msgid "the nature of service which identify the type of the required account"
+msgstr "طبيعة الخدمة التي تحدد نوع الحساب"
+
+#. module: initiative_management
+#: model:ir.model.fields,help:initiative_management.field_initiative_start_date
+msgid "the start of the\n"
+"     initiative"
+msgstr "بداية المبادرة"
+
+#. module: initiative_management
+#: code:addons/initiative_management/models/models.py:149
+#, python-format
+msgid "you can not delete this Strategic Goal because it is related to Initiatives"
+msgstr "لا يمكن حذف هدف إستراتجي مرتبط بمبادرات"
+
+#. module: initiative_management
+#: code:addons/initiative_management/models/models.py:91
+#, python-format
+msgid "you must select services for this initiative"
+msgstr "يجب إختيار خدمات"
+

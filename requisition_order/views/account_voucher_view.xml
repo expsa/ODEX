@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_receipt_form" model="ir.ui.view">
+            <field name="name">account.voucher.sale.donation.request.inherit.form</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_sale_receipt_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="res_model" invisible="1"/>
+                    <field name="res_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('res_model','!=',False)]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='product_id']" position="after">
+                    <field name="initiative_id" attrs="{'column_invisible':[('parent.res_model','=',False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- account.voucher inherit search view -->
+        <record id="view_voucher_filter_sale" model="ir.ui.view">
+            <field name="name">account.voucher.inherit.view.search</field>
+            <field name="model">account.voucher</field>
+            <field name="inherit_id" ref="account_voucher.view_voucher_filter_sale"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='number']" position="replace">
+                    <field name="name" string="Voucher"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+
+        <!-- donation.request form view -->
+        <record id="donation_request_view_form" model="ir.ui.view">
+            <field name="name">donation.request.view.form</field>
+            <field name="model">donation.request</field>
+            <field name="arch" type="xml">
+                <form string="Donations Requests">
+                    <header>
+                        <button name="confirm" states="draft" string="confirm" type="object" class="oe_highlight" groups="requisition_order.group_requisition_user"/>
+
+
+                        <button name="done" attrs="{'invisible':[('state','not in',['confirmed'])]}" string="done" type="object" class="oe_highlight" groups="requisition_order.group_department_manager"/>
+
+                        <!-- <button name="done_custody" states="running" string="done" type="object" class="oe_highlight"/> -->
+
+                        <button name="cancel" states="draft" string="Cancel" type="object" class="oe_highlight" groups="requisition_order.group_requisition_user"/>
+
+                        <button name="cancel" states="confirmed" string="Cancel" type="object" class="oe_highlight" groups="requisition_order.group_department_manager"/>
+
+                        <button name="to_draft" states="cancel" string="To Draft" type="object" class="oe_highlight" groups="requisition_order.group_requisition_user,requisition_order.group_department_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" attrs="{'readonly':True}"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="date" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                                <field name="donor_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                                <field name="department_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                                <field name="analytic_account_id" invisible="1"/>
+                            </group>
+
+                            <group>
+
+                                <field name="purpose" attrs="{'readonly':[('state','not in',['draft'])],'invisible':False}"/>
+                                <field name="service_id" options="{'no_create': True, 'no_open': True}" attrs="{'readonly':[('state','not in',['draft'])],'required':True}" context="{'get_my_services_by_budget':'no_need','purpose':purpose,'initiative_service': True}"/>
+                                <field name="attached_file" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                                <field name="amount" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                                <field name="description" required="1" attrs="{'readonly':[('state','not in',['draft'])]}"/>
+                            </group>
+
+                            <group>
+                                <field name="voucher_id" options="{'no_create': True, 'no_open': False}" attrs="{'readonly':True, 'invisible':[('voucher_id','=',False)]}" context="{'form_view_ref': 'account_voucher.view_sale_receipt_form'}"/>
+
+                            </group>
+
+                        </group>
+
+                        <notebook attrs="{'invisible':[('purpose','!=','expense')]}">
+                            <page string="Restriction Details">
+                                <label for="childs_ids"/>
+                                <field name="childs_ids" attrs="{'readonly':[('state','not in',['draft'])]}" options="{'no_create': True, 'no_open': True}">
+                                    <form>
+                                        <field name="name" readonly="1"/>
+                                    </form>
+                                    <tree>
+                                        <field name="name" />
+                                    </tree>
+                                </field>
+
+                                <group>
+                                    <field name="childs_num" attrs="{'readonly':[('state','not in',['draft'])]}" />
+
+                                </group>
+
+                            </page>
+
+                            <page string="Requisition Requests">
+                                <field name="requisition_ids" readonly="1" options="{'no_create': True, 'no_open': True}">
+                                    <tree>
+                                        <field name="request_id" readonly="1"/>
+                                        <field name="amount" sum="Total"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="request_id" options="{'no_create': True, 'no_open': True}" readonly="1"/>
+                                            <field name="amount" readonly="1"/>
+                                        </group>
+                                    </form>
+                                </field>
+
+                                <group>
+                                    <field name="restriction_remain" />
+
+                                </group>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- donation.request action window -->
+        <record id="action_donation_request_form" model="ir.actions.act_window">
+            <field name="name">donation Requests</field>
+            <field name="res_model">donation.request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="context">{'initiative_service': True}</field>
+        </record>
+
+        <menuitem id="menu_donation_request_main" name="Donation Requests" sequence="1" groups="requisition_order.group_requisition_user"/>
+
+        <menuitem action="action_donation_request_form" id="menu_donation_request" parent="menu_donation_request_main" sequence="1" groups="requisition_order.group_requisition_user"/>
+
+    </data>
+</odoo>

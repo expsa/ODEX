@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- excel.dimensions form view -->
+        <record id="excel_dimensions_view_form" model="ir.ui.view">
+            <field name="name">excel.dimensions.view.form</field>
+            <field name="model">excel.dimensions</field>
+            <field name="arch" type="xml">
+                <form string="Excel Dimensions">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" attrs="{'readonly':False}"/>
+                            </h1>
+                        </div>
+                        <group>
+
+                            <group>
+                                <field name="company_id"/>
+                            </group>
+
+                            <group>
+                                <field name="account_number_row"/>
+                                <field name="account_number_col"/>
+                            </group>
+
+                            <group>
+                                <field name="currency_row"/>
+                                <field name="currency_col"/>
+                            </group>
+
+                            <group>
+                                <field name="date_period_row"/>
+                                <field name="date_period_col"/>
+                            </group>
+
+
+                            <group>
+                                <field name="balance_start_row"/>
+                                <field name="balance_start_col"/>
+                            </group>
+
+                            <group>
+                                <field name="balance_end_row"/>
+                                <field name="balance_end_col"/>
+                            </group>
+
+
+
+                            <group>
+                                <field name="details_row"/>
+                            </group>
+
+                            <group>
+                                <field name="debit_col"/>
+                            </group>
+
+                            <group>
+                                <field name="credit_col"/>
+                            </group>
+
+                            <group>
+                                <field name="balance_col"/>
+                            </group>
+
+                            <group>
+                                <field name="type_col"/>
+                            </group>
+
+                            <group>
+                                <field name="note_col"/>
+                            </group>
+
+                            <group>
+                                <field name="date_col"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- excel.dimensions action window -->
+        <record id="excel_dimensions_action" model="ir.actions.act_window">
+            <field name="name">Bank Statement Excel Dimensions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">excel.dimensions</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p><p>
+                    <!-- More details about what a user can do with this object will be OK --> 
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="bank_statement_excel_dimensions_menu_categ" action="excel_dimensions_action" name="Bank Statement Excel Dimensions" parent="account.account_management_menu"/>
+    </data>
+</odoo>

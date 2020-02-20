@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_initiative_management_initiative_initiative_user,initiative_management.initiative_initiative_user,model_initiative,initiative_management.group_initiative_user,1,0,0,0
+
+access_initiative_management_initiative_initiative_manager,initiative_management.initiative_initiative_manager,model_initiative,initiative_management.group_initiative_manager,1,1,1,1
+

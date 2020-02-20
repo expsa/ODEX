@@ -1,0 +1,37 @@
+<odoo>
+	<data>
+
+		<!-- explicit form view definition -->
+		<record id="fiscalyears_periods_form" model="ir.ui.view">
+			<field name="name">fiscalyears_periods account inherit form</field>
+			<field name="model">fiscalyears.periods</field>
+			<field name="inherit_id" ref="fiscalyears.fiscalyears_periods_form" />
+
+			<field name="arch" type="xml">
+				<xpath expr="//sheet" position="inside">
+					<label string="Related Operations"/>
+					<notebook>
+						<page string="Moves">
+							<field name="moves_ids" readonly="1" options="{'no_create': True, 'no_open': True}">
+							</field>
+						</page>
+						<page string="Invoices">
+							<field name="invoices_ids" readonly="1" options="{'no_create': True, 'no_open': True}">
+							</field>
+						</page>
+						<page string="Payments">
+							<field name="payments_ids" readonly="1" options="{'no_create': True, 'no_open': True}">
+							</field>
+						</page>
+						<page string="Vouchers">
+							<field name="vouchers_ids" readonly="1" options="{'no_create': True, 'no_open': True}">
+							</field>
+						</page>
+					</notebook>
+				</xpath>
+			</field>
+		</record>
+
+
+	</data>
+</odoo>

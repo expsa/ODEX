@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="invoice_supplier_form" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.requisition.request.inherit.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_currency_id']" position="after">
+                    <field name="res_model" invisible="1"/>
+                    <field name="res_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('res_model','!=',False)]}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="after">
+                    <field name="initiative_id" attrs="{'column_invisible':[('parent.res_model','=',False)]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='analytic_tag_ids']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='tax_line_ids']" position="replace">
+
+                    <field name="tax_line_ids">
+                        <tree editable="bottom" string="Taxes">
+                            <!--Need invisible fields for on_change to create all necessary info - i change it  -->
+                            <field name="tax_id" required="1" invisible="0"/>
+                            <field name="name"/>
+                            <field name="sequence" invisible="1"/>
+                            <field name="manual" invisible="1"/>
+                            <field name="account_id" groups="account.group_account_user"/>
+                            <field name="account_analytic_id" invisible="1" domain="[('company_id', '=', parent.company_id)]" groups="analytic.group_analytic_accounting"/>
+                            <field name="amount" invisible="1"/>
+                            <field name="amount_rounding" invisible="1"/>
+                            <field name="amount_total" invisible="0"/>
+                            <field name="currency_id" invisible="1" force_save="1"/>
+                        </tree>
+                    </field>
+                </xpath>
+
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

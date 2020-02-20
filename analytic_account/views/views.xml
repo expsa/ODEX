@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+    <record id="view_account_analytic_account_form_custom" model="ir.ui.view">
+      <field name="name">analytic.analytic.account.form.custom</field>
+      <field name="model">account.analytic.account</field>
+      <field name="inherit_id" ref="analytic.view_account_analytic_account_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='code']" position="after">
+          <field name="type" required="1"/>
+          <field name="parent_id" options="{'no_create': True}" domain="[('id','!=',id)]"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="analytic.account_analytic_line_action">
+      <field name="context">{'search_default_group_date': 1}</field>
+      <field name="domain">['|',('account_id','=', active_id),('account_id','child_of', [active_id])]</field>
+    </record>
+
+
+    <record id="hr_action_hierarchical_chart" model="ir.actions.client">
+      <field name="name">Hierarchical Chart Of Analytic Account</field>
+      <field name="tag">hierarchical_view</field>
+      <field name="context">{'model': 'account.analytic.account'}</field>
+    </record>
+
+    <menuitem id="menu_hierarchical_chart_analytic_accounts" name="Hierarchical Chart Of Analytic Accounts" action="hr_action_hierarchical_chart" parent="account.menu_analytic_accounting" />
+
+
+  </data>
+</odoo>

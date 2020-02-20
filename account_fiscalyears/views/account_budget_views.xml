@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="crossovered_budget_view_form">
+        <field name="name">crossovered.budget.fiscalyear.inherit.view.form</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id" ref="account_budget.crossovered_budget_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="before">
+                <field name="fiscalyear_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" domain="[('state','=','open'),('start_date','=',date_from),('end_date','=',date_to)]"/>
+            </xpath>
+            <xpath expr="//label[@for='date_from']" position="attributes">
+                <attribute name="string">Date Range</attribute>
+            </xpath>
+            <xpath expr="//field[@name='crossovered_budget_line']/form/group[1]/group[2]/label[@for='date_from']" position="attributes">
+                <attribute name="string">Date Range</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="crossovered_budget_view_tree">
+        <field name="name">crossovered.budget.fiscalyear.inherit.view.tree</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id" ref="account_budget.crossovered_budget_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_to']" position="after">
+                <field name="fiscalyear_id" groups="fiscalyears.group_fiscalyear_user"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_crossovered_budget_search" model="ir.ui.view">
+        <field name="name">crossovered.budget.fiscalyear.inherit.search</field>
+        <field name="model">crossovered.budget</field>
+        <field name="inherit_id" ref="account_budget.view_crossovered_budget_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_to']" position="after">
+                <field name="fiscalyear_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" />
+                <filter name="current_fiscalyear" string="Current Fiscalyear" domain="[ ('fiscalyear_id.start_date', '&lt;=', time.strftime('%%Y-%%m-%%d')), ('fiscalyear_id.end_date', '&gt;=', time.strftime('%%Y-%%m-%%d'))]" help="budget in the current fiscal year" groups="fiscalyears.group_fiscalyear_user"/>
+                <filter name="group_by_fiscalyear_id" string="Fiscalyear" groups="fiscalyears.group_fiscalyear_user" context="{'group_by':'fiscalyear_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_crossovered_budget_line_search" model="ir.ui.view">
+        <field name="name">account.budget.line.fiscalyear.inherit.search</field>
+        <field name="model">crossovered.budget.lines</field>
+        <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_search" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='analytic_account_id']" position="after">
+                <field name="fiscalyear_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" />
+                <filter name="current_fiscalyear" string="Current Fiscalyear" domain="[ ('fiscalyear_id.start_date', '&lt;=', time.strftime('%%Y-%%m-%%d')), ('fiscalyear_id.end_date', '&gt;=', time.strftime('%%Y-%%m-%%d'))]" help="budget lines in the current fiscal year" groups="fiscalyears.group_fiscalyear_user"/>
+                <filter name="group_by_fiscalyear_id" string="Fiscalyear" groups="fiscalyears.group_fiscalyear_user" context="{'group_by':'fiscalyear_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_crossovered_budget_line_tree">
+        <field name="name">crossovered.budget.line.fiscalyear.inherit.tree</field>
+        <field name="model">crossovered.budget.lines</field>
+        <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_to']" position="after">
+                <field name="fiscalyear_id" groups="fiscalyears.group_fiscalyear_user"/>
+            </xpath>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="view_crossovered_budget_line_form">
+        <field name="name">crossovered.budget.line.fiscalyear.inherit.form</field>
+        <field name="model">crossovered.budget.lines</field>
+        <field name="inherit_id" ref="account_budget.view_crossovered_budget_line_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="before">
+                <field name="fiscalyear_id" options="{'no_create': True, 'no_open': True}" groups="fiscalyears.group_fiscalyear_user" readonly="1" domain="[('state','=','open'),('start_date','=',date_from),('end_date','=',date_to)]"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

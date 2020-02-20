@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="module_initiative_category" model="ir.module.category">
+            <field name="name">Initiative</field>
+        </record>
+        <record id="group_initiative_user" model="res.groups">
+            <field name="name">Initiative User</field>
+            <field name="category_id" ref="initiative_management.module_initiative_category"/>
+
+        </record>
+        <record id="group_initiative_manager" model="res.groups">
+            <field name="name">Initiative Manager</field>
+            <field name="category_id" ref="initiative_management.module_initiative_category"/>
+            <field name="implied_ids" eval="[(4, ref('group_initiative_user'))]"/>
+        </record>
+
+    </data>
+</odoo>

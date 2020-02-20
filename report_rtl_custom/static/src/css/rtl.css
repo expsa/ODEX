@@ -1,0 +1,100 @@
+.text-right{
+    text-align: left !important;
+}
+
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/report_rtl_custom/static/src/fonts/DroidKufi-Regular.eot);
+  src: url(/report_rtl_custom/static/src/fonts/DroidKufi-Regular.woff2) format('woff2'),
+       url(/report_rtl_custom/static/src/fonts/DroidKufi-Regular.woff) format('woff'),
+       url(/report_rtl_custom/static/src/fonts/DroidKufi-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/report_rtl_custom/static/src/fonts/DroidKufi-Bold.eot);
+  src: url(/report_rtl_custom/static/src/fonts/DroidKufi-Bold.woff2) format('woff2'),
+       url(/report_rtl_custom/static/src/fonts/DroidKufi-Bold.woff) format('woff'),
+       url(/report_rtl_custom/static/src/fonts/DroidKufi-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/report_rtl_custom/static/src/fonts/DroidKufi-Regular.eot);
+  src: url(/report_rtl_custom/static/src/fonts/DroidKufi-Regular.woff2) format('woff2'),
+       url(/report_rtl_custom/static/src/fonts/DroidKufi-Regular.woff) format('woff'),
+       url(/report_rtl_custom/static/src/fonts/DroidKufi-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/report_rtl_custom/static/src/fonts/DroidKufi-Bold.eot);
+  src: url(/report_rtl_custom/static/src/fonts/DroidKufi-Bold.woff2) format('woff2'),
+       url(/report_rtl_custom/static/src/fonts/DroidKufi-Bold.woff) format('woff'),
+       url(/report_rtl_custom/static/src/fonts/DroidKufi-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Droid Arabic Naskh';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/report_rtl_custom/static/src/fonts/DroidNaskh-Regular.eot);
+  src: url(/report_rtl_custom/static/src/fonts/DroidNaskh-Regular.woff2) format('woff2'),
+       url(/report_rtl_custom/static/src/fonts/DroidNaskh-Regular.woff) format('woff'),
+       url(/report_rtl_custom/static/src/fonts/DroidNaskh-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid Arabic Naskh';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/report_rtl_custom/static/src/fonts/DroidNaskh-Bold.eot);
+  src: url(/report_rtl_custom/static/src/fonts/DroidNaskh-Bold.woff2) format('woff2'),
+       url(/report_rtl_custom/static/src/fonts/DroidNaskh-Bold.woff) format('woff'),
+       url(/report_rtl_custom/static/src/fonts/DroidNaskh-Bold.ttf) format('truetype');
+}
+
+/* 
+ * Amiri (Arabic) http://www.google.com/fonts/earlyaccess
+ */
+@font-face {
+  font-family: 'Amiri';
+  font-style: italic;
+  font-weight: 400;
+  src: url(/report_rtl_custom/static/src/fonts/Amiri-Slanted.eot);
+  src: url(/report_rtl_custom/static/src/fonts/Amiri-Slanted.woff2) format('woff2'),
+       url(/report_rtl_custom/static/src/fonts/Amiri-Slanted.woff) format('woff'),
+       url(/report_rtl_custom/static/src/fonts/Amiri-Slanted.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/report_rtl_custom/static/src/fonts/Amiri-Regular.eot);
+  src: url(/report_rtl_custom/static/src/fonts/Amiri-Regular.woff2) format('woff2'),
+       url(/report_rtl_custom/static/src/fonts/Amiri-Regular.woff) format('woff'),
+       url(/report_rtl_custom/static/src/fonts/Amiri-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: italic;
+  font-weight: 700;
+  src: url(/report_rtl_custom/static/src/fonts/Amiri-BoldSlanted.eot);
+  src: url(/report_rtl_custom/static/src/fonts/Amiri-BoldSlanted.woff2) format('woff2'),
+       url(/report_rtl_custom/static/src/fonts/Amiri-BoldSlanted.woff) format('woff'),
+       url(/report_rtl_custom/static/src/fonts/Amiri-BoldSlanted.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/report_rtl_custom/static/src/fonts/Amiri-Bold.eot);
+  src: url(/report_rtl_custom/static/src/fonts/Amiri-Bold.woff2) format('woff2'),
+       url(/report_rtl_custom/static/src/fonts/Amiri-Bold.woff) format('woff'),
+       url(/report_rtl_custom/static/src/fonts/Amiri-Bold.ttf) format('truetype');
+}
