@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+ <record model="ir.ui.view" id="sponsor_form_view">
+            <field name="name">sponsor_form_view</field>
+            <field name="model">res.sponsor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <separator/>
+                    <h4>Sponsor Details</h4>
+                    <separator/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="sponsor_id"/>
+                            <field name="partner_id"/>
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Street..." class="o_address_street"/>
+                                <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                <field name="city" placeholder="City" class="o_address_city"/>
+                                <field name="state_id" class="o_address_state" placeholder="State"
+                                       options="{&quot;no_open&quot;: True}"/>
+                                <field name="zip_code" placeholder="Postal /Zip Code" class="o_address_zip"/>
+                                <field name="country_id" placeholder="Country" class="o_address_country"
+                                       options="{&quot;no_open&quot;: True}"/>
+                            </div>
+                            <field name="website" widget="url" placeholder="e.g. www.odoo.com"/>
+                        </group>
+                        <group>
+                            <field name="phone" widget="phone"/>
+                            <field name="fax"/>
+                            <field name="pob"/>
+                            <field name="email" widget="email"/>
+                            <field name="mobile" widget="phone"/>
+                            <field name="cr_no"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="res_sponsor_act">
+            <field name="name">Sponsor</field>
+            <field name="res_model">res.sponsor</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

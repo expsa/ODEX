@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- Employee Card-->
+        <record id="cards_form_view" model="ir.ui.view">
+            <field name="name">hr.cards.form.view</field>
+            <field name="model">employee.card</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group string='Employee Information'>
+                            <field name="employee"/>
+                            <field name="employee_code"/>
+                            <field name="department"/>
+                            <field name="job_title"/>
+                            <field name="office"/>
+                        </group>
+                        <group string='Card Information'>
+                            <field name="card_type"/>
+                            <field name="card_no"/>
+                            <field name="requested_date" widget="date"/>
+                            <field name="reason"/>
+                            <field name="status"/>
+                            <field name="access_type"/>
+                            <field name="period_stay"/>
+                            <field name="issue_date" widget="date"/>
+                            <field name="expiry_date" widget="date"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Employee Card -->
+        <record model="ir.actions.act_window" id="card_list_action">
+            <field name="name">Employee Cards</field>
+            <field name="res_model">employee.card</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="res_lang_hijri_form" model="ir.ui.view">
+            <field name="name">res.lang.view</field>
+            <field name="model">res.lang</field>
+            <field name="inherit_id" ref="base.res_lang_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="hijri_date_format"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

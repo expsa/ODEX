@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- my details menu item view-->
+        <!--<menuitem name="MY Details" id="employee_details_menu_item" parent="hr.menu_hr_main" sequence="3"-->
+        <!--action="employee_my details_list_action" />-->
+
+        <!-- company document menu item view-->
+        <menuitem name="Company Document" id="company_document_menu_item" parent="hr.menu_hr_main" sequence="5"
+                  action="company_document_list_action"
+                  groups="hr.group_hr_manager,hr.group_hr_user,hr_base.group_executive_manager,hr_base.group_general_manager"/>
+
+        <!-- Employee iqama renewal menu item view-->
+        <menuitem name="Request iqama renewal" id="employee_iqama_renewal_menu_item" parent="hr.menu_hr_main"
+                  sequence="6"
+                  action="employee_iqama_renewal_list_action"
+                  groups="hr.group_hr_manager,hr.group_hr_user,hr_base.group_executive_manager,hr_base.group_general_manager,hr_base.group_account_manager"/>
+
+        <menuitem name="Company" id="users_company_extension_menu_item1" parent="hr.menu_hr_department_tree"
+                  sequence="-3" action="users_company1"/>
+
+
+        <!-- <menuitem name="Sponsor" id="res_spnsor_menu_item" parent="base.menu_users" sequence="3" action="res_sponsor_act"/> -->
+
+        <!-- Dependent -->
+        <!--<menuitem id="dependent_menu" name="Dependent"-->
+        <!--parent="hr.menu_hr_root"-->
+        <!--action="dependent_list_action" sequence="300"/>-->
+        <!-- Employee Card -->
+        <!--<menuitem id="cards_menu" name="Employee Cards"-->
+        <!--parent="hr.menu_hr_root"-->
+        <!--action="card_list_action" sequence="400"/>-->
+        <!-- Employee Amedment -->
+        <!--<menuitem id="contract_amedment_menu" name="Employee Amendment"-->
+        <!--parent="hr.menu_hr_root"-->
+        <!--action="amedment_list_action" sequence="500"/>-->
+        <!-- Employee Iqama -->
+        <!--<menuitem id="contract_iqama_menu" name="Employee Iqama / ID"-->
+        <!--parent="hr.menu_hr_root"-->
+        <!--action="iqama_list_action" sequence="6"/>-->
+        <!-- Employee Clearance -->
+        <!--<menuitem id="employee_clearance_menu" name="Employee Clearance"-->
+        <!--parent="hr.menu_hr_root"-->
+        <!--action="it_department_list_action" sequence="700"/>-->
+        <!-- Employee Leaving -->
+        <!--<menuitem id="employee_leaving_menu" name="Employee Leaving"-->
+        <!--parent="hr.menu_hr_root"-->
+        <!--action="leaving_list_action" sequence="900"/>-->
+        <!-- EOS -->
+        <!--<menuitem id="employee_eos_menu" name="EOS"-->
+        <!--parent="hr.menu_hr_root"-->
+        <!--action="eos_list_action" sequence="1000"/>-->
+
+        <!--<menuitem id="hr_insurance_menu" name="Insurance"-->
+        <!--parent="hr.menu_hr_root"-->
+        <!--action="hr_insurance_act" sequence="1100"/>-->
+
+
+        <!--<menuitem id="branch_ext_menu" name="Branch"-->
+        <!--parent="hr.menu_hr_department_tree" sequence="-2" action="res_company_branch_act"/>-->
+
+        <!--<menuitem id="hr.menu_hr_department_tree" name="Departments"-->
+        <!--action="hr.open_module_tree_department" sequence="100"/>-->
+
+        <menuitem id="division_info_menu" name="Division Info"
+                  parent="hr.menu_hr_department_tree"
+                  action="division_info_act"
+                  sequence="1"/>
+
+        <menuitem id="department_info_menu" name="Department Info"
+                  parent="hr.menu_hr_department_tree"
+                  action="department_info_act"
+                  sequence="3"/>
+
+        <menuitem id="category_info_menu" name="Category Info"
+                  parent="hr.menu_hr_department_tree"
+                  action="category_info_act"
+                  sequence="4"/>
+
+        <menuitem id="designation_info_menu" name="Designation Info"
+                  parent="hr.menu_hr_department_tree"
+                  action="designation_info_act"
+                  sequence="5"/>
+
+        <menuitem id="hr_ticket_menu" name="Ticket"
+                  parent="hr_holidays.menu_hr_holidays_root"
+                  sequence="4"/>
+
+        <menuitem id="hr_ticket_menu_child1" name="Ticket"
+                  parent="hr_ticket_menu" action="hr_ticket_act"
+                  sequence="0"/>
+
+        <menuitem id="hr_exit_reentry_menu" name="Exit Re-Entry"
+                  parent="hr_holidays.menu_hr_holidays_root"
+                  sequence="5"/>
+
+        <menuitem id="hr_exit_reentry_menu_child1" name="Exit Re-Entry"
+                  parent="hr_exit_reentry_menu" action="hr_exit_reentry_act"
+                  sequence="0"/>
+
+        <!--Updated Departments Menu-->
+        <menuitem id="hr.menu_hr_department_tree"
+                  name="Departments" parent="hr.menu_human_resources_configuration"
+                  action="hr.open_module_tree_department"
+                  sequence="30"/>
+
+
+        <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_root">
+            <field name="groups_id" eval="[(6,0,[ref('base.group_portal')])]"/>
+        </record>
+
+        <!--Updated Recruitment Menu-->
+<!--        <menuitem name="Recruitment" id="hr_recruitment.menu_hr_recruitment_root"-->
+<!--                  parent="hr.menu_hr_root"-->
+<!--                  web_icon="hr_recruitment,static/description/icon.png"-->
+<!--                  groups="hr_recruitment.group_hr_recruitment_user"-->
+<!--                  sequence="3"/>-->
+
+        <!--Updated Contracts Menu-->
+        <menuitem
+                id="hr_contract.hr_menu_contract" name="Contracts"
+                action="hr_contract.action_hr_contract" parent="hr.menu_hr_main" sequence="2"
+                groups="hr.group_hr_manager,hr.group_hr_user,hr_base.group_executive_manager,hr_base.group_general_manager"/>
+
+
+
+        <menuitem parent="hr.menu_hr_root" name="Re-Contract" id="hr_employee_re_contract_menu" sequence="12"/>
+
+        <menuitem parent="hr_employee_re_contract_menu" id="hr_employee_re_contract_menu_sub" name="Contract"
+                  action="open_view_re_contracting_form"/>
+
+        <menuitem id="hr.menu_open_view_employee_list_my" name="Employees"
+                  action="employees_list_action" parent="hr.menu_hr_main" sequence="1"/>
+
+        <!--<record model="ir.ui.menu" id="hr_expense.menu_hr_expense_root">-->
+            <!--<field name="groups_id" eval="[(6,0,[ref('hr_expense.group_hr_expense_user')])]"/>-->
+        <!--</record>-->
+
+        <record model="ir.ui.menu" id="hr.menu_view_employee_category_form">
+            <field name="groups_id" eval="[(4,ref('hr.group_hr_user'))]"/>
+        </record>
+
+        <record model="ir.ui.menu" id="hr_contract.hr_menu_contract_type">
+            <field name="groups_id" eval="[(4,ref('hr.group_hr_user'))]"/>
+        </record>
+
+    </data>
+</odoo>

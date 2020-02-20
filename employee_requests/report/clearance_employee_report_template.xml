@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_external_layout_standard">
+            <div class="header">
+                <div class="row">
+                    <table style="width:100%;border: 1px solid gray;height:100px">
+                        <tr style=" border: 1px solid gray">
+                            <td style=" border: 1px solid gray;width:50%;padding:5px">
+                                <h4>
+                                    <center>TAQNIA SPACE</center>
+                                    <br/>
+                                    Mobile No:
+                                </h4>
+                            </td>
+                            <td style=" border: 1px solid gray;width:50%">
+                                <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height:100px;width:70%"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-raw="0" />
+            </div>
+        </template>
+
+        <template id="custom_external_layout">
+            <!-- Multicompany -->
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+            <t t-if="company.external_report_layout == 'background'">
+                <t t-call="employee_requests.custom_external_layout_standard"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout == 'boxed'">
+                <t t-call="employee_requests.custom_external_layout_standard"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout == 'clean'">
+                <t t-call="employee_requests.custom_external_layout_standard"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout in (False, 'standard')">
+                <t t-call="employee_requests.custom_external_layout_standard"><t t-raw="0"/></t>
+            </t>
+        </template>
+
+        <template id="clearance_report_template">
+            <t t-call="web.html_container">
+                <t t-call="employee_requests.custom_external_layout">
+                    <style type="text/css">
+                        @font-face {
+                        font-family: 'ae_AlMohanad';
+                        src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                        url('/employee_requests/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                        }
+                        *{
+                        font-family: ae_AlMohanad;
+                        }
+                    </style>
+                    <div class="page" style="font-size:11pt" dir="ltr">
+                        <t t-foreach="docs" t-as="o">
+                            <div style="width:100%">
+                                <center>
+                                    <p style="font-weight:bold">Station clearance form</p>
+                                </center>
+                                <p style="margin-left:5%;">(to be completed 2 week prior to end of service and submitted to HR regional office for final settlement )</p>
+                            </div>
+                            <br/>
+                            <table style="width:100%;border: 1px solid gray;height:60px">
+                                <tr>
+                                    <td style=" border: 1px solid gray;width:20%;">
+                                        Name
+                                    </td>
+                                    <td style="border: 1px solid gray;width:30%"><span t-esc="o.employee_id.name"/></td>
+                                    <td style=" border: 1px solid gray;width:20%;">
+                                        Job Title
+                                    </td>
+                                    <td style="border: 1px solid gray;width:30%"><span t-esc="o.job_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td style=" border: 1px solid gray;width:20%;">PF#</td>
+                                    <td style="color:white; border: 1px solid gray;width:30%">.</td>
+                                    <td style=" border: 1px solid gray;width:20%;">Department</td>
+                                    <td style="border: 1px solid gray;width:30%"><span t-esc="o.department_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td style=" border: 1px solid gray;width:20%;">Last working day</td>
+                                    <td style="border: 1px solid gray;width:30%"><span t-esc="o.date_deliver_work"/></td>
+                                    <td style=" border: 1px solid gray;width:20%;">Leave Date</td>
+                                    <td style="border: 1px solid gray;width:30%"><span t-esc="o.employee_id.leaving_date"/></td>
+                                </tr>
+                            </table>
+                            <center><p>Check out items</p></center>
+                            <table style="width:100%;border: 1px solid gray;">
+                                <tr>
+                                    <td style="width:3%;background-color:#d3d3d3;">1.
+                                    </td>
+                                    <td style="width:73%;background-color:#d3d3d3;">
+                                        DEPARTMENT HEAD
+                                    </td>
+                                    <td style="width:10%;background-color:#d3d3d3;">
+                                        Signature
+                                    </td>
+                                    <td style="width:13%;background-color:#d3d3d3;">Date</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        A
+                                    </td>
+                                    <td style="width:73%">
+                                        Tools,equipment, uniform(old/new),locker/desk,door keys, and manualsreturned
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        B
+                                    </td>
+                                    <td style="width:73%">
+                                        Others
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%;background-color:#d3d3d3;">
+                                        2
+                                    </td>
+                                    <td style="width:73%;background-color:#d3d3d3;">
+                                        INFORMATION AND SYSTEM DEPARTMENT
+                                    </td>
+                                    <td style="width:10%;background-color:#d3d3d3;">
+                                        Signature
+                                    </td>
+                                    <td style="width:10%;background-color:#d3d3d3;">
+                                        Date
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        A
+                                    </td>
+                                    <td style="width:73%">
+                                        E-mail and internet account disabled.
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        B
+                                    </td>
+                                    <td style="width:73%">
+                                        All system password cancelled.
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        C
+                                    </td>
+                                    <td style="width:77%">
+                                        Laptops/PC
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:10%">
+                                        D
+                                    </td>
+                                    <td style="width:70%">
+                                        Telephones/IP Telephones returned.
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        E
+                                    </td>
+                                    <td style="width:77%">
+                                        Others
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%;background-color:#d3d3d3;">
+                                        3
+                                    </td>
+                                    <td style="width:77%;background-color:#d3d3d3;">
+                                        ADMINISTRATION DEPARTMENT
+                                    </td>
+                                    <td style="width:10%;background-color:#d3d3d3;">
+                                        Signature
+                                    </td>
+                                    <td style="width:10%;background-color:#d3d3d3;">
+                                        Date
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        A
+                                    </td>
+                                    <td style="width:77%">
+                                        Furniture office /equipment have returned(if applicable).
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        B
+                                    </td>
+                                    <td style="width:77%">
+                                        Vehicle parking sticker returned(if applicable).
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:10%">
+                                        C
+                                    </td>
+                                    <td style="width:70%">
+                                        Car returned
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        D
+                                    </td>
+                                    <td style="width:77%">
+                                        Others
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%;background-color:#d3d3d3;">
+                                        4
+                                    </td>
+                                    <td style="width:77%;background-color:#d3d3d3;">
+                                        FINANCE DEPARTMENT
+                                    </td>
+                                    <td style="width:10%;background-color:#d3d3d3;">
+                                        Signature
+                                    </td>
+                                    <td style="width:10%;background-color:#d3d3d3;">
+                                        Date
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        A
+                                    </td>
+                                    <td style="width:77%">
+                                        Petty Cash.
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        B
+                                    </td>
+                                    <td style="width:77%">
+                                        Credit Control.
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        C
+                                    </td>
+                                    <td style="width:77%">
+                                        Finance Control.
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        D
+                                    </td>
+                                    <td style="width:77%">
+                                        Others
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%;background-color:#d3d3d3;">
+                                        5
+                                    </td>
+                                    <td style="width:77%;background-color:#d3d3d3;">
+                                        HUMAN RESOURCE DEPARTMENT
+                                    </td>
+                                    <td style="width:10%;background-color:#d3d3d3;">
+                                        Signature
+                                    </td>
+                                    <td style="width:10%;background-color:#d3d3d3;">
+                                        Date
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        A
+                                    </td>
+                                    <td style="width:77%">
+                                        Bank guarantee letters checked and clearance certificate received from bank.(if applicable)
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        B
+                                    </td>
+                                    <td style="width:77%">
+                                        Training courses guarantee cleared (if applicable),Employee need to pay the amount of ....... riyals to cover training expanses.
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        C
+                                    </td>
+                                    <td style="width:77%">
+                                        Employee fills exit interview and submit it.
+                                    </td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        D
+                                    </td>
+                                    <td style="width:77%">
+                                        Medical insurance card.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        E</td>
+                                    <td style="width:77%">
+                                        Iqama returned and exit procedure completed(expatriat staff only).</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        F</td>
+                                    <td style="width:77%">
+                                        GOSI deletion</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        G</td>
+                                    <td style="width:77%">
+                                        All ID/access cards returned</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                                <tr>
+                                    <td style="width:3%">
+                                        H</td>
+                                    <td style="width:77%">
+                                        Others</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                    <td style="color:white; border: 1px solid gray;width:10%">.</td>
+                                </tr>
+                            </table>
+                            <style>
+                                table{
+                                width:100%;
+                                }
+                                td{
+                                border: 1px solid grey;
+                                padding: 1px 1px 1px 1px;
+                                }
+                                th{
+                                border: 1px solid grey;
+                                padding: 1px 1px 1px 1px;
+                                font-weight: bold;
+                                background-color:#d3d3d3;
+                                }
+                            </style>
+
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+        <report id="custom_clearances_action_report"
+                model="hr.clearance.form"
+                string="Clearance Form"
+                report_type="qweb-pdf"
+                name="employee_requests.clearance_report_template"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+
+        <record id="action_hr_offer_employee_wizard" model="ir.actions.act_window">
+            <field name="name">Employee offer Report</field>
+            <field eval="1" name="sequence"/>
+            <field name="res_model">hr.offer.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+<record id="view_employee_offer_wizard" model="ir.ui.view">
+            <field name="name">employee offer Report</field>
+            <field name="model">hr.offer.wizard</field>
+            <field name="arch" type="xml">
+                <form string="employee offer Report">
+                    <group>
+                            <field name="date_from" string="Date from" required="1"/>
+                            <field name="date_to" string="Date to" required="1"/>
+                            <field name="department_id" string="Department"/>
+                            <field name="job_id" string="Job Title"/>
+                        </group>
+
+                    <footer>
+                        <button name="get_report_offer"  string="Print report PDF" type="object" class="oe_highlight"
+                                />
+                        or
+
+                        <button name="get_report_offer_xlsx" string="Print report excel" type="object" class="oe_highlight"
+                                />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        </data>
+</odoo>

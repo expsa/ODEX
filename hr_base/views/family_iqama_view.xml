@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="iqama_tree_form_view">
+            <field name="name">iqama_tree_form_view</field>
+            <field name="model">employee.family.iqama</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group string='Iqama/ID Details' name="group_top">
+                            <group name="group_left">
+                                <field name="iqama_no"/>
+                                <field name="serial_no"/>
+                                <field name="issue_date" widget="date"/>
+                                <field name="expiry_date" widget="date"/>
+                            </group>
+
+                            <group name="group_right">
+                                <field name="iqama_position"/>
+                                <field name="place_issue"/>
+                                <field name="arrival_date" widget="date"/>
+                                <field name="in_saudi"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

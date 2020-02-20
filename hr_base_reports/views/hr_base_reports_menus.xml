@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <menuitem
+                name="Human Resources Reports"
+                id="main_reports_menu"
+                parent="hr.menu_hr_root"
+                sequence="15"
+                groups ="hr.group_hr_user"
+        />
+
+
+        <menuitem
+                action="action_hr_department_wizard"
+                name="HR Departments and Jobs OF Employee"
+                id="hr_department_job_form_wizard_menu"
+                parent="main_reports_menu"
+                sequence="1"
+        />
+        <menuitem
+                action="action_hr_reward_wizard"
+                name="Reward Reports Of Employee"
+                id="hr_reward_reports_wizard_menu"
+                parent="main_reports_menu"
+                sequence="2"
+        />
+
+
+        <menuitem
+                action="action_hr_offer_employee_wizard"
+                name="Offer Reports Of Employee"
+                id="hr_offer_reports_wizard_menu"
+                parent="main_reports_menu"
+                sequence="3"
+        />
+
+
+        <menuitem
+                action="action_hr_termination_wizard"
+                name="Termenation reports"
+                id="termenation_reports_wizard_menu"
+                parent="main_reports_menu"
+                sequence="5"
+        />
+
+        <menuitem
+                action="action_hr_leave_report_wizard"
+                name="Leave reports"
+                id="leave_reports_wizard_menu"
+                parent="main_reports_menu"
+                sequence="6"
+        />
+
+
+        <menuitem
+                action="action_overtime_report_of_employee_wizard"
+                name="Overtime report of employee"
+                id="overtime_report_wizard_menu"
+                parent="main_reports_menu"
+                sequence="7"
+        />
+
+
+
+        <menuitem
+                action="action_penalty_report"
+                name="Penalty Deduction of employee"
+                id="penalty_deduction_report_wizard_menu"
+                parent="main_reports_menu"
+                sequence="8"
+        />
+
+
+    </data>
+</odoo>

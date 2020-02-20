@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+<record model="ir.actions.act_window" id="hr_insurance_act">
+            <field name="name">Insurance</field>
+            <field name="res_model">hr.insurance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+         <!-- insurance-->
+        <record id="insurance_form_view" model="ir.ui.view">
+            <field name="name">insurance_form_view</field>
+            <field name="model">hr.insurance</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="group_top">
+                            <group name="group_left">
+                                <field name="card_code"/>
+                                <field name="member_name"/>
+                                <field name="dob"/>
+                                <field name="clas_n"/>
+                                <field name="start_date" widget="date"/>
+                            </group>
+
+                            <group name="group_right">
+                                <field name="relation"/>
+                                <!-- <field name="job" /> -->
+                                <field name="premium"/>
+                                <field name="gender"/>
+                                <!-- <field name="sponsor_id" /> -->
+                                <field name="expiry_date" widget="date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- insurance-->
+        <record id="insurance_tree_view" model="ir.ui.view">
+            <field name="name">insurance_tree_view</field>
+            <field name="model">hr.insurance</field>
+            <field name="arch" type="xml">
+                <tree string='Personal Information'>
+                    <field name="card_code"/>
+                    <field name="member_name"/>
+                    <field name="dob"/>
+                    <field name="clas_n"/>
+                    <field name="relation"/>
+                    <field name="start_date" widget="date"/>
+                    <!-- <field name="job" />     -->
+                    <field name="premium"/>
+                    <field name="gender"/>
+                    <!-- <field name="sponsor_id" /> -->
+                    <field name="expiry_date" widget="date"/>
+                </tree>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

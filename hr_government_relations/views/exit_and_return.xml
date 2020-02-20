@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+        <record model="ir.actions.act_window" id="exit_and_return_action">
+            <field name="name">Exit and Return</field>
+            <field name="res_model">hr.exit.return</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+
+
+        <record id="exit_and_return_form_view" model="ir.ui.view">
+            <field name="name">Exit and Return</field>
+            <field name="model">hr.exit.return</field>
+            <field name="arch" type="xml">
+                <form string="Exit and Return">
+                    <header>
+                        <button string="Direct Manager" name="send" type="object" class="oe_highlight" states="draft"
+                                groups="hr_base.group_division_manager"/>
+                        <button string="Government Relations" name="hr_manager" type="object" class="oe_highlight" states="send"
+                                groups="hr_base.group_government_relations"/>
+                        <button string="Refuse" name="refuse" type="object" class="oe_highlight" states="send"
+                                groups="hr_base.group_government_relations"/>
+                        <button string="HR Manager" name="financial_manager" class="oe_highlight" type="object" states="confirm"
+                                groups="hr.group_hr_user, hr.group_hr_manager"/>
+                        <button string="Re-draft" name="draft" type="object" class="oe_highlight" states="refuse,done"
+                                groups="hr.group_hr_user"/>
+                        <button string="Refuse" name="refuse" type="object" class="oe_highlight" states="confirm"
+                                groups="hr.group_hr_user, hr.group_hr_manager"/>
+                        <field name="state" widget="statusbar" />
+
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <group name="employee_info">
+                                <field name="from_hr" string="Request via the"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_id" string="Employe" attrs="{'readonly': ['|',('from_hr','=',False),('state','!=','draft')],'required':True}"/>
+                                <field name="job_id" string="Job Title" readonly="1"/>
+                                <field name="department_id" string="Department" readonly="1"/>
+                                <field name="nationality_id" string="Nationality" readonly="1"/>
+                                <field name="contract_id" string="Current Contract" readonly="1"/>
+                                <!--field name="contract_duration" string="Contract Duration"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/-->
+                            </group>
+                            <group>
+                                <field name="without_leave" string="Without Leave"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="request_for" string="Request For" required="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                                                
+                            </group>
+                        </group>
+
+                        <group>
+                            <!--</group>>
+                            <group>
+                                <field name="entry_visa_no" string="Entry Visa Number"
+                                       readonly="1"/>
+                                <field name="border_no" string="Border Number"
+                                       readonly="1"/>
+                                
+                            </group-->
+                        </group>
+
+                        <notebook>
+                            <page string="Editional Data">
+                                <group>
+                                    <group>
+                                        <field name="visa_no" string="Visa No"
+                                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="visa_duration" string="Visa Duration"
+                                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="exit_return_type" string="Exit Return Type"
+                                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                                         <field name="on_employee_fair" string="On Employee Fair"
+                                               attrs="{'readonly':[('state','!=','send')],'required':[('state','=','send')]}"/>
+                                        <field name="cost" string="Cost" 
+                                               attrs="{'readonly':[('state','!=','send')],'required':[('state','=','send')]}"/>
+                                        <field name="account_journal_id" string="Journal"
+                                               attrs="{'readonly':[('state','!=','confirm')],'required':[('state','=','confirm')]}" />
+                                        <field name="account_debit_id" string="Account"
+                                               attrs="{'readonly':[('state','!=','confirm')],'required':[('state','=','confirm')]}"/>
+                                        <field name="account_move_id" string="Account move" readonly="1"/>
+                                    </group>
+                                    <group>
+                                         <!--field name="first_date" string="First date" readonly="1"/-->
+                                        <field name="travel_before_date" string="Travel Before" required="1"
+                                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                                        <field name="arrival_before_date" string="Arrival Before" required="1"
+                                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="note" string="Notes" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                </group>
+                            </page>
+                            <page string="Attachment">
+                                <field name="attach_ids" attrs="{'readonly':[('state','!=','draft')]}">
+                                    <tree string="Files" editable="bottom">
+                                        <field name="name" string="Attachment Name"/>
+                                        <field name="datas" string="File Content"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Dependants"
+                                  attrs="{'invisible':[('request_for','=', 'employee')]}">
+                                <field name="employee_dependant">
+                                    <tree string="Employee Dependants">
+                                        <field name="name" required="1"/>
+                                        <field name="age" required="1"/>
+                                        <field name="gender" required="1"/>
+                                        <field name="relation" required="1"/>
+                                        <field name="passport_no" required="1"/>
+                                        <field name="nationality" string="Nationality" required="1"/>
+                                        <field name="birthday" string="BirthDay" required="1"/>
+                                        <field name="birthday" string="BirthDay" required="1"/>
+                                        <field name="contract_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                    <!--Discuss widgets for history and communication -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="exit_and_return_tree_view">
+            <field name="name">Exit and Return</field>
+            <field name="model">hr.exit.return</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="state=='done'" decoration-danger="state == 'refuse'" decoration-info="state == 'draft'" string="Exit and Return">
+                    <field name="employee_id"/>
+                    <field name="request_for"/>
+                    <field name="note" string="Notes"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+        <!-- Employee Leaving -->
+        <record model="ir.ui.view" id="leaving_form_view">
+            <field name="name">hr.leaving.form.view</field>
+            <field name="model">eos.leaving</field>
+            <field name="arch" type="xml">
+
+                <form>
+                    <header>
+                        <button name="create_emp_clearence" type="object" string="Create Clearence"
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string='Employee Information'>
+                                <field name="employee"/>
+                                <field name="employee_code"/>
+                                <field name="department"/>
+                                <field name="office"/>
+                                <field name="employee_clearence_ref"/>
+                            </group>
+                            <group string='Leaving Information'>
+                                <field name="reason"/>
+                                <field name="requested_date" widget="date"/>
+                                <field name="notice_date" widget="date"/>
+                                <field name="end_date" widget="date"/>
+                                <field name="interview_date" widget="date"/>
+                                <field name="contact_person"/>
+                            </group>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Description" name="employee_leaving">
+                                    <field name="description"/>
+                                </page>
+                                <page string="Extra Information" name="employee_Leavingextra">
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Employee Leaving-->
+        <record model="ir.actions.act_window" id="leaving_list_action">
+            <field name="name">Employee Leaving</field>
+            <field name="res_model">eos.leaving</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

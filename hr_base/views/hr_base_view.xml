@@ -1,0 +1,535 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- employee my details record action -->
+        <!--<record model="ir.actions.act_window" id="employee_my details_list_action">-->
+        <!--<field name="name">Employees Details</field>-->
+        <!--<field name="res_model">hr.employee</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">kanban,tree,form</field>-->
+        <!--</record>-->
+
+        <record model="ir.actions.act_window" id="employees_list_action">
+            <field name="name">Employees</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <!-- Qualification Form view-->
+        <record model="ir.ui.view" id="hr_qualification_form_view">
+            <field name="name">Qualification</field>
+            <field name="model">hr.qualification</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="hr_qualification" string="Qualifications">
+                            <group>
+                                <field name="uni_name"/>
+                                <field name="col_name"/>
+                                <field name="prg_status"/>
+                                <field name="comp_date"/>
+                                <field name="qualification_degree"/>
+                            </group>
+                            <group>
+                                <field name="contact_name"/>
+                                <field name="contact_phn"/>
+                                <field name="contact_email"/>
+                                <field name="country_name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Employees -->
+        <record id="hr_extension_form_view" model="ir.ui.view">
+            <field name="name">hr.extension.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="priority" eval="16"/>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <sheet position="before">
+                    <header>
+                        <button name="create_contract" string="Create Contract" class="oe_highlight" type="object"
+                                states="complete" groups="hr.group_hr_manager"/>
+
+                        <button name="draft_state" string="Rest TO Draft" class="oe_highlight" type="object"
+                                attrs="{'invisible':['state','=','draft']}" groups="hr.group_hr_user"/>
+
+                        <button name="open_sate" string="Approved" type="object" class="oe_highlight"
+                                states="complete" groups="hr.group_hr_manager"/>
+
+                        <button name="complete_state" string="Complete Employee Data" class="oe_highlight" type="object"
+                                states="draft" groups="hr.group_hr_user"/>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                </sheet>
+
+                <xpath expr="//notebook/page/group/group[1]" position="attributes">
+                    <attribute name="string">General Details</attribute>
+                </xpath>
+
+                <!--xpath expr="//page[@name='personal_information']" position="attributes">
+                   <attribute name="groups">hr_base.group_executive_manager,hr.group_hr_user</attribute>
+               </xpath-->
+
+                <xpath expr="//field[@name='job_id']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','not in','draft')],'required':True}</attribute>
+
+                </xpath>
+                <xpath expr="//field[@name='country_id']" position="attributes">
+                    <attribute name="required">True</attribute>
+                    <!--attribute name="groups">hr_base.group_executive_manager,hr.group_hr_user</attribute-->
+                </xpath>
+
+                <xpath expr="//field[@name='birthday']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="string">Display Name</attribute>
+                </xpath>
+
+                <!-- HR settings -->
+                <xpath expr="//field[@name='user_id']" position="after">
+
+                    <field name="first_hiring_date" string="first hiring date"
+                           attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                    <!--<field name="joining_date" required="True" attrs="{'readonly':[('state','!=','draft')]}"/>-->
+                    <field name="leaving_date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <!--<field name="duration_in_months" string="Duration" invisible="1"/>-->
+                    <field name="serv_year" force_save="1"/>
+                    <field name="base_salary" invisible="1"/>
+                    <field name="salary_in_words" invisible="1"/>
+                    <!--field name="vendor_no" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="project" attrs="{'readonly':[('state','!=','draft')]}"/-->
+
+                </xpath>
+                <xpath expr="//div[hasclass('oe_title')]" position="inside">
+                    <h3 attrs="{'readonly':[('state','!=','draft')]}">
+                        <field name="english_name" placeholder="English Name"
+                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </h3>
+
+                    <label string="Employee Number" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <h3 attrs="{'readonly':[('state','!=','draft')]}">
+                        <field name="emp_no" placeholder="Employee Number" required="True"
+                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </h3>
+                </xpath>
+
+                <xpath expr="//field[@name='category_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='address_id']" position="after">
+
+                    <field name="home_no" string="Home No." attrs="{'readonly':[('state','!=','draft')]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='address_id']" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state', '!=', 'draft')]}
+                    </attribute>
+                </xpath>
+
+
+                <xpath expr="//field[@name='mobile_phone']" position="after">
+                    <field name="present_address" string="Present address"
+                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='department_id']" position="before">
+                    <field name="direct_emp" string="Direct employee" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="contract_id" string="Contract" attrs="{'readonly':[('state','!=','draft')]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+
+                <!--xpath expr="//field[@name='parent_id']" position="after">
+                   <field name="is_marketer" string="Marketer?" attrs="{'readonly':[('state','!=','draft')]}"/>
+                   <field name="is_calender" string="Is Calender" invisible="0" default="True"/>
+               </xpath-->
+                <xpath expr="//field[@name='bank_account_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//notebook//page[@name='hr_settings']" position="before">
+                    <page name="national_address" string="National Address">
+                        <group string="National Address">
+                            <group>
+                                <field name="addres_city" string="City Name"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="addres_region" string="Addres Region"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="street" string="Street" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="building_number" string="Building Number"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="postal_code" string="Postal Code"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="extra_number" string="Extra Number"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="property_type" string="Property Type"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="drug_type" string="Drug Type"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="apartment_number" string="Apartment Number"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                        </group>
+
+
+                    </page>
+                </xpath>
+                <xpath expr="//notebook//page[@name='hr_settings']" position="after">
+                    <!--<page name="sick_leaves" string="Sick leaves">-->
+                    <!--<field name="sick_leave_line" attrs="{'readonly':[('state','!=','draft')]}">-->
+                    <!--<tree editable="bottom">-->
+                    <!--<field name="holiday_status_id" string="Leave request"/>-->
+                    <!--<field name="date_from" string="Date From" />-->
+                    <!--<field name="date_to" string="Date To" />-->
+                    <!--<field name="number_of_days_temp" string="Duration"/>-->
+                    <!--<field name="state" string="Status" />-->
+                    <!--<field name="date_from" string="Allocation start date" />-->
+                    <!--<field name="date_to" string="allocation End Date" />-->
+
+                    <!--</tree>-->
+                    <!--</field>-->
+                    <!--</page>-->
+                    <page name="payroll_info" string="Payroll Info">
+                        <group name="bank_info">
+                            <field name="payment_method" required="1"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="bank_account_id" context="{'default_partner_id': address_home_id}"
+                                   attrs="{'readonly':['|',('state','!=','draft'),('payment_method','=','cash')], 'required': [('payment_method','=','bank')]}"/>
+                            <!--field name="iban" attrs="{'readonly':[('state','!=','draft')]}"/-->
+                            <field name="bank_code"
+                                   attrs="{'readonly':['|',('state','!=','draft'),('payment_method','=','cash')]}"/>
+                        </group>
+                    </page>
+
+                    <!--<page name="stays and health care" string="الأقامة والتأمين الطبي">-->
+                    <!--<group string="Medical insurance"></group>-->
+                    <!--<group>-->
+
+                    <!--<field name="medical_insuranc" string="medical insurance" attrs="{'readonly':[('state','!=','draft')]}"/>-->
+                    <!--<field name="medical_class" string="medical class" attrs="{'readonly':[('state','!=','draft')]}"/>-->
+                    <!--<field name="medical_membership_no" string="medical membership no" attrs="{'readonly':[('state','!=','draft')]}"/>-->
+                    <!--<field name="medical_membership_exp" string="medical membership exp" attrs="{'readonly':[('state','!=','draft')]}"/>-->
+                    <!--<field name="medical_exam_file" string="medical exam file" attrs="{'readonly':[('state','!=','draft')]}"/>-->
+
+
+                    <!--</group>-->
+                    <!--</page>-->
+
+                    <!-- Education and Experience -->
+                    <page string="Education and Experience" name="employee_education">
+                        <group name="qualifiction">
+                            <group name="qualification" string="Qualifications">
+                            </group>
+                            <field name="qualifiction_id" attrs="{'readonly':[('state','!=','draft')]}"
+                                   editable="bottom">
+                                <tree editable="bottom">
+                                    <field name="uni_name"/>
+                                    <field name="col_name"/>
+                                    <field name="qualification_degree" string="Qualification Degree"/>
+                                    <field name="qualification_specification_id" string="Qualification Specification"/>
+                                    <field name="prg_status"/>
+                                    <field name="comp_date"/>
+                                    <field name="contact_name"/>
+                                    <field name="contact_phn" widget="phone"/>
+                                    <field name="contact_email" widget="email"/>
+                                    <field name="country_name" string="Country"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group name="certification" string="Certifications">
+                        </group>
+                        <field name="certification_id" attrs="{'readonly':[('state','!=','draft')]}">
+                            <tree string='Certification' editable="bottom">
+                                <field name="car_name"/>
+                                <field name="certification_degree" string="Certification Degree"/>
+                                <field name="certification_specification_id" string="certification Specification"/>
+                                <field name="issue_org"/>
+                                <field name="issue_date"/>
+                                <field name="exp_date" required="True"/>
+                                <field name="regis_no"/>
+                                <field name="contact_name" required="True"/>
+                                <field name="contact_phn" required="True" widget="phone"/>
+                                <field name="contact_email" required="True" widget="email"/>
+                                <field name="country_name" string="Country"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="Employment History" string="Employment history">
+                        <!--<group>-->
+                        <!--<field name="first_hiring_date" string="first hiring date"-->
+                        <!--attrs="{'readonly':[('state','!=','draft')]}"/>-->
+                        <!--<field name="duration_in_months" string="Duration"/>-->
+                        <!--</group>-->
+                        <field name="employment_history_ids" attrs="{'readonly':[('state','!=','draft')]}">
+                            <tree>
+                                <field name="name" string="Employment History"/>
+                                <field name="position" string="Position"/>
+                                <field name="employeer" string="employer"/>
+                                <field name="salary" string="salary"/>
+                                <field name="address" string="address"/>
+                                <field name="date_from" string="Date From" required="True"/>
+                                <field name="date_to" string="date_to" required="True"/>
+                                <field name="country" string="Country" required="True"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="attachments" string="Employee Attachments">
+                        <field name="attachment_ids" attrs="{'readonly':[('state','!=','draft')]}">
+                            <tree string="Attachments" editable="bottom">
+                                <field name="name" string="Attachment Name"/>
+                                <field name="db_datas" string="File"/>
+                            </tree>
+                        </field>
+                    </page>
+
+
+                </xpath>
+
+                <xpath expr="//field[@name='resource_calendar_id']"  position="attributes">
+                   <field name="resource_calendar_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                   </field>
+                </xpath>
+
+                <xpath expr="//notebook//page[@name='hr_settings']//group[@name='active_group']" position="inside">
+
+                    <field name="attendance" string="Attendance" required="True"
+                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="finger_print" string="Has Fingerprint?"/>
+                   <field name="resource_calendar_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="active" string="Active" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <!--field name="Employee_type" string="Employee Type"
+                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="is_cordinator" string="Coordinator" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="is_revisor" string="Revisor" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="is_evaluation_manager" string="Evaluation Manager"
+                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="evaluator_membership_no" string="Evaluator Memebership No"
+                           attrs="{'readonly':[('state','!=','draft')]}"/-->
+                </xpath>
+
+                <!--readonly fields in state not in draft-->
+                <field name="work_location" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="work_email" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="mobile_phone" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="work_phone" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                
+                <field name="name" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="notes" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="department_id" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="parent_id" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="manager" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="coach_id" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="address_home_id" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="gender" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="marital" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="children" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="birthday" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="place_of_birth" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="visa_no" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="visa_expire" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="permit_no" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <!--<field name="timesheet_cost" position="attributes">-->
+                <!--<attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>-->
+                <!--</field>-->
+                <field name="user_id" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="remaining_leaves" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </field>
+
+                <xpath expr="//page[@name='hr_settings']/group/group[4]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <!--field name="barcode" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field-->
+
+
+                <xpath expr="//page[@name='hr_settings']/group/group[3]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <!--field name="medic_exam" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+
+                <field name="vehicle" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="vehicle_distance" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field-->
+
+
+            </field>
+        </record>
+
+        <!-- view_employee_inherit_tree -->
+        <record id="view_employee_inherit_tree" model="ir.ui.view">
+            <field name="name">hr.employee.inherit.tree</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="arch" type="xml" >
+                <tree position="replace">  
+                <tree decoration-danger="state == 'out_of_service'" decoration-info="state == 'draft'"  string="Employees">  
+                    <field name="emp_no"/>
+                    <field name="english_name"/>
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="job_id"/>
+                    <field name="iqama_number"/>
+                    <field name="iqama_expiy_date" string="Iqama Expiry Date"/>
+                    <field name="bank_code"/>
+                    <field name="state"/>
+                </tree>  
+                </tree>  
+            </field>
+         </record>
+
+        <!-- view_employee_inherit_filter -->
+       <record id="view_employee_filter_inherit" model="ir.ui.view">
+            <field name="name">Employees inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+            <xpath expr='//field[@name="name"]' position='after'>
+                    <field name="english_name"/>
+                    <field name="emp_no"/>
+                    <field name="state"/>
+            </xpath>           
+                <xpath expr="//field[@name='category_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+         </record> 
+
+
+
+
+
+        <!-- hr_job_inherit -->
+        <record id="view_hr_job_form_inherit" model="ir.ui.view">
+            <field name="name">hr.job.form.inherit</field>
+            <field name="model">hr.job</field>
+            <field name="priority" eval="16"/>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="arch" type="xml">
+
+                <field name="department_id" position="replace"/>
+                <xpath expr="//field[@name='description']" position="after">
+                    <notebook>
+                        <page string="Employees" >
+                            <field name="employee_ids" widget="many2many"
+                                   domain="[('contract_id.state', '=', 'program_directory')]" readonly="1"/>
+                        </page>
+
+                        <page string="Departments">
+                            <field name="department_ids" widget="many2many"/>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- hr_department_inherit -->
+        <record id="view_hr_department_form_inherit" model="ir.ui.view">
+            <field name="name">hr.department.form.inherit</field>
+            <field name="model">hr.department</field>
+            <field name="priority" eval="16"/>
+            <field name="inherit_id" ref="hr.view_department_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='manager_id']" position="after">
+                    <field name="email_manager"/>
+                </xpath>
+
+                <xpath expr="//group" position="after">
+                    <notebook>
+                        <page string="Employees" >
+                            <field name="employee_ids" widget="many2many"
+                                   domain="[('contract_id.state', '=', 'program_directory')]" readonly="1"/>
+                        </page>
+                        <page string="Jobs">
+                            <field name="job_ids" widget="many2many"/>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+       <record id="hr_calendar_view_form_inherit" model="ir.ui.view">
+            <field name="name">resource.calendar.form.inherit</field>
+            <field name="model">resource.calendar</field>
+            <field name="inherit_id" ref="resource.resource_calendar_form"/>
+            <field name="arch" type="xml">
+              <notebook>
+                <page string="Overtime And Permission">
+                    <group>
+                        <field name="permission_hours" string="Permission Hours"/>
+                        <field name="permission_number" string="Permission Number"/>
+                        <field name="work_days" string="Work Days overtime"/>
+                        <field name="work_hour" string="Work Hours"/>
+                        <field name="overtime_factor_daily"/>
+                        <field name="overtime_factor_holiday"/>
+                        <field name="max_overtime_hour"/>
+                    </group>
+                </page>
+               </notebook>
+            </field>
+        </record>
+
+    </data>
+</odoo>

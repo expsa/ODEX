@@ -1,0 +1,460 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="hr_contract_form_view" model="ir.ui.view">
+            <field name="name">hr.contract.form.inherit</field>
+            <field name="model">hr.contract</field>
+            <field name="priority" eval="16"/>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <header position="replace">
+                    <header>
+                        <button name="program_directory" string="program Director" class="oe_highlight" type="object"
+                                states="hr_head_approval" groups="hr_base.group_executive_manager"/>
+                        <button name="hr_head_approval" string="HR Head Approval" class="oe_highlight" type="object"
+                                states="employeed_aproval" groups="hr.group_hr_manager"/>
+                        <button name="employeed_aproval" string="Employee Approval" class="oe_highlight" type="object"
+                                states="draft" groups="hr.group_hr_user"/>
+                        <button name="end_contract_state" string="End Contract" class="oe_highlight" type="object"
+                                states="program_directory" groups="hr.group_hr_manager"/>
+                        <button name="draft_state" string="Set To Draft" class="oe_highlight" type="object"
+                                attrs="{'invisible':[('state','=','draft')]}" groups="hr.group_hr_user"/>
+
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                </header>
+
+
+                <field name="employee_id" position="replace"/>
+                <field name="name" position="after">
+                    <field name="employee_id" domain="[('active','=',True)]" nolabel="1"
+                           required="1"
+                           placeholder="Choose Employee Number"/>
+                </field>
+                <field name="job_id" position="replace">
+                    <field name="active" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="contract_draft" invisible="1"/>
+                    <field name="employee_name" required="1" readonly="1"/>
+                    <field name="emp_type" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="saudi_emp_type" attrs="{'required': [('emp_type', '=', 'saudi')],
+                                                         'invisible': [('emp_type', '!=', 'saudi')],'readonly':[('state','!=','draft')]}"/>
+                    <field name="is_gosi_deducted" string="Is gosi?"
+                           attrs="{'invisible':[('saudi_emp_type','!=','saudi-contract')],'required':[('saudi_emp_type','=','saudi-contract')],'readonly':[('state','!=','draft')]}"/>
+
+                    <field name="job_id" domain="[('department_id','=',department_id)]" required="1" readonly="1"/>
+                    <field name="nationality" readonly="1" string="Nationality "/>
+                </field>
+
+                <field name="type_id" position="before">
+                    <field name="contract_duration_cal" invisible="1"/>
+                    <field name="trial_duration" invisible="1"/>
+                    <field name="contract_type" invisible="1"/>
+                    <field name="contract_status" string="contract description" required="1"
+                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="contract_description" string="contract type"
+                           attrs="{'required':[('contract_draft','=',False)],'readonly':[('state','!=','draft')]}"/>
+                    <field name="date_start" attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                    <field name="date_end" string="End Date"
+                           attrs="{'required': [('state', '=', 'program_directory')],'readonly':['|','|',('state','=','employeed_aproval'),('state','=','hr_head_approval'),('state','=','end_contract')]}"/>
+                    <field name="contract_duration"
+                           attrs="{'required':[('contract_draft','=',False),('contract_description','!=','locum')],'invisible':[('contract_description','=','locum')]}"/>
+
+                </field>
+
+                <xpath expr="//notebook/page/group[@name='main_info']" position="replace">
+
+                    <xpath expr="//notebook/page/group[@name='main_info']" position="replace">
+                        <group name="salary_info">
+                            <group name="salary">
+                                <field name="salary" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="salary_insurnce" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="ticket_allowance" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <!--field name="suspended" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="social_insurance" attrs="{'readonly':[('state','!=','draft')]}"/-->
+                            </group>
+                        </group>
+                    </xpath>
+                </xpath>
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="readonly">True</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='department_id']" position="attributes">
+                    <attribute name="readonly">True</attribute>
+                </xpath>
+                <xpath expr="///group[@name='duration_group']" position="replace">
+
+                </xpath>
+
+
+                <xpath expr="//page[1]" position="after">
+                    <page string="Work Permit" invisible="1">
+                        <group>
+                            <group>
+                                <field name="visa_no"/>
+                                <field name="visa_expire"/>
+                                <field name="permit_no"/>
+                                <field name="passport_number" readonly="1"/>
+                                <field name="passport_issue_date"/>
+                                <field name="passport_expiry_date"/>
+                                <field name="passport_issue_place"/>
+                            </group>
+                            <group>
+                                <field name="saudi_id_iqama"/>
+                                <field name="saudi_id_iqama_date"/>
+                                <field name="saudi_id_iqama_expiry"/>
+                                <field name="saudi_com_number"/>
+                                <field name="saudi_com_date"/>
+                                <field name="saudi_com_expiry_date"/>
+                                <field name="bls_date"/>
+                                <field name="acls_date"/>
+                                <field name="insurance_date"/>
+                                <field name="specialty"/>
+                                <field name="category"/>
+                                <field name="breakdown_allowance"/>
+                            </group>
+                        </group>
+                    </page>
+
+                </xpath>
+                <xpath expr="//page[1]" position="after">
+                    <!--page string="Allowances">
+                        <group>
+                            <group string="Allowances">
+                                <label for="transport_allowance_type" string="بدل المواصلات"/>
+                                <div>
+                                    <field name="transport_allowance_type" required="1" class="oe_inline"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <field name="transport_allowance" class="oe_inline"
+                                           attrs="{'invisible':[('transport_allowance_type','=','none')],'required':[('transport_allowance_type','!=','none')],'readonly':[('state','!=','draft')]}"/>
+                                    <field name="transport_allowance_temp"
+                                           attrs="{'invisible':[('transport_allowance_type','!=','perc')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                </div>
+
+                                <label for="house_allowance_type" string="بدل السكن"/>
+                                <div>
+                                    <field name="house_allowance_type" required="1" class="oe_inline"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <field name="house_allowance"
+                                           attrs="{'invisible':[('house_allowance_type','=','none')],'required':[('house_allowance_type','!=','none')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                    <field name="house_allowance_temp"
+                                           attrs="{'invisible':[('house_allowance_type','!=','perc')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                </div>
+
+                                <label for="communication_allowance_type" string="بدل الإتصال"/>
+                                <div>
+                                    <field name="communication_allowance_type" required="1"
+                                           class="oe_inline" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <field name="communication_allowance"
+                                           attrs="{'invisible':[('communication_allowance_type','=','none')],'required':[('communication_allowance_type','!=','none')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                    <field name="communication_allowance_temp"
+                                           attrs="{'invisible':[('communication_allowance_type','!=','perc')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                </div>
+                                <label for="field_allowance_type" string="بدل ميدانى"/>
+                                <div>
+                                    <field name="field_allowance_type" required="1"
+                                           class="oe_inline" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <field name="field_allowance"
+                                           attrs="{'invisible':[('field_allowance_type','=','none')],'required':[('field_allowance_type','!=','none')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                    <field name="field_allowance_temp"
+                                           attrs="{'invisible':[('field_allowance_type','!=','perc')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                </div>
+                                <label for="overtime_eligible" string="سماحية العمل اﻹضافى"/>
+                                <div>
+                                    <field name="overtime_eligible" required="1" class="oe_inline"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                                    <field name="overtime_eligible_float"
+                                           attrs="{'invisible':[('overtime_eligible','=','no')],'required':[('overtime_eligible','!=','no')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                </div>
+                                <field name="car_allowance" string="بدل سيارة"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <<field name="ticket_allowance"/>>
+                                <field name="medical_ins_allowance" string="بدل تأمين طبى"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="medical_ins_issue_date" invisible="1"/>
+                                <field name="medical_ins_exp_date" invisible="1"/>
+                            </group>
+                            <group string="Allowances">
+                                <label for="special_allowance_type" string="بدل حافز"/>
+                                <div>
+                                    <field name="special_allowance_type" required="1" class="oe_inline"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                                    <field name="special_allowance"
+                                           attrs="{'invisible':[('special_allowance_type','=','none')],'required':[('special_allowance_type','!=','none')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                    <field name="special_allowance_temp"
+                                           attrs="{'invisible':[('special_allowance_type','!=','perc')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                </div>
+                                <label for="other_allowance_type" string="بدلات أخرى"/>
+                                <div>
+                                    <field name="other_allowance_type" required="1" class="oe_inline"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                                    <field name="other_allowance"
+                                           attrs="{'invisible':[('other_allowance_type','=','none')],'required':[('other_allowance_type','!=','none')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                    <field name="other_allowance_temp"
+                                           attrs="{'invisible':[('other_allowance_type','!=','perc')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                </div>
+                                <label for="annual_leave" string="اﻹجازة السنوية"/>
+                                <div>
+                                    <field name="annual_leave" class="oe_inline" required="1"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                                    <field name="annual_leave_days" class="oe_inline"
+                                           attrs="{'invisible':[('annual_leave','=','no')],'required':[('annual_leave_days','!=','no')],'readonly':[('state','!=','draft')]}"/>
+                                </div>
+
+                                <label for="air_ticket_eligible" string="التذاكر السنوية"/>
+                                <div>
+                                    <field name="air_ticket_eligible" required="1" class="oe_inline"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                                    <field name="air_ticket_number" class="oe_inline"
+                                           attrs="{'invisible': [('air_ticket_eligible', '!=', 'yes')], 'required': [('air_ticket_eligible', '=', 'yes')],'readonly':[('state','!=','draft')]}"/>
+
+                                    <field name="air_ticket_amount" class="oe_inline"
+                                           attrs="{'invisible': [('air_ticket_eligible', '!=', 'yes')], 'required': [('air_ticket_eligible', '=', 'yes')],'readonly':[('state','!=','draft')]}"/>
+
+                                    <field name="total_air_ticket_amount" class="oe_inline"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <<field name="remaining_ticket_amount" class="oe_inline"/>>
+                                </div>
+                                <label for="exit_and_return" string=تصريح الخروج والعودة"
+                                       attrs="{'invisible': [('emp_type', '!=', 'other')],'readonly':[('state','!=','draft')]}"/>
+                                <div attrs="{'invisible': [('emp_type', '!=', 'other')]}">
+                                    <field name="exit_and_return" class="oe_inline"
+                                           attrs="{'invisible': [('emp_type', '!=', 'other')], 'required':[('emp_type', '=', 'other')],'readonly':[('state','!=','draft')]}"/>
+
+                                    <field name="exit_and_return_amount" class="oe_inline"
+                                           attrs="{'invisible': [('exit_and_return', '!=', 'yes')], 'required': [('exit_and_return', '=', 'yes')],'readonly':[('state','!=','draft')]}"/>
+                                </div>
+                            </group>
+                        </group>
+                        <label for="children_allowance"
+                               attrs="{'invisible':[('marital','=','single')],'readonly':[('state','!=','draft')]}"/>
+                        <field name="children_allowance"
+                               attrs="{'invisible':[('marital','=','single')],'readonly':[('state','!=','draft')]}">
+                            <tree string="Children Education Allowance" editable="bottom">
+                                <field name="name" required="1"/>
+                                <field name="age" required="1"/>
+                                <field name="fees" required="1"/>
+                                <field name="remarks"/>
+                            </tree>
+                        </field>
+                    </page-->
+                    <page string="Insurance">
+                        <group string="Insurance">
+                            <!--group>
+                                <label for="insurance_type"/>
+                                <div>
+                                    <field name="insurance_type" required="1" class="oe_inline"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <field name="insurance"
+                                           attrs="{'invisible':[('insurance_type','=','none')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                </div>
+
+                                <label for="other_deduction_type"/>
+                                <div>
+                                    <field name="other_deduction_type" required="1" class="oe_inline"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                                    <field name="other_deduction"
+                                           attrs="{'invisible':[('other_deduction_type','=','none')],'readonly':[('state','!=','draft')]}"
+                                           class="oe_inline"/>
+                                </div>
+                            </group-->
+                            <group>
+                                <field name="gosi_deduction" string="Percentage of employee insurance"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="gosi_employer_deduction" string="Percentage of company insurance"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="total_gosi" string="Total Insurance"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Dependants"
+                          attrs="{'invisible':[('contract_status','=','single')],'readonly':[('state','!=','draft')]}">
+                        <group>
+                            <group>
+                                <field name="wife_husband" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                        </group>
+                        <sheet>
+
+                            <field name="employee_dependant" attrs="{'readonly':[('state','!=','draft')]}">
+                                <tree string="Employee Dependants">
+                                    <field name="name" required="1"/>
+                                    <field name="age" required="1"/>
+                                    <field name="gender" required="1"/>
+                                    <field name="relation" required="1"/>
+                                    <field name="passport_no" required="1"/>
+                                    <field name="nationality" string="Nationality" required="1"/>
+                                    <field name="birthday" string="BirthDay" required="1"/>
+                                    <field name="contract_id" invisible="1"/>
+                                </tree>
+                                <form string="Create Employee Dependants">
+                                    <group>
+                                        <group>
+                                            <field name="name" required="1"/>
+                                            <field name="birthday" required="1"/>
+                                            <field name="relation" required="1"/>
+                                            <field name="passport_no"  />
+                                            <field name="passport_expire_date"/>
+                                            <field name="identity_num" required="1"/>
+                                        </group>
+                                        <group col="2">
+                                            <field name="age" required="1"/>
+                                            <field name="gender" required="1"/>
+                                            <field name="nationality" required="1"/>
+                                            <field name="passport_issue_date"/>
+                                            <field name="degree_medical_insu"  />
+                                            <field name="medical_insurance_num" />
+                                        </group>
+
+                                    </group>
+                                    <group>
+                                        <field name="remarks"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </sheet>
+
+                    </page>
+                    <page string="Personal Information" invisible="1">
+                        <group>
+                            <group>
+                                <field name="blood_type"/>
+                                <field name="point_of_hire"/>
+                                <field name="contact_address"/>
+                                <field name="mobile_no"/>
+                                <field name="p_o_box_no"/>
+                                <field name="driving_lic_issue_date"/>
+                                <field name="driving_lic_exp_date"/>
+                                <field name="driving_lic_issue_place"/>
+                            </group>
+                            <group>
+                                <field name="religion"/>
+                                <field name="gender"/>
+                                <field name="marital"/>
+                                <field name="date_of_birth"/>
+                                <field name="birth_place"/>
+                                <field name="zip_code"/>
+                                <field name="to_contact"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+
+                <!--<xpath expr="//field[@name='type_id']" position="attributes">-->
+                <!--<attribute name="attrs">{'invisible':[('emp_type','!=','other')]}</attribute>-->
+                <!--</xpath>-->
+
+                <!-- make Salary Structure not required	-->
+                <xpath expr="//field[@name='struct_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='struct_id']" position="attributes">
+                    <attribute name="required">0</attribute>
+                </xpath>
+
+                <xpath expr="//group" position="after">
+                    <group>
+                        <group string="Salary Scale" name="salary_scale_group">
+                            <field name="experience_year" string="Total Experience" required="1"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        <group name="duration_group" string="Duration">
+                            <label for="trial_date_start" string="Trial Period Duration"/>
+                            <div>
+                                <field name="trial_date_start" class="oe_inline"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                -
+                                <field name="trial_date_end" class="oe_inline"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                            </div>
+                            <field name="trial_duration" string="Trial Duration"/>
+                            <field name="working_hours" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="join_date" invisible="1"/>
+                        </group>
+                    </group>
+                </xpath>
+
+                <!--readonly fields in state draft-->
+                <field name="name" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="employee_id" position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+                <field name="type_id"  position="attributes">
+                    <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+                </field>
+
+
+            </field>
+        </record>
+
+        <!-- view_employee_inherit_tree -->
+        <record id="hr_contract_view_tree_inherit" model="ir.ui.view">
+            <field name="name">hr.contract.inherit.tree</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_tree"/>
+            <field name="arch" type="xml" >
+                <tree position="replace">  
+                <tree decoration-danger="state == 'end_contract'" decoration-info="state == 'draft'"  string="Contracts">  
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="job_id"/>
+                    <field name="type_id" invisible="1"/>
+                    <field name="emp_type" />
+                    <field name="resource_calendar_id" invisible="1"/>
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                    <field name="salary" invisible="1"/>
+                    <field name="message_needaction" invisible="1"/>
+                    <field name="state" />
+                </tree>  
+                </tree>  
+            </field>
+         </record>
+
+        <record id="hr_contract_type_view_form_inherit" model="ir.ui.view">
+            <field name="name">hr.contract.type.form.inherit</field>
+            <field name="model">hr.contract.type</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_type_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="replace">
+                    <group>
+                        <field name="name"/>
+                        <field name="salary_type"/>
+                        <!--field name="permission_hours" string="Permission Hours"/>
+                        <field name="permission_number" string="Permission Number"/>
+                        <field name="work_days" string="Work Days"/>
+                        <field name="work_hour" string="Work Hours"/>
+                        <field name="overtime_factor_daily"/>
+                        <field name="overtime_factor_holiday"/-->
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

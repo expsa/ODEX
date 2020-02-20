@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_external_layout_standard">
+            <div class="header">
+                <div class="row">
+                    <table style="width:100%;border: 1px solid gray;height:100px">
+                        <tr style=" border: 1px solid gray">
+                            <td style=" border: 1px solid gray;width:50%">
+                                <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height:100px;width:70%"/>
+                            </td>
+                            <td style=" border: 1px solid gray;width:50%;padding:5px">
+                                <h4>
+                                    <center>  </center>
+                                </h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-raw="0" />
+            </div>
+        </template>
+
+        <template id="custom_external_layout">
+            <!-- Multicompany -->
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+            <t t-if="company.external_report_layout == 'background'">
+                <t t-call="hr_base.custom_external_layout_standard"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout == 'boxed'">
+                <t t-call="hr_base.custom_external_layout_standard"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout == 'clean'">
+                <t t-call="hr_base.custom_external_layout_standard"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout in (False, 'standard')">
+                <t t-call="hr_base.custom_external_layout_standard"><t t-raw="0"/></t>
+            </t>
+        </template>
+        <template id="employee_contract_report_template">
+            <t t-call="web.html_container">
+                <t t-call="hr_base.custom_external_layout">
+                    <style type="text/css">
+                        @font-face {
+                        font-family: 'ae_AlMohanad';
+                        src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                        url('/hr_base/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                        }
+                        *{
+                        font-family: ae_AlMohanad;
+                        }
+                    </style>
+                    <div class="page" style="font-size:13pt">
+                        <t t-foreach="docs" t-as="o">
+                            <table style="width:100%;border: 1px solid gray">
+
+                                <ol type="1">
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            عقـــــــد عمل
+                                        </td>
+                                        <td style="direction:ltr;width:50%">
+                                            EMPLOYMENT Contract
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            تم بعون الله إبرام هذا العقد، في هذا التاريخ<span t-esc="o.change_current_date_hijri(o.date_start)"/>  هـ، الموافق <span t-esc="o.date_start"/> بيــــــن كل من:
+
+                                        </td>
+                                        <td style="direction:ltr">
+                                            This contract is made and entered into this <span t-esc="o.change_current_date_hijri(o.date_start)"/> H, corresponding to <span t-esc="o.date_start"/> G by and between:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            1.     شركة <span t-esc="o.company_id.name"/> وهي شركة سعودية قائمة مؤسسة بموجب أنظمة المملكة العربية السعودية ومركزها الرئيسي – الرياض، المملكة العربية السعودية وعنوانها البريدي ص. ب (<span t-esc="o.company_id.po_no"/>) الرياض (12334). (ويشار إليها في هذا العقد بـ "صاحب العمل")،
+                                        </td>
+                                        <td style="direction:ltr">
+                                            1. <span t-esc="o.translate_to_eng(o.company_id.name)"/>, a Saudi company existing under the laws of the Kingdom of Saudi Arabia and having its principal place of business in Riyadh, its postal address is P.O. Box <span t-esc="o.company_id.po_no"/>, Riyadh 12334, (hereinafter referred to as the “Employer”).
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            2.  السيد /<span t-esc="o.employee_id.name"/> ، <span t-esc="o.nationality.name"/> الجنسية بموجب هوية رقم : <span t-esc="o.employee_id.passport_id.passport_id"/> (ويشار إليه في هذا العقد بـ"الموظف").
+                                        </td>
+                                        <td style="direction:ltr">
+                                            2. Mr. <span t-esc="o.employee_id.english_name"/>, <span t-esc="o.translate_to_eng(o.nationality.name)"/> nationality, holding ID No <span t-esc="o.employee_id.passport_id.passport_id"/> (Hereinafter referred to as the “Employee”).
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            تمهيد:
+                                        </td>
+                                        <td style="direction:ltr">
+                                            Preamble:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            بناءً على الرغبة المشتركة لطرفي هذا العقد، وهما بكامل الأهلية  المعتبرة شرعاً ونظاماً  للتعاقد مع بعضهما كصاحب عمل وموظف ، فقد اتفق الطرفان على الشروط والأحكام التالية:
+                                        </td>
+                                        <td style="direction:ltr">
+                                            Upon their mutual interest being in their full legal capacities to contract with each other as employer and employee, The parties hereto agree to the terms and conditions stipulated herein as follows:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            <li>
+                                                ( 1 )يعتبر التمهيد المذكور أعلاه جزءاً لا يتجزأ من هذا العقد.</li>
+                                        </td>
+                                        <td style="direction:ltr">
+                                            (1)The above-mentioned preamble is considered as integral part of this contract.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-bottom:1px solid gray">
+                                            (2) التعيين
+                                            <br/>
+                                            يعمل الموظف على وظيفة <span t-esc="o.job_id.name"/> أو أي عمل آخر يسند اليه يتناسب مع مؤهلاته العلمية وخبراته العملية وبحسب ما تفتضيه مصلحة العمل بشرط ألا يتعارض مع الوصف الوظيفي للوظيفة يكون مقر عمل الموظف في مدينة الرياض أو في أي مكان آخر تحدده الشركة داخل المملكة العربية السعودية أو خارجها إذا ما دعت الحاجة إلى ذلك طبقاً لنظام العمل والسياسات التي تضعها الشركة مع مراعاة الاحكام التالية:
+                                            لا يكون نقل الموظف من مكان عمله الأصلي إلى مكان آخر يقتضي تغيير محل إقامته إلا بموافقة الموظف كتابة.
+                                            يجوز للشركة في حالات الضرورة التي قد تفتضيها ظروف عارضة ولمدة لا تزيد عن ثلاثين يوماً في السنة، تكليف الموظف ان يعمل في مكان مختلف عن المكان الأصلي دون موافقته وتتحمل الشركة تكاليف انتقال الموظف وإقامته خلال تلك المدة.
+                                            ان يعمل في مكان مختلف عن المكان الأصلي دون موافقته وتتحمل الشركة تكاليف انتقال الموظف وإقامته خلال تلك المدة.
+                                        </td>
+                                        <td style="direction:ltr;border-bottom: 1px solid gray">
+                                            2) Appointment
+                                            <br/>
+                                            The Employer hereby appoint the Employee to work as <span t-esc="o.translate_to_eng(o.job_id.name)"/> Position, or any work assigned to him/ her so long the Employee has all credentials and experiences to carry out this work. The location of the job shall be Riyadh or any other locations decided by the company  in accordance with labour law and internal procedures, provided these conditions are met Written acceptance by the employee must be obtained if the company decide to transfer the employee to a different location, under urgent circumstances only, the employer  may order the employee to relocate  to a different location provided these conditions are satisfied:The relocation duration shall not exceed 30 days, the employer shall compensate the employee or the employer incur all the cost with respect to housing and transportation as a result of the relocation.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-top: 1px solid gray">
+                                            (3) الراتب الشهري
+                                            <br/>
+                                            (ا) الراتب الشهري الأساسي للموظف هو  (<span t-esc="o.salary"/>) ريال سعودي شاملاً كافة أيام الشهر بما فيها عطلات نهاية الأسبوع والعطل الرسمية.
+                                            <br/>
+                                            (ب) يُدفع راتب الموظف الأساسي الشهري، إضافة إلى أي بدلات أو مدفوعات أخرى، ناقصاً أية اقتطاعات مستحقة عليه، على أساس شهري في آخر كل شهر (حسب التقويم الميلادي).
+                                        </td>
+                                        <td style="direction:ltr;border-top: 1px solid gray">
+                                            3.Monthly Salary
+                                            <br/>
+                                            (a) The Employee's basic monthly salary, which includes each and every day of the month, including the Weekend, and holidays, is SR (<span t-esc="o.salary"/>).
+                                            <br/>
+                                            (b) The Employee's monthly salary plus any other allowances or payments minus any deductions shall be paid monthly at the end of each month (in accordance with the Gregorian calendar).
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            (4) البدلات
+                                            <br/>
+                                            يستحق الموظف البدلات الإضافية التالية:
+                                            <br/>
+                                            (أ) السكن
+                                            <br/>
+                                            يحق للموظف الحصول على بدل سكن مقداره (3) ثلاث رواتب أساسية سنوياً، تقسم على 12 شهراَ وتدفع في آخر كل شهر.
+                                            <br/>
+                                            (ب) المواصلات
+                                            <br/>
+                                            يحق للموظف الحصول على بدل مواصلات بمقدار (10%) عشرة بالمائة من الراتب الأساسي تدفع في آخر كل شهر.
+                                        </td>
+                                        <td style="direction:ltr;">
+                                            (4) Allowances
+                                            <br/>
+                                            The Employee is eligible for the additional allowances specified below:
+                                            <br/>
+                                            (a) Housing Allowance
+                                            <br/>
+                                            The Employee shall be entitled to receive a housing allowance of (3) Three basic Salary per annum, divided to 12 months and payable at the end of each months.
+                                            <br/>
+                                            (b) Transportation
+                                            <br/>
+                                            The Employee shall be entitled to receive a car allowance of (10%) ten percent from the basic Salary, payable at the end of each month.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-bottom: 1px solid gray">
+                                            (5)  موقع العمل
+                                            <br/>
+                                            سيكون موقع عمل الموظف في مدينة الرياض، بالمملكة العربية السعودية.
+                                        </td>
+                                        <td style="direction:ltr;border-bottom: 1px solid gray">
+                                            (5) Work Location
+                                            <br/>
+                                            The Employee will be employed in the city of Riyadh21, Saudi Arabia.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-top: 1px solid gray">
+                                            (6) مدة العقد
+                                            <br/>
+                                            مدة هذا العقد سنة واحدة ميلادية، ويبدأ اعتبارا من تاريخ <span t-esc="o.date_start"/>، مع مراعاة النصوص الواردة في هذا العقد بخصوص الإنهاء، ويعتبر الموظف تحت التجربة لمدة ثلاث أشهر من تاريخ مباشرته للعمل بموجب هذا العقد. ويجوز باتفاق مكتوب بين الطرفين تمديد فترة التجربة بشرط إلا يزيد أجمالي فترة التجربة عن مائة وثمانين يوماً، ولا تدخل في حساب فترة التجربة إجازة عيدي الفطر والاضحى والإجازة المرضية. ويحق للطرفين خلالها إنهاء هذا العقد دون الحاجة إلى توجيه اشعار مسبق ودون أن يترتب للطرف الثاني تعويض أو مكافأة نهاية الخدمة وذلك وفقاً لنظام العمل ويتوجب على أحد الطرفين إشعار الطرف الآخر كتابيا في حالة عدم رغبته في تجديد العقد وإلا يعدّ العقد قد تجدد تلقائياً لمدة مماثلة، وفي حال تجدد العقد ثلاث مرات متتالية او بلغت مده العقد الأصلي مع التجديد أربع سنوات ايهما اقل تحول العقد الى عقد غير محدد المدة.
+                                        </td>
+                                        <td style="direction:ltr;border-top: 1px solid gray">
+                                            (6) Period of Employment
+                                            <br/>
+                                            The duration of this contract is a one year, The start date is from <span t-esc="o.date_start"/> G, subject to provisions regarding the termination of employment contained in this contract, The Employee shall, however, be on probation for the first three (3) Gregorian months of employment.
+                                            The probation period might be extended for no longer than 180 days excluding all official holydays and sick leave provided the extension of the probation period is written and agreed upon by both parties.
+                                            A party shall notify the other in writing indicating the desire to terminate this contract, if terminated during the probation period the employee is not entitled to end of service reward nor any kind of rewards in accordance with Saudi labor law. If there is no termination during the probation period and the contract continues in effect the contract will be automatically renewed for the same term unless, either party  notify the other if the intention not to renew the contract. Renewing the contract for three consecutive times or if the duration of the original contact including the renewal is 4years which duration is lesser, the contract will be deemed a nonspecific contract.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-bottom: 1px solid gray">
+                                            (7) ساعات العمل
+                                            <br/>
+                                            يبلغ عدد ساعات العمل الفعلي في أسبوع العمل الواحد أربعين (40) ساعة موزعة على خمسة أيام عمل بواقع ثماني (8) ساعات لكل يوم عمل ولا يدخل فيها وقت التنقل من وإلى موقع العمل. وفي شهر رمضان المبارك تكون ساعات العمل الأسبوعية للموظف المسلم ثلاثين (30) ساعة بواقع ست (6) ساعات في اليوم.
+                                        </td>
+                                        <td style="direction:ltr;border-bottom: 1px solid gray">
+                                            (7) Work Hours
+                                            <br/>
+                                            The number of hours actually worked in a work week shall normally be forty (40) and the number of hours worked in each work day shall normally be eight (8), exclusive of traveling time to and from work.  If the Employee is a Muslim, the working hour during the month of Ramadan shall normally be thirty (30) hours and the work day shall normally be six (6) hours.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-top: 1px solid gray">
+                                            (8) العمل الإضافي
+                                            <br/>
+                                            يمكن أن يُطلب من الموظف العمل لساعات إضافية. ويعوض الموظف عن ساعات العمل الإضافية وفقا لنظام العمل السعودي وسياسات صاحب العمل الداخلية، ولا يتم تعويض الموظف عن العمل الإضافي إلا إذا كان ذلك العمل الإضافي قد تم بموافقة كتابية ومسبقة من رئيس الموظف ووفقاً للوائح صاحب العمل.
+                                        </td>
+                                        <td style="direction:ltr;border-top: 1px solid gray">
+                                            (8) Overtime
+                                            <br/>
+                                            The Employee may be required to work overtime. The Employee will be compensated for overtime in accordance with the Saudi Labor Law and the Employer’s internal policy. The Employee shall not be able to claim overtime unless such overtime work were authorized beforehand by his supervisor and shall be in accordance with the Employers guidelines in this regards.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            (9) العطل الرسمية
+                                            <br/>
+                                            يحق للموظف التمتع خلال السنة بالعطل الرسمية المعتمدة وفقاً لنظام العمل السعودي. وإذا طلب منه أن يعمل خلال أيام العطل الرسمية، فإنه يستحق تعويضا عن كل ساعة عمل فعلية وفقا لنظام العمل السعودي.
+                                        </td>
+                                        <td style="direction:ltr;">
+                                            (9) Holidays
+                                            <br/>
+                                            The Employee will be entitled to days off for public holidays in accordance with the Saudi Labor Law.  If the Employee is required to work on a holiday, he shall be entitled to payment for every hour actually worked on such holiday in accordance with the Saudi Labor Law.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            (10) الإجازة السنوية
+                                            <br/>
+                                            بالإضافة إلى العطل الرسمية العامة والإجازات الأخرى المدفوعة الأجر بموجب نظام العمل السعودي، يستحق الموظف إجازة مدتها (30) ثلاثون يوماً عن كل سنة من الخدمة في المملكة العربية السعودية على أن يحدد صاحب العمل موعدها بما يتناسب مع ظروف العمل.
+                                        </td>
+                                        <td style="direction:ltr">
+                                            (10) Annual Vacation
+                                            <br/>
+                                            In addition to public holidays and other paid leave requires by the Saudi Labor law, the Employee will be eligible for a vacation consisting of 30 days per year of employment in Saudi Arabia. The Employer shall have the right to specify the starting date of the Employee’s annual vacation as dictated by work requirements.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            (11) الإجازة المرضية
+                                            <br/>
+                                            يدفع الأجرعن الإجازة المرضية وفقاً لنظام العمل السعودي شرط أن تكون الحاجة للعلاج الطبي و/أو الاستشفاء مثبتة كتابة من مستشفى معتمد.
+                                        </td>
+                                        <td style="direction:ltr">
+                                            (11) Sick Leave
+                                            <br/>
+                                            Sick leave will be paid in accordance with the provisions of the Saudi Arabian Labor Law, provided that the need for medical treatment and/or hospitalization is confirmed in writing by an approved hospital.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-bottom: 1px solid gray">
+                                            (12) التأمينات الاجتماعية
+                                            <br/>
+                                            يقتطع صاحب العمل من الراتب الشهري للموظف مبلغ النسبة المطلوبة من الموظف لاشتراكه في نظام التأمينات الاجتماعية طبقا للوائح والأنظمة المعتمدة لدى المؤسسة العامة للتأمينات الاجتماعية، بينما يدفع صاحب العمل نسبة الاشتراك المطلوبة منه وفقا للوائح والأنظمة المعتمدة لدى المؤسسة العامة للتأمينات الاجتماعية.
+                                        </td>
+                                        <td style="direction:ltr;border-bottom: 1px solid gray">
+                                            (12) Social Insurance
+                                            <br/>
+                                            The Employer shall pay directly to the General Organization for Social Insurance ("GOSI") an amount equal to the contribution which is required to be made by an employer in accordance with the rules and regulations of GOSI. The Employer will withhold contributions due by the Employee from the Employee's salary only to the extent that the Employer is required or permitted to do so pursuant to the rules and regulations of GOSI.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-top: 1px solid gray">
+                                            (13) التأمين الطبي
+                                            <br/>
+                                            يوفر صاحب العمل للموظف تأمينا طبياً طبقاً للنظام المعمول به في المملكة العربية السعودية ووفقا للسياسات التي يقررها صاحب العمل بين الحين والآخر.
+                                        </td>
+                                        <td style="direction:ltr;border-top: 1px solid gray">
+                                            (13) Medical Insurance
+                                            <br/>
+                                            The Employee will be eligible to participate in medical insurance and benefit plans in accordance with the practice in Saudi Arabia and in accordance with the policies the Employer has in place from time to time.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            (14) الأنظمة والتعليمات
+                                            <br/>
+                                            يتعهد الموظف بأن يتقيد بما يصدره صاحب العمل من سياسات وتوجيهات وتعليمات وبكافة الأنظمة والأعراف المعمول بها في المملكة العربية السعودية. ولن يكون صاحب العمل مسؤولاً عن أية عقوبات أو غرامات أو مطالبات نظامية يتعرض لها الموظف نتيجةً لمخالفته أياً من هذه الأنظمة.
+                                        </td>
+                                        <td style="direction:ltr;">
+                                            (14) Laws and Instructions
+                                            <br/>
+                                            The Employee undertakes to comply with all policies, directives and instructions issued by the Employer and with the laws, regulations and customs of the Kingdom of Saudi Arabia. The Employer shall have no responsibility for any penalties or liabilities incurred by the Employee due the Employee's violation of such laws, regulations and customs.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            (15) صحة المعلومات
+                                            <br/>
+                                            يحق لصاحب العمل أن يتأكد من صحة المعلومات وسلامتها الواردة في طلب التوظيف والشهادات المقدمة من الموظف وفي حالة ثبوت أيّ احتيال أو تزوير أو غش فيها فانه يحق للصاحب العمل إنهاء هذا العقد دون إشعار أو تعويض أو مكافأة وتحميله مسئولية وتكاليف أيّ خسائر يتعرض لها صاحب العمل جراء ذلك إضافة إلى أيّ جزاءات أو ملاحقات / مخالفات نظاميه قد تنتج عن ذلك.
+                                        </td>
+                                        <td style="direction:ltr;">
+                                            (15) Truth of Information
+                                            <br/>
+                                            The Employer shall have the right to verify about the correctness and truth of information stated in the employment application and certificates furnished by the Employee. The Employer shall have the right at any time to terminate the contract without notice or compensation and the Employee will bear any responsibility, losses or expenses if it has been proved that the employment was based on cheating, misrepresentation or fraud.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            (16) العمل لدى الغير والإضرابات
+                                            <br/>
+                                            بقبوله العمل بموجب هذا العقد، فإن الموظف يتعهد بأنه لن يمارس أيّ عمل أو وظيفة أخرى لدى أيّ شخص أو جهة أخرى غير صاحب العمل، ولن يشارك، لأيّ سبب كان، في أيّ إضراب عن العمل أو أية نزاعات عمالية أو صناعية أو سياسية أو اجتماعية، أو في أيّ إجراء أو عمل قد يؤدي إلى توقف عمله أو انقطاعه.
+                                        </td>
+                                        <td style="direction:ltr;">
+                                            (16) Other Employment and Strikes
+                                            <br/>
+                                            In accepting employment hereunder, the Employee, undertakes that he will not engage in any other business or employment and that he will not for any reason whatsoever engage in any strikes or other labor disputes or take part in any industrial, political or social dispute or action involving the cessation or withdrawal of the Employee’s labor.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-bottom: 1px solid gray" >
+                                            (17) المسائل الأخرى
+                                            <br/>
+                                            كل أمر لم يرد بشأنه نص صريح على سبيل التحديد في هذا العقد يطبق عليه سياسات ولوائح صاحب العمل الداخلية ونظام العمل السعودي ويشمل ذلك جميع التعديلات واللوائح والقرارات والتعاميم التي أصدرت أو يتم إصدارها في المستقبل.
+                                        </td>
+                                        <td style="direction:ltr;border-bottom: 1px solid gray">
+                                            (17) Other Matters
+                                            <br/>
+                                            Any stipulations, which are not specifically mentioned in this contract, will be subject to the internal policies and procedures of the Employer and the Saudi Labor Law.  This includes all the amendments, rules, decisions and circulars, being entered in the future.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-top: 1px solid gray">
+                                            (18) المراسلات والإخطارات
+                                            <br/>
+                                            يحق لصاحب العمل أن يسلم جميع الإشعارات والاخطارات إلى
+                                            الموظف مباشرة باليد أثناء فترة عمله لديه أو على عنوانه (داخل المملكة) أو إلى بريده الاليكتروني أو بوضعها على لوحة الإعلانات بمقر عمل صاحب العمل حيث يعمل الموظف، ويعتبر هذا التسليم بمثابة إقرار باستلام تلك الإشعارات والاخطارات في التاريخ المذكور في الإشعار وتعتبر هذه الإشعارات كأنما سلمت باليد.
+                                        </td>
+                                        <td style="direction:ltr;border-top: 1px solid gray">
+                                            (18) Correspondences and Notifications
+                                            <br/>
+                                            The Employer will have the right to hand over all the notifications, or information to the Employee directly by hand during his work or by sending it to the Employee’s address in Saudi Arabia, or to advertise it on the notice board in the Employer’s headquarters where the Employee works.  This delivery shall be deemed to be duly given on the date of notification and as if it has been handed over by hand.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-bottom: 1px solid gray">
+                                            (19) السريـة والملكية الفكرية
+                                            <br/>
+                                            مع عدم الاخلال بما ورد في المادة (83)، يوافق الموظف على أن أيّة دراسات أو معلومات أو بيانات أو أي مستندات يحصل عليها جراء عمله تعتبر ملكاً لصاحب العمل وكذلك أي براءات اختراع أو أبحاث أو حقوق طبع ونشر تتعلق بنشاط صاحب العمل يعتبر حقا خالصا له.
+                                        </td>
+                                        <td style="direction:ltr;border-bottom: 1px solid gray">
+                                            (19) Confidentiality and Intellectual Property
+                                            <br/>
+                                            Without prejudice to Article (83) the Employee agrees and undertakes that all the studies, information, statements and any other documents the employee obtains during his work are considered the sole properties of the Employee.  Also all the research, inventions or copy rights related to the company’s activities are considered sole properties of the company.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-top: 1px solid gray">
+                                            (20) إنهاء العقد
+                                            <br/>
+                                            بما لا يتعارض مع ورد في المواد (74) (77) او (80) من نظام العمل السعودي عن حالات الإنهاء وفسخ العقد.
+                                            <br/>
+                                            (1) يحق لأيّ من الطرفين إنهاء هذا العقد إذا كان غير محدد المدة بناء على سبب مشروع يجب بيانه بموجب إشعار يوجه الى الطرف الاخر كتابه قبل الانهاء بمدة ستون (60) يوما.  إذا قرر صاحب العمل أن الموظف لم يعد يصلح للقيام بعمله أو أنه زائد عن حاجة العمل.
+                                            <br/>
+                                            (2)   يجوز لصاحب العمل أن ينهي خدمة الموظف فوراً وبدون فترة إنذار أو بدل فترة إنذار، وبدون أي حق للموظف بأية تعويضات، وذلك في أي وقت أثناء فترة التجربة أو في أي من الحالات و/أو المخالفات التي نص عليها نظام العمل السعودي.
+                                            <br/>
+
+                                            (ج) تحسب مكافأة نهاية الخدمة على أساس الراتب الأساسي مضافا إليه بدلا السكن والنقل فقط، ولا تدخل أي بدلات أو عمولات أو أي منافع أخرى في احتساب المكافأة.
+                                        </td>
+                                        <td style="direction:ltr;border-top: 1px solid gray">
+                                            (20) Termination
+                                            <br/>
+                                            Without prejudice to Article(74) (77) (80) of Saudi labor law in relation to termination
+                                            <br/>
+                                            (a) Either party has the right to terminate a nonspecific contract provided an appropriate reason is given and sixty (60) days’ notice written is rendered to the other party. If the Employer decided that the Employee is no longer suitable for the job or the position is being eliminated.
+                                            <br/>
+                                            (b) The Employer has the right to dismiss the Employee forthwith, without notice or pay in lieu of such notice and without any right on the part of the Employee to any other benefit, at any time while the Employee is on probation or in the event the Employee commits any of the acts and violations articulated into the Saudi Labor Law.
+                                            <br/>
+                                            (c ) End of service benefit shall be calculated on the basis of basic salary and housing, transportation allowances. Commissions and other benefits such as allowances in cash or in kind or any kind of incentives are not included in the end of service benefit calculation.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-bottom: 1px solid gray">
+                                            (21) وحده العقد
+                                            <br/>
+                                            يشكل هذا العقد الاتفاق الكامل بين الطرفين فيما يخص توظيف الموظف من قبل صاحب العمل في المملكة العربية السعودية. ويلغي هذا العقد ويحل محل جميع الاتفاقيات والتفاهمات السابقة والحالية، كتابية كانت أم شفهية.
+                                        </td>
+                                        <td style="direction:ltr;border-bottom: 1px solid gray">
+                                            (21) Entire Contract
+                                            <br/>
+                                            This contract constitutes the entire contract  between the parties with respect to the Employee's employment by the Employer in the Kingdom of Saudi Arabia and supersedes and render null and void all prior or contemporaneous contract  or understandings, whether oral or written.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray;border-top: 1px solid gray">
+                                            (22) التنازل واستقلالية النصوص
+                                            <br/>
+                                            إن عدم قيام أيّ من الطرفين في أيّ وقت بفرض تنفيذ أيّ من فقرات هذا العقد أو لم يطالب الطرف الآخر بتنفيذ أيّ من فقراته، فإن ذلك لا يجب أن يفسر بأيّ حال من الأحوال على أنه تنازل عن تلك الفقرة أو على أنه يؤثر على صلاحية هذا العقد أو على حق أيّ من الطرفين في فرض تنفيذ كل فقرة من فقرات العقد وفقا لشروطه وأحكامه. وإذا أصبح أيّ شرط من شروط هذا العقد أو جزء منه باطلاً، فإن ذلك لن يبطل الشروط الأخرى أو الجزء المتبقي من الشرط المعني. ويظل هذا العقد في جميع هذه الحالات سارياً ومرتب لكل اثاره النظامية.
+                                        </td>
+                                        <td style="direction:ltr;border-top: 1px solid gray">
+                                           22)
+                                            Waiver and Severability
+                                            <br/>
+                                            The failure of either party to enforce at any time any of the provisions of this contract or to require at any time performance by the other party of any of the provisions hereof, shall in no way be construed to be a waiver of the provisions or to affect the validity of this contract or the right of either party thereafter to enforce each and every provision in accordance with the terms of this contract.  Invalidation of any provision of this contract, or portion thereof, shall not invalidate any other provision or the remainder of the relevant provision and the rest of this contract shall in all such cases remain in full force and effect.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            (23)  النظام المطبق وتسوية المنازعات
+                                            <br/>
+                                            يخضع هذا العقد للأنظمة السعودية ويفسر وفقا لها، بما في ذلك ودون حصر نظام العمل السعودي الصادر بموجب المرسوم الملكي رقم م/51 بتاريخ 23/08/1426هـ. وعلى الطرفين أن يبذلا كل جهد ممكن لتسوية أيـّـة نزاعات تنشأ بينهما على خلفية هذا العقد بالطرق الودية. وإذا تعذر ذلك، يحال النزاع إلى الجهة القضائية المختصة للفصل في النزاع بشكل نهائي
+                                        </td>
+                                        <td style="direction:ltr;">
+                                            (23) Governing Law and Disputes
+                                            <br/>
+                                            This contract shall be governed by and construed in accordance with the laws and regulations of the Kingdom of Saudi Arabia, including without limitation the Labor Law issued under Royal Decree No. M/51 dated 23/08/1426H.  The parties will make every effort to settle disputes amicably, but if the parties are unable to reach an amicable settlement, the dispute will be referred to and decided by the relevant and appropriate judicial body.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            (24) اللغة
+                                            <br></br>
+                                            اللغة المعتمدة في تفسير هذا العقد هي اللغة العربية.
+                                        </td>
+                                        <td style="direction:ltr;">
+                                            (24) Language
+                                            <br/>
+                                            The Arabic text shall supersede the English text in interpreting this contract.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%;border-left: 1px solid gray">
+                                            (25) نسخ العقد
+                                            <br/>
+                                            حرر هذا العقد من نسختين أصليتين يحتفظ كل طرف بنسخة أصلية واحدة بعد التوقيع عليها من قبل الطرفين.
+                                        </td>
+                                        <td style="direction:ltr;">
+                                            (25) Copies of the contract
+                                            <br/>
+                                            This contract has been written into two copies in which each party will have one copy after being signed by both parties.
+                                        </td>
+                                    </tr>
+                                </ol>
+                            </table>
+                            <table style="width:100%;border: 1px solid gray">
+                                <tr>
+                                    <td>
+                                        صاحب العمل: <span t-esc="o.company_id.name"/>
+                                    </td>
+                                    <td style="direction:ltr;">
+                                        The Employer: <span t-esc="o.translate_to_eng(o.company_id.name)"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        يمثله:
+                                    </td>
+                                    <td style="direction:ltr;">
+                                        Authorized Representative:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        الصفة: الرئيس التنفيذي
+                                    </td>
+                                    <td style="direction:ltr;">
+                                        Title:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        التــــوقيع:
+                                    </td>
+                                    <td style="direction:ltr;">
+                                        Signature:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        الموظف:
+                                    </td>
+                                    <td style="direction:ltr;">
+                                        The Employee:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        التــــوقيع:
+                                    </td>
+                                    <td style="direction:ltr;">
+                                        Signature:
+                                    </td>
+                                </tr>
+
+                            </table>
+                            <style>
+                                i{
+                                padding:10px;
+                                padding-right:0px;
+                                }
+                                td{
+                                padding: 5px 5px 5px 5px;
+                                }
+                            </style>
+
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+        <report id="employee_contract_action_report"
+                model="hr.contract"
+                string="Contract Form"
+                report_type="qweb-pdf"
+                name="hr_base.employee_contract_report_template"
+        />
+        <record id="paperformat_contract_report" model="report.paperformat">
+            <field name="name">European A4 Transactions</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">35</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+        <record id="employee_contract_action_report" model="ir.actions.report">
+            <field name="paperformat_id" ref="hr_base.paperformat_contract_report"/>
+        </record>
+    </data>
+</odoo>

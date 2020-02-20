@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="employee_overtime_request_list_action">
+            <field name="name">Employee OverTime Request</field>
+            <field name="res_model">employee.overtime.request</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_overtime_calendar">
+            <field name="name">employee.overtime.request.calendar</field>
+            <field name="model">employee.overtime.request</field>
+            <field name="arch" type="xml">
+                <calendar string="Employee Overtime Request" date_start="request_date" color="request_date">
+
+                    <field name="request_date" type="measure"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_overtime_request_form_view">
+            <field name="name">Employee Overtime Request</field>
+            <field name="model">employee.overtime.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="submit" string="submit" class="oe_highlight" type="object"
+                                states="draft"
+                                groups="base.group_user"/>
+                        <button name="direct_manager" string="Direct Manager Approve" class="oe_highlight" type="object"
+                                states="submit"
+                                groups="hr_base.group_division_manager"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="submit"
+                                groups="hr_base.group_division_manager"/>
+                        <button name="financial_manager" string="Financial Manager" class="oe_highlight" type="object"
+                                states="direct_manager"
+                                groups="hr_base.group_account_manager"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="direct_manager"
+                                groups="hr.group_hr_user"/>
+                        <button name="hr_aaproval" string="HR Approval" class="oe_highlight" type="object"
+                                states="financial_manager"
+                                groups="hr.group_hr_user"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="financial_manager"
+                                groups="hr_base.group_general_manager,hr_base.group_executive_manager"/>
+                        <button name="validated" string="Validate" class="oe_highlight" type="object"
+                                states="hr_aaproval"
+                                groups="hr_base.group_general_manager,hr_base.group_executive_manager"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="hr_aaproval"
+                                groups="hr_base.group_general_manager,hr_base.group_executive_manager"/>
+                        <button name="re_draft" string="RE-Draft" class="oe_highlight" type="object"
+                                states="refused,validated"
+                                groups="hr.group_hr_user"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="transfer_type" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="date_from" string="Date From"
+                                       attrs="{'readonly':['|','|','|','|',('state','=','submit'),('state','=','direct_manager'),('state','=','financial_manager'),('state','=','validated'),('state','=','refused')], 'required': [('state', '=', 'hr_aaproval')]}"/>
+                                <field name="date_to" string="Date To"
+                                       attrs="{'readonly':['|','|','|','|',('state','=','submit'),('state','=','direct_manager'),('state','=','financial_manager'),('state','=','validated'),('state','=','refused')], 'required': [('state', '=', 'hr_aaproval')]}"/>
+                                <field name="benefits_discounts"
+                                       attrs="{'invisible':[('transfer_type','!=','payroll')], 'readonly':[('state','!=','draft')], 'required': [('transfer_type', '=', 'payroll')]}"/>
+                            </group>
+                            <group>
+                                <field name="request_date" string="Request Date" required="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="overtime_plase" string="Overtime Plase" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="reason" string="Reason" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="account_id" string="Account"
+                                       attrs="{'invisible':['|',('transfer_type','!=','accounting'),('state','!=','hr_aaproval')], 'readonly':[('state','!=','hr_aaproval')], 'required': [('state', '=', 'hr_aaproval'),('transfer_type','=','accounting')]}"/>
+                                <field name="journal_id" string="Journal"
+                                       attrs="{'invisible':['|',('transfer_type','!=','accounting'),('state','!=','hr_aaproval')], 'readonly':[('state','!=','hr_aaproval')], 'required': [('state', '=', 'hr_aaproval'),('transfer_type','=','accounting')]}"/>
+                            </group>
+                        </group>
+                        <separator string="Employees Over Time"/>
+                        <field name="line_ids_over_time" context="{'account_id': account_id, 'journal_id': journal_id}"
+                               attrs="{'readonly':['|','|','|','|',('state','=','submit'),('state','=','direct_manager'),('state','=','financial_manager'),('state','=','validated'),('state','=','refused')], 'required': [('state', '=', 'hr_aaproval')]}">
+                            <tree string="Employee Over Time" editable="bottom">
+                                <field name="employee_id"/>
+                                <field name="account_id" string="Account"/>
+                                <field name="journal_id" string="Journal"/>
+                                <field name="over_time_workdays_hours"/>
+                                <field name="over_time_vacation_hours"/>
+                                <field name="regular_hourly_rate"/>
+                                <field name="price_hour"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_overtime_request_tree_view">
+            <field name="name">Employee Overtime Request</field>
+            <field name="model">employee.overtime.request</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="state == 'refused'" decoration-info="state == 'draft'" string="Employee Overtime Request">
+                    <field name="request_date" string="Request Date"/>
+                    <field name="date_from" string="Date From"/>
+                    <field name="date_to" string="Date To"/>
+                    <field name="state" string="Status"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

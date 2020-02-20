@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="exit_reentry_form_view">
+            <field name="name">exit_reentry_form_view</field>
+            <field name="model">hr.exit.reentry</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+
+                        <button name="in_wait" type="object" string="Waiting For Payment" class="oe_highlight"
+                                attrs="{'invisible': [('stage','not in', ('new'))]}"/>
+                        <button name="in_done" type="object" string="Done" class="oe_highlight"
+                                attrs="{'invisible': [('stage','not in', ('wait'))]}"/>
+                        <button name="cancel" type="object" string="Cancel" class="oe_highlight"
+                                attrs="{'invisible': [('stage','in', ('new'))]}"/>
+
+                        <field name="stage" widget="statusbar" statusbar_visible="new,wait,done"/>
+                    </header>
+
+                    <sheet>
+                        <separator/>
+                        <h3>Exit Re-Entry Details</h3>
+                        <separator/>
+
+                        <group name="group_top">
+
+                            <group name="group_left">
+
+                                <field name="name"/>
+                                <field name="nationality"/>
+                                <field name="leave_date" widget="date"/>
+                                <field name="rejoin_date" widget="date"/>
+                                <field name="leave_from"/>
+
+                            </group>
+
+                            <group name="group_right">
+                                <field name="department"/>
+                                <field name="leave_type"/>
+                                <field name="months"/>
+                                <field name="paid_by"/>
+                                <field name="govt_fee"/>
+                                <field name="leave_to"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="exit_reentry_tree_view">
+            <field name="name">exit_reentry_tree_view</field>
+            <field name="model">hr.exit.reentry</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Ticketing Details">
+                    <field name="name"/>
+                    <field name="department"/>
+                    <field name="rejoin_date" widget="date"/>
+                    <field name="leave_type"/>
+                    <field name="months"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Dependent  ACTIONS........................................................-->
+
+        <record model="ir.actions.act_window" id="hr_exit_reentry_act">
+            <field name="name">Exit Re-Entry</field>
+            <field name="res_model">hr.exit.reentry</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="employee_loan_salary_list_action">
+            <field name="name">Employee loan salary advance</field>
+            <field name="res_model">hr.loan.salary.advance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.ui.view" id="employee_loan_salary_form_view">
+            <field name="name">Employee loan salary advance</field>
+            <field name="model">hr.loan.salary.advance</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+
+                        <button name="submit" string="Submit" class="oe_highlight" type="object"
+                                states="draft" groups="base.group_user"/>
+
+                        <button name="dirct_manager" string="Direct Manager" class="oe_highlight" type="object"
+                                states="submit" groups="hr_loans_salary_advance.group_loan_user,hr_base.group_division_manager"/>
+
+                        <button name="hr_manager" string="HR Manager" class="oe_highlight" type="object"
+                                states="dirct_manager" groups="hr.group_hr_manager"/>
+
+                        <button name="executive_manager" string="Executive Manager" class="oe_highlight" type="object"
+                                states="hr_manager" groups="hr_base.group_general_manager,hr_base.group_executive_manager"/>
+
+                        <button name="pay" string="Pay" class="oe_highlight" type="object"
+                                states="executive_manager" groups="hr.group_hr_manager"/>
+
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                attrs="{'invisible':['|','|',('state','=','draft'),('state','=','refused'),('state','=','closed')]}"
+                                groups="hr.group_hr_manager,hr_loans_salary_advance.group_loan_user,hr_base.group_general_manager,hr_base.group_executive_manager"/>
+                        <button name="closed" string="Closed" class="oe_highlight" type="object"
+                                attrs="{'invisible':[('state','!=','pay')]}" groups="hr_loans_salary_advance.group_loan_user"/>
+
+                        <button name="draft_state" string="RE-Draft" class="oe_highlight" type="object" states="closed,refused" groups="hr.group_hr_manager,hr_loans_salary_advance.group_loan_user"/>
+
+                        <field name="state" widget="statusbar"
+                               statusbar_visible="draft,submit,dirct_manager,hr_manager,executive_manager,pay,refused,closed"/>
+
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code" string="Code" readonly="1"/>
+                                <field name="request_type" string="Request Type" required="True"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="date" string="Date" required="True"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="from_hr_depart" string="From HR Department"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_id" string="Employee"
+                                       attrs="{'readonly':['|',('state','!=','draft'),('from_hr_depart','=',False)],'required':True}"/>
+                                <field name="department_id" string="department" readonly="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="job_id" string="job Type" readonly="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                            <group>
+
+                                <field name="is_old" string="Is Old" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <!--stoped-->
+                                <field name="evaluation_grade" string="Evaluation Grad"/>
+                                <field name="company_id" string="Company" readonly="1"/>
+
+                                <field name="contract_duration_date" string="contract Start Date" readonly="1"/>
+                                <field name="end_date" string="Contract End Date" readonly="1"/>
+                                <field name="months_employeed" string="working duration(months)" readonly="1"/>
+
+
+                            </group>
+
+
+                            <group>
+                                <field name="emp_expect_amount" string="Employee Expect Amount" required="True"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="finance_propos_amount" string="Finance proposed Amount"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="gm_propos_amount" string="GM proposed Amount"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="months" string="Number of months"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+
+
+                                <button name="create_loan" string="Create Loan" type="object" class="oe_highlight"
+                                        attrs="{'invisible':[('state','!=','draft')]}"/>
+                            </group>
+                            <group name="loans_salary">
+                                <field name="monthly_salary" string="Salary of Month" readonly="1"/>
+                                <field name="total_paid_inst" string="total paid installment" readonly="1"/>
+                                <field name="remaining_loan_amount" string="Remaining loan Amount" readonly="1"/>
+                                <field name="installment_amount" string="installment Amount" readonly="1"/>
+                                <!--field name="previous_loan" string="previous" readonly="1"/-->
+
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Deduction Over Months" name="deduction_over _months">
+                                <group string=" Deduction Over Months">
+                                    <field name="date" string="Start Date"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                                </group>
+
+                                <field name="deduction_lines" string="lines"
+                                       attrs="{'readonly':[('state','!=','draft')]}">
+                                    <tree editable="bottom">
+                                        <field name="installment_date" string="installment Date" readonly="1"/>
+                                        <button name="postpone_of_installment" string="Postpone of installment"
+                                                type="object"
+                                                attrs="{'invisible':['|',('paid','=',True),('parent.state','=','draft')]}"/>
+                                        <field name="installment_amount" string="installment Amount" readonly="1"/>
+                                        <field name="paid" string="Paid" readonly="0"/>
+                                    </tree>
+
+                                </field>
+
+                            </page>
+                            <page string="Accounting Info" name="accounting_info">
+                                <group>
+                                    <field name="payment_ref" string="Payment Order Ref"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                                </group>
+
+                                <field name="moves_ids" string="Journal Entries"
+                                       attrs="{'readonly':[('state','!=','draft')]}">
+                                    <tree editable="bottom">
+                                        <field name="number" string="Number"/>
+                                        <field name="reference" string="Reference"/>
+                                        <field name="period" string="period"/>
+                                        <field name="journal" string="Journal"/>
+                                        <field name="partner_id" string="Partner"/>
+                                        <field name="amount" string="Amount"/>
+                                        <field name="status" string="Status"/>
+                                        <field name="journal_move_id" string="Account move"/>
+                                    </tree>
+
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_loan_salary_tree_view">
+            <field name="name">Employee loan salary advance</field>
+            <field name="model">hr.loan.salary.advance</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="state=='closed'" decoration-danger="state == 'refused'" decoration-info="state == 'draft'" string="Employee official mission">
+                    <field name="code" string="Code"/>
+                    <field name="request_type" string="Request Type"/>
+                    <field name="employee_id" string="Employee Id"/>
+                    <field name="date" string="Date"/>
+                    <field name="gm_propos_amount"/>
+                    <field name="state"/>
+
+                </tree>
+
+            </field>
+        </record>
+
+        <!-- Loans menu -->
+        <menuitem id="loans_menu_id" name="Employee Loans" parent="hr.menu_hr_root" sequence="3"/>
+
+
+        <menuitem name="Loans/Salary Advance" id="employee_loan_salary_menu_item"
+                  parent="loans_menu_id"
+                  action="employee_loan_salary_list_action" sequence="1"/>
+
+    </data>
+</odoo>

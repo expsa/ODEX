@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="web_hijri_datepicker assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/web_hijri_datepicker/static/lib/jquery.calendars.package-2.0.2/redmond.calendars.picker.css"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.calendars.package-2.0.2/jquery.plugin.js"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.calendars.package-2.0.2/jquery.calendars.js"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.calendars.package-2.0.2/jquery.calendars.all.js"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.calendars.package-2.0.2/jquery.calendars.plus.js"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.calendars.package-2.0.2/jquery.calendars.picker.js"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.calendars.package-2.0.2/jquery.calendars.islamic.js"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.calendars.package-2.0.2/jquery.calendars.islamic-ar.js"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.calendars.package-2.0.2/jquery.calendars.islamic-fa.js"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/src/js/web_hijri_date.js"/>
+                <link rel="stylesheet" href="/web_hijri_datepicker/static/src/css/web_hijri_date.css"/>
+
+                <link rel="stylesheet" type="text/css" href="/web_hijri_datepicker/static/lib/jquery.timeentry.package-2.0.1/jquery.timeentry.css"/> 
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.timeentry.package-2.0.1/jquery.plugin.js"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.timeentry.package-2.0.1/jquery.timeentry.js"/>
+                <script type="text/javascript" src="/web_hijri_datepicker/static/lib/jquery.timeentry.package-2.0.1/jquery.timeentry-ar.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

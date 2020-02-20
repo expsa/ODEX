@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="document_asset_form_view">
+            <field name="name">document_asset_form_view</field>
+            <field name="model">document.asset</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group name="group_top">
+
+                        <group name="group_left">
+
+                            <field name="name"/>
+                            <field name="doc_no"/>
+                            <field name="doc_type"/>
+                            <field name="renew_date"/>
+                            <field name="expire_date"/>
+                        </group>
+
+                        <group name="group_right">
+                            <field name="no_of_days"/>
+                            <field name="due_renew_days"/>
+                            <field name="alert_to"/>
+                            <field name="attach_file"/>
+                            <field name="remark"/>
+                        </group>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+
+        <record id="action_hr_department_wizard" model="ir.actions.act_window">
+            <field name="name">Department and Jobs Report</field>
+            <field eval="1" name="sequence"/>
+            <field name="res_model">hr.department.job.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+<record id="view_department_job_wizard" model="ir.ui.view">
+            <field name="name">Department and Job Report</field>
+            <field name="model">hr.department.job.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Department and Job Report">
+
+                <group>
+                    <field name="report_type" string="Report Type"/>
+                </group>
+                    <footer>
+                        <button name="get_reports_departs"  string="Print Report PDF" type="object" class="oe_highlight"
+                                />
+                        or
+                        <button name="get_reportxlsxs" string="Print report excel" type="object" class="oe_highlight"
+                                />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        </data>
+</odoo>

@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+<record model="ir.ui.view" id="res_company_tree_ext">
+            <field name="name">res_company_tree_ext</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="string">Name</attribute>
+                </xpath>
+                <!-- <xpath expr="//table/thead" position="replace"> -->
+                <!-- <th data-id="name" class="o_column_sortable">
+                                Name
+                </th> -->
+                <!-- </xpath> -->
+            </field>
+        </record>
+
+ <record model="ir.ui.view" id="company_tree_form_view">
+            <field name="name">company_tree_form_view</field>
+            <field name="model">res.company.tree</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group name="group_top">
+
+                        <group name="group_left">
+                            <field name="doc_type"/>
+                            <field name="issue_date" widget="date"/>
+                            <field name="latest_renewal_date" widget="date"/>
+                        </group>
+
+                        <group name="group_right">
+                            <field name="expiry_date" widget="date"/>
+                            <field name="renewal"/>
+                        </group>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+ <record model="ir.actions.act_window" id="res_company_branch_act">
+            <field name="name">Branch</field>
+            <field name="res_model">res.company</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'default_flip': True}</field>
+            <field name="domain">[('flip','=','True')]</field>
+        </record>
+<record model="ir.actions.act_window" id="users_company1">
+            <field name="name">Company</field>
+            <field name="res_model">res.company</field>
+            <field name="view_type">form</field>
+            <field name="context">{'default_flip':False}</field>
+            <field name="domain">[('flip','=',False)]</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="base.menu_action_res_company_form" model="ir.ui.menu">
+            <field name="active">false</field>
+        </record>
+
+        <record id="hr.menu_open_view_employee_list_my" model="ir.ui.menu">
+            <field name="sequence">-12</field>
+        </record>
+
+        <record model="ir.ui.view" id="res_company_ext">
+            <field name="name">res_company_ext</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="string">Name</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='website']" position="after">
+                    <!-- <field name="sponsor_id"/> -->
+                    <field name="po_no" required="1"/>
+                    <field name="location"/>
+                </xpath>
+
+                <xpath expr="//field[@name='email']" position="after">
+                    <field name="hr_email" />
+                </xpath>
+
+
+                <xpath expr="//field[@name='country_id']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='state_id']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='street']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='zip']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='phone']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+
+                <xpath expr="//page" position="after">
+                    <page name="license" string="License">
+                        <field name="company_link">
+                            <tree editable="bottom">
+                                <field name="doc_type"/>
+                                <field name="issue_date" widget="date"/>
+                                <field name="latest_renewal_date" widget="date"/>
+                                <field name="expiry_date" widget="date"/>
+                                <field name="renewal"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+                <xpath expr="//page[2]" position="after">
+                    <page name="sponsor_id" string="Sponsors">
+                        <field name="sponsor_link">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="cr_no"/>
+                                <field name="email" widget="email"/>
+                                <field name="mobile" widget="phone"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

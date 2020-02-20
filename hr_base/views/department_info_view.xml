@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="department_form_view">
+            <field name="name">department_form_view</field>
+            <field name="model">department.info</field>
+            <field name="arch" type="xml">
+                <form>
+                    <separator/>
+                    <h4>Department Details</h4>
+                    <separator/>
+                    <group name="group_top">
+
+                        <group name="group_left">
+                            <field name="department"/>
+                            <field name="parent_dep"/>
+                            <field name="manager"/>
+                        </group>
+
+                        <group name="group_right">
+                            <field name="company_name" domain="[('flip','=',False)]"/>
+                            <field name="branch_name" domain="[('flip','=',True)]"/>
+                            <field name="division"/>
+                        </group>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="department_tree_view">
+            <field name="name">department_tree_view</field>
+            <field name="model">department.info</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Department Details">
+                    <field name="department"/>
+                    <field name="company_name"/>
+                    <field name="branch_name"/>
+                    <field name="division"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="department_info_act">
+            <field name="name">Department Info</field>
+            <field name="res_model">department.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

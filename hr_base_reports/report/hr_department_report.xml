@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="action_department_report"
+            model="hr.department.job.wizard"
+            string="Department Job Of Employees"
+            report_type="qweb-pdf"
+            name="hr_base_reports.department_job_report_view"
+            file="hr_base_reports.department_job_report_view"
+            />
+
+        <report
+            id="action_department_report_xlsx"
+            model="hr.department.job.wizard"
+            string="Department Job Of Employees excel Report"
+            report_type="xlsx"
+            name="hr_base_reports.action_department_report_xlsx"
+            file="hr_base_reports.action_department_report_xlsx"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+			<template id="employee_clearance_form_template">
+				<t t-call="web.html_container">
+					<t t-call="web.external_layout">
+						<div class="page" style="font-size:18;direction:ltr" >
+							<div class="oe_structure"/>
+							<div class="page-header" >
+
+							</div>
+							   <div class="text-center">
+								   <b>إخلاء طرف</b>
+								   <br/>
+
+							<b >(Clearance)</b>
+
+									</div>
+
+							<br/>
+							<br/>
+							<t t-foreach="docs" t-as="d">
+							<table class="table table-bordered">
+									<tr style="font-size:16;">
+									<td >Date :
+								 </td>
+										<td class="text-center" ><span t-field="d.date"/></td>
+								</tr>
+								<tr style="font-size:16;">
+									<td >
+										name :
+									</td>
+										<td class="text-center"><span t-field="d.employee_id.name"/></td>
+								</tr>
+								<tr style="font-size:16;">
+									<td>
+										number :
+									</td>
+										<td class="text-center"><span t-field="d.employee_id.emp_no"/></td>
+								</tr>
+								<tr style="font-size:16;">
+									<td>
+										Jop Title :
+									</td>
+										<td class="text-center"><span t-field="d.employee_id.job_id"/></td>
+								</tr>
+								<tr style="font-size:16;">
+									<td >
+										Department :
+									</td>
+										<td class="text-center" ><span t-field="d.employee_id.department_id"/></td>
+								</tr>
+								<tr style="font-size:16;">
+									<td>
+										Division :
+									</td>
+										<td  class="text-center"><span t-field="d.employee_id.department_id"/></td>
+								</tr>
+							</table>
+							<br/>
+								<br/>
+								<table class="table table-bordered">
+									<tr style="font-size:16;">
+									<td>Telephone operator :
+								 </td>
+										<td >Signature :/</td>
+								</tr>
+								<tr style="font-size:16;">
+									<td>
+										Medical cards :
+									</td>
+										<td>Signature :/</td>
+								</tr>
+								<tr style="font-size:16;">
+									<td>Identity cards :
+									</td>
+										<td >Signature :/</td>
+								</tr>
+								<tr style="font-size:16;">
+									<td>
+										Receiving driving License :
+									</td>
+										<td>Signature :/</td>
+								</tr>
+								<tr style="font-size:16;">
+									<td>
+										Vehicle control :
+									</td>
+										<td>Signature :/</td>
+								</tr>
+								<tr style="font-size:16;">
+									<td>
+										Section Head :
+									</td>
+										<td>Signature :/</td>
+								</tr>
+									<tr style="font-size:16;">
+
+									<td>
+										Department Head :
+									</td>
+										<td>Signature :/</td>
+								</tr>
+									<tr style="font-size:16;">
+
+									<td>
+										Finance Head :
+									</td>
+										<td>Signature :/</td>
+								</tr>
+									<tr style="font-size:16;">
+									<td>
+										Project Manager :
+									</td>
+										<td>Signature :/</td>
+								</tr>
+									<tr style="font-size:16;">
+									<td>
+										Administration Manager :
+									</td>
+										<td>Signature :/</td>
+								</tr>
+							</table>
+							</t>
+						</div>
+						<div class="page-footer">
+								<b class="text-center">notes :..................................................................................................................</b>
+								<br/>
+							<b class="text-center">main copy to Employee</b>
+								<br/>
+							<b class="text-center">a copy to Finance</b>
+								<br/>
+							</div>
+					</t>
+				</t>
+			</template>
+	</data>
+</odoo>

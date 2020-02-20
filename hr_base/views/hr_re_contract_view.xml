@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Top menu item -->
+        <record id="open_view_re_contracting_form" model="ir.actions.act_window">
+            <field name="name">Re-Contracting</field>
+            <field name="res_model">hr.re.contract</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_re-contracting_form" model="ir.ui.view">
+            <field name="name">re-contracting</field>
+            <field name="model">hr.re.contract</field>
+            <field name="arch" type="xml">
+                <form string="Contracting">
+                    <header>
+                        <button name="action_submit" string="submitted" states="draft" type="object" class="oe_highlight"
+                                groups="hr.group_hr_user"/>
+                        <button name="action_direct_manager" string="Direct manager" states="submitted" type="object"
+                                groups="hr_base.group_division_manager" class="oe_highlight"/>
+                        <button name="action_hr_manager" string="HR Manager" states="direct_manager" type="object"
+                                class="oe_highlight"
+                                groups="hr.group_hr_manager" />
+                        <button name="action_finance_manager" string="Financial Manager" states="hr_manager"
+                                type="object" class="oe_highlight"
+                                groups="hr_base.group_account_manager"/>
+                        <button name="action_gm_manager" string="General Manager" states="finance_manager" type="object"
+                                class="oe_highlight"
+                                groups="hr_base.group_general_manager,hr_base.group_executive_manager" />
+                        <button name="action_done" string="Re-contract" states="gm_manager" type="object"
+                                class="oe_highlight"
+                                groups="hr.group_hr_manager" />
+                        <button name="action_refuse" string="Refuse" attrs="{'invisible':[('state','in',['refuse','done','draft'])]}" type="object"
+                                class="oe_highlight,hr.group_hr_manager"
+                                groups="hr_base.group_division_manager,
+                                        hr_base.group_account_manager,
+                                        hr.group_hr_manager,hr_base.group_general_manager,hr_base.group_executive_manager"/>
+                        <button name="action_set_to_draft" string="Set To Draft" states="refuse" type="object"
+                                class="oe_highlight"
+                                groups="hr.group_hr_manager" />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="employee_id" class="oe_inline"/>
+                            <h2>
+                                <!--<field name="employee_id" domain="[('active','=',True)]" required="1"-->
+                                <!--options="{'no_create': True, 'no_create_edit':True,'no_open': True}"-->
+                                <!--class="oe_inline" attrs="{'invisible':[('state','=','draft')],'readonly':[('state','!=','draft')]}"/>-->
+                                <field name="employee_id" domain="[('active','=',True)]" required="1"
+                                       options="{'no_create': True, 'no_create_edit':True,'no_open': True}"
+                                       class="oe_inline" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="next_state" string="Next Required Approval" invisible="1"/>
+                                <field name="date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="job_id"
+                                       options="{'no_create': True, 'no_create_edit':True,'no_open': True}"
+                                       readonly="1"/>
+                                <field name="is_direct_manager" invisible="1"/>
+                                <field name="department_id"
+                                       options="{'no_create': True, 'no_create_edit':True,'no_open': True}"
+                                       readonly="1"/>
+                                <field name="hire_date" readonly="1"/>
+                                <field name="contract_id"
+                                       options="{'no_create': True, 'no_create_edit':True,'no_open': True}"
+                                       readonly="1"/>
+
+                                <field name="start_date" readonly="1"/>
+                                <field name="eoc_date" readonly="1"/>
+                                <field name="refused" invisible="1"/>
+                                <field name="company_id" invisible="1"/>
+                            </group>
+
+                            <group>
+                                <field name="effective_date"
+                                       attrs="{'readonly':[('state','!=','gm_manager')]}"/>
+                                <field name="new_contract_start_date" string="New Contract Start Date"
+                                       attrs="{'invisible':[('state','not in',['gm_manager'])],'required':[('state','in',['gm_manager'])],'readonly':[('state','!=','gm_manager')]}"/>
+                                <field name="new_contract_end_date" string="New Contract End Date"
+                                       attrs="{'invisible':[('state','not in',['gm_manager'])],'required':[('state','in',['gm_manager'])],'readonly':[('state','!=','gm_manager')]}"/>
+                                <field name="increase_salary"
+                                       attrs="{'invisible':[('state','=','draft')],'required':[('state','!=','draft')],'readonly':[('state','!=','submitted')]}"/>
+
+                                <field name="new_salary"
+                                       attrs="{'invisible':[('state','=','draft'),('increase_salary','in',['no',''])],'required':[('state','!=','draft'),('increase_salary','=','yes')],'readonly':[('state','!=','submitted')]}"/>
+                            </group>
+
+
+                            <group string="Approval Comments">
+                                <field name="direct_mg"
+                                       attrs="{'readonly':[('state','!=','submitted')],'required':[('state','=','submitted')]}"/>
+                                <field name="direct_refuse_cause"
+                                       attrs="{'readonly':[('state','!=','submitted')],'required':[('state','=','submitted'),('direct_mg','=','refuse')]}"/>
+                                <field name="hr_mg"
+                                       attrs="{'readonly':[('state','!=','direct_manager')],'required':[('state','=','direct_manager')]}"/>
+                                <field name="hr_refuse_cause"
+                                       attrs="{'readonly':[('state','!=','direct_manager')],'required':[('state','=','direct_manager'),('hr_mg','=','refuse')]}"/>
+                                <field name="finance_mg"
+                                       attrs="{'readonly':[('state','!=','hr_manager')],'required':[('state','=','hr_manager')]}"/>
+                                <field name="finance_refuse_cause"
+                                       attrs="{'readonly':[('state','!=','hr_manager')],'required':[('state','=','hr_manager'),('finance_mg','=','refuse')]}"/>
+                            </group>
+                            <group string="Approval Comments">
+                                <field name="gm_mg"
+                                       attrs="{'readonly':[('state','!=','finance_manager')],'required':[('state','=','finance_manager')]}"/>
+                                <field name="gm_refuse_cause" attrs="{'readonly':[('state','!=','finance_manager')]}"/>
+                            </group>
+                        </group>
+                        <group string="Last Appraisal" attrs="{'readonly':[('state','!=','draft')]}">
+                            <field name="attach_ids" attrs="{'required':[('state', '=', 'draft')]}">
+                                <tree string="Files" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="datas"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <field name="validators_user_ids" invisible="1"/>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_re-contracting_tree">
+            <field name="name">re-contracting</field>
+            <field name="model">hr.re.contract</field>
+            <field name="arch" type="xml">
+                <tree string="Contracting">
+                    <field name="employee_id"  />
+                    <field name="date" />
+                    <field name="effective_date" />
+                    <field name="state" string="State" />
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

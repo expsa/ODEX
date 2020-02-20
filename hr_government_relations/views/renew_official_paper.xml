@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="renew_official_paper_action">
+            <field name="name">Renew Official Paper</field>
+            <field name="res_model">hr.renew.official.paper</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="renew_official_paper_form_view" model="ir.ui.view">
+            <field name="name">Renew Official Paper</field>
+            <field name="model">hr.renew.official.paper</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="get_data" string="Generate Report" class="oe_highlight" type="object"
+                                />
+
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="document_type" string="Document" required="1"/>
+                                <field name="expire_before" string="Expire Before" required="1"/>
+                                <field name="date" string="Date"
+                                       attrs="{'invisible': [('expire_before', '!=', 'date')]}"/>
+                                <field name="days" string="Days"
+                                       attrs="{'invisible': [('expire_before', '!=', 'days')]}"/>
+                            </group>
+
+                            <field name="official_paper_ids" string="Official Paper Line">
+                                <tree create="false" delete="false" editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="department"/>
+                                    <field name="job_id"/>
+                                    <field name="job_no"/>
+                                    <field name="nationality"/>
+                                    <field name="document_type"/>
+                                    <field name="expire_date"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+
+                    <!--Discuss widgets for history and communication -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="renew_official_paper_tree_view">
+            <field name="name">Renew Official Paper</field>
+            <field name="model">hr.renew.official.paper</field>
+            <field name="arch" type="xml">
+                <tree string="Renew Official Paper">
+                    <field name="document_type" string="Document" />
+                    <field name="expire_before" string="Expire Before" />
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

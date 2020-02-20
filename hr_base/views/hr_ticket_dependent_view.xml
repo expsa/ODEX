@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+<record model="ir.ui.view" id="ticket_dependent_form_view">
+            <field name="name">ticket_dependent_form_view</field>
+            <field name="model">hr.ticket.dependent</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <separator/>
+                        <h3>Dependent Details</h3>
+                        <separator/>
+
+                        <group name="group_top">
+
+                            <group name="group_left">
+
+                                <field name="name"/>
+                                <field name="passport"/>
+                                <field name="dob"/>
+                                <field name="date_issue" widget="date"/>
+                                <field name="date_expiry" widget="date"/>
+                                <field name="nationality"/>
+
+                            </group>
+
+                            <group name="group_right">
+                                <field name="fn" required="1"/>
+                                <field name="mn" required="1"/>
+                                <field name="ln" required="1"/>
+                                <field name="ticket_req"/>
+                                <field name="departure_date" widget="date"/>
+                                <field name="return_date" widget="date"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

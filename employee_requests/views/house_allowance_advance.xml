@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="employee_allowance_advance_list_action">
+            <field name="name">Employee allowance advance</field>
+            <field name="res_model">house.allowance.advance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_house_allowance_advance_form_view">
+            <field name="name">Employee allowance advance</field>
+            <field name="model">house.allowance.advance</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="send" string="submit" class="oe_highlight" type="object"
+                                states="draft"/>
+                        <button name="hr_special_Approval" string="HR Specialist Aproval" class="oe_highlight"
+                                type="object"
+                                states="send"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="send"/>
+                        <button name="financial_manager" string="Fnicial Manager Approval" class="oe_highlight"
+                                type="object"
+                                states="hr_manager_approved"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="hr_manager_approved"/>
+                        <button name="hr_manager_approved" string="HR Manager Approval" class="oe_highlight"
+                                type="object"
+                                states="hr_special_Approval"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="hr_special_Approval"/>
+
+                        <button name="approve_manager" string="Approval Manager" class="oe_highlight" type="object"
+                                states="financial_manager"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="financial_manager"/>
+                        <button name="draft_state" string="RE-Draft" class="oe_highlight" type="object"
+                                states="refused"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="from_hr_department" string="From HR Department"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_id" string="Employee"
+                                       attrs="{'readonly':[('from_hr_department' , '=' , False)]}"/>
+                                <field name="job_id" string="Job Name" readonly="1"/>
+                                <field name="department_id" string="Department" readonly="1"/>
+                                <field name="contract_id" string="Contract"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="amount" string="Amount"
+                                       attrs="{'required':True,'readonly':[('state' , '!=' , 'draft')]}"/>
+                                <field name="start_date" string="Start Date"/>
+                                <field name="date" string="End Date"/>
+                                <field name="duration" string="Duration"
+                                       attrs="{'required':True,'readonly':[('state' , '!=' , 'draft')]}"/>
+                                <button name="generate installment" string="Generate Installment" class="oe_highlight"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="installments" name="installment">
+                                <field name="house_allowance_advance_line_ids"
+                                       attrs="{'readonly':[('state','!=','draft')]}">
+                                    <tree editable="bottom">
+                                        <field name="amount_id" string="Amount"/>
+                                        <field name="date" string="Start Date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Account Information" name="accounting_info">
+                                <group></group>
+                                <group>
+                                    <field name="account_move_id" string="Journal Entry"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_house_allowance_advance_tree_view">
+            <field name="name">Employee allowance advance</field>
+            <field name="model">house.allowance.advance</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id" string="Employee"/>
+                    <field name="department_id" string="Department" required="True"/>
+                    <field name="job_id" string="Job Name" required="True"/>
+                    <field name="contract_id" string="Contract" required="True"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

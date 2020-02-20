@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <!-- replaced total widget because had to change almost all lines -->
+    <t t-name="web.datepicker">
+        <t t-set="placeholder" t-value="widget.getParent().node and widget.getParent().node.attrs.placeholder"/>
+        <div class="o_datepicker input-group date">
+            <input type="text"
+                class="o_datepicker_input o_input"
+                t-att-name="widget.name"
+                t-att-placeholder="placeholder"/>
+            <span class="o_datepicker_button"/>
+            <input type="text"
+                class="o_extra_date odoo_extra_date"
+                t-att-placeholder="placeholder"/>
+        </div>
+    </t>
+</templates>

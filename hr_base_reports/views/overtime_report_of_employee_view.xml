@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="action_overtime_report_of_employee_wizard" model="ir.actions.act_window">
+            <field name="name">Overtime Report of employee</field>
+            <field eval="1" name="sequence"/>
+            <field name="res_model">overtime.report.of.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <record id="form_view_overtime_report_of_employee_wizard" model="ir.ui.view">
+            <field name="name">Overtime Report of employee</field>
+            <field name="model">overtime.report.of.employee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="date_from" string="Date from" required="1"/>
+                            <field name="date_to" string="Date to" required="1"/>
+                            <field name="department_id" string="Department"/>
+                            <field name="job_id" string="Job Title"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Print Overtime PDF" name="get_report" type="object" class="oe_highlight"
+                                icon="fa-download"/>
+                        <button string="Print Overtime XLSX" name="get_reportxlsxs" type="object" class="oe_highlight"
+                                icon="fa-download"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="report.paperformat" id="paperformat_attendance_recap_report">
+            <field name="name">paperformat.attendance.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">30</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">90</field>
+        </record>
+
+
+        <!--pdf report-->
+        <report id="action_report_overtime"
+                model="overtime.report.of.employee"
+                string="Overtime report"
+                report_type="qweb-pdf"
+                name="hr_base_reports.report_overtime_requests_template"
+                file="hr_base_reports.report_overtime_requests_template"
+                paperformat="paperformat_attendance_recap_report"
+                menu="False"/>
+
+
+        <!--xlsx report-->
+        <report
+                id="action_report_overtime_xlsx"
+                model="overtime.report.of.employee"
+                string="Overtime report XLSX"
+                report_type="xlsx"
+                name="hr_base_reports.action_report_overtime_xlsx"
+                file="hr_base_reports.action_report_overtime_xlsx"
+                attachment_use="False"
+        />
+
+        <template id="report_overtime_requests_template">
+            <div class="header" style="border-bottom: 2px solid black">
+                <h4 class="text-center">
+                    <strong style="color:#003c79">From</strong>:
+                    <span style="color:#999">
+                        <t t-esc="date_start"/>
+                    </span>
+                    <strong style="color:#003c79">To</strong>:
+                    <span style="color:#999">
+                        <t t-esc="date_end"/>
+                    </span>
+
+                </h4>
+            </div>
+            <div class="article">
+                <table class="table table-condensed table-bordered" style="width: 100%">
+                    <thead>
+                        <thead>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Employee</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Department</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Job title</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Hours number</th>
+                        </thead>
+                    </thead>
+                    <tbody>
+
+                        <t t-foreach="docs" t-as="doc">
+                            <tr>
+                                <td>
+                                    <span t-esc="doc['employee']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc['department']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc['job']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc['hours_number']"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="row text-center" style="border-top: 1px solid black;">
+                    <div class="col-xs-3 col-xs-offset-9 text-right">
+                        <ul class="list-inline" style="margin-top:10px;">
+                            <li>Page:</li>
+                            <li>
+                                <span class="page"/>
+                            </li>
+                            <li>/</li>
+                            <li>
+                                <span class="topage"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+    </data>
+</odoo>

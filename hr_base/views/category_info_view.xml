@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="category_form_view">
+            <field name="name">category_form_view</field>
+            <field name="model">category.info</field>
+            <field name="arch" type="xml">
+                <form>
+                    <separator/>
+                    <h4>Category Details</h4>
+                    <separator/>
+                    <group name="group_top">
+
+                        <group name="group_left">
+                            <field name="company_name" domain="[('flip','=',False)]"/>
+                            <field name="branch_name" domain="[('flip','=',True)]"/>
+                        </group>
+
+                        <group name="group_right">
+                            <field name="division"/>
+                            <field name="department"/>
+                            <field name="category"/>
+                        </group>
+
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="category_tree_view">
+            <field name="name">category_tree_view</field>
+            <field name="model">category.info</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Category Details">
+                    <field name="company_name"/>
+                    <field name="branch_name"/>
+                    <field name="division"/>
+                    <field name="category"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="category_info_act">
+            <field name="name">Category Info</field>
+            <field name="res_model">category.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

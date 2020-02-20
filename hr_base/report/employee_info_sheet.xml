@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_header_layout_emp_info">
+        <div class="header">
+            <div class="row">
+                <div class="col-xs-3 mb4">
+                    <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)"
+                         style="max-height: 45px;"/>
+                </div>
+                <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+            </div>
+            <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                <div class="col-xs-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <div class="row">
+                <div style="text-align:left" name="company_address">
+                    <span t-field="company.partner_id"
+                          t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                          style="border-bottom: 1px solid black; display:inline-block;"/>
+                </div>
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-raw="0"/>
+            </div>
+        </div>
+    </template>
+
+    <template id="custom_external_layout_emp_info">
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id"/>
+        </t>
+
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"/>
+        </t>
+
+        <div class="article">
+            <t t-call="hr_base.custom_header_layout_emp_info"/>
+            <t t-raw="0"/>
+        </div>
+
+    </template>
+
+    <template id="employee_info_report_template">
+        <t t-call="hr_base.custom_external_layout_emp_info">
+            <t t-foreach="docs" t-as="o">
+                <div class="page" style="font-family: 'Arial';direction:rtl;margin-top: -5px;">
+                    <div class="row">
+                        <div class="pull-right">
+                            <h2 style="text-align: right;">
+                                <strong style="font-size: 20px;margin-right:10%;color:#2c7873;">
+                                    بـطــاقـــة مــعــلـومـــات موظف
+                                </strong>
+                                <br/>
+                                <strong style="font-size: 20px;margin-right:10%;color:#2c7873;">
+                                    Employee Information Sheet
+                                </strong>
+                            </h2>
+                        </div>
+                        <div class="pull-left">
+                            <img t-attf-src="data:image/*;base64,{{o.image}}" class="table table-bordered"
+                                 style="max-height: 140px;max-width: 140px;border: 2px solid #DADADA;margin-left: 75px;padding: 7px;"/>
+                        </div>
+                        <br/>
+                    </div>
+                    <div class="row">
+                        <table class="table table-bordered"
+                               style="width:100%;border: 2px solid #DADADA;">
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" colspan="4">
+                                    <span style="font-size: 18px;color:#2c7873;">
+                                        <strong>مـعـلـومـات شـخـصـيـة</strong>
+                                    </span>
+                                    <span class="pull-left" style="font-size: 18px;color:#2c7873;">
+                                        <strong>Personal Information</strong>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>الاسم الأول</span>
+                                    <span class="pull-left">First Name</span>
+                                    <br/>
+                                    <span t-esc="o.name.split()[0]"/>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>اسم الأب</span>
+                                    <span class="pull-left">Father’s Name</span>
+                                    <br/>
+                                    <t t-if="len(o.name.split()) > 1">
+                                        <span t-esc="o.name.split()[1]"/>
+                                    </t>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>اسم الجد</span>
+                                    <span class="pull-left">Grandfather’s Name</span>
+                                    <br/>
+                                    <t t-if="len(o.name.split()) > 2">
+                                        <span t-esc="o.name.split()[2]"/>
+                                    </t>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>اسم العائلة</span>
+                                    <span class="pull-left">Family Name</span>
+                                    <br/>
+                                    <t t-if="len(o.name.split()) > 3">
+                                        <span t-esc="o.name.split()[3]"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>الجنسية</span>
+                                    <span class="pull-left">Nationality</span>
+                                    <br/>
+                                    <span t-field="o.country_id"/>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>تاريخ الميلاد</span>
+                                    <span class="pull-left">Date of Birth</span>
+                                    <br/>
+                                    <span style="text-align: center;"
+                                          t-esc="datetime.datetime.strptime(o.birthday, '%Y-%m-%d').date()"/>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>مكان الميلاد</span>
+                                    <span class="pull-left">Place of Birth</span>
+                                    <br/>
+                                    <span style="text-align: center;" t-field="o.place_of_birth"/>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>الديانة</span>
+                                    <span class="pull-left">Religion</span>
+                                    <br/>
+                                    <span style="text-align: center;" t-field="o.religion"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>رقم الحفيظة أو الجواز</span>
+                                    <span class="pull-left">Identity or Passport No</span>
+                                    <br/>
+                                    <t t-if="o.country_id.name == 'Saudi Arabia' or o.country_id.name == 'المملكة العربية السعودية'">
+                                        <span style="text-align: center;" t-field="o.saudi_number.saudi_id"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span style="text-align: center;" t-field="o.passport_id.passport_id"/>
+                                    </t>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>تاريخ الإصدار</span>
+                                    <span class="pull-left">Date of Issue</span>
+                                    <br/>
+                                    <t t-if="o.country_id.name == 'Saudi Arabia' or o.country_id.name == 'المملكة العربية السعودية'">
+                                        <span style="text-align: center;"
+                                              t-esc="datetime.datetime.strptime(o.date_issuance_saudi_id, '%Y-%m-%d').date()"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span style="text-align: center;"
+                                              t-esc="datetime.datetime.strptime(o.date_issuance_passport, '%Y-%m-%d').date()"/>
+                                    </t>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>مكان الإصدار</span>
+                                    <span class="pull-left">Place of Issue</span>
+                                    <br/>
+                                    <t t-if="o.country_id.name == 'Saudi Arabia' or o.country_id.name == 'المملكة العربية السعودية'">
+                                        <span style="text-align: center;" t-field="o.place_issuance_saudi_id"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span style="text-align: center;" t-field="o.passport_id.place_issue_id"/>
+                                    </t>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>بلد الأصل</span>
+                                    <span class="pull-left">Original Country</span>
+                                    <br/>
+                                    <span class="text-center" style="text-align: center;" t-field="o.country_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <span>العنوان:</span>
+                                    <span t-field="o.building_number"/>
+                                    <span t-field="o.street"/>-<span t-field="o.addres_region"/>-<span
+                                        t-field="o.addres_city"/>-
+                                    <span t-field="o.postal_code"/>
+                                    <span class="pull-left">:Address</span>
+                                    <br/>
+                                    <span>
+                                        المدينة:
+                                    </span>
+                                    <span t-field="o.addres_city"/>
+                                    <span class="pull-left">
+                                        :City
+                                    </span>
+                                    <br/>
+                                    <span>
+                                        الشارع:
+                                    </span>
+                                    <span t-field="o.street"/>
+                                    <span class="pull-left">
+                                        :Street
+                                    </span>
+                                    <br/>
+                                    <span>
+                                        صندوق بريد رقم:
+                                    </span>
+                                    <span class="pull-left">
+                                        :P.O. Box
+                                    </span>
+                                    <br/>
+                                    <span>
+                                        الرمز البريدي:
+                                    </span>
+                                    <span t-field="o.postal_code"/>
+                                    <span class="pull-left">
+                                        :Zip Code
+                                    </span>
+                                </td>
+                                <td colspan="2">
+                                    <span>رقم الهاتف
+                                    </span>
+                                    <span class="pull-left">.Telephone No</span>
+                                    <br/>
+                                    <span>
+                                        عمل:
+                                    </span>
+                                    <span t-field="o.work_phone"/>
+                                    <span class="pull-left">
+                                        :Work
+                                    </span>
+                                    <br/>
+                                    <span>
+                                        منزل:
+                                    </span>
+                                    <span t-field="o.home_no"/>
+                                    <span class="pull-left">
+                                        :Home
+                                    </span>
+                                    <br/>
+                                    <span>
+                                        جوال:
+                                    </span>
+                                    <span t-field="o.mobile_phone"/>
+                                    <span class="pull-left">
+                                        :Mobile
+                                    </span>
+                                    <br/>
+                                    <span>
+                                        فاكس:
+                                    </span>
+                                    <span class="pull-left">
+                                        :Fax
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <table class="table table-bordered"
+                               style="width:100%;border: 2px solid #DADADA;">
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" colspan="6">
+                                    <span style="font-size: 15px;color:#2c7873;">
+                                        <strong>التعليم</strong>
+                                    </span>
+                                    <span class="pull-left" style="font-size: 15px;color:#2c7873;">
+                                        <strong>Education</strong>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>الشهادة الحائز عليها</span>
+                                    <br/>
+                                    <span>Certificate Obtained</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>التخصص</span>
+                                    <br/>
+                                    <span>Major</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>اسم الجامعة أو المدرسة</span>
+                                    <br/>
+                                    <span>Name of University or School</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>مكان الدراسة</span>
+                                    <br/>
+                                    <span>Location</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>عدد سنوات الدراسة</span>
+                                    <br/>
+                                    <span>No. of Years</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>تاريخ الحصول على الشهادة</span>
+                                    <br/>
+                                    <span>Date Certificate Obtained</span>
+                                </td>
+                            </tr>
+                            <t t-foreach="o.qualifiction_id" t-as="q">
+                                <tr class="text-center">
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-field="q.qualification_specification_id"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;"/>
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-field="q.uni_name"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-field="q.country_name"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;" height="50"/>
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-esc="datetime.datetime.strptime(q.comp_date, '%Y-%m-%d').date()"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <table class="table table-bordered"
+                               style="width:100%;border: 2px solid #DADADA;">
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" colspan="5">
+                                    <span style="font-size: 15px;color:#2c7873;">
+                                        <strong>الدورات التدريبية و المعاهد المهنية</strong>
+                                    </span>
+                                    <span class="pull-left" style="font-size: 15px;color:#2c7873;">
+                                        <strong>Training Courses and Vocational Training</strong>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td style="border: 1px solid #DADADA;" rowspan="2">
+                                    <span>اسم المعهد</span>
+                                    <br/>
+                                    <span>Name of Institute</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" colspan="2">
+                                    <span>مدة التدريب</span>
+                                    <br/>
+                                    <span>Period</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" rowspan="2">
+                                    <span>نوع التدريب</span>
+                                    <br/>
+                                    <span>Type of Training</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" rowspan="2">
+                                    <span>الشهادة</span>
+                                    <br/>
+                                    <span>Certificate</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>من</span>
+                                    <span class="pull-left">From</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>إلى</span>
+                                    <span class="pull-left">To</span>
+                                </td>
+                            </tr>
+                            <t t-foreach="o.certification_id" t-as="c">
+                                <tr class="text-center">
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-field="c.issue_org"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-esc="datetime.datetime.strptime(c.issue_date, '%Y-%m-%d').date()"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-esc="datetime.datetime.strptime(c.exp_date, '%Y-%m-%d').date()"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-field="c.car_name"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <t t-foreach="o.get_employee_mission()" t-as="tra">
+                                <tr class="text-center">
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-field="tra.partner_id"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-esc="datetime.datetime.strptime(tra.date_from, '%Y-%m-%d').date()"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-esc="datetime.datetime.strptime(tra.date_to, '%Y-%m-%d').date()"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-field="tra.train_category"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;">
+                                        <span t-field="tra.course_name"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+
+                    <div class="row" style="page-break-before: always;">
+                        <table class="table table-bordered"
+                               style="width:100%;border: 2px solid #DADADA;">
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" colspan="10">
+                                    <span style="font-size: 15px;color:#2c7873;">
+                                        <strong>اللغات</strong>
+                                    </span>
+                                    <span class="pull-left" style="font-size: 15px;color:#2c7873;">
+                                        <strong>Languages</strong>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" rowspan="2">
+                                    <span>اللغة</span>
+                                    <span class="pull-left">Language</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" colspan="3">
+                                    <span>القراءة</span>
+                                    <span class="pull-left">Reading</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" colspan="3">
+                                    <span>الكتابة</span>
+                                    <span class="pull-left">Writing</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" colspan="3">
+                                    <span>التحدث</span>
+                                    <span class="pull-left">Speaking</span>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>جيد</span>
+                                    <br/>
+                                    <span>Good</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>وسط</span>
+                                    <br/>
+                                    <span>Fair</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>ضعيف</span>
+                                    <br/>
+                                    <span>Poor</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>جيد</span>
+                                    <br/>
+                                    <span>Good</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>وسط</span>
+                                    <br/>
+                                    <span>Fair</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>ضعيف</span>
+                                    <br/>
+                                    <span>Poor</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>جيد</span>
+                                    <br/>
+                                    <span>Good</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>وسط</span>
+                                    <br/>
+                                    <span>Fair</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>ضعيف</span>
+                                    <br/>
+                                    <span>Poor</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" height="30">
+                                    <span>اللغة العربية</span>
+                                    <span class="pull-left">Arabic</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" height="30">
+                                    <span>اللغة الإنجليزية</span>
+                                    <span class="pull-left">English</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" height="30">
+                                    <span>لغات أخرى (حدد)</span>
+                                    <span class="pull-left">Others (Specify)</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <table class="table table-bordered"
+                               style="width:100%;border: 2px solid #DADADA;">
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" colspan="6">
+                                    <span style="font-size: 15px;color:#2c7873;">
+                                        <strong>الخبرات العملية</strong>
+                                    </span>
+                                    <span class="pull-left" style="font-size: 13px;color:#2c7873;">
+                                        <strong>Work Experience</strong>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td style="border: 1px solid #DADADA;" height="10" rowspan="2">
+                                    <span>الجهة التي عملت معها</span>
+                                    <br/>
+                                    <span>Name of Employer</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" height="10" rowspan="2">
+                                    <span>الوظيفة</span>
+                                    <br/>
+                                    <span>Position</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" height="10" rowspan="2">
+                                    <span>الراتب</span>
+                                    <br/>
+                                    <span>Salary</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" colspan="2">
+                                    <span>مدة العمل</span>
+                                    <span class="pull-left">Period</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" height="10" rowspan="2">
+                                    <span>سبب ترك العمل</span>
+                                    <br/>
+                                    <span>Reason for Leaving</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>من</span>
+                                    <span class="pull-left">From</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>إلى</span>
+                                    <span class="pull-left">To</span>
+                                </td>
+                            </tr>
+
+                            <t t-foreach="o.employment_history_ids" t-as="emp">
+                                <tr class="text-center">
+                                    <td style="border: 1px solid #DADADA;" height="35">
+                                        <span t-field="emp.employeer"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;" height="35">
+                                        <span t-field="emp.position"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;" height="35">
+                                        <span t-field="emp.salary"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;" height="35">
+                                        <span t-esc="datetime.datetime.strptime(emp.date_from, '%Y-%m-%d').date()"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;" height="35">
+                                        <span t-esc="datetime.datetime.strptime(emp.date_to, '%Y-%m-%d').date()"/>
+                                    </td>
+                                    <td style="border: 1px solid #DADADA;" height="35"/>
+                                </tr>
+                            </t>
+
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <table class="table table-bordered"
+                               style="width:100%;border: 2px solid #DADADA;">
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" colspan="4">
+                                    <span style="font-size: 15px;color:#2c7873;">
+                                        <strong>في حالة الطوارئ الرجاء الإتصال بــــ:</strong>
+                                    </span>
+                                    <span class="pull-left" style="font-size: 13px;color:#2c7873;">
+                                        <strong>:In Case of Emergency Please Call</strong>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td style="width:40%;border: 1px solid #DADADA;" height="5">
+                                    <span>الإسم</span>
+                                    <br/>
+                                    <span>Name</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" height="5">
+                                    <span>صلة القرابة</span>
+                                    <br/>
+                                    <span>Relationship</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" height="5">
+                                    <span>رقم الهاتف</span>
+                                    <br/>
+                                    <span>Telephone No.</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;" height="5">
+                                    <span>رقم الجوال</span>
+                                    <br/>
+                                    <span>Mobile No.</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                                <td style="border: 1px solid #DADADA;" height="30"/>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <table class="table table-bordered"
+                               style="width:100%;border: 2px solid #DADADA;">
+                            <tr>
+                                <td style="border: 1px solid #DADADA;" colspan="6">
+                                    <span style="font-size: 15px;color:#2c7873;">
+                                        <strong>بيانات أفراد العائلة</strong>
+                                    </span>
+                                    <span class="pull-left" style="font-size: 13px;color:#2c7873;">
+                                        <strong>Dependent Information</strong>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr class="text-center">
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>#</span>
+                                </td>
+                                <td style="width:40%;border: 1px solid #DADADA;">
+                                    <span>الإسم</span>
+                                    <br/>
+                                    <span>Name</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>صلة القرابة</span>
+                                    <br/>
+                                    <span>Relationship</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>تاريخ الميلاد</span>
+                                    <br/>
+                                    <span>Date of Birth</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>مكان الميلاد</span>
+                                    <br/>
+                                    <span>Place of Birth</span>
+                                </td>
+                                <td style="border: 1px solid #DADADA;">
+                                    <span>رقم الهوية (الجواز)</span>
+                                    <br/>
+                                    <span>ID (Passport) No.</span>
+                                </td>
+                            </tr>
+                            <t t-if="o.contract_id.contract_status == 'marriage'">
+                                <t t-set="i" t-value="1"/>
+                                <t t-foreach="o.contract_id.employee_dependant" t-as="d">
+                                    <tr class="text-center">
+                                        <td style="border: 1px solid #DADADA;">
+                                            <span t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
+                                        <td style="border: 1px solid #DADADA;">
+                                            <span t-field="d.name"/>
+                                        </td>
+                                        <td style="border: 1px solid #DADADA;">
+                                            <span t-field="d.relation"/>
+                                        </td>
+                                        <td style="border: 1px solid #DADADA;">
+                                            <span t-esc="datetime.datetime.strptime(d.birthday, '%Y-%m-%d').date()"/>
+                                        </td>
+                                        <td style="border: 1px solid #DADADA;"/>
+                                        <td style="border: 1px solid #DADADA;">
+                                            <span t-field="d.passport_no"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                            <t t-else="">
+                                <tr>
+                                    <td style="border: 1px solid #DADADA;" height="30">1</td>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #DADADA;" height="30">2</td>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #DADADA;" height="30">3</td>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                    <td style="border: 1px solid #DADADA;" height="30"/>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <span class="pull-left" style="font-size: 12px;direction:ltr;">
+                            Kindly Submit:
+                            <br/>
+                            1) Copy of clear passport “Employee + Dependents” and all copies academic certificates.
+                            <br/>
+                            2) Bank Account Number.
+                        </span>
+                        <br/>
+                        <br/>
+                        <span class="text-center" style="font-size: 12px;margin-right: 100px;">
+                            أقر أن هذه المعلومات المذكورة في هذه الاستمارة صحيحة.
+                        </span>
+                        <span class="text-center" style="text-align: center;font-size: 12px;margin-right: 160px;">
+                            .I do hereby declare that the information provided is to the best of my knowledge true and
+                            accurate
+                        </span>
+                        <br/>
+                        <span class="pull-right" style="font-size: 15px;direction:rtl;">
+                            التوقيع:
+                            ............................................................................................................Signature
+                        </span>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+        <record model="ir.actions.act_window" id="request_visa_action">
+            <field name="name">Request Visa</field>
+            <field name="res_model">hr.request.visa</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+        </record>
+
+
+        <record id="request_visa_form_view" model="ir.ui.view">
+            <field name="name">Request Visa</field>
+            <field name="model">hr.request.visa</field>
+            <field name="arch" type="xml">
+                <form string="Request Visa">
+                    <header>
+                        <button string="Direct Manager" name="send" type="object" class="oe_highlight" states="draft"
+                                groups="hr_base.group_division_manager"/>
+                        <button string="Government Relations" name="hr_manager" type="object" class="oe_highlight" states="send"
+                                groups="hr_base.group_government_relations"/>
+                        <button string="Refuse" name="refuse" type="object" class="oe_highlight" states="send"
+                                groups="hr_base.group_government_relations"/>
+                        <button string="HR Manager" name="financial_manager" class="oe_highlight" type="object" states="confirm"
+                                groups="hr.group_hr_user, hr.group_hr_manager"/>
+                        <button string="Re-draft" name="draft" type="object" class="oe_highlight" states="refuse,done"
+                                groups="hr.group_hr_user"/>
+                        <button string="Refuse" name="refuse" type="object" class="oe_highlight" states="confirm"
+                                groups="hr.group_hr_user, hr.group_hr_manager"/>
+                        <field name="state" widget="statusbar" />
+
+                    </header>
+
+                    <sheet>
+                        <group string="Employee Info">
+                            <group >
+                                <field name="from_hr" string="Request via HR"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_id" string="Employe" attrs="{'readonly': ['|',('from_hr','=',False),('state','!=','draft')],'required':True}"/>
+
+                                <field name="department_id" string="Department" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="date" string="Request Date" attrs="{'readonly':[('state','!=','draft')]}"/>
+
+
+                            </group>
+                           
+                        </group>
+
+                        <group string="Person Info">
+                            
+                            <group >
+                                <field name="name" string="Person Nmae" attrs="{'readonly':[('state','!=','draft')]}" required="1"/>
+                                <field name="passport" string="Passport Number" attrs="{'readonly':[('state','!=','draft')]}" required="1"/>
+                                <field name="passport_date" string="Passport Date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="birth_date" string="Birth Date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="religion" string="Religion" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+
+                           <group >
+                                <field name="working" string="Working" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="activity" string="Activity" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="job" string="Name Job" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="nationality_id" string="Nationality" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="note" string="Note" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+
+                            <group  string="Visa Type">
+                               <div >
+                                Onece <field name="onece" attrs="{'readonly':[('state','!=','draft')]}" />
+                               </div>
+                               <div >
+                                Multi <field name="multi" attrs="{'readonly':[('state','!=','draft')]}"  />
+                               </div>
+                            </group>
+                            <group  string="Visa Period">
+                               <div >
+                                 <field name="one" attrs="{'readonly':[('state','!=','draft')]}"/> 15   
+                                 <field name="tow" attrs="{'readonly':[('state','!=','draft')]}"/> 30   
+                                 <field name="three" attrs="{'readonly':[('state','!=','draft')]}"/> 90   
+                                 <field name="four" attrs="{'readonly':[('state','!=','draft')]}"/> 180   
+                                 <field name="five" attrs="{'readonly':[('state','!=','draft')]}"/> 365   
+                                 <field name="sex" attrs="{'readonly':[('state','!=','draft')]}"/> 1825   
+                               </div>
+                            
+ 
+                            </group>
+                            <group >
+                                 <field name="cost" string="Cost" attrs="{'readonly':[('state','!=','send')]}" />
+                                 <field name="account_journal_id" string="Journal"
+                                               attrs="{'readonly':[('state','!=','confirm')],'required':['&amp;',('cost','>', '0' ),('state','=','confirm')]}"  />
+                                 <field name="account_debit_id" string="Account"
+                                               attrs="{'readonly':[('state','!=','confirm')],'required':['&amp;',('cost','>', '0' ),('state','=','confirm')]}"  />
+                                 <field name="account_move_id" string="Account move" readonly="1"/>
+                        </group>
+                        </group>
+                         
+                        <notebook>
+                           
+                            <page string="Attachment">
+                                <field name="attach_ids" attrs="{'readonly':[('state','!=','draft')]}">
+                                    <tree string="Files" editable="bottom">
+                                        <field name="name" string="Attachment Name"/>
+                                        <field name="datas" string="File Content"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            
+
+                        </notebook>
+                    </sheet>
+                    <!--Discuss widgets for history and communication -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="request_visa_tree_view">
+            <field name="name">Request Visa</field>
+            <field name="model">hr.request.visa</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="state=='done'" decoration-danger="state == 'refuse'" decoration-info="state == 'draft'" string="Request Visa">
+                    <field name="employee_id"/>
+                    <field name="name"/>
+                     <field name="date" />
+                    <field name="note" string="Notes"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

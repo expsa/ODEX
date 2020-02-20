@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+         <record model="ir.ui.view" id="hr_certification_form_view">
+             <field name="name">Certification</field>
+             <field name="model">hr.certification</field>
+             <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group name="hr_certification" string="Certifications">
+                             <group>
+                                    <field name="car_name"/>
+                                     <field name="regis_no"/>
+                                    <field name="certification_degree"/>
+                             </group>
+                            <group>
+                                    <field name="issue_org"/>
+                                    <field name="issue_date"/>
+                                    <field name="exp_date"/>
+                             </group>
+                        </group>
+                        <group string="Contact Information">
+                            <group>
+                                 <field name="contact_name"/>
+                                 <field name="contact_phn"/>
+                                 <field name="contact_email"/>
+                            </group>
+                            <group>
+                                <field name="country_name"/>
+                                <field name="contract_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+             </field>
+        </record>
+
+    </data>
+</odoo>

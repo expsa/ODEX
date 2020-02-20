@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+        <record id="dependent_form_view" model="ir.ui.view">
+            <field name="name">hr.dependent.form.view</field>
+            <field name="model">hr.dependent</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="employee"/>
+                        </group>
+                        <group string='Personal Information'>
+                            <field name="name"/>
+                            <field name="arabic_name"/>
+                            <field name="fn" required="1"/>
+                            <field name="mn"/>
+                            <field name="ln"/>
+                            <field name="dob"/>
+                            <field name="d_gender"/>
+                            <field name="nationality"/>
+                        </group>
+                        <group string='Iqama Details'>
+                            <field name="relation"/>
+                            <field name="religion"/>
+                            <field name="iqama_num"/>
+                            <!-- <field name="serial_num"/> -->
+                            <field name="date_issue" widget="date"/>
+                            <field name="date_expiry" widget="date"/>
+                            <field name="issue_place"/>
+                            <field name="d_passport"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- Dependent-->
+        <record id="dependent_tree_view" model="ir.ui.view">
+            <field name="name">hr.dependent.tree.view</field>
+            <field name="model">hr.dependent</field>
+            <field name="arch" type="xml">
+                <tree string='Personal Information'>
+                    <field name="employee"/>
+                    <field name="name"/>
+                    <field name="arabic_name"/>
+                    <field name="dob"/>
+                    <field name="nationality"/>
+                    <field name="relation"/>
+                    <field name="religion"/>
+                    <field name="iqama_num"/>
+                    <!-- <field name="serial_num"/> -->
+                    <field name="date_issue" widget="date"/>
+                    <field name="date_expiry" widget="date"/>
+                    <field name="issue_place"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="hr_department_ext_form_view" model="ir.ui.view">
+            <field name="name">hr_department_ext_form_view</field>
+            <field name="model">hr.department</field>
+            <field name="inherit_id" ref="hr.view_department_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='manager_id']" position="attributes">
+                    <attribute name="required">True</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='manager_id']" position="after">
+                    <field name="dep_link" invisible="1"/>
+                </xpath>
+
+
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="dependent_list_action">
+            <field name="name">Dependent</field>
+            <field name="res_model">hr.dependent</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

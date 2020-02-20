@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+        <!-- EOS-->
+        <record model="ir.actions.act_window" id="eos_list_action">
+            <field name="name">EOS</field>
+            <field name="res_model">employee.eos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- EOS-->
+        <record model="ir.ui.view" id="eos_form_view">
+            <field name="name">hr.eos.form.view</field>
+            <field name="model">employee.eos</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group string='Employee Details'>
+                        <group>
+                            <field name="employee"/>
+                            <field name="department"/>
+                            <field name="job"/>
+                            <field name="contract"/>
+                        </group>
+                        <group>
+                            <field name="joining_date" required="1"/>
+                            <field name="leaving_date"/>
+                            <field name="employee_code"/>
+                            <field name="currency"/>
+                            <field name="year"/>
+                        </group>
+                    </group>
+                    <group>
+                        <notebook>
+                            <page string="EOS Details" name="employee_eos">
+                                <group>
+                                    <group>
+                                        <field name="date"/>
+                                        <field name="type_d"/>
+                                        <field name="payslip"/>
+                                        <field name="remaining_leave"/>
+                                        <field name="no_year"/>
+                                        <field name="no_month"/>
+                                        <field name="no_days"/>
+                                    </group>
+                                    <group>
+                                        <field name="total_award"/>
+                                        <field name="leave_balance"/>
+                                        <field name="salary"/>
+                                        <field name="others"/>
+                                        <field name="total_amount"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Accounting" name="employee_accounting">
+                            </page>
+                            <page string="Extra Information" name="employee_accounting">
+                            </page>
+                        </notebook>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- EOS-->
+        <record model="ir.actions.act_window" id="eos_list_action">
+            <field name="name">EOS</field>
+            <field name="res_model">employee.eos</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

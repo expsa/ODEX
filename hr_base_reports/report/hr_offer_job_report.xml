@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+
+
+
+              <report id="action_report_job_offer"
+                model="hr.offer.wizard"
+                string="Job Offer report"
+                report_type="qweb-pdf"
+                name="hr_base_reports.report_offer_job_template"
+                file="hr_base_reports.report_offer_job_template"
+                menu="False"/>
+
+
+        <report
+            id="action_job_offer_report_xlsx"
+            model="hr.offer.wizard"
+            string="Job Offers Of Employees"
+            report_type="xlsx"
+            name="hr_base_reports.action_job_offer_report_xlsx"
+            file="hr_base_reports.action_job_offer_report_xlsx"
+        />
+    </data>
+</odoo>

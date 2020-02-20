@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="employee_iqama_renewal_list_action">
+            <field name="name">Request Iqama Renewal</field>
+            <field name="res_model">employee.iqama.renewal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="employee_iqama_renewal_form_view" model="ir.ui.view">
+            <field name="name">company document</field>
+            <field name="model">employee.iqama.renewal</field>
+            <field name="arch" type="xml">
+                <form string="Employee iqama renewal">
+                    <header>
+                        <button name="submit" string="Submit" class="oe_highlight" type="object"
+                                states="draft"
+                                groups="hr_base.group_government_relations"/>
+                        <button name="b_search" string="Search" class="oe_highlight" type="object"
+                                states="draft"
+                                groups="hr_base.group_government_relations"/>
+
+                        <button name="hr_depart" string="HR department Manager" class="oe_highlight" type="object"
+                                states="submit"
+                                groups="hr.group_hr_manager" />
+                         <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="submit"
+                                 groups="hr.group_hr_manager"/>
+
+                        <button name="effective_department" string="Effective Approval" class="oe_highlight" type="object"
+                                states="hr_depart"
+                                groups="hr_base.group_executive_manager"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="hr_depart"
+                                groups="hr_base.group_account_manager" />
+
+                         <button name="chief_accountant" string="Chief accountant Approval" class="oe_highlight" type="object"
+                                states="effective_department"
+                                groups="hr_base.group_account_manager" />
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="effective_department"
+                                groups="hr_base.group_account_manager"/>
+
+                         <!--button name="general_manager" string="General manager approve" class="oe_highlight" type="object"
+                                states="chief_accountant"
+                                groups="hr_base.group_general_manager"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="chief_accountant"
+                                groups="hr_base.group_general_manager"/-->
+
+                        <!--button name="draft_state" string="Re-Draft" class="oe_highlight" type="object"
+                                states="general_manager"
+                                groups="hr_base.group_general_manager"/-->
+
+                        <button name="draft_state" string="Re-Draft" class="oe_highlight" type="object"
+                                states="chief_accountant"
+                                groups="hr_base.group_account_manager"/>
+
+                         <button name="draft_state" string="Re-Draft" class="oe_highlight" type="object"
+                                states="refused" groups="hr.group_hr_user,hr.group_hr_manager"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+                <sheet>
+                    <group>
+
+                    <field name="name" string="Ref"/>
+                    <field name="x_description" string="Description" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    <field name="date" string="Date" widget="date" required="True" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </group>
+                        <field name="line_ids" string="Employees" >
+                            <tree editable="bottom" >
+                               <field name="employee_id" string="Name" attrs="{'readonly':[('state','!=','draft')]}" />
+                               <field name="iqama_no" string="Iqama No" required="True"/>
+                               <field name="iqama_expir_date" string="Iqama expire date" required="True" widget="date" force_save="1"/>
+                               <field name="iqama_new_expiry" string="New Iqama Expiry" required="1" widget="date" 
+                                      attrs="{'readonly':[('state','!=','draft')]}"/>
+                               <field name="account_id" string="Account Renewal"
+                              attrs="{'readonly':[('state','!=','effective_department')],'required':[('state','=','effective_department')]}"/>
+                               <field name="account_id2" string="Account Work"
+                              attrs="{'readonly':[('state','!=','effective_department')],'required':[('state','=','effective_department')]}"/>
+                               <field name="journal_id" string="Journal" 
+                              attrs="{'readonly':[('state','!=','effective_department')],'required':[('state','=','effective_department')]}"/>
+                               <field name="work_premit_sedad_no" string="Work premit /Sedad No" required="True"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                               <field name="renewal_fees" string="Renewal fees" required="True" attrs="{'readonly':[('state','!=','draft')]}"/>
+
+                                 <field name="work_premint_fees" string="work premint fees" required="True"
+                                        attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="total" string="Total Fees" required="True"/>
+                                <field name="state" string="State" />
+                            </tree>
+                        </field>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_iqama_renewal_tree_view">
+            <field name="name">company Document</field>
+            <field name="model">employee.iqama.renewal</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="state == 'refused'" decoration-info="state == 'draft'"  string="employee iqama renewal">
+                    <field name="name" string="Ref" />
+                    <field name="x_description" string="Description"/>
+                    <field name="line_ids" string="Employees" />
+                    <field name="date" string="Date" widget="date" />
+                    <field name="state" string="State" />
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

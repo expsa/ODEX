@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="maintenance_equipment_view_ext" model="ir.ui.view">
+            <field name="name">maintenance_equipment_view_ext</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//page[3]" position="after">>
+                    <page string="Asset Documents" name="asset_documents">
+                        <field name="documents_id">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="doc_no"/>
+                                <field name="doc_type"/>
+                                <!-- <field name="po"/>  -->
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+
+                <xpath expr="//page[4]" position="after">>
+                    <page string="Asset Details" name="asset_page">
+                        <group name="group_top">
+
+                            <group name="group_left">
+                                <field name="model"/>
+                                <field name="color"/>
+                                <field name="plate_no"/>
+                                <field name="ownership"/>
+                            </group>
+
+                            <group name="group_right">
+                                <field name="door_no"/>
+                                <field name="chassis_no"/>
+                                <field name="reg_no"/>
+                                <field name="make"/>
+                            </group>
+
+                        </group>
+
+                        <group name="group_top" attrs="{'invisible': [('ownership','not in', ('own','leas'))]}">
+
+                            <group name="group_left" string="Owned">
+                                <field name="sponsor_id"/>
+                                <field name="sponsor"/>
+                                <field name="location"/>
+                                <field name="p_price"/>
+                                <field name="i_value"/>
+                            </group>
+
+                            <group name="group_right" string="Leased"
+                                   attrs="{'invisible': [('ownership','in', 'own')]}">
+                                <field name="sponsor_lease_id"/>
+                                <field name="c_name" domain="[('flip','=',False)]"/>
+                                <field name="cr_no"/>
+                                <field name="lease_expiry"/>
+                                <field name="remark"/>
+                            </group>
+
+                        </group>
+
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="maintenance.menu_maintenance_title" model="ir.ui.menu">
+            <field name="name">Assets</field>
+        </record>
+
+    </data>
+</odoo>

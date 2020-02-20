@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <template id="report_sales_order_template">
+            &lt;!DOCTYPE html&gt;
+            <html style="height: 100%">
+                <head>
+
+                    <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet"/>
+                    <style type="text/css">
+
+
+                    </style>
+                </head>
+
+                <body>
+                    <div class="article">
+                        <div class="row">
+                            <div class="oe_structure"/>
+                            <h2 class="text-center">
+                                Sales Invoice فاتورة مبيعات
+                            </h2>
+
+                            <div class="row mt32 mb32">
+                            </div>
+                        </div>
+                        <div class="row mt32 mb32">
+                            <t t-foreach="docs" t-as="doc">
+
+                                <div class="col-xs-6">
+                                    <span style="float:left;">Customer Tax #: </span>
+                                    <strong t-esc="doc.partner_id.vat"  />
+                                    <span style="float:right;">:الرقم الضريبي للعميل</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span style="float:left;">Date: </span>
+                                    <strong t-esc="doc.validity_date" />
+                                    <span style="float:right;">:تاريخ الفاتورة</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span style="float:left;">Customer Name: </span>
+                                    <strong t-esc="doc.partner_id.name"  />
+                                    <span style="float:right;">:اسم العميل</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span style="float:left;">Invoice #: </span>
+                                    <strong t-esc="doc.partner_id.name" />
+                                    <span style="float:right">:رقم الفاتورة</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span style="float:left;">Customer Address: </span>
+                                    <strong t-esc="doc.partner_id.street" />
+                                    <span style="float:right">:عنوان العميل</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span style="float:left">Sales Order No: </span>
+                                    <strong t-esc="doc.name" />
+                                    <span style="float:right">:رقم أمر البيع</span>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="row mt32 mb32">
+                        </div>
+                        <table class="table table-condensed table-bordered" style="width: 100%">
+                            <thead>
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="width: 10%;">
+                                            الإجمالي
+                                        </th>
+                                        <th class="text-center" style="width: 10%;">
+                                            الخصم
+                                        </th>
+                                        <th class="text-center" style="width: 10%;">
+                                            قيمة الضربية
+                                        </th>
+                                        <th class="text-center" style="width: 10%;">
+                                            السعر قبل الضربية
+                                        </th>
+                                        <th class="text-center" style="width: 7%;">
+                                            الكمية
+                                        </th>
+                                        <th class="text-center" style="width: 10%;">
+                                            سعر الوحدة
+                                        </th>
+                                        <th class="text-center" style="width: 35%;">
+                                            البيان
+                                        </th>
+                                        <th class="text-center" style="width: 3%;">
+                                            NO
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" style="width: 10%;">
+                                            Amount
+                                        </th>
+                                        <th class="text-center" style="width: 10%;">
+                                            Discount
+                                        </th>
+                                        <th class="text-center" style="width: 10%;">
+                                            VAT Rate
+                                        </th>
+                                        <th class="text-center" style="width: 10%;">
+                                            Amount Before VAT
+                                        </th>
+                                        <th class="text-center" style="width: 7%;">
+                                            Qty
+                                        </th>
+                                        <th class="text-center" style="width: 10%;">
+                                            Unit Price
+                                        </th>
+                                        <th class="text-center" style="width: 35%;">
+                                            Description
+                                        </th>
+                                        <th class="text-center" style="width: 3%;border-top:0">
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </thead>
+                            <tbody>
+
+                                <t t-foreach="docs.order_line" t-as="doc">
+                                    <tr>
+                                        <td>
+                                            <span t-esc="doc.price_unit"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="doc.price_unit"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="doc.tax_id.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="doc.price_unit"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="doc.product_uom_qty"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="doc.price_unit"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="doc.name"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="doc.price_unit"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div class="row mt32 mb32">
+                            <t t-foreach="docs" t-as="doc">
+
+                                <div class="col-xs-6">
+                                    <span style="float:left;">Total Without VAT:</span>
+                                    <strong t-esc="doc.amount_untaxed" class="text-center col-xs-3"/>
+                                    <span style="float:right;">:الإجمالي بدون الضربية</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span style="float:left;color:white">-------</span>
+                                    <span style="float:right;color:white">------</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span style="float:left;">VAT:</span>
+                                    <strong t-esc="doc.amount_tax" class="text-center col-xs-3" />
+                                    <span style="float:right;">: الضربية</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span style="float:left;color:white">-------</span>
+                                    <span style="float:right;color:white">------</span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span style="float:left;">Total:</span>
+                                    <strong t-esc="doc.amount_total" class="text-center col-xs-3"/>
+                                    <span style="float:right;">: الإجمالي</span>
+                                </div>
+
+
+                            </t>
+                        </div>
+                        <div class="row">
+                            <div class="row mt32 mb32">
+                            </div>
+                            <div class="oe_structure"/>
+                            <h4 class="text-right" style="text-decoration: underline;font-weight: bold;">
+                                : الشروط والإحكام
+                            </h4>
+
+
+                        </div>
+                    </div>
+                </body>
+            </html>
+        </template>
+
+        <!--pdf report-->
+        <report id="action_report_sales_report"
+                model="sale.order"
+                string="Sales report"
+                report_type="qweb-pdf"
+                name="hr_base_reports.report_sales_order_template"
+                file="hr_base_reports.report_sales_order_template"/>
+    </data>
+</odoo>

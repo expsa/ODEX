@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_exit_return_emp,hr.exit.return.emp,model_hr_exit_return,base.group_user,1,1,1,1
+access_hr_exit_return_managr,hr.exit.return.managr,model_hr_exit_return,hr_base.group_division_manager,1,1,1,1
+access_hr_exit_return_hr,hr.exit.return.hr,model_hr_exit_return,hr.group_hr_user,1,1,1,1
+access_hr_exit_return_gov,hr.exit.return.gov,model_hr_exit_return,hr_base.group_government_relations,1,1,1,1
+hr_renew_official_paper_hr,hr.renew.official.paper.hr,model_hr_renew_official_paper,hr.group_hr_user,1,1,1,1
+hr_official_paper_line_hr,hr.official.paper.line.hr,model_hr_official_paper_line,hr.group_hr_user,1,1,1,1
+hr_request_visa_emp,hr.request.visa.emp,model_hr_request_visa,base.group_user,1,1,1,1
+hr_request_visa_managr,hr.request.visa.manger,model_hr_request_visa,hr_base.group_division_manager,1,1,1,1
+hr_request_visa_hr,hr.request.visa.hr,model_hr_request_visa,hr.group_hr_user,1,1,1,1
+hr_request_visa_gov,hr.request.visa.gov,model_hr_request_visa,hr_base.group_government_relations,1,1,1,1

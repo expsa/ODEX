@@ -1,0 +1,1012 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_loans_salary_advance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-26 09:24+0000\n"
+"PO-Revision-Date: 2019-05-26 09:24+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_account_id
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loans_request_type_tree_view
+msgid "Account"
+msgstr "حساب"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Account move"
+msgstr "القيود المحاسبيه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+msgid "Account settings"
+msgstr "اعداد الحسابات"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Accounting Info"
+msgstr "معلومات الحساب"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_allow_overlapping
+msgid "Allow Overlapping"
+msgstr "السماح بالتداخل"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+msgid "Allow overlapping"
+msgstr "السماح بالتداخل"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_allowance_id
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+msgid "Allowance"
+msgstr "الاستحقاقات"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:130
+#, python-format
+msgid "Allowances/ Deductions and Loans Total"
+msgstr "اجمالي الاستحقاقات/الخصومات والسلف"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:16
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:80
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_amount
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_amount
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#, python-format
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_evaluation_grade
+msgid "Appraisal Result"
+msgstr "نتيجــة التقييم"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+msgid "Basic"
+msgstr "الاساسي"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:21
+#, python-format
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_career_level_ids
+msgid "Career Level"
+msgstr "مستوى هيكل راتبي"
+
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_code
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_tree_view
+msgid "Code"
+msgstr "الكود"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+msgid "Coefficient of advances"
+msgstr "معدل الاستحقاق"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_company_id
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_tree_view
+msgid "Company"
+msgstr "الشركة"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Contract End Date"
+msgstr "تاريخ نهاية العقد"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Create Loan"
+msgstr "انشاء اقساط السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_create_uid
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_create_uid
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_create_uid
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_create_date
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_create_date
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_create_date
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_date
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_date
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_tree_view
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_deduction_line
+msgid "Deduction Line"
+msgstr "عناصر الخصم"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_deduction_lines
+msgid "Deduction Lines"
+msgstr "عناصر الخصم"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Deduction Over Months"
+msgstr "تاريخ بداية الاقساط الشهرية"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_department_id
+msgid "Department"
+msgstr "القسم"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_installment_line_form_view
+msgid "Discard"
+msgstr "تجاهل"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_display_name
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_display_name
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_display_name
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:22
+#: selection:hr.loan.salary.advance,state:0
+#, python-format
+msgid "Draft"
+msgstr "مبدئي"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:23
+#: selection:hr.loan.salary.advance,state:0
+#, python-format
+msgid "Direct Manager"
+msgstr "انتظار الموارد البشرية"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_emp_expect_amount
+msgid "Emp Expect Amount"
+msgstr "قيمة السلفة المطلوبة"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:80
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#, python-format
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:314
+#, python-format
+msgid "Employee '%s' has no contract"
+msgstr "عقد '%s' ليس للموظف"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Employee Expect Amount"
+msgstr "قيمة السلفه المطلوبة"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_employee_id
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_tree_view
+msgid "Employee Id"
+msgstr "الموظف"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model,name:hr_loans_salary_advance.model_hr_loan_salary_advance
+msgid "Employee Loan"
+msgstr "سلفه الموظف"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.menu,name:hr_loans_salary_advance.loans_menu_id
+msgid "Employee Loans"
+msgstr "سلف وقروض الموظفين"
+
+#. module: hr_loans_salary_advance
+#: model:ir.actions.act_window,name:hr_loans_salary_advance.employee_loan_salary_list_action
+msgid "Employee loan salary advance"
+msgstr "سلف الموظفين"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:27
+#, python-format
+msgid "Employees Loans Paysheet"
+msgstr "كشف سلفات الموظفيين"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_end_date
+msgid "End Date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,help:hr_loans_salary_advance.field_hr_loan_salary_advance_end_date
+msgid "End date of the contract (if it's a fixed-term contract)."
+msgstr "تاريخ انتهاء العقد (إذا كان عقدًا محدد المدة)."
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:438
+#, python-format
+msgid "Error"
+msgstr "خطأ"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:347
+#, python-format
+msgid "Error There is no Benefits & Discounts in Case of percentage"
+msgstr "خطأ لاتوجد استحقاقات مكونة لنسبة  اعداد الاستحقاق "
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_tree_view
+msgid "Evaluation Grad"
+msgstr "اخر تقييم للموظف"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_evaluation_grade
+msgid "Evaluation Grade"
+msgstr "اخر تقييم لموظف"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_factor
+msgid "Factor"
+msgstr "المعامل"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:125
+#, python-format
+msgid "Final Net"
+msgstr "الصافي النهائي"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:20
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: selection:hr.loan.salary.advance,state:0
+#, python-format
+msgid "HR Manager"
+msgstr "انتظار المدير التنفيذي"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_finance_propos_amount
+msgid "Finance Propos Amount"
+msgstr "قيمة السلفة من المالية"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Finance proposed Amount"
+msgstr "المبلغ المصدق من المالية"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:541
+#: selection:loan.request.type,loan_type:0
+#, python-format
+msgid "Fixed Amount"
+msgstr "مبلغ ثابت"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "From HR Department"
+msgstr "من  الموارد البشرية"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_from_hr_depart
+msgid "From Hr Depart"
+msgstr "من الموارد البشرية"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:20
+#: selection:hr.loan.salary.advance,state:0
+#, python-format
+msgid "Executive Manager"
+msgstr "انتظار المحاسب"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "GM proposed Amount"
+msgstr "المبلغ المصدق من المديرالعام"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: selection:hr.loan.salary.advance,state:0
+msgid "Executive Manager"
+msgstr "المدير التنفيذي"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_gm_propos_amount
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_tree_view
+msgid "Gm Propos Amount"
+msgstr "قيمة السلفه حسب المدير"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:19
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#, python-format
+msgid "Direct Manager"
+msgstr "المدير المباشر"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_id
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_id
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_id
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_installment_amount
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_installment_amount
+msgid "Installment Amount"
+msgstr "قيمة القسط الشهري"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_installment_date
+msgid "Installment Date"
+msgstr "تاريخ القسط"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_installment_line_form_view
+msgid "Installment amount"
+msgstr "قيمة القسط"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_installment_line_form_view
+msgid "Installment date"
+msgstr "تاريخ القسط"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_is_old
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Is Old"
+msgstr "سلفه قديمة"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_job_id
+msgid "Job Position"
+msgstr "المناصب الوظيفية"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_journal
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_journal_id
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loans_request_type_tree_view
+msgid "Journal"
+msgstr "دفتر اليومية"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Journal Entries"
+msgstr "قيود اليومية"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_journal_move_id
+msgid "Journal Move"
+msgstr "القيد المحاسبي"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves___last_update
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance___last_update
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line___last_update
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_write_uid
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_write_uid
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_write_uid
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_write_date
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_write_date
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_write_date
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:22
+#, python-format
+msgid "Loan"
+msgstr "سلفه"
+
+#. module: hr_loans_salary_advance
+#: model:res.groups,name:hr_loans_salary_advance.group_loan_manager
+msgid "Loan Manager"
+msgstr "مدير السلف"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_loan_type
+msgid "Loan Type"
+msgstr "نوع السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:res.groups,name:hr_loans_salary_advance.group_loan_user
+msgid "Loan User"
+msgstr "مستخدم السلف"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_tree_view
+msgid "Loan amount"
+msgstr "مبلغ السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_installment_line_form_view
+msgid "Loan installments"
+msgstr "اقساط السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+msgid "Loan name"
+msgstr "اسم السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loans_request_type_tree_view
+msgid "Loan type"
+msgstr "نوع السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_payslip_monthly_report_loan_ids
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_payslip_xslx_report_form
+msgid "Loans"
+msgstr "القروض"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:15
+#, python-format
+msgid "Loans Totals"
+msgstr "اجمالي القروض"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.menu,name:hr_loans_salary_advance.employee_loan_salary_menu_item
+msgid "Loans/Salary Advance"
+msgstr "سلف الموظفين"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_monthly_salary
+msgid "Monthly Salary"
+msgstr "المرتب الشهري"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_months
+msgid "Months"
+msgstr "شهور"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_months_employeed
+msgid "Months Employeed"
+msgstr "الراتب الشهري"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_moves_id
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_moves_ids
+msgid "Moves"
+msgstr "القيود"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:16
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:32
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:50
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_name
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loans_request_type_tree_view
+#, python-format
+msgid "Name"
+msgstr "الاسم"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:67
+#, python-format
+msgid "Net"
+msgstr "الصافي"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:33
+#, python-format
+msgid "Nets"
+msgstr "الصافي"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_payslip_monthly_report_no_loan
+msgid "No Loans"
+msgstr "دون سلفات"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_number
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Number"
+msgstr "الرقم"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_number_of_request
+msgid "Number Of Request"
+msgstr "طلب السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Number of months"
+msgstr "عدد الاقساط"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+msgid "Number of request"
+msgstr "طلب السلفه"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:543
+#: selection:loan.request.type,number_of_request:0
+#, python-format
+msgid "Once"
+msgstr "مره واحده"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_paid
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Paid"
+msgstr "تم دفعها"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_partner_id
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Partner"
+msgstr "الشريك"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:21
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: selection:hr.loan.salary.advance,state:0
+#, python-format
+msgid "Pay"
+msgstr "دفع للموظف"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_installment_line_payment_date
+msgid "Payment Date"
+msgstr "تاريخ السداد"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Payment Order Ref"
+msgstr "مرجع القييد"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_payment_ref
+msgid "Payment Ref"
+msgstr "مرجع القيد"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model,name:hr_loans_salary_advance.model_loan_payslip_monthly_report
+#: model:ir.model,name:hr_loans_salary_advance.model_payslip_monthly_report
+msgid "Payslips Monthly Report With Loans"
+msgstr "تقرير المرتبات الشهري بالسلفات"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_percentage
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+msgid "Percentage"
+msgstr "نسبة مئوية"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:542
+#: selection:loan.request.type,loan_type:0
+#, python-format
+msgid "Percentage of salary"
+msgstr "نسبة الراتب"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_period
+msgid "Period"
+msgstr "الفترة"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/wizard/loan_payslip_monthly_report.py:35
+#, python-format
+msgid "Please consider selecting loans and/or rules to print "
+msgstr "من فضلك قم باختيار الاستحقاقات/الخصومات/السلفات لتتم طباعتها "
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Postpone of installment"
+msgstr "تأجيل القسط"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "RE-Draft"
+msgstr "إرجاع لمبدئي"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_reference
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:21
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: selection:hr.loan.salary.advance,state:0
+#, python-format
+msgid "Refused"
+msgstr "مرفوض"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:26
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: selection:hr.loan.salary.advance,state:0
+#, python-format
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_remaining_loan_amount
+msgid "Remaining Loan Amount"
+msgstr "متبقي قيمة السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Remaining loan Amount"
+msgstr "متبقي قيمة السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_request_type
+#: model:ir.ui.menu,name:hr_loans_salary_advance.loan_request_type_menu
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_tree_view
+msgid "Request Type"
+msgstr "نوع الطلب"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Salary of Month"
+msgstr "الراتب الشهري"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+msgid "Salary settings"
+msgstr "اعداد الاستحقاق"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_installment_line_form_view
+msgid "Save"
+msgstr "حفظ"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:26
+#, python-format
+msgid "Sorry No Loan Data To Be Printed"
+msgstr "عفوا لا توجد بيانات خاصة بالسلفات لتتم طباعاتها"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/wizard/loan_payslip_monthly_report.py:41
+#, python-format
+msgid "Sorry No Loans Data To Be Printed"
+msgstr "عفوا لا توجد بيانات خاصة بالسلفات لتتم طباعاتها"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:143
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:169
+#, python-format
+msgid "Specific Allowances/ Deductions and Loans Report"
+msgstr "تقرير خصم/استحقاق / سلفه معينة"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:74
+#, python-format
+msgid "Specific Loan Report"
+msgstr "تقرير لسلفه/ات معينة"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_contract_duration_date
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,help:hr_loans_salary_advance.field_hr_loan_salary_advance_contract_duration_date
+msgid "Start date of the contract."
+msgstr "تاريخ البدء العقد."
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_state
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_tree_view
+msgid "State"
+msgstr "الحالة"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_account_moves_status
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_tree_view
+msgid "Status"
+msgstr "الحالة "
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:19
+#: selection:hr.loan.salary.advance,state:0
+#, python-format
+msgid "Submit"
+msgstr "المدير المباشر"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:19
+#: selection:hr.loan.salary.advance,state:0
+#, python-format
+msgid "Submit"
+msgstr "المدير المباشر"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:204
+#, python-format
+msgid "The employee does not have contract Start Date ."
+msgstr "ليس للموظف تاريخ بداية عقد ."
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:186
+#, python-format
+msgid "The number of installments does not exceed the employee contract period."
+msgstr "عدد اقساط السلفه اكبر من فترة عقد الموظف."
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:298
+#, python-format
+msgid "The total number of installment of all months in start date is greater than the salary percentage"
+msgstr "قيمة اقساط السلف في هذا الشهر اكبر من نسبة الخصم المسموح بها بالراتب"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:393
+#, python-format
+msgid "There is no total for rule : %s"
+msgstr "%s: ليس هنالك قيمة للاستحقاق"
+
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:390
+#, python-format
+msgid "You can not delete record There is a related other record code %s Request Loan"
+msgstr "لايمكن حذف السجل وهنالك سجل مرتبطة به بكود  %s لطلب سلفه"
+
+#. module: hr_loans_salary_advance
+#: model:res.groups,comment:hr_loans_salary_advance.group_loan_user
+msgid "This user handles loans."
+msgstr "This user handles loans."
+
+#. module: hr_loans_salary_advance
+#: model:res.groups,comment:hr_loans_salary_advance.group_loan_manager
+msgid "This user is responsible for loans settings."
+msgstr "هذا المستخدم مسؤول عن اعداد السلف والقروض."
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:23
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:39
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:89
+#, python-format
+msgid "Total"
+msgstr "الاجمالي "
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:97
+#, python-format
+msgid "Total Loans"
+msgstr "اجمالي السلفات"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_monthly_salary
+msgid "Total Net"
+msgstr "إجمالى الصافي"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_hr_loan_salary_advance_total_paid_inst
+msgid "Total Paid Inst"
+msgstr "الاقساط المدفوعه"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/report/loan_payslip_monthly_report.py:16
+#, python-format
+msgid "Type"
+msgstr "النوع"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:348
+#, python-format
+msgid "Wrong percentage base or quantity defined for salary rule %s (%s)."
+msgstr "النسبة المئوية للاستحقاق غير صحيحة %s (%s)."
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:447
+#, python-format
+msgid "Wrong python code defined for salary rule %s (%s)."
+msgstr "يوجد خطأ بايثون كود في اعداد اسم الاستحقاق %s (%s)."
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:359
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:372
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:385
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:400
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:410
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:422
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:434
+#, python-format
+msgid "Wrong quantity defined for salary rule %s (%s)."
+msgstr "قيمة الاستحقاق غير صحيحه %s (%s)."
+
+#. module: hr_loans_salary_advance
+#: model:ir.model.fields,field_description:hr_loans_salary_advance.field_loan_request_type_year
+msgid "Year"
+msgstr "سنه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loan_request_type_form_view
+msgid "Years of service"
+msgstr "سنين خدمة"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:483
+#, python-format
+msgid "You can not create loan that have request type with number of request is once."
+msgstr " لا يمكن طلب السلفه اكثر من مره تم ادراجها مسبقآ للموظف"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:490
+#, python-format
+msgid "You can not create loan when there is un paid loan with the same type."
+msgstr "لا يمكن طلب سلفه من نفس النوع وبها اقساط لم تدفع بعد."
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:458
+#, python-format
+msgid "You can not delete record in state not in draft"
+msgstr "لا يمكن حذف سجل السلفه في حالة غير مسوده"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:461
+#, python-format
+msgid "You can not delete record when total paid installment greater than zero"
+msgstr "لا يمكن حذف سجل والمدفوع من السلفه اكبر من الصفر"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:63
+#, python-format
+msgid "You can not re-draft Loan because account move with ID \"%s\" in state Posted"
+msgstr "لا يمكن ارجاع السلفه للحالة المبدئي اذا كان القيد الحسابي  \"%s\" في حالة غير مبدئية"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:461
+#, python-format
+msgid "You can not submit loan when your total service is less than number of years"
+msgstr "لا يمكنك تقديم قرض عندما يكون سنين خدمتك أقل من عدد سنوات القرض"
+
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:249
+#, python-format
+msgid "You must create al least one installment"
+msgstr "يجب انشاء اقساط السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "contract Start Date"
+msgstr "تاريخ بداية العقد"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "department"
+msgstr "قسم"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model,name:hr_loans_salary_advance.model_hr_account_moves
+msgid "hr.account.moves"
+msgstr "قيد اليومية"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "installment Amount"
+msgstr "قيمة القسط الشهري"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "installment Date"
+msgstr "تاريخ القسط"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "job Type"
+msgstr "الوظيفة"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "lines"
+msgstr "العناصر"
+
+#. module: hr_loans_salary_advance
+#: model:ir.actions.act_window,name:hr_loans_salary_advance.loan_installment_line_action
+msgid "loan installment form view"
+msgstr "الاقساط"
+
+#. module: hr_loans_salary_advance
+#: model:ir.actions.act_window,name:hr_loans_salary_advance.loan_request_type_action
+msgid "loan request type"
+msgstr "انواع السلف والقروض"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model,name:hr_loans_salary_advance.model_loan_installment_line
+msgid "loan.installment.line"
+msgstr "اقساط السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model,name:hr_loans_salary_advance.model_loan_request_type
+msgid "loan.request.type"
+msgstr "نوع السلفه"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.loans_request_type_tree_view
+msgid "loans request type"
+msgstr "نوع السلف"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "period"
+msgstr "الفترة"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model,name:hr_loans_salary_advance.model_report_exp_payroll_custom_payslip_monthly_report
+msgid "report.exp_payroll_custom.payslip_monthly_report"
+msgstr "report.exp_payroll_custom.payslip_monthly_report"
+
+#. module: hr_loans_salary_advance
+#: model:ir.model,name:hr_loans_salary_advance.model_report_exp_payroll_custom_payslip_monthly_report_xlsx
+msgid "report.exp_payroll_custom.payslip_monthly_report_xlsx"
+msgstr "report.exp_payroll_custom.payslip_monthly_report_xlsx"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "Submit"
+msgstr "ارسال"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "total paid installment"
+msgstr "المبلغ المدفوع للسلفه"
+
+#. module: hr_loans_salary_advance
+#: code:addons/hr_loans_salary_advance/models/hr_loan_salary_advance.py:543
+#: selection:loan.request.type,number_of_request:0
+#, python-format
+msgid "unlimited"
+msgstr "غير محدد"
+
+#. module: hr_loans_salary_advance
+#: model:ir.ui.view,arch_db:hr_loans_salary_advance.employee_loan_salary_form_view
+msgid "working duration(months)"
+msgstr "فترة خدمة الموظف(شهر)"
+
+
+

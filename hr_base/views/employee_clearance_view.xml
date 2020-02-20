@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- Employee Clearance-->
+        <record model="ir.actions.act_window" id="it_department_list_action">
+            <field name="name">Employee Clearance</field>
+            <field name="res_model">employee.clearance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Employee Clearance -->
+        <record model="ir.ui.view" id="clearance_form_view">
+            <field name="name">hr.clearance.form.view</field>
+            <field name="model">employee.clearance</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group string='Employee Details'>
+                        </group>
+                        <group></group>
+                        <group>
+                            <field name="employee"/>
+                            <field name="employee_code"/>
+                            <field name="department"/>
+                            <field name="office"/>
+                            <field name="email" widget="email"/>
+                            <field name="contact_phone" widget="phone"/>
+                        </group>
+                        <group>
+                            <field name="seniority_date" widget="date"/>
+                            <field name="res_date" widget="date"/>
+                            <field name="last_country_day"/>
+                            <field name="last_day_work"/>
+                            <field name="letter_to_client"/>
+                        </group>
+                    </group>
+                    <field name="it_department">
+                        <tree editable="bottom">
+                            <field name="item"/>
+                            <field name="status"/>
+                            <field name="handled_by"/>
+                            <field name="remarks"/>
+                        </tree>
+                    </field>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

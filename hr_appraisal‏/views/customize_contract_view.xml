@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="adding_appraisal_to_contract" model="ir.ui.view">
+            <field name="name">Adding appraisal to contract</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='contract_duration']" position="after">
+                    <field name="appraisal_result_id" string="Appraisal result" readonly="1" force_save="1"/>
+                </xpath>
+
+
+
+            </field>
+        </record>
+
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="adding_appraisal_to_re_contract" model="ir.ui.view">
+            <field name="name">Adding appraisal to re-contract</field>
+            <field name="model">hr.re.contract</field>
+            <field name="inherit_id" ref="hr_base.view_re-contracting_form"/>
+            <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='new_contract_end_date']" position="after">
+                    <field name="evaluation_grade_id" string="Evaluation Grade"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="appraisal_degree_tree_view" model="ir.ui.view">
+            <field name="name">Appraisal degree form view</field>
+            <field name="model">appraisal.degree</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name" string="Name" required="1"/>
+                            <field name="greed" string="Greed" required="1"/>
+                            <field name="great_degree_level" string="Great level" required="1"/>
+                        </group>
+                    </sheet>
+                    <!--Discuss widgets for history and communication -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="appraisal_degree_form_view" model="ir.ui.view">
+            <field name="name">Appraisal degree tree view</field>
+            <field name="model">appraisal.degree</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" string="Name"/>
+                    <field name="greed" string="Greed" />
+                    <field name="great_degree_level" string="Great level"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appraisal_degree_action" model="ir.actions.act_window">
+            <field name="name">Appraisal degree</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appraisal.degree</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="appraisal_degree_menu" name="Appraisal degree" parent="appraisal_configuration"
+                  action="appraisal_degree_action" sequence="3"/>
+    </data>
+</odoo>

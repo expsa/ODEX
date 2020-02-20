@@ -1,0 +1,21 @@
+<odoo>
+
+    <data>
+        <record id="iqama_renewal_sequence" model="ir.sequence">
+            <field name="name">iqama renewal</field>
+            <field name="code">employee.iqama.renewal</field>
+            <field name="prefix"></field>
+            <field name="suffix">/%(year)s</field>
+            <field name="padding">4</field>
+        </record>
+
+        <!--contract sequence-->
+        <record id="contract_sequence" model="ir.sequence">
+            <field name="name">contract_sequence_name</field>
+            <field name="code">hr.contract</field>
+            <field name="prefix">QO</field>
+            <field name="padding">5</field>
+        </record>
+
+    </data>
+</odoo>

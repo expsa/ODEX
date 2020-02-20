@@ -1,0 +1,819 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_appraisal‏
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-17 06:35+0000\n"
+"PO-Revision-Date: 2019-06-17 06:35+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_appraisal‏
+#: model:ir.model,name:hr_appraisal‏.model_hr_employee_appraisal
+#: model:ir.model,name:hr_appraisal‏.model_hr_group_employee_appraisal
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_appraisal_id
+#: model:ir.module.category,name:hr_appraisal‏.module_category_hr_appraisal
+#: model:ir.ui.menu,name:hr_appraisal‏.appraisal_menu_id
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Appraisal"
+msgstr "تقييـم الموظفين"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_appraisal_date
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_tree_view
+msgid "Appraisal Date"
+msgstr "تاريخ التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model,name:hr_appraisal‏.model_appraisal_degree
+msgid "Appraisal Degree"
+msgstr "درجات التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_appraisal_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_appraisal_name
+msgid "Appraisal Name"
+msgstr "اسم التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_appraisal_plan_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_appraisal_plan_id
+msgid "Appraisal Plan"
+msgstr "خطة التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.actions.act_window,name:hr_appraisal‏.appraisal_result_action
+#: model:ir.model,name:hr_appraisal‏.model_appraisal_result
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_contract_appraisal_result_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_appraisal_result
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_re_contract_evaluation_grade_id
+#: model:ir.ui.menu,name:hr_appraisal‏.appraisal_result_menu
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_result_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_result_tree_view
+msgid "Appraisal Result"
+msgstr "نتيجــة التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.actions.act_window,name:hr_appraisal‏.appraisal_degree_action
+#: model:ir.ui.menu,name:hr_appraisal‏.appraisal_degree_menu
+msgid "Appraisal degree"
+msgstr "درجات التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.actions.act_window,name:hr_appraisal‏.employee_appraisal_action
+#: model:ir.ui.menu,name:hr_appraisal‏.employee_appraisal_menu_item
+msgid "Appraisal for employees"
+msgstr "تقييم الموظفين"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:239
+#, python-format
+msgid "Appraisal for employees \"%s\" is not in state done"
+msgstr "ليس في حالة تم \"%s\" تقييم الموظفين"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.manager_appraisal_complete_line_form_view
+msgid "Appraisal name"
+msgstr "اسم التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Appraisal original"
+msgstr "التقييم "
+
+#. module: hr_appraisal‏
+#: model:ir.actions.act_window,name:hr_appraisal‏.appraisal_plan_action_view
+#: model:ir.model,name:hr_appraisal‏.model_appraisal_plan
+#: model:ir.ui.menu,name:hr_appraisal‏.appraisal_plan_menu
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_tree_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_tree_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_tree_view
+msgid "Appraisal plan"
+msgstr "خطة التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.adding_appraisal_to_contract
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Appraisal result"
+msgstr "نتيجة التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.manager_appraisal_complete_line_form_view
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal.py:17
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+#, python-format
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.manager_appraisal_complete_line_form_view
+msgid "Complete Manager Appraisal"
+msgstr "اكمال التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.menu,name:hr_appraisal‏.appraisal_configuration
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_degree_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_result_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_line_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_create_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_degree_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_result_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_line_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_create_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: hr_appraisal‏
+#: model:ir.model,name:hr_appraisal‏.model_customize_appraisal
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line_customize_appraisal_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_line_customize_appraisal_id
+msgid "Customize Appraisal"
+msgstr "اعداد التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal_customize_appraisal_line_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_customize_appraisal_line_id
+msgid "Customize Appraisal Line"
+msgstr "عناصر الاعداد"
+
+#. module: hr_appraisal‏
+#: model:ir.model,name:hr_appraisal‏.model_customize_complete_appraisal
+msgid "Customize complete Appraisal"
+msgstr "تقييم الموظفين"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_date
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_tree_view
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_date_from
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Date From"
+msgstr "التاريخ من"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_date_to
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Date To"
+msgstr "الي تاريخ"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal_degree_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_degree_id
+#: model:ir.ui.view,arch_db:hr_appraisal‏.manager_appraisal_complete_line_form_view
+msgid "Degree"
+msgstr "الدرجة"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.manager_appraisal_complete_line_form_view
+msgid "Degree level"
+msgstr "مستوى الدرجة"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_department_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_department_id
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_tree_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_tree_view
+msgid "Department"
+msgstr "القسم"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.manager_appraisal_complete_line_form_view
+msgid "Discard"
+msgstr "تجاهل"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_degree_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_result_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_line_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_display_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal.py:17
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:19
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+#, python-format
+msgid "Done"
+msgstr "اعتماد التقييم"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal.py:17
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:13
+#, python-format
+msgid "Draft"
+msgstr "مسوده"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_employee_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_employee_ids
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#: model:res.groups,name:hr_appraisal‏.group_appraisal_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_appraisal‏
+#: model:ir.actions.act_window,name:hr_appraisal‏.hr_appraisal_action
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_employee_appraisal
+#: model:ir.ui.menu,name:hr_appraisal‏.hr_appraisal_menu
+msgid "Employee Appraisal"
+msgstr "تقيمات الموظف"
+
+#. module: hr_appraisal‏
+#: model:ir.model,name:hr_appraisal‏.model_hr_contract
+msgid "Employee Contract"
+msgstr "عقود الموظف"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_tree_view
+msgid "Employee name"
+msgstr "اسم موظف"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+msgid "Employees"
+msgstr "الموظفون"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.adding_appraisal_to_re_contract
+msgid "Evaluation Grade"
+msgstr "نتيجة اخر تقييم"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:16
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#, python-format
+msgid "Direct Manager Appraisal"
+msgstr "المدير المباشر"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:17
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#, python-format
+msgid "Department Manager Approval"
+msgstr "مدير الادارة"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:18
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#, python-format
+msgid "HR Approval"
+msgstr "الموارد البشرية"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:14
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#, python-format
+msgid "Generate Appraisal"
+msgstr "انشاء تقييم الموظفين"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_degree_great_degree_level
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal_great_degree_level
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_great_degree_level
+msgid "Great Degree Level"
+msgstr "معيار مستوى الدرجة"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_great_level
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_great_level
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_great_level
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line_great_level
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_great_level
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_line_great_level
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_great_level
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line_great_level
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Great Level"
+msgstr "الدرجة الكاملة"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_degree_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_degree_tree_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_tree_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.manager_appraisal_complete_line_form_view
+msgid "Great level"
+msgstr "الدرجة الكاملة"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_degree_greed
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_greed
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line_greed
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_degree_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_degree_tree_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Greed"
+msgstr "الدرجة المحققة"
+
+
+#. module: hr_appraisal‏
+#: model:ir.module.category,description:hr_appraisal‏.module_category_hr_appraisal
+msgid "Helps to evaluate employees..."
+msgstr "مساعدة الموظف للتقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_degree_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_result_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_line_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Invisible field to call compute function"
+msgstr "الحقل مخفى لحساب التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_is_manager
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_is_manager
+msgid "Is Manager"
+msgstr "تقييم مدارء"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+msgid "Is manager"
+msgstr "تقييم مدراء"
+
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_tree_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_tree_view
+msgid "Is manager?"
+msgstr "تقييم مدراء?"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+msgid "Job title"
+msgstr "الوظيفة"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_degree___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_result___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_line___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal___last_update
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_degree_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_result_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_line_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line_write_uid
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_degree_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_result_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_line_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line_write_date
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_level_achieved
+msgid "Level Achieved"
+msgstr "الدرجة المحققة"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_level_achieved_percentage
+msgid "Level Achieved Percentage"
+msgstr "نسبة التقييم %"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Level achieved"
+msgstr "الدرجة المحققة"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Level achieved percentage"
+msgstr "نسبة التقييم%"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_manager_id
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_tree_view
+#: model:res.groups,name:hr_appraisal‏.group_appraisal_manager
+msgid "Manager"
+msgstr "المدير"
+
+#. module: hr_appraisal‏
+#: model:ir.actions.act_window,name:hr_appraisal‏.appraisal_action_view
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_manager_appraisal_id
+#: model:ir.ui.menu,name:hr_appraisal‏.appraisal_menu
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_tree_view
+msgid "Manager Appraisal"
+msgstr "تقييم المدارء"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_manager_appraisal_line_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_manager_appraisal_line
+msgid "Manager Appraisal Line"
+msgstr "عناصر التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_manager_appraisal_line_for_employee
+msgid "Manager Appraisal Line For Employee"
+msgstr "عناصر التقييم "
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_degree_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_result_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line_name
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_line_name
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_degree_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_degree_tree_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_tree_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_tree_view
+msgid "Name"
+msgstr "الاسم"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_form_view
+msgid "Plan name"
+msgstr "اسم الخطة"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal.py:132
+#: code:addons/hr_appraisal‏/models/appraisal.py:169
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:180
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:209
+#, python-format
+msgid "Please check appraisal result configuration , there is more than result for percentage %s  are %s "
+msgstr "  لـ %s  هنالك اكثر من نتيجة للتقييم %s  التاكد من اعدد نتائج التقييم "
+
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal.py:140
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:180
+#, python-format
+msgid "There is No percentage result for employee appraisal Greater than 100%"
+msgstr "لا يمكن ان تكون نتيجة تقييم الموظف اكبر من 100% كحد اقصى"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal.py:140
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:180
+#, python-format
+msgid "You Cannot The Greed Greater Than Great Level"
+msgstr "لا يمكن ان تكون نتيجة تقييم الدرجة المحققة للسؤال اكبر من الدرجة العظمة"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:220
+#, python-format
+msgid "Please select at least one employee to make appraisal."
+msgstr "يجب ادخال الموظفين للتقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_appraisal_question
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_customize_complete_appraisal_question
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_question_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_question_id
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line_question
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_question
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.manager_appraisal_complete_line_form_view
+msgid "Question"
+msgstr "سؤال"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_question_complete_id
+msgid "Question Complete"
+msgstr "اكمال السؤال"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_plan_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Re-compute"
+msgstr "اعادة حساب التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+msgid "Re-draft"
+msgstr "إرجاع لمبدئي"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_result_result_from
+msgid "Result From"
+msgstr "الدرجة من"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_result_result_to
+msgid "Result To"
+msgstr "الدرجة الى"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_result_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_result_tree_view
+msgid "Result from"
+msgstr "الدرجة من"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_result_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_result_tree_view
+msgid "Result name"
+msgstr "اسم النتيجة"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_result_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.appraisal_result_tree_view
+msgid "Result to"
+msgstr "الدرجة الى"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal_result.py:19
+#, python-format
+msgid "Result values must be greater than zero."
+msgstr "يجب ان تكون النتيجة اكبر من صفر"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal_result.py:21
+#, python-format
+msgid "Result values must be less than 100."
+msgstr "يجب ان تكون النتيجة اقل من 100"
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.manager_appraisal_complete_line_form_view
+msgid "Save"
+msgstr "حفظ"
+
+#. module: hr_appraisal‏
+#: model:ir.model,name:hr_appraisal‏.model_manager_appraisal
+#: model:ir.model,name:hr_appraisal‏.model_manager_appraisal_line
+#: model:ir.model,name:hr_appraisal‏.model_standard_appraisal
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_appraisal_plan_standard_appraisal_id
+msgid "Standard Appraisal"
+msgstr "التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_standard_appraisal_employee_line_ids
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_line_standard_appraisal_employee_line
+msgid "Standard Appraisal Employee Line"
+msgstr "عناصر التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_standard_appraisal_standard_appraisal_line
+msgid "Standard Appraisal Line"
+msgstr "عناصر التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model,name:hr_appraisal‏.model_standard_appraisal_line
+msgid "Standard Appraisal line"
+msgstr "Standard Appraisal line"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:15
+#: model:ir.ui.view,arch_db:hr_appraisal‏.employee_appraisal_form_view
+#, python-format
+msgid "Start Appraisal"
+msgstr "ابدأ التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_start_compute
+msgid "Start Compute"
+msgstr "ابدا التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_employee_appraisal_state
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_hr_group_employee_appraisal_state
+msgid "State"
+msgstr "الحالة"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal.py:197
+#, python-format
+msgid "There is no contract for employee \"%s\" to update appraisal result "
+msgstr "لعكس نتيجة التقييم \"%s\" لا يوجد عقد مرتبط للموظف  "
+
+#. module: hr_appraisal‏
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_line_total
+#: model:ir.model.fields,field_description:hr_appraisal‏.field_manager_appraisal_complete_total
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_form_view
+#: model:ir.ui.view,arch_db:hr_appraisal‏.manager_appraisal_complete_line_form_view
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: hr_appraisal‏
+#: model:res.groups,name:hr_appraisal‏.group_appraisal_user
+msgid "User"
+msgstr "المستخدم"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:269
+#: code:addons/hr_appraisal‏/models/appraisal.py:269
+#, python-format
+msgid "You can not Re-draft when there is appraisal not in state draft for employees."
+msgstr "لا يمكن ارجاع للحالة المسوده هنالك تقييم مرتبط ليس في حالة مسوده"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:276
+#, python-format
+msgid "You can not delete record in state not in draft"
+msgstr "لايمكن حذف السجل في حالة غير المسوده"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal.py:210
+#, python-format
+msgid "You can not delete record in state not in draft for employee \"%s\" "
+msgstr " \"%s\"لا يمكن حذف السجل وهنالك تقييم موظف ليس في حالة مسوده "
+
+#. module: hr_appraisal‏
+#: model:ir.ui.view,arch_db:hr_appraisal‏.hr_appraisal_tree_view
+msgid "appraisal"
+msgstr "التقييم"
+
+#. module: hr_appraisal‏
+#: model:ir.model,name:hr_appraisal‏.model_hr_re_contract
+msgid "hr.re.contract"
+msgstr "اعاده عقد الموارد البشرية"
+
+#. module: hr_appraisal‏
+#: model:ir.model,name:hr_appraisal‏.model_manager_appraisal_complete
+msgid "manager.appraisal.complete"
+msgstr "تقييم المدراء"
+
+#. module: hr_appraisal‏
+#: model:ir.model,name:hr_appraisal‏.model_manager_appraisal_complete_line
+msgid "manager.appraisal.complete.line"
+msgstr "عناصر تقييم المدراء"
+
+#. module: hr_appraisal‏
+#: model:ir.actions.act_window,name:hr_appraisal‏.manager_appraisal_complete_line_action
+msgid "manager.appraisal.complete.line.action.view"
+msgstr "تقييم المدراء"
+
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:29
+#: selection:hr.group.employee.appraisal,state:0
+msgid "Generate Appraisal"
+msgstr "انشاء تقييم الموظفين"
+
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:12
+#: selection:hr.group.employee.appraisal,state:0
+msgid "Start Appraisal"
+msgstr "انتظار المدير المباشر"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:28
+#: selection:hr.group.employee.appraisal,state:0
+msgid "Direct Manager"
+msgstr "انتظار مدير الادارة"
+
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:30
+#: selection:hr.group.employee.appraisal,state:0
+msgid "Department Manager"
+msgstr "انتظار الموارد البشرية"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:31
+#: selection:hr.employee.appraisal,state:0
+#: selection:hr.group.employee.appraisal,state:0
+msgid "HR Approval"
+msgstr "انتظار الاعتماد النهائي"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:35
+#: selection:hr.group.employee.appraisal,state:0
+msgid "Done"
+msgstr "الاعتماد النهائي"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/appraisal.py:35
+#: selection:hr.employee.appraisal,state:0
+msgid "Done"
+msgstr "تم تقييم الموظف"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:32
+#: selection:hr.employee.appraisal,state:0
+#: selection:hr.group.employee.appraisal,state:0
+msgid "Draft"
+msgstr "مبدئي"
+
+#. module: hr_appraisal‏
+#: code:addons/hr_appraisal‏/models/employees_appraisal.py:33
+#: selection:hr.employee.appraisal,state:0
+msgid "Closed"
+msgstr "مغلق"
+
+

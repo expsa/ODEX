@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="appraisal_result_form_view" model="ir.ui.view">
+            <field name="name">Appraisal Result</field>
+            <field name="model">appraisal.result</field>
+            <field name="arch" type="xml">
+                <form string="Appraisal Result">
+                    <sheet>
+                        <group>
+                            <field name="name" string="Result name" required="1"/>
+                            <field name="result_from" string="Result from" required="1"/>
+                            <field name="result_to" string="Result to" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="appraisal_result_tree_view" model="ir.ui.view">
+            <field name="name">Appraisal Result</field>
+            <field name="model">appraisal.result</field>
+            <field name="arch" type="xml">
+                <tree string="Appraisal Result">
+                    <field name="name" string="Result name"/>
+                    <field name="result_from" string="Result from"/>
+                    <field name="result_to" string="Result to"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="appraisal_result_action" model="ir.actions.act_window">
+            <field name="name">Appraisal Result</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appraisal.result</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="appraisal_result_menu" name="Appraisal Result" parent="appraisal_configuration"
+                  action="appraisal_result_action" sequence="4"/>
+    </data>
+</odoo>

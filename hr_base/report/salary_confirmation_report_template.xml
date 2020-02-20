@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_external_layout_salary">
+            <div class="header">
+                <style type="text/css">
+                    @font-face {
+                    font-family: 'ae_AlMohanad';
+                    src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                    url('/hr_base/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                    }
+                    *{
+                    font-family: ae_AlMohanad;
+                    }
+                </style>
+                <div class="row">
+                    <div class="col-xs-3 mb4">
+                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height: 45px;"/>
+                    </div>
+                    <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+                </div>
+                <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                    <div class="col-xs-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div style="text-align:center" name="company_address">
+                        <span t-field="company.partner_id"
+                              t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                              style="border-bottom: 1px solid black; display:inline-block;"/>
+                    </div>
+                    <!--                    <table style="width:100%;border: 1px solid gray;height:100px">-->
+                    <!--                        <tr style=" border: 1px solid gray">-->
+                    <!--                            <td style=" border: 1px solid gray;width:100%">-->
+                    <!--                                <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height:100px;width:70%"/>-->
+                    <!--                            </td>-->
+                    <!--&lt;!&ndash;                            <td style=" border: 1px solid gray;width:50%;padding:5px">&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                <h4>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                    <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                                </h4>&ndash;&gt;-->
+                    <!--&lt;!&ndash;                            </td>&ndash;&gt;-->
+                    <!--                        </tr>-->
+                    <!--                    </table>-->
+                </div>
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-raw="0" />
+            </div>
+        </template>
+
+        <template id="custom_external_layout_s">
+            <!-- Multicompany -->
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+            <t t-if="company.external_report_layout == 'background'">
+                <t t-call="hr_base.custom_external_layout_salary"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout == 'boxed'">
+                <t t-call="hr_base.custom_external_layout_salary"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout == 'clean'">
+                <t t-call="hr_base.custom_external_layout_salary"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout in (False, 'standard')">
+                <t t-call="hr_base.custom_external_layout_salary"><t t-raw="0"/></t>
+            </t>
+        </template>
+        <template id="salary_confirmation_report_temp">
+            <t t-call="web.html_container">
+                <t t-call="hr_base.custom_external_layout_s">
+                    <style type="text/css">
+                        @font-face {
+                        font-family: 'ae_AlMohanad';
+                        src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                        url('/hr_base/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                        }
+                        *{
+                        font-family: ae_AlMohanad;
+                        }
+                    </style>
+                    <div class="page" style="font-size:17pt">
+                        <t t-foreach="docs" t-as="o">
+                            <br/>
+                            <div>
+                                <p style="text-align:right;">
+                                    <strong> التاريخ </strong>: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')" />
+                                    <br/>
+                                    <strong> الموافق</strong> :<span t-esc="o.change_current_date_hijri()"/>
+                                    <br/>
+                                    <strong> السـادة</strong> / --------------------------------------------------                            المحترمين
+                                    <br/>
+                                    إدارة القروض الشـخصية بالريـاض
+                                </p>
+                                <p>
+                                    <strong> الموضـوع</strong>: رواتب ومسـتحقات موظفنـا
+                                    <br/>
+                                    <strong> السـيـد/ه</strong> <span t-esc="o.name"/>
+                                </p>
+                            </div>
+                            <br/><br/>
+                            <div>
+                                <p style="text-align:justify;margin: 10px;">
+                                    حيث أن المذكور  <span t-esc="o.name"/>  <span t-esc="o.country_id.name"/> الجنسـية ، رقـم حسابـه
+                                    (SA <span t-esc="o.bank_account_id.acc_number"/> ) والـذي يعمـل لدينـا قد أخطـرنا بحصوله على
+                                    قرض منكم وطلب إلينـا في ذلك الصدد أن نقوم بتحويـل مرتباتـه الشـهرية إليكـم
+                                    في تواريخ استحقاقها ، فإننـا بموجب هذا نتعهـد تعهـداً غير قابل للنقـض بأن نقـوم
+                                    بتحويل مرتبـات المذكور الشـهرية إليكـم في تواريخ استحقاقها و أن نقوم كذلك
+                                    في حالة إنهـاء أو انتهاء خدمة المذكور معنـا بإخطـاركم خطيـاً بذلك أولاً و من ثم
+                                    تحويـل جميـع ما قد يكون مسـتحقاً له حينـذاك ، وفق نظام مكتب العمـل ، من
+                                    مكـافأة أو معـاش أو أية مبالغ أخـرى إليكـم ، و تسـتمر تعهداتنـا المدرجة هنـا
+                                    نافـذة و سـارية المفعول حتـى اسـتلامنـا لإشـعار خطـي منكـم بإعفـائنـا من
+                                    التزامـاتنـا الوارد هنـا ، وإشـهاداً على مـا ورد قمنـا بوضع توقيعنـا وختمنا الرسـمي
+                                    هنـا أدنـاه ، وقد حرر هذا الخطاب بناء على طلب السـيـد/ه <span t-esc="o.name"/>
+                                    ودون أي التزام أو مسئولية على الشركة عدا ما ذكر أعلاه.
+                                </p>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+        <report id="salary_confirmation_employee_action_report"
+                model="hr.employee"
+                string="Salary confirmation Report"
+                report_type="qweb-pdf"
+                name="hr_base.salary_confirmation_report_temp"
+        />
+
+    </data>
+</odoo>

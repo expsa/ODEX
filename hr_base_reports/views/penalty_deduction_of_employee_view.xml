@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="action_penalty_report" model="ir.actions.act_window">
+            <field name="name">Penalty Report</field>
+            <field eval="1" name="sequence"/>
+            <field name="res_model">penalty.deduction.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <record id="penalty_report_form_view" model="ir.ui.view">
+            <field name="name">Penalty Wizard</field>
+            <field name="model">penalty.deduction.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="report_type" string="Report Type"/>
+                            <field name="date_from" string="Date from" required="1"/>
+                            <field name="date_to" string="Date to" required="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="Print Overtime PDF" name="get_report" type="object" class="oe_highlight"
+                                icon="fa-download"/>
+                        <button string="Print Overtime XLSX" name="get_reportxlsxs" type="object" class="oe_highlight"
+                                icon="fa-download"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="report.paperformat" id="paperformat_attendance_recap_report">
+            <field name="name">paperformat.attendance.recap.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">30</field>
+            <field name="margin_right">5</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!--pdf report-->
+        <report id="action_report_penalty"
+                model="penalty.deduction.wizard"
+                string="Penalty report"
+                report_type="qweb-pdf"
+                name="hr_base_reports.report_penalty_template"
+                file="hr_base_reports.report_penalty_template"
+                paperformat="paperformat_attendance_recap_report"
+                menu="False"/>
+
+        <!--xlsx report-->
+        <report
+                id="action_report_penalty_xlsx"
+                model="penalty.deduction.wizard"
+                string="Penalty report XLSX"
+                report_type="xlsx"
+                name="hr_base_reports.action_report_penalty_xlsx"
+                file="hr_base_reports.action_report_penalty_xlsx"
+                attachment_use="False"
+        />
+
+        <template id="report_penalty_template">
+            <div class="header" style="border-bottom: 2px solid black">
+                <h4 class="text-center">
+                    <strong style="color:#003c79">From</strong>:
+                    <span style="color:#999">
+                        <t t-esc="date_start"/>
+                    </span>
+                    <strong style="color:#003c79">To</strong>:
+                    <span style="color:#999">
+                        <t t-esc="date_end"/>
+                    </span>
+
+                </h4>
+            </div>
+            <div class="article">
+                <table class="table table-condensed table-bordered" style="width: 100%">
+                    <thead>
+                        <thead>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Employee</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Department</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Penalty</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Punishment</th>
+                        </thead>
+                    </thead>
+                    <tbody>
+
+                        <t t-foreach="docs" t-as="doc">
+                            <tr>
+                                <td>
+                                    <span t-esc="doc['employee']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc['department']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc['penalty']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc['punishment_type']"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="row text-center" style="border-top: 1px solid black;">
+                    <div class="col-xs-3 col-xs-offset-9 text-right">
+                        <ul class="list-inline" style="margin-top:10px;">
+                            <li>Page:</li>
+                            <li>
+                                <span class="page"/>
+                            </li>
+                            <li>/</li>
+                            <li>
+                                <span class="topage"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+
+    </data>
+</odoo>

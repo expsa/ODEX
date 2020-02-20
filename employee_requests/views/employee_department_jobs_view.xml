@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="employee_department_jobs_action" model="ir.actions.act_window">
+            <field name="name">Employee Department and Jobs</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">employee.department.jobs</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Employee Departments and jobs
+                </p>
+            </field>
+        </record>
+
+      <record model="ir.ui.view" id="view_department_jobs_calendar">
+            <field name="name">employee.department.jobs.calendar</field>
+            <field name="model">employee.department.jobs</field>
+            <field name="arch" type="xml">
+                <calendar string="Employee Department and Jobs" date_start="date" color="date">
+
+                    <field name="date" type="measure"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="employee_department_jobs_form_view" model="ir.ui.view">
+            <field name="name">employee.department.jobs.form.view</field>
+            <field name="model">employee.department.jobs</field>
+            <field name="arch" type="xml">
+                <form string="Employee Departments and jobs">
+                    <header>
+                        <button name="confirm" string="Confirm" class="oe_highlight" states="draft" type="object"
+                                groups="hr.group_hr_user"/>
+                        <button name="approved" string="Approved" class="oe_highlight" states="confirm" type="object"
+                                groups="hr_base.group_executive_manager,hr_base.group_general_manager"/>
+                        <button name="draft" string="Re-draft" class="oe_highlight" states="approved" type="object"
+                                groups="hr.group_hr_user"/>
+                        <field name="state" widget="statusbar" statusbar_colors="{'KEY_IS_STATE':'VALUE_IS_COLOR'}"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee_id" string="Employee Name" required="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="old_department_id" string="Old department" invisible="1"/>
+                                <field name="old_department_2_id" string="Old department" readonly="1" force_save="1"/>
+                                <field name="old_job_id" string="Old Job" invisible="1"/>
+                                <field name="old_job_2_id" string="Old Job" readonly="1" force_save="1"/>
+                            </group>
+                            <group>
+                                <field name="date" string="Date" required="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="promotion_type" string="Promotion type" required="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="new_department_id" string="New department"
+                                       attrs="{'readonly':[('state','!=','draft')],
+                                       'invisible':[('promotion_type','not in',['department','both'])],
+                                       'required':[('promotion_type','in',['department','both'])]}"/>
+                                <field name="new_job_id" string="New job"
+                                       attrs="{'readonly':[('state','!=','draft')],
+                                       'invisible':[('promotion_type','not in',['job','both'])],
+                                       'required':[('promotion_type','in',['job','both'])]}"/>
+                            </group>
+                        </group>
+                        <separator string="Comment"/>
+                        <field name="comment" string="Comment" attrs="{'readonly':[('state','!=','draft')]}"/>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="employee_department_jobs_tree_view" model="ir.ui.view">
+            <field name="name">employee.department.jobs.tree.view</field>
+            <field name="model">employee.department.jobs</field>
+            <field name="arch" type="xml">
+                <tree decoration-info="state == 'draft'" string="Employee Departments and jobs">
+                    <field name="employee_id" string="Employee name"/>
+                    <field name="new_department_id" string="New department"/>
+                    <field name="new_job_id" string="New Job"/>
+                    <field name="date" string="Date"/>
+                    <field name="state" string="State"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

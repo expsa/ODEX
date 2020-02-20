@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_document_directory,access_document_directory,model_document_directory,base.group_user,1,0,0,0
+access_employee_effective_form,access_employee_effective_form,model_employee_effective_form,base.group_user,1,1,1,1
+access_employee_overtime_request,access_employee_overtime_request,model_employee_overtime_request,base.group_user,1,1,1,1
+access_line_ids_over_time_emp,line.ids.over.time.emp,model_line_ids_over_time,base.group_user,1,1,1,1
+access_house_allowance_advance,access_house_allowance_advance,model_house_allowance_advance,base.group_user,1,0,0,0
+access_house_allowance_advance_line,access_house_allowance_advance_line,model_house_allowance_advance_line,base.group_user,1,0,0,0
+access_hr_clearance_form,access_hr_clearance_form,model_hr_clearance_form,base.group_user,1,1,1,1
+access_hr_clearance_form_division,access_hr_clearance_form_division,model_hr_clearance_form,hr_base.group_division_manager,1,1,1,1
+access_hr_personal_permission,access_hr_personal_permission,model_hr_personal_permission,base.group_user,1,1,1,1
+access_hr_job_emp,hr.job: Employee,hr.model_hr_job,base.group_user,1,1,1,0
+access_employee_department_jobs_hr,employee_department_jobs_hr,model_employee_department_jobs,base.group_user,1,1,1,1

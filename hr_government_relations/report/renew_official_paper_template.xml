@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <template id="renew_official_paper_report_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <t t-foreach="docs" t-as="d">
+                        <!--<link rel='stylesheet' href='/report_transaction_duration/static/src/css/raport.css'/>-->
+
+
+
+                        <h3 class="text-center">Renew Official Papers</h3>
+
+                        <br/>
+
+                        <h4 class="text-center" > Date
+                           <td class="text-center" ><span t-field="d.date"/></td>
+
+                        </h4>
+
+
+                            <table table-bordered="True" class="table table-condensed">
+
+                                <thead>
+                                    <tr>
+
+                                        <th >
+                                            Employee Name
+                                        </th>
+                                         <th >
+                                           Department Name
+                                        </th>
+                                         <th >
+                                           Job Title
+                                        </th>
+                                        <th >
+                                           Job No
+                                        </th>
+                                        <th >
+                                          Nationality
+                                        </th>
+                                        <th >
+                                          Document Type
+                                        </th>
+                                        <th >
+                                          Expiry Date
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                  <t t-foreach="d.official_paper_ids" t-as="item">
+                                <tr>
+                                    <td>
+                                        <span t-esc="item.employee_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="item.department.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="item.job_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="item.job_no"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="item.nationality.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="item.document_type"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="item.expire_date"/>
+                                    </td>
+
+
+                                </tr>
+
+
+
+
+                                  </t>
+                                </tbody>
+                            </table>
+                        </t>
+
+
+
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

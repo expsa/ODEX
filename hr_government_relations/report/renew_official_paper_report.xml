@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+          <report
+                id="hr_government_relations_report"
+                model="hr.renew.official.paper"
+                string="Report Renewed Papers"
+                report_type="qweb-pdf"
+                name="hr_government_relations.renew_official_paper_report_template"
+                file="hr_government_relations.renew_official_paper_report_template"
+                menu="True"
+                />
+    </data>
+</odoo>

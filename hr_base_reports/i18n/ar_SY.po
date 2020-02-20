@@ -1,0 +1,709 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_base_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0-20181210\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-13 10:43+0000\n"
+"PO-Revision-Date: 2019-03-13 10:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_employee_reward_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_leaves_of_employee_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_offer_job_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_overtime_requests_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_penalty_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_termination_template
+msgid "<strong style=\"color:#003c79\">From</strong>:"
+msgstr "<strong style=\"color:#003c79\">From</strong>:"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_employee_reward_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_leaves_of_employee_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_offer_job_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_overtime_requests_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_penalty_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_termination_template
+msgid "<strong style=\"color:#003c79\">To</strong>:"
+msgstr "<strong style=\"color:#003c79\">To</strong>:"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.department_job_report_view
+msgid "<strong>From</strong>:"
+msgstr "<strong>From</strong>:"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_employee_reward_template
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.form_hr_leave_report_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.form_view_overtime_report_of_employee_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.penalty_report_form_view
+#: model:ir.ui.view,arch_db:hr_base_reports.termination_report_view
+#: model:ir.ui.view,arch_db:hr_base_reports.view_department_job_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_offer_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_reward_wizard
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_termination_wizard_cause_type
+#: model:ir.ui.view,arch_db:hr_base_reports.report_termination_template
+#: model:ir.ui.view,arch_db:hr_base_reports.termination_report_view
+msgid "Cause Type"
+msgstr "سبب الانهاء"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_department_job_wizard_create_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard_create_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard_create_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard_create_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_termination_wizard_create_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee_create_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_penalty_deduction_wizard_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_department_job_wizard_create_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard_create_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard_create_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard_create_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_termination_wizard_create_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee_create_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_penalty_deduction_wizard_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard_date_from
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard_date_from
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard_date_from
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_termination_wizard_date_from
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee_date_from
+#: model:ir.model.fields,field_description:hr_base_reports.field_penalty_deduction_wizard_date_from
+msgid "Date From"
+msgstr "من تاريخ"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard_date_to
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard_date_to
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard_date_to
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_termination_wizard_date_to
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee_date_to
+#: model:ir.model.fields,field_description:hr_base_reports.field_penalty_deduction_wizard_date_to
+msgid "Date To"
+msgstr "الي تاريخ"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.form_hr_leave_report_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.form_view_overtime_report_of_employee_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.penalty_report_form_view
+#: model:ir.ui.view,arch_db:hr_base_reports.termination_report_view
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_offer_wizard
+msgid "Date from"
+msgstr "من تاريخ"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.form_hr_leave_report_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.form_view_overtime_report_of_employee_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.penalty_report_form_view
+#: model:ir.ui.view,arch_db:hr_base_reports.termination_report_view
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_offer_wizard
+msgid "Date to"
+msgstr "الي تاريخ"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard_department_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard_department_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee_department_id
+#: model:ir.ui.view,arch_db:hr_base_reports.department_job_report_view
+#: model:ir.ui.view,arch_db:hr_base_reports.form_view_overtime_report_of_employee_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.report_leaves_of_employee_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_offer_job_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_overtime_requests_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_penalty_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_termination_template
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_offer_wizard
+msgid "Department"
+msgstr "القسم"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_department_report
+msgid "Department Job Of Employees"
+msgstr "تقرير الاقسام والوظائف"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_department_report_xlsx
+msgid "Department Job Of Employees excel Report"
+msgstr "تقرير الاقسام والوظائف"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_employee_reward_template
+msgid "Department Name"
+msgstr "اسم القسم"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.view_department_job_wizard
+msgid "Department and Job Report"
+msgstr "تقرير الاقسام والوظائف"
+
+#. module: hr_base_reports
+#: model:ir.actions.act_window,name:hr_base_reports.action_hr_department_wizard
+msgid "Department and Jobs Report"
+msgstr "تقرير الاقسام والوظائف"
+
+#. module: hr_base_reports
+#: code:addons/hr_base_reports/wizard/hr_departments_wizard.py:8
+#: selection:hr.department.job.wizard,report_type:0
+#, python-format
+msgid "Departments"
+msgstr "الاقسام"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.department_job_report_view
+msgid "Departments And jobs Of Employee Report"
+msgstr "تقرير الاقسام والوظائف"
+
+#. module: hr_base_reports
+#: code:addons/hr_base_reports/wizard/penalty_deduction_of_employee.py:16
+#: selection:penalty.deduction.wizard,report_type:0
+#, python-format
+msgid "Deprivation of promotion and promotion"
+msgstr "Deprivation of promotion and promotion"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_department_job_wizard_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_termination_wizard_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_penalty_deduction_wizard_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_department_report_xlsx_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_employee_reward_report_xlsx_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_job_offer_report_xlsx_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_leaves_report_xlsx_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_report_overtime_xlsx_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_report_penalty_xlsx_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_report_termination_xlsx_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_department_job_report_view_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_employee_reward_template_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_leaves_of_employee_template_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_offer_job_template_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_overtime_requests_template_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_penalty_template_display_name
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_termination_template_display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_leaves_of_employee_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_offer_job_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_overtime_requests_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_penalty_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_termination_template
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_employee_reward_template
+msgid "Employee Name"
+msgstr "اسم الموظف"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_employee_reward_template
+msgid "Employee Number"
+msgstr "رقم الموظف"
+
+#. module: hr_base_reports
+#: model:ir.actions.act_window,name:hr_base_reports.action_hr_reward_wizard
+msgid "Employee Reward Report"
+msgstr "تقرير مكافآه الموظفين"
+
+#. module: hr_base_reports
+#: model:ir.actions.act_window,name:hr_base_reports.action_hr_offer_employee_wizard
+msgid "Employee offer Report"
+msgstr "تقرير عروض التوظيف"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_offer_job_template
+msgid "Employees Job Offer Report"
+msgstr "تقرير عروض التوظيف"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_employee_reward_template
+msgid "Employees Reward Report"
+msgstr "تقرير مكافآه الموظف"
+
+#. module: hr_base_reports
+#: model:ir.ui.menu,name:hr_base_reports.hr_department_job_form_wizard_menu
+msgid "HR Departments and Jobs OF Employee"
+msgstr "تقرير الاقسام والوظائف"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_overtime_requests_template
+msgid "Hours number"
+msgstr "عدد الساعات"
+
+#. module: hr_base_reports
+#: model:ir.ui.menu,name:hr_base_reports.main_reports_menu
+msgid "Human Resources Reports"
+msgstr "تقارير الموارد البشرية"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_department_job_wizard_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_termination_wizard_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_penalty_deduction_wizard_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_department_report_xlsx_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_employee_reward_report_xlsx_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_job_offer_report_xlsx_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_leaves_report_xlsx_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_report_overtime_xlsx_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_report_penalty_xlsx_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_report_termination_xlsx_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_department_job_report_view_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_employee_reward_template_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_leaves_of_employee_template_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_offer_job_template_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_overtime_requests_template_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_penalty_template_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_termination_template_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard_job_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard_job_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard_job_id
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee_job_id
+msgid "Job"
+msgstr "الوظيفة"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_report_job_offer
+msgid "Job Offer report"
+msgstr "تقرير عروض الوظائف"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_job_offer_report_xlsx
+msgid "Job Offers Of Employees"
+msgstr "تقرير عروض الوظائف"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.department_job_report_view
+#: model:ir.ui.view,arch_db:hr_base_reports.form_hr_leave_report_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.form_view_overtime_report_of_employee_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.report_employee_reward_template
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_offer_wizard
+msgid "Job Title"
+msgstr "الوظيفة"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_leaves_of_employee_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_offer_job_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_overtime_requests_template
+msgid "Job title"
+msgstr "الوظفيه"
+
+#. module: hr_base_reports
+#: code:addons/hr_base_reports/wizard/hr_departments_wizard.py:8
+#: selection:hr.department.job.wizard,report_type:0
+#, python-format
+msgid "Jobs"
+msgstr "الوظائف"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_department_job_wizard___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_termination_wizard___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_penalty_deduction_wizard___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_department_report_xlsx___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_employee_reward_report_xlsx___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_job_offer_report_xlsx___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_leaves_report_xlsx___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_report_overtime_xlsx___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_report_penalty_xlsx___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_action_report_termination_xlsx___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_department_job_report_view___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_employee_reward_template___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_leaves_of_employee_template___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_offer_job_template___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_overtime_requests_template___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_penalty_template___last_update
+#: model:ir.model.fields,field_description:hr_base_reports.field_report_hr_base_reports_report_termination_template___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_department_job_wizard_write_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard_write_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard_write_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard_write_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_termination_wizard_write_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee_write_uid
+#: model:ir.model.fields,field_description:hr_base_reports.field_penalty_deduction_wizard_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_department_job_wizard_write_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard_write_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_offer_wizard_write_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_reward_wizard_write_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_termination_wizard_write_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_overtime_report_of_employee_write_date
+#: model:ir.model.fields,field_description:hr_base_reports.field_penalty_deduction_wizard_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_leave_reports_wizard_leave_type_id
+#: model:ir.ui.view,arch_db:hr_base_reports.form_hr_leave_report_wizard
+msgid "Leave Type"
+msgstr "نوع الاجازة"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_leaves_report_xlsx
+msgid "Leave report XLSX"
+msgstr "طباعة XLSX"
+
+#. module: hr_base_reports
+#: model:ir.ui.menu,name:hr_base_reports.leave_reports_wizard_menu
+msgid "Leave reports"
+msgstr "تقرير الاجازات"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_hr_leave_reports_wizard
+msgid "Leaves Wizard"
+msgstr "تقرير الاجازات"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_leaves_report
+msgid "Leaves report"
+msgstr "تقرير الاجازات"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_leaves_of_employee_template
+msgid "Number of days"
+msgstr "عدد الايام"
+
+#. module: hr_base_reports
+#: model:ir.ui.menu,name:hr_base_reports.hr_offer_reports_wizard_menu
+msgid "Offer Reports Of Employee"
+msgstr "تقرير العرض الوظيفي"
+
+#. module: hr_base_reports
+#: model:ir.actions.act_window,name:hr_base_reports.action_overtime_report_of_employee_wizard
+msgid "Overtime Report of employee"
+msgstr "تقرير الاجر الاضافي"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_report_overtime
+msgid "Overtime report"
+msgstr "تقرير الاجر الاضافي"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_report_overtime_xlsx
+msgid "Overtime report XLSX"
+msgstr "طباعة XLSX"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_overtime_report_of_employee
+#: model:ir.ui.menu,name:hr_base_reports.overtime_report_wizard_menu
+msgid "Overtime report of employee"
+msgstr "تقرير الاجر الاضافي"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.department_job_report_view
+#: model:ir.ui.view,arch_db:hr_base_reports.report_employee_reward_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_leaves_of_employee_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_offer_job_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_overtime_requests_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_penalty_template
+#: model:ir.ui.view,arch_db:hr_base_reports.report_termination_template
+msgid "Page:"
+msgstr "الصفحة:"
+
+#. module: hr_base_reports
+#: code:addons/hr_base_reports/wizard/penalty_deduction_of_employee.py:14
+#: model:ir.ui.view,arch_db:hr_base_reports.report_penalty_template
+#: selection:penalty.deduction.wizard,report_type:0
+#, python-format
+msgid "Penalty"
+msgstr "المخالفات"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_penalty_deduction_wizard
+#: model:ir.ui.menu,name:hr_base_reports.penalty_deduction_report_wizard_menu
+msgid "Penalty Deduction of employee"
+msgstr "تقرير المخالفات والجزاءات"
+
+#. module: hr_base_reports
+#: model:ir.actions.act_window,name:hr_base_reports.action_penalty_report
+msgid "Penalty Report"
+msgstr "تقرير المخالفات والجزاءات"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_report_penalty
+msgid "Penalty report"
+msgstr "تقرير المخالفات والجزاءات"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_report_penalty_xlsx
+msgid "Penalty report XLSX"
+msgstr "طباعة XLSX"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.form_hr_leave_report_wizard
+msgid "Print Leave PDF"
+msgstr "طباعة PDF"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.form_hr_leave_report_wizard
+msgid "Print Leave XLSX"
+msgstr "طباعة XLSX"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.form_view_overtime_report_of_employee_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.penalty_report_form_view
+msgid "Print Overtime PDF"
+msgstr "طباعة PDF"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.form_view_overtime_report_of_employee_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.penalty_report_form_view
+msgid "Print Overtime XLSX"
+msgstr "طباعة XLSX"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_reward_wizard
+msgid "Print Report Excel"
+msgstr "طباعة XLSX"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.view_department_job_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_reward_wizard
+msgid "Print Report PDF"
+msgstr "طباعة PDF"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.termination_report_view
+msgid "Print Termination PDF"
+msgstr "طباعة PDF"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_offer_wizard
+msgid "Print report PDF"
+msgstr "طباعة PDF"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.termination_report_view
+#: model:ir.ui.view,arch_db:hr_base_reports.view_department_job_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_offer_wizard
+msgid "Print report excel"
+msgstr "طباعة XLSX"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_penalty_template
+msgid "Punishment"
+msgstr "الجزاءات"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_termination_template
+msgid "Reason"
+msgstr "السبب"
+
+#. module: hr_base_reports
+#: model:ir.model.fields,field_description:hr_base_reports.field_hr_department_job_wizard_report_type
+#: model:ir.model.fields,field_description:hr_base_reports.field_penalty_deduction_wizard_report_type
+#: model:ir.ui.view,arch_db:hr_base_reports.penalty_report_form_view
+#: model:ir.ui.view,arch_db:hr_base_reports.view_department_job_wizard
+msgid "Report Type"
+msgstr "نوع التقرير"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.report_employee_reward_template
+msgid "Reward Reason"
+msgstr "سبب المكافآه"
+
+#. module: hr_base_reports
+#: model:ir.ui.menu,name:hr_base_reports.hr_reward_reports_wizard_menu
+msgid "Reward Reports Of Employee"
+msgstr "مكافأة الموظف"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_report_sales_report
+msgid "Sales report"
+msgstr "Sales report"
+
+#. module: hr_base_reports
+#: model:ir.ui.menu,name:hr_base_reports.termenation_reports_wizard_menu
+msgid "Termenation reports"
+msgstr "تقرير انهاء الخدمة"
+
+#. module: hr_base_reports
+#: code:addons/hr_base_reports/wizard/penalty_deduction_of_employee.py:15
+#: selection:penalty.deduction.wizard,report_type:0
+#, python-format
+msgid "Termination"
+msgstr "انهاء الخدمة"
+
+#. module: hr_base_reports
+#: model:ir.actions.act_window,name:hr_base_reports.action_hr_leave_report_wizard
+msgid "Termination Report"
+msgstr "تقرير الاجازة"
+
+#. module: hr_base_reports
+#: model:ir.actions.act_window,name:hr_base_reports.action_hr_termination_wizard
+#: model:ir.actions.report,name:hr_base_reports.action_report_termination
+msgid "Termination report"
+msgstr "تقرير انهاء الخدمة"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_report_termination_xlsx
+msgid "Termination report XLSX"
+msgstr "طباعة XLSX"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.department_job_report_view
+msgid "Total"
+msgstr "الإجمالي "
+
+#. module: hr_base_reports
+#: code:addons/hr_base_reports/wizard/penalty_deduction_of_employee.py:13
+#: selection:penalty.deduction.wizard,report_type:0
+#, python-format
+msgid "Warning"
+msgstr "خطآ"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_reward_wizard
+msgid "employee Reward Report"
+msgstr "تقرير مكافآه الموظف"
+
+#. module: hr_base_reports
+#: model:ir.actions.report,name:hr_base_reports.action_employee_reward_report_xlsx
+#: model:ir.actions.report,name:hr_base_reports.action_report_employee_rewrad
+msgid "employee Reward report"
+msgstr "تقرير مكافآه الموظف"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_offer_wizard
+msgid "employee offer Report"
+msgstr "تقرير عروض التوظيف"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_hr_department_job_wizard
+msgid "hr.department.job.wizard"
+msgstr "تقرير الاقسام والادارت"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_hr_offer_wizard
+msgid "hr.offer.wizard"
+msgstr "تقرير عروض التوظيف"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_hr_reward_wizard
+msgid "hr.reward.wizard"
+msgstr "تقرير مكافآه الموظفين"
+
+#. module: hr_base_reports
+#: model:ir.ui.view,arch_db:hr_base_reports.view_department_job_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_offer_wizard
+#: model:ir.ui.view,arch_db:hr_base_reports.view_employee_reward_wizard
+msgid "or"
+msgstr "او"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_action_department_report_xlsx
+msgid "report.hr_base_reports.action_department_report_xlsx"
+msgstr "report.hr_base_reports.action_department_report_xlsx"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_action_employee_reward_report_xlsx
+msgid "report.hr_base_reports.action_employee_reward_report_xlsx"
+msgstr "report.hr_base_reports.action_employee_reward_report_xlsx"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_action_job_offer_report_xlsx
+msgid "report.hr_base_reports.action_job_offer_report_xlsx"
+msgstr "report.hr_base_reports.action_job_offer_report_xlsx"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_action_leaves_report_xlsx
+msgid "report.hr_base_reports.action_leaves_report_xlsx"
+msgstr "report.hr_base_reports.action_leaves_report_xlsx"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_action_report_overtime_xlsx
+msgid "report.hr_base_reports.action_report_overtime_xlsx"
+msgstr "report.hr_base_reports.action_report_overtime_xlsx"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_action_report_penalty_xlsx
+msgid "report.hr_base_reports.action_report_penalty_xlsx"
+msgstr "report.hr_base_reports.action_report_penalty_xlsx"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_action_report_termination_xlsx
+msgid "report.hr_base_reports.action_report_termination_xlsx"
+msgstr "report.hr_base_reports.action_report_termination_xlsx"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_department_job_report_view
+msgid "report.hr_base_reports.department_job_report_view"
+msgstr "report.hr_base_reports.department_job_report_view"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_report_employee_reward_template
+msgid "report.hr_base_reports.report_employee_reward_template"
+msgstr "report.hr_base_reports.report_employee_reward_template"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_report_leaves_of_employee_template
+msgid "report.hr_base_reports.report_leaves_of_employee_template"
+msgstr "report.hr_base_reports.report_leaves_of_employee_template"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_report_offer_job_template
+msgid "report.hr_base_reports.report_offer_job_template"
+msgstr "report.hr_base_reports.report_offer_job_template"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_report_overtime_requests_template
+msgid "report.hr_base_reports.report_overtime_requests_template"
+msgstr "report.hr_base_reports.report_overtime_requests_template"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_report_penalty_template
+msgid "report.hr_base_reports.report_penalty_template"
+msgstr "report.hr_base_reports.report_penalty_template"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_report_hr_base_reports_report_termination_template
+msgid "report.hr_base_reports.report_termination_template"
+msgstr "report.hr_base_reports.report_termination_template"
+
+#. module: hr_base_reports
+#: model:ir.model,name:hr_base_reports.model_hr_termination_wizard
+msgid "termination Wizard"
+msgstr "تقرير انهاء الخدمة"
+

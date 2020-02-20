@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="iqama_form_view">
+            <field name="name">hr.iqama.form.view</field>
+            <field name="model">employee.iqama</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group string='Employee Details' name="group_top">
+                            <group name="group_left">
+                                <field name="employee"/>
+                                <field name="employee_code"/>
+                                <field name="job"/>
+                                <field name="department"/>
+                                <field name="office"/>
+                            </group>
+                            <group name="group_right">
+                                <field name="name"/>
+                                <field name="arabic_name"/>
+                                <field name="nationality"/>
+                                <field name="relegion"/>
+                                <field name="dob"/>
+                                <!-- <field name="profession"/> -->
+                            </group>
+                        </group>
+                        <group string='Iqama/ID Details' name="group_top">
+                            <group name="group_left">
+                                <field name="iqama_no"/>
+                                <field name="serial_no"/>
+                                <field name="issue_date" widget="date"/>
+                                <field name="expiry_date" widget="date"/>
+                            </group>
+
+                            <group name="group_right">
+                                <field name="iqama_position"/>
+                                <field name="place_issue"/>
+                                <field name="arrival_date" widget="date"/>
+                                <field name="in_saudi"/>
+                                <!-- <field name="date_hijri"/> -->
+                            </group>
+                        </group>
+                        <separator/>
+                        <h4>Family Iqama/ID Details</h4>
+                        <separator/>
+                        <field name="t_link">
+                            <tree editable="bottom">
+                                <field name="iqama_no"/>
+                                <field name="issue_date" widget="date"/>
+                                <field name="expiry_date" widget="date"/>
+                                <field name="in_saudi"/>
+                            </tree>
+                        </field>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Employee Iqama -->
+        <record model="ir.actions.act_window" id="iqama_list_action">
+            <field name="name">Employee Iqama / ID</field>
+            <field name="res_model">employee.iqama</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

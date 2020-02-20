@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="employee_request_list_action">
+            <field name="name">Employee Effective Form</field>
+            <field name="res_model">employee.effective.form</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_request_effective_calendar">
+            <field name="name">employee.effective.form.calendar</field>
+            <field name="model">employee.effective.form</field>
+            <field name="arch" type="xml">
+                <calendar string="Employee Effective Form" date_start="effective_form_date" color="effective_form_date">
+
+                    <field name="effective_form_date" type="measure"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_request_effective_form_view">
+            <field name="name">Employee Request Effective</field>
+            <field name="model">employee.effective.form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="submit" string="Submit" class="oe_highlight" type="object"
+                                states="draft"
+                                groups="base.group_user"/>
+                        <button name="direct_manager" string="Direct Manager Approve" class="oe_highlight" type="object"
+                                states="submit"
+                                groups="hr_base.group_division_manager"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="submit"
+                                groups="hr_base.group_division_manager"/>
+                        <button name="hr_manager" string="HR M Approve" class="oe_highlight" type="object"
+                                states="direct_manager"
+                                groups="hr.group_hr_user"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="direct_manager"
+                                groups="hr.group_hr_user"/>
+                        <button name="done" string="done" class="oe_highlight" type="object"
+                                states="hr_manager"
+                                groups="hr_base.group_general_manager,hr_base.group_executive_manager"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="hr_manager"
+                                groups="hr_base.group_general_manager,hr_base.group_executive_manager"/>
+                        <button name="draft_state" string="RE-Draft" class="oe_highlight" type="object"
+                                states="refused"
+                                groups="hr.group_hr_user"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="from_hr" string="From HR" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_id" string="Employee"
+                                       attrs="{'readonly': ['|',('from_hr','=',False),('state','!=','draft')],'required':True}"/>
+                                <field name="job_id" string="Job Name" readonly="True"/>
+                                <field name="department_id" string="Department" readonly="True"/>
+                                <field name="employee_salary" string="Salary" readonly="True"
+                                       attrs="{'invisible':[('effective_form_type','=','return_from_leave')]}"/>
+                                <field name="employee_house_all" string="House expends " readonly="True"
+                                       attrs="{'invisible':[('effective_form_type','=','return_from_leave')]}"/>
+
+                                <field name="total_salary" string="Total Salary" readonly="True"
+                                       attrs="{'invisible':[('effective_form_type','=','return_from_leave')]}"/>
+                            </group>
+                            <group>
+                                <field name="effective_form_type" string="Form Type" required="True"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="effective_form_date" string="Effective Form Date" required="True"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="remarks" string="Remarks" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_request_effective_tree_view">
+            <field name="name">Employee Request Effective</field>
+            <field name="model">employee.effective.form</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="state == 'refused'" decoration-info="state == 'draft'" string="Employee Request Effective">
+                    <field name="employee_id" string="Employee"/>
+                    <field name="effective_form_type" string="Form Type"/>
+                    <field name="effective_form_date" string="Effective Form Date"/>
+                    <field name="total_salary" string="Total Salary"/>
+                    <field name="state" string="Status"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

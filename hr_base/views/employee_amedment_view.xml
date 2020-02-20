@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- Employee Amedment-->
+        <record model="ir.actions.act_window" id="amedment_list_action">
+            <field name="name">Employee Amedment</field>
+            <field name="res_model">contract.amedment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Employee Amedment -->
+        <record id="amedment_form_view" model="ir.ui.view">
+            <field name="name">hr.amedment.form.view</field>
+            <field name="model">contract.amedment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        S
+                        <xpath expr="//form/sheet" position="before">
+                            <header>
+                                <button name="validate_changes" type="object" string="Update" class="oe_highlight"/>
+                            </header>
+                        </xpath>
+                        <group>
+                            <group string='Employee Information'>
+                                <field name="employee"/>
+                                <field name="employee_code"/>
+                            </group>
+                            <group string='Contract Information'>
+                                <field name="contract"/>
+                                <field name="effective_date" widget="date"/>
+                            </group>
+                            <group string='From'>
+                                <field name="office"/>
+                                <field name="department"/>
+                                <field name="grade"/>
+                                <field name="job"/>
+                                <field name="c_location"/>
+                                <field name="mol_location"/>
+                                <field name="r_manager" domain="[('manager','=',True)]"/>
+                            </group>
+                            <group string='To'>
+                                <field name="to_office"/>
+                                <field name="to_department"/>
+                                <field name="to_grade"/>
+                                <field name="to_job"/>
+                                <field name="n_location"/>
+                                <field name="nmol_location"/>
+                                <field name="nr_manager" domain="[('manager','=',True)]"/>
+                                <field name="remark"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

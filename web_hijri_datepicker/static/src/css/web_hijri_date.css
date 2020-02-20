@@ -1,0 +1,23 @@
+
+/*.calendars-month-header {
+    height: 100%;
+}*/
+.odoo_extra_date {
+    float: left;
+    background-color: blanchedalmond;
+}
+.odoo_extra_time {
+    float: left;
+    width: 35% !important;
+}
+.input-cal-icon{
+    bottom: auto;
+    cursor: pointer;
+    left: auto;
+    position: absolute;
+    right: 8px;
+    top: 0px;
+    background-color: transparent;
+    border: 0 none;
+}
+

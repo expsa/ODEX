@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="attendance_transaction_inherited_view" model="ir.ui.view">
+            <field name="name">attendance.transaction.inherit.view</field>
+            <field name="model">hr.attendance.transaction</field>
+            <field name="inherit_id" ref="attendences.employee_attendance_transactions_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='attendance']" position="after">
+                    <group name="personal_permission">
+                        <field name="personal_permission_id" readonly="1"/>
+                        <field name="approve_personal_permission" required="1" readonly="1"/>
+                        <field name="total_permission_hours" widget="float_time" invisible="1"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="attendance_transaction_inherited_tree">
+            <field name="name">attendance.transaction.tree.inherit</field>
+            <field name="model">hr.attendance.transaction</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="attendences.attendance_transaction_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='approve_lateness']" position="after">
+                    <field name="approve_personal_permission"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

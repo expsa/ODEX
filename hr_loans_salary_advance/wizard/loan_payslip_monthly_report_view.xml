@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+        
+        <record model="ir.ui.view" id="loan_payslip_xslx_report_form">
+            <field name="name">loan.payslip.monthly.report.form</field>
+            <field name="model">payslip.monthly.report</field>
+			<field name="inherit_id" ref="exp_payroll_custom.payslip_xslx_report_form"/>
+            <field name="arch" type="xml">
+				<xpath expr="//page[2]" position="after">
+					<page string="Loans">
+						<field name="loan_ids" />
+					</page>
+				</xpath>
+				<xpath expr="//group" position="after">
+					<group >
+						<field name="no_rule" />
+						<field name="no_loan" />
+					</group>
+				</xpath>
+            </field>
+        </record>
+        
+
+
+	</data>
+</odoo>

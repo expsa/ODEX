@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="appraisal_plan_form_view" model="ir.ui.view">
+            <field name="name">Appraisal plan form view</field>
+            <field name="model">appraisal.plan</field>
+            <field name="arch" type="xml">
+                <form string="Appraisal plan">
+                    <sheet>
+                        <group>
+                            <field name="name" string="Plan name" required="1"/>
+                            <field name="department_id" string="Department"/>
+                            <field name="is_manager" string="Is manager?"/>
+                        </group>
+
+                        <field name="standard_appraisal_id" string=""
+                               attrs="{'invisible':[('is_manager','=',True)]}">
+                            <tree editable="bottom">
+                                <field name="question" string="Question" required="1"/>
+                                <field name="great_level" string="Great Level" required="1"/>
+                            </tree>
+                        </field>
+
+
+                        <field name="manager_appraisal_id" string=""
+                               attrs="{'invisible':[('is_manager','=',False)]}">
+                            <tree editable="bottom">
+                                <field name="appraisal_name" string="Appraisal name" required="1"/>
+                                <field name="question_id" string="Appraisal" required="1"/>
+                                <!--<button name="create_manager_appraisal" type="object" icon="fa-file" class="oe_highlight"-->
+                                        <!--style="width: 100%; border-radius: 9px; padding: 3px 0;"/>-->
+                                <field name="great_level" string="Great level" readonly="1"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <group>
+                                <field name="great_level" string="Great level" readonly="1" force_save="1"/>
+                                <button name="re_compute_total" type="object" string="Re-compute" class="oe_highlight"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <!--Discuss widgets for history and communication -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="appraisal_plan_tree_view" model="ir.ui.view">
+            <field name="name">Appraisal plan tree view</field>
+            <field name="model">appraisal.plan</field>
+            <field name="arch" type="xml">
+                <tree string="Appraisal plan">
+                    <field name="name" string="Name"/>
+                    <field name="department_id" string="Department"/>
+                    <field name="is_manager" string="Is manager?"/>
+                </tree>
+            </field>
+        </record>
+        <record id="appraisal_plan_action_view" model="ir.actions.act_window">
+            <field name="name">Appraisal plan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">appraisal.plan</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="appraisal_configuration" name="Configuration" parent="appraisal_menu_id" sequence="3"
+                  groups="hr_appraisal‏.group_appraisal_manager"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="appraisal_plan_menu" name="Appraisal plan" parent="appraisal_configuration"
+                  action="appraisal_plan_action_view" sequence="1"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="employee_appraisal_form_view">
+            <field name="name">Appraisal for employees form</field>
+            <field name="model">hr.group.employee.appraisal</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="gen_appraisal" states="draft" string="Generate Appraisal" type="object" class="oe_highlight"
+                                groups="hr_base.group_division_manager,hr.group_hr_user"/>
+                        <button name="start_appraisal" states="gen_appraisal" string="Start Appraisal" type="object" class="oe_highlight"
+                                groups="hr.group_hr_manager"/>
+                        <button name="finish_appraisal" states="start_appraisal" string="Direct Manager Appraisal" class="oe_highlight"
+                                type="object" groups="hr_base.group_division_manager"/>
+                        <button name="hr_approval" states="finish_appraisal" string="Department Manager Approval" type="object" class="oe_highlight"
+                                groups="hr_base.group_department_manager"/>
+                        <button name="gm_approval" states="hr_approval" string="HR Approval" type="object" class="oe_highlight"
+                                groups="hr.group_hr_manager"/>
+                        <button name="state_done" states="gm_approval" string="Done" type="object" class="oe_highlight"
+                                groups="hr_base.group_general_manager,hr_base.group_executive_manager"/>
+                        <button name="draft" string="Re-draft" type="object" class="oe_highlight"
+                                attrs="{'invisible':[('state','in',['start_appraisal', 'draft'])]}"
+                                groups="hr.group_hr_user"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date" string="Date" required="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="department_id" string="Department" required="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="manager_id" string="Manager" required="1"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="appraisal_plan_id" string="Appraisal plan"
+                                       attrs="{'readonly':[('state','!=','draft')]}" required="1"/>
+                            </group>
+                        </group>
+
+                        <separator string="Employees"/>
+                        <field name="employee_ids" string="" attrs="{'readonly':[('state','!=','draft')]}">
+                            <tree>
+                                <field name="name" string="Employee name"/>
+                                <field name="department_id" string="Department"/>
+                                <field name="job_id" string="Job title"/>
+                            </tree>
+                        </field>
+
+                        <separator string="Appraisal" attrs="{'invisible':[('state','=','draft')]}"/>
+                        <field name="appraisal_id" string=""
+                               attrs="{'invisible':[('state','=','draft')],'readonly':[('state','!=','draft')]}">
+                            <tree editable="bottom">
+                                <field name="employee_id" string="Employee"/>
+                                <field name="appraisal_date" string="Appraisal Date"/>
+                                <field name="is_manager" string="Is manager"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                    <!--Discuss widgets for history and communication -->
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_appraisal_tree_view">
+            <field name="name">Appraisal for employees tree</field>
+            <field name="model">hr.group.employee.appraisal</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="state=='done'" decoration-info="state == 'draft'" string="Appraisal For Employees Group">
+                    <field name="appraisal_plan_id" string="Appraisal plan"/>
+                    <field name="date" string="Date"/>
+                    <field name="department_id" string="Department"/>
+                    <field name="manager_id" string="Manager"/>
+                    <field name="state" />
+                </tree>
+
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="employee_appraisal_action">
+            <field name="name">Appraisal for employees</field>
+            <field name="res_model">hr.group.employee.appraisal</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- Appraisal menu -->
+        <menuitem id="appraisal_menu_id" name="Appraisal" parent="hr.menu_hr_root" sequence="13"/>
+
+
+        <menuitem name="Appraisal for employees" id="employee_appraisal_menu_item"
+                  parent="appraisal_menu_id"
+                  action="employee_appraisal_action"
+                  groups="hr_appraisal‏.group_appraisal_user"
+                  sequence="1"/>
+
+    </data>
+</odoo>

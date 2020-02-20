@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+<record model="ir.ui.view" id="ticket_reissue_form_view">
+            <field name="name">ticket_reissue_form_view</field>
+            <field name="model">hr.ticket.reissue</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <separator/>
+                        <h3>Ticket ReIssue Details</h3>
+                        <separator/>
+
+                        <group name="group_top">
+
+                            <group name="group_left">
+
+                                <field name="departure"/>
+                                <field name="destination"/>
+                                <field name="departure_date" widget="date"/>
+
+                            </group>
+
+                            <group name="group_right">
+                                <field name="return_date" widget="date"/>
+                                <field name="change_sec"/>
+                                <field name="reasons"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

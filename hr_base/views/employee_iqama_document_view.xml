@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--<record id="employee_data_reminder" model="ir.cron">-->
+        <!--<field name="name">HR Employee Data Expiration</field>-->
+        <!--<field name="model_id" ref="model_hr_employee_document"/>-->
+        <!--<field name="state">code</field>-->
+        <!--<field name="code">model.mail_reminder()</field>-->
+        <!--<field name="interval_number">1</field>-->
+        <!--<field name="interval_type">days</field>-->
+        <!--<field name="numbercall">-1</field>-->
+    <!--</record>-->
+
+    <record model='ir.ui.view' id='employee__iqama_document_form_view'>
+        <field name="name">hr.employee.iqama.document.form</field>
+        <field name="model">employee.iqama</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="iqama_no"/>
+                            <field name="iqama_position"/>
+                            <field name="place_issue" />
+
+
+                        </group>
+                        <group>
+                            <field name="issue_date" string="Issue Date"/>
+                            <field name="expiry_date" string="Expiry Date"/>
+                            <field name="arrival_date" string="Arrival Date"/>
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="hr_employee_document_inherit_form_view">
+        <field name="name">hr.employee.form.view</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" position="inside">
+                <button class="oe_stat_button" name="document_view" type="object" icon="fa-list-ol">
+                    <field string="Documents" name="document_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+</odoo>

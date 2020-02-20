@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_external_layout_depend">
+            <div class="header">
+                <style type="text/css">
+                    @font-face {
+                    font-family: 'ae_AlMohanad';
+                    src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                    url('/hr_base/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                    }
+                    *{
+                    font-family: ae_AlMohanad;
+                    }
+                </style>
+                <div class="row">
+                    <div>
+                        <p style="text-align:right;font-size:17pt;background-color:#d3d3d3;">
+                            نموذج معلومات موظف + عائلتهEmployee Information Form + Dependents
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-raw="0" />
+            </div>
+        </template>
+
+        <template id="custom_external_layout_d">
+            <!-- Multicompany -->
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+            <t t-if="company.external_report_layout == 'background'">
+                <t t-call="hr_base.custom_external_layout_depend"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout == 'boxed'">
+                <t t-call="hr_base.custom_external_layout_depend"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout == 'clean'">
+                <t t-call="hr_base.custom_external_layout_depend"><t t-raw="0"/></t>
+            </t>
+            <t t-if="company.external_report_layout in (False, 'standard')">
+                <t t-call="hr_base.custom_external_layout_depend"><t t-raw="0"/></t>
+            </t>
+        </template>
+        <template id="dependents_report_template">
+
+        </template>
+        <template id="dependents_employee_report_temp">
+            <t t-call="web.html_container">
+                <t t-call="hr_base.custom_external_layout_d">
+                    <style type="text/css">
+                        @font-face {
+                        font-family: 'ae_AlMohanad';
+                        src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                        url('/hr_base/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                        }
+                        *{
+                        font-family: ae_AlMohanad;
+                        }
+                    </style>
+                    <div class="page" style="font-size:19pt">
+                        <t t-foreach="docs" t-as="o">
+                            <br/>
+                            <table style="width:100%;border-bottom: 1px solid gray">
+                                <tr>
+                                    <td style="font-weight:bold;width:50%">
+                                        نأمل منكم تعبئة النموذج الخاص بكم موضحا فيه تواريخ الميلاد باليوم و الشهر و السنة بالميلادي (إذا أمكن) وإعادته لنا بعد التوقيع عليه، ولكم جزيل الشكر.
+                                    </td>
+
+                                    <td style="text-align: left;;font-weight:bold;width:50%">
+                                        Please complete this form indicate the Date, Month, Year in Gregorian  (If possible) and return it back to our department after your signature.                            </td>
+                                </tr>
+                                <tr style="border-top: 1px solid white;border-left: 1px solid white;padding: 1px;">
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                </tr>
+                                <br/>
+                            </table>
+                            <br/>
+                            <br/>
+                            <table class="table table-condensed" style="width:100%;text-align:center;border: 1px solid gray">
+                                <tr>
+                                    <td style="border: 1px solid gray">
+                                        أسم الموظف الثلاثي بالإنجليزي
+                                        <br/>
+                                        name
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        رقم بطاقة الأحوال / الإقامة
+                                        <br/>
+                                        Saudi ID/ Iqama No.
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        الجنسية
+                                        <br/>
+                                        Nationality
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        تاريخ الميلاد (بالميلادي)
+                                        <br/>
+                                        D.O.B (Gregorian)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid gray">
+                                        <t t-esc="o.english_name"/>
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        <t t-if="o.country_id.name == 'Saudi Arabia' or o.country_id.name == 'المملكة العربية السعودية'">
+                                            <span t-field="o.saudi_number.saudi_id"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.iqama_number.iqama_id"/>
+                                        </t>
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        <t t-esc="o.country_id.name"/>
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        <t t-esc="o.birthday"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p>
+                                المعالين:
+                            </p>
+                            <p>
+                                Dependents:
+                            </p>
+                            <table class="table table-condensed" style="width:100%;text-align:center;border: 1px solid gray">
+                                <thead>
+                                    <tr>
+                                        <th style=" border: 1px solid gray; padding: 1px; font-size:0.8em;background-color: white;color: black;width:5px">
+                                            #
+                                        </th>
+                                        <th style=" border: 1px solid gray; padding: 1px; font-size:0.8em;background-color: white;color: black;width:25%;text-align:center;">
+                                            الاسم الثلاثي بالإنجليزي
+                                            <br/>
+                                            name
+                                        </th>
+                                        <th style=" border: 1px solid gray; padding: 1px; font-size:0.8em;background-color: white;color: black;width:15%;text-align:center;">
+                                            الجنس
+                                            <br/>
+                                            Sex
+                                        </th>
+                                        <th style=" border: 1px solid gray; padding: 1px;font-size:0.8em;background-color: white;color: black;width:15%;text-align:center;">
+                                            صلة القرابة
+                                            <br/>
+                                            Relation
+                                        </th>
+                                        <th style=" border: 1px solid gray; padding: 1px;font-size:0.8em;background-color: white;color: black;width:15%;text-align:center;">
+                                            تاريخ الميلاد (بالميلادي)
+                                            <br/>
+                                            D.O.B (Gregorian)
+                                        </th>
+                                        <th style=" border: 1px solid gray; padding: 1px;font-size:0.8em;background-color: white;color: black;width:30%;text-align:center;">
+                                            رقم بطاقة الأحوال / الإقامة
+                                            <br/>
+                                            Saudi ID/ Iqama No
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <t t-set="i" t-value="1"/>
+                                <tbody>
+                                    <t t-foreach="o.contract_id.employee_dependant" t-as="line">
+                                        <tr>
+                                            <td style=" border: 1px solid gray;padding: 1px; width:5%;font-size:0.8em;background-color: white;color: black; text-align:center;">
+                                                <span t-esc="i"/>
+                                            </td>
+                                            <td style=" border: 1px solid gray;padding: 1px; width:25%;font-size:0.8em;background-color: white;color: black; text-align:center">
+                                                <t t-esc="line.name"/>
+                                            </td>
+                                            <td style=" border: 1px solid gray;padding: 1px;font-size:0.8em;background-color: white;color: black;width:15%;text-align:center">
+                                                <t t-esc="line.gender"/>
+                                            </td>
+                                            <td style=" border: 1px solid gray;padding: 1px;font-size:0.8em;background-color: white;color: black;width:15%;text-align:center">
+                                                <t t-esc="line.relation"/>
+                                            </td>
+                                            <td style=" border: 1px solid gray;padding: 1px;font-size:0.8em;background-color: white;color: black;width:15%;text-align:center">
+                                                <t t-esc="line.birthday"/>
+                                            </td>
+                                            <td style=" border: 1px solid gray;padding: 1px;font-size:0.8em;background-color: white;color: black;width:30%;text-align:center">
+                                                <t t-esc="line.identity_num"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="i" t-value="i+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <table style="width:100%;border-bottom: 1px solid white">
+                                <tr>
+                                    <td style="font-weight:bold;width:50%">
+                                        أقر بأن هذه المعلومات المذكورة في هذه الاستمارة صحيحة.
+                                    </td>
+                                    <td style="text-align: left;;font-weight:bold;width:50%">
+                                        I do hereby declare that the information provided is to the best of my knowledge true and accurate.
+                                    </td>
+                                </tr>
+                                <tr style="border-top: 1px solid white;border-left: 1px solid white;padding: 1px;">
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                </tr>
+                                <br/>
+                            </table>
+                            <table style="width:100%;">
+                                <tr>
+                                    <td style="font-weight:bold;width:15%">
+                                        الاسم
+                                    </td>
+                                    <td style="text-align: center;font-weight:bold;width:70%;font-size:16pt">
+                                        ..............................................................................................................................................</td>
+                                    <td style="text-align:left;font-weight:bold;width:15%">
+                                        name
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:bold;width:15%">
+                                        التوقيع
+                                    </td>
+                                    <td style="text-align: center;font-weight:bold;width:70%;font-size:16pt">
+                                        ..........................................................................................................................................</td>
+                                    <td style="text-align:left;font-weight:bold;width:15%">
+                                        Signature
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:bold;width:15%">
+                                        التاريخ
+                                    </td>
+                                    <td style="text-align: center;font-weight:bold;width:70%;font-size:16pt">
+                                        ..............................................................................................................................................</td>
+                                    <td style="text-align:left;font-weight:bold;width:15%">
+                                        Date
+                                    </td>
+                                </tr>
+                                <tr style="border-top: 1px solid white;border-left: 1px solid white;padding: 1px;">
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                </tr>
+                                <br/>
+                            </table>
+                            <table style="width:100%;border: 1px solid gray;border-top: 0px;border-left: 0px;border-right: 0px">
+                                <tr>
+                                    <td style="width:25%;font-weight:bold;color: green">
+                                        لاستخدام إدارة الموارد البشرية
+                                    </td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="width:40%;font-weight:bold;color: green">
+                                        For Human Resources Department
+                                    </td>
+                                </tr>
+                                <tr style="border-top: 1px solid gray">
+                                    <td style="font-weight:bold;width:25%;border: 1px solid gray;background-color:#d3d3d3;">
+                                        تمت مطابقة الأسماء حسب الجواز / الإقامة / بطاقة الأحوال
+                                    </td>
+                                    <td style="text-align: right;font-weight:bold;width:25%;border-top: 1px solid gray">
+                                        الاسم    :
+                                        <br/>
+                                        التاريخ  :
+                                    </td>
+                                    <td style="font-weight:bold;border: 1px solid gray;background-color:#d3d3d3;">
+                                        ملاحظات:
+
+                                        <br/>
+                                        التوقيع:
+                                    </td>
+                                    <td style="color:white;width:40%;border-left: 1px solid gray">.</td>
+                                </tr>
+                                <br/>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <!--template for contract-->
+
+        <template id="dependents_contract_report_temp">
+            <t t-call="web.html_container">
+                <t t-call="hr_base.custom_external_layout_d">
+                    <style type="text/css">
+                        @font-face {
+                        font-family: 'ae_AlMohanad';
+                        src: local('ae_AlMohanad'), local('ae_AlMohanad'),
+                        url('/hr_base/static/fonts/ae_AlMohanad.ttf') format('truetype');
+                        }
+                        *{
+                        font-family: ae_AlMohanad;
+                        }
+                    </style>
+                    <div class="page" style="font-size:19pt">
+                        <t t-foreach="docs" t-as="o">
+                            <br/>
+                            <table style="width:100%;border-bottom: 1px solid gray">
+                                <tr>
+                                    <td style="font-weight:bold;width:50%">
+                                        نأمل منكم تعبئة النموذج الخاص بكم موضحا فيه تواريخ الميلاد باليوم و الشهر و السنة بالميلادي (إذا أمكن) وإعادته لنا بعد التوقيع عليه، ولكم جزيل الشكر.
+                                    </td>
+
+                                    <td style="text-align: left;;font-weight:bold;width:50%">
+                                        Please complete this form indicate the Date, Month, Year in Gregorian  (If possible) and return it back to our department after your signature.                            </td>
+                                </tr>
+                                <tr style="border-top: 1px solid white;border-left: 1px solid white;padding: 1px;">
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                </tr>
+                                <br/>
+                            </table>
+                            <br/>
+                            <br/>
+                            <table class="table table-condensed" style="width:100%;text-align:center;border: 1px solid gray">
+                                <tr>
+                                    <td style="border: 1px solid gray">
+                                        أسم الموظف الثلاثي بالإنجليزي
+                                        <br/>
+                                        name
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        رقم بطاقة الأحوال / الإقامة
+                                        <br/>
+                                        Saudi ID/ Iqama No.
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        الجنسية
+                                        <br/>
+                                        Nationality
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        تاريخ الميلاد (بالميلادي)
+                                        <br/>
+                                        D.O.B (Gregorian)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid gray">
+                                        <t t-esc="o.employee_id.english_name"/>
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        <t t-if="o.employee_id.country_id.name == 'Saudi Arabia' or o.employee_id.country_id.name == 'المملكة العربية السعودية'">
+                                            <span t-field="o.employee_id.saudi_number.saudi_id"/>
+                                        </t>
+                                        <t t-else="">
+                                            <span t-field="o.employee_id.iqama_number.iqama_id"/>
+                                        </t>
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        <t t-esc="o.employee_id.country_id.name"/>
+                                    </td>
+                                    <td style="border: 1px solid gray">
+                                        <t t-esc="o.employee_id.birthday"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p>
+                                المعالين:
+                            </p>
+                            <p>
+                                Dependents:
+                            </p>
+                            <table class="table table-condensed" style="width:100%;text-align:center;border: 1px solid gray">
+                                <thead>
+                                    <tr>
+                                        <th style=" border: 1px solid gray; padding: 1px; font-size:0.8em;background-color: white;color: black;width:5px">
+                                            #
+                                        </th>
+                                        <th style=" border: 1px solid gray; padding: 1px; font-size:0.8em;background-color: white;color: black;width:25%;text-align:center;">
+                                            الاسم الثلاثي بالإنجليزي
+                                            <br/>
+                                            name
+                                        </th>
+                                        <th style=" border: 1px solid gray; padding: 1px; font-size:0.8em;background-color: white;color: black;width:15%;text-align:center;">
+                                            الجنس
+                                            <br/>
+                                            Sex
+                                        </th>
+                                        <th style=" border: 1px solid gray; padding: 1px;font-size:0.8em;background-color: white;color: black;width:15%;text-align:center;">
+                                            صلة القرابة
+                                            <br/>
+                                            Relation
+                                        </th>
+                                        <th style=" border: 1px solid gray; padding: 1px;font-size:0.8em;background-color: white;color: black;width:15%;text-align:center;">
+                                            تاريخ الميلاد (بالميلادي)
+                                            <br/>
+                                            D.O.B (Gregorian)
+                                        </th>
+                                        <th style=" border: 1px solid gray; padding: 1px;font-size:0.8em;background-color: white;color: black;width:30%;text-align:center;">
+                                            رقم بطاقة الأحوال / الإقامة
+                                            <br/>
+                                            Saudi ID/ Iqama No
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <t t-set="i" t-value="1"/>
+                                <tbody>
+                                    <t t-foreach="o.employee_dependant" t-as="line">
+                                        <tr>
+                                            <td style=" border: 1px solid gray;padding: 1px; width:5%;font-size:0.8em;background-color: white;color: black; text-align:center;">
+                                                <span t-esc="i"/>
+                                            </td>
+                                            <td style=" border: 1px solid gray;padding: 1px; width:25%;font-size:0.8em;background-color: white;color: black; text-align:center">
+                                                <t t-esc="line.name"/>
+                                            </td>
+                                            <td style=" border: 1px solid gray;padding: 1px;font-size:0.8em;background-color: white;color: black;width:15%;text-align:center">
+                                                <t t-esc="line.gender"/>
+                                            </td>
+                                            <td style=" border: 1px solid gray;padding: 1px;font-size:0.8em;background-color: white;color: black;width:15%;text-align:center">
+                                                <t t-esc="line.relation"/>
+                                            </td>
+                                            <td style=" border: 1px solid gray;padding: 1px;font-size:0.8em;background-color: white;color: black;width:15%;text-align:center">
+                                                <t t-esc="line.birthday"/>
+                                            </td>
+                                            <td style=" border: 1px solid gray;padding: 1px;font-size:0.8em;background-color: white;color: black;width:30%;text-align:center">
+                                                <t t-esc="line.identity_num"/>
+                                                <!--                                        <t t-esc="line['number_of_days']"/>-->
+                                            </td>
+                                        </tr>
+                                        <t t-set="i" t-value="i+1"/>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <br/>
+                            <table style="width:100%;border-bottom: 1px solid white">
+                                <tr>
+                                    <td style="font-weight:bold;width:50%">
+                                        أقر بأن هذه المعلومات المذكورة في هذه الاستمارة صحيحة.
+                                    </td>
+                                    <td style="text-align: left;;font-weight:bold;width:50%">
+                                        I do hereby declare that the information provided is to the best of my knowledge true and accurate.
+                                    </td>
+                                </tr>
+                                <tr style="border-top: 1px solid white;border-left: 1px solid white;padding: 1px;">
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                </tr>
+                                <br/>
+                            </table>
+                            <table style="width:100%;">
+                                <tr>
+                                    <td style="font-weight:bold;width:15%">
+                                        الاسم
+                                    </td>
+                                    <td style="text-align: center;font-weight:bold;width:70%;font-size:16pt">
+                                        ..............................................................................................................................................</td>
+                                    <td style="text-align:left;font-weight:bold;width:15%">
+                                        name
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:bold;width:15%">
+                                        التوقيع
+                                    </td>
+                                    <td style="text-align: center;font-weight:bold;width:70%;font-size:16pt">
+                                        ..........................................................................................................................................</td>
+                                    <td style="text-align:left;font-weight:bold;width:15%">
+                                        Signature
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:bold;width:15%">
+                                        التاريخ
+                                    </td>
+                                    <td style="text-align: center;font-weight:bold;width:70%;font-size:16pt">
+                                        ..............................................................................................................................................</td>
+                                    <td style="text-align:left;font-weight:bold;width:15%">
+                                        Date
+                                    </td>
+                                </tr>
+                                <tr style="border-top: 1px solid white;border-left: 1px solid white;padding: 1px;">
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                </tr>
+                                <br/>
+                            </table>
+                            <table style="width:100%;border: 1px solid gray;border-top: 0px;border-left: 0px;border-right: 0px">
+                                <tr>
+                                    <td style="width:25%;font-weight:bold;color: green">
+                                        لاستخدام إدارة الموارد البشرية
+                                    </td>
+                                    <td style="color:white">.</td>
+                                    <td style="color:white">.</td>
+                                    <td style="width:40%;font-weight:bold;color: green">
+                                        For Human Resources Department
+                                    </td>
+                                </tr>
+                                <tr style="border-top: 1px solid gray">
+                                    <td style="font-weight:bold;width:25%;border: 1px solid gray;background-color:#d3d3d3;">
+                                        تمت مطابقة الأسماء حسب الجواز / الإقامة / بطاقة الأحوال
+                                    </td>
+                                    <td style="text-align: right;font-weight:bold;width:25%;border-top: 1px solid gray">
+                                        الاسم    :
+                                        <br/>
+                                        التاريخ  :
+                                    </td>
+                                    <td style="font-weight:bold;border: 1px solid gray;background-color:#d3d3d3;">
+                                        ملاحظات:
+
+                                        <br/>
+                                        التوقيع:
+                                    </td>
+                                    <td style="color:white;width:40%;border-left: 1px solid gray">.</td>
+                                </tr>
+                                <br/>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+
+        <record id="paperformat_dependents_employee_report" model="report.paperformat">
+            <field name="name">European A4 Transactions</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report id="dependents_employee_action_report"
+                model="hr.employee"
+                string="Dependents Report"
+                report_type="qweb-pdf"
+                name="hr_base.dependents_employee_report_temp"
+        />
+
+        <report id="dependents_contract_action_report"
+                model="hr.contract"
+                string="Dependents Report"
+                report_type="qweb-pdf"
+                name="hr_base.dependents_contract_report_temp"
+        />
+
+        <record id="dependents_employee_action_report" model="ir.actions.report">
+            <field name="paperformat_id" ref="hr_base.paperformat_dependents_employee_report"/>
+        </record>
+        <record id="dependents_contract_action_report" model="ir.actions.report">
+            <field name="paperformat_id" ref="hr_base.paperformat_dependents_employee_report"/>
+        </record>
+    </data>
+</odoo>

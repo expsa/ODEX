@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <report
+        id="partner_xlsx"
+        model="res.partner"
+        string="Print to XLSX"
+        report_type="xlsx"
+        name="report_xlsx.partner_xlsx"
+        file="res_partner"
+        attachment_use="False"
+    />
+</odoo>

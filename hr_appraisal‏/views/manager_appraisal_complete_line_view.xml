@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="manager_appraisal_complete_line_action" model="ir.actions.act_window">
+            <field name="name">manager.appraisal.complete.line.action.view</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">manager.appraisal.complete.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <record id="manager_appraisal_complete_line_form_view" model="ir.ui.view">
+            <field name="name">manager.appraisal.complete.line.form.view</field>
+            <field name="model">manager.appraisal.complete.line</field>
+            <field name="arch" type="xml">
+                <form string="Complete Manager Appraisal" create="false">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Appraisal name" required="1"/>
+                            </group>
+                        </group>
+                        <field name="customize_appraisal_id">
+                            <tree editable="bottom">
+                                <field name="question" string="Question" required="1" force_save="1"/>
+                                <field name="degree_id" string="Degree level" required="1" force_save="1"/>
+                                <field name="greed" string="Degree" readonly="1" force_save="1"/>
+                                <field name="great_degree_level" string="Great level" readonly="1" force_save="1"/>
+                            </tree>
+                        </field>
+                        <group>
+                            <group>
+                                <field name="total" string="Total" readonly="1" force_save="1"/>
+                                <field name="great_level" string="Great level" readonly="1" force_save="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <footer class="oe_edit_only">
+                        <button special="save" type="object" string="Save" class="oe_highlight"/>
+                        <button string="Discard" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

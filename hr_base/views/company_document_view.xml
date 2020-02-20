@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.actions.act_window" id="company_document_list_action">
+            <field name="name">Company document</field>
+            <field name="res_model">company.document</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="company_document_form_view" model="ir.ui.view">
+
+            <field name="name">Company document</field>
+            <field name="model">company.document</field>
+            <field name="arch" type="xml">
+                <form string="company Document">
+                    <sheet>
+                        <group>
+                            <group>
+
+                                <field name="name" string="Document Name" required="True"/>
+                                <field name="datas" string="File" required="True" filename="attachment_filename"/>
+                                <field name="attachment_filename" invisible="True"/>
+                            </group>
+                            <group>
+
+                                <field name="document_issue_date" string="Document Issue Date" required="True"
+                                       widget="date"/>
+                                <field name="document_expire_date" string="Document Expire Date" required="True"
+                                       widget="date"/>
+                                <field name="reminder_before" string="Reminder Before" required="True"/>
+                                <field name="active" string="Active" required="True"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="company_document_tree_view">
+            <field name="name">company Document</field>
+            <field name="model">company.document</field>
+            <field name="arch" type="xml">
+                <tree string="Company Document">
+                    <field name="name" string="Document Name"/>
+
+                    <field name="document_issue_date" string="Document Issue Date" widget="date"/>
+                    <field name="document_expire_date" string="Document Expire Date" widget="date"/>
+                    <field name="datas" string="File"/>
+                </tree>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

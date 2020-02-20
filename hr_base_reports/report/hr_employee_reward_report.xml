@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+
+              <report id="action_report_employee_rewrad"
+                model="hr.reward.wizard"
+                string="employee Reward report"
+                report_type="qweb-pdf"
+                name="hr_base_reports.report_employee_reward_template"
+                file="hr_base_reports.report_employee_reward_template"
+                menu="False"/>
+
+
+        <report
+            id="action_employee_reward_report_xlsx"
+            model="hr.reward.wizard"
+            string="employee Reward report"
+            report_type="xlsx"
+            name="hr_base_reports.action_employee_reward_report_xlsx"
+            file="hr_base_reports.action_employee_reward_report_xlsx"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+<record model="ir.actions.act_window" id="hr_ticket_act">
+            <field name="name">Ticket</field>
+            <field name="res_model">hr.ticket</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="ticket_form_view">
+            <field name="name">ticket_form_view</field>
+            <field name="model">hr.ticket</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <separator/>
+                        <h3>Ticketing Details</h3>
+                        <separator/>
+
+                        <group name="group_top">
+
+                            <group name="group_left">
+
+                                <field name="name"/>
+                                <!--<field name="emp_no"/>-->
+                                <field name="leave_from"/>
+                                <field name="leave_to"/>
+                                <field name="status"/>
+                                <field name="dependent"/>
+                                <field name="fn" required="1"/>
+                                <field name="mn" required="1"/>
+                                <field name="ln"/>
+                                <field name="gender"/>
+                                <field name="dob"/>
+                                <field name="mobile"/>
+                                <!--field name="remarks"/-->
+                            </group>
+
+                            <group name="group_right">
+                                <field name="contact_no"/>
+                                <field name="nationality"/>
+                                <field name="passport"/>
+                                <field name="issue"/>
+                                <field name="expiry" required="1"/>
+                                <field name="departure"/>
+                                <field name="destination"/>
+                                <field name="departure_date" widget="date"/>
+                                <field name="return_date" widget="date"/>
+                                <field name="priority"/>
+                                <field name="create_book"/>
+                                <field name="conf_book"/>
+                                <field name="re_issue"/>
+                                <field name="cancel_ticket"/>
+
+                            </group>
+
+                        </group>
+                        <notebook>
+                            <page string="Dependent" name="dependent_details">
+                                <field name="dependent_id">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="passport" invisible="1"/>
+                                        <field name="dob" invisible="1"/>
+                                        <field name="date_issue" invisible="1"/>
+                                        <field name="date_expiry" invisible="1"/>
+                                        <field name="nationality" invisible="1"/>
+                                        <field name="fn" required="1"/>
+                                        <field name="mn" invisible="1"/>
+                                        <field name="ln"/>
+                                        <field name="ticket_req"/>
+                                        <field name="departure_date" widget="date"/>
+                                        <field name="return_date" widget="date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Create Booking" name="create_booking"
+                                  attrs="{'invisible': [('create_book','=', False)]}">
+                                <separator/>
+                                <h3>Create Booking Details</h3>
+                                <separator/>
+                                <group name="group_top">
+
+                                    <group name="group_left">
+                                        <field name="req_no"/>
+                                        <field name="agent"/>
+                                        <field name="book_date" widget="date"/>
+                                        <field name="book_by"/>
+                                    </group>
+
+                                    <group name="group_right">
+                                        <field name="piad_amt"/>
+                                        <field name="break_jun"/>
+                                    </group>
+
+                                </group>
+                            </page>
+
+                            <page string="Confirm Booking" name="confirm_booking"
+                                  attrs="{'invisible': [('conf_book','=', False)]}">
+
+                                <separator/>
+                                <h3>Confirm Booking Details</h3>
+                                <separator/>
+                                <group name="group_top">
+
+                                    <group name="group_left">
+                                        <field name="receive_date" widget="date"/>
+                                        <field name="cutt_date" widget="date"/>
+                                        <field name="receive"/>
+                                        <field name="desc"/>
+                                    </group>
+
+                                    <group name="group_right">
+                                        <field name="sent_by"/>
+                                        <field name="sent_by_date" widget="date"/>
+                                        <field name="attach"/>
+                                    </group>
+
+                                </group>
+                            </page>
+
+                            <page string="Re Issue" name="reissue_booking"
+                                  attrs="{'invisible': [('re_issue','=', False)]}">
+                                <field name="reissue_ticket">
+                                    <tree editable="bottom">
+                                        <field name="departure"/>
+                                        <field name="destination"/>
+                                        <field name="departure_date" widget="date"/>
+                                        <field name="return_date" widget="date"/>
+                                        <field name="change_sec"/>
+                                        <field name="reasons"/>
+                                    </tree>
+                                </field>
+
+                            </page>
+
+                            <page string="Ticket Cancellation " name="confirm_booking"
+                                  attrs="{'invisible': [('cancel_ticket','=', False)]}">
+
+                                <separator/>
+                                <h3>Ticket Cancellation Details</h3>
+                                <separator/>
+                                <group name="group_top">
+
+                                    <group name="group_left">
+                                        <field name="cancellation"/>
+                                        <field name="refund"/>
+                                    </group>
+
+                                    <group name="group_right">
+                                        <field name="cnr"/>
+                                    </group>
+
+                                </group>
+                            </page>
+
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ticket_tree_view">
+            <field name="name">ticket_tree_view</field>
+            <field name="model">hr.ticket</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Ticketing Details">
+                    <field name="name"/>
+                    <field name="leave_from"/>
+                    <field name="leave_to"/>
+                    <field name="dependent"/>
+                    <field name="priority"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

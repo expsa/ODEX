@@ -1,0 +1,25 @@
+<odoo>
+  <data>
+
+    <!-- base.automation inherit form view -->
+    <record id="view_base_automation_form" model="ir.ui.view">
+      <field name="name">base.automation.inherit.view.form</field>
+      <field name="model">base.automation</field>
+      <field name="inherit_id" ref="base_automation.view_base_automation_form"/>
+      <field name="arch" type="xml">
+        <!-- Add your xpath here -->
+        <xpath expr="//field[@name='template_id']" position="after">
+          <field name="notify_to_groups_ids" widget="many2many_tags" attrs="{'invisible': [('state', '!=', 'email')],'required': [('state', '=', 'email')]}"/>
+          <field name="notify_cc_groups_ids" widget="many2many_tags" attrs="{'invisible': [('state', '!=', 'email')],'required': [('state', '=', 'email')]}"/>
+
+        </xpath>
+      </field>
+    </record>
+    <menuitem name="System Notification" id="system_notification.menu_root"/>
+
+    <record id="base_automation.menu_base_automation_form" model="ir.ui.menu">
+      <field name="name">System Notifications</field>
+      <field name="parent_id" ref="system_notification.menu_root"/>
+    </record>
+  </data>
+</odoo>

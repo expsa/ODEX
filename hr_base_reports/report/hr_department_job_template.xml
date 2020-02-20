@@ -1,0 +1,84 @@
+<odoo>
+    <data>
+
+        <template id="department_job_report_view">
+            <div class="header" style="border-bottom: 2px solid black">
+
+                <h4 class="text-center">
+                    <strong>From</strong>:
+
+                </h4>
+            </div>
+            <div class="article">
+                <h3 class="text-center">Departments And jobs Of Employee Report</h3>
+                <table class="table table-condensed table-bordered" style="width: 100%">
+                    <thead>
+                        <t t-if="report_new_type=='departments'">
+                            <th class="text-center" style="width: 70%">Department</th>
+                            <th class="text-center" style="width: 70%">Total</th>
+                        </t>
+                        <t t-if="report_new_type=='jobs'">
+                            <th class="text-center" style="width: 70%">Job Title</th>
+                            <th class="text-center" style="width: 70%">Total</th>
+                        </t>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="doc">
+                            <t t-if="report_new_type=='departments'">
+                                <tr>
+                                    <td>
+                                        <span t-esc="doc['department_name']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc['employee_number']"/>
+                                    </td>
+
+
+                                </tr>
+                            </t>
+
+                            <t t-if="report_new_type=='jobs'">
+                                <tr>
+                                    <td>
+                                        <span t-esc="doc['job_name']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="doc['employee_number']"/>
+                                    </td>
+
+
+                                </tr>
+                            </t>
+                        </t>
+                        <tr>
+                            <td>
+                                <span/>
+                            </td>
+                            <td>
+                                <span t-esc="total_amount"/>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="row text-center" style="border-top: 1px solid black;">
+                    <div class="col-xs-3 col-xs-offset-9 text-right">
+                        <ul class="list-inline" style="margin-top:10px;">
+                            <li>Page:</li>
+                            <li>
+                                <span class="page"/>
+                            </li>
+                            <li>/</li>
+                            <li>
+                                <span class="topage"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+    </data>
+</odoo>

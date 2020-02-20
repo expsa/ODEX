@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+
+         <record id="action_hr_reward_wizard" model="ir.actions.act_window">
+            <field name="name">Employee Reward Report</field>
+            <field eval="1" name="sequence"/>
+            <field name="res_model">hr.reward.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+<record id="view_employee_reward_wizard" model="ir.ui.view">
+            <field name="name">employee Reward Report</field>
+            <field name="model">hr.reward.wizard</field>
+            <field name="arch" type="xml">
+                <form string="employee Reward Report">
+
+                <group>
+                        <field name="date_from" String="Date From" required="1"/>
+                        <field name="date_to" String="Date To" required="1"/>
+                        <field name="department_id" String="Department"/>
+                        <field name="job_id" String="Job Title"/>
+
+
+
+                    </group>
+
+                    <footer>
+                        <button name="get_report_reward" string="Print Report PDF" type="object" class="oe_highlight"
+                                />
+                        or
+                        <button name="get_reward_report_xlsx" string="Print Report Excel" type="object" class="oe_highlight"
+                                />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        </data>
+</odoo>

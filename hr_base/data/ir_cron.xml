@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="company_docs_data_reminder" model="ir.cron">
+        <field name="name">Company Data Expiration</field>
+        <field name="model_id" ref="model_company_document"/>
+        <field name="state">code</field>
+        <field name="code">model.company_doc_mail_reminder()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+  <record id="contracts_mail_reminder" model="ir.cron">
+        <field name="name">Employee contract Period Expiration</field>
+        <field name="model_id" ref="model_hr_contract"/>
+        <field name="state">code</field>
+        <field name="code">model.contract_mail_reminder()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>

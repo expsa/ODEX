@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- menu item of employees request-->
+        <menuitem name="Employees Requests" id="employee_request_menu_item"
+                  parent="hr.menu_hr_root" sequence="2"
+                  groups="base.group_user"/>
+
+        <menuitem name="Employee Effective Form" id="employee_effective_form"
+                  parent="employee_request_menu_item" action="employee_request_list_action" sequence="1"/>
+
+        <menuitem name="Employee OverTime Request" id="employee_overtime_request_menu_item"
+                  parent="employee_request_menu_item" action="employee_overtime_request_list_action" sequence="2"/>
+
+
+        <!--menuitem name="Houes Allowance Advanced" id="employee_house_allowance_advance_menu_item"
+                  parent="employee_request_menu_item"
+                  action="employee_allowance_advance_list_action"/-->
+
+        <menuitem name="Employee Clearance Form" id="employee_clearance_form"
+                  parent="employee_request_menu_item" action="employee_clearance_form_action" sequence="12"/>
+
+        <menuitem name="Personal Permissions" id="employee_personal_permission_menu_item"
+                  parent="employee_request_menu_item"
+                  action="employee_personal_permission_action"/>
+
+        <!-- Employee Departments and jobs  -->
+        <menuitem name="Employee Department and jobs" id="employee_department_jobs_menu_item"
+                  parent="employee_request_menu_item" action="employee_department_jobs_action" sequence="13"
+                  groups="hr.group_hr_user,hr_base.group_executive_manager,hr_base.group_general_manager"/>
+
+    </data>
+</odoo>

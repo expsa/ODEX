@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="loan_installment_line_action" model="ir.actions.act_window">
+            <field name="name">loan installment form view</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">loan.installment.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+            </field>
+        </record>
+
+        <record id="loan_installment_line_form_view" model="ir.ui.view">
+            <field name="name">loan installment</field>
+            <field name="model">loan.installment.line</field>
+            <field name="arch" type="xml">
+                <form string="Loan installments" create="false">
+                    <sheet>
+                        <group>
+                            <field name="installment_date" string="Installment date" required="1"/>
+                        </group>
+                        <group>
+                            <field name="installment_amount" string="Installment amount" readonly="1"/>
+                        </group>
+                    </sheet>
+                    <footer class="oe_edit_only">
+                        <button special="save" type="object" string="Save" class="oe_highlight"/>
+                        <button string="Discard" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

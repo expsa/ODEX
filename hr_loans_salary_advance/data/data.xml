@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="seq_hr_loan_salary_advance" model="ir.sequence">
+            <field name="name">sequence.hr.loan.salary.advance</field>
+            <field name="code">hr.loan.salary.advance</field>
+            <field name="prefix">LO</field>
+            <field name="padding">5</field>
+        </record>
+    </data>
+</odoo>

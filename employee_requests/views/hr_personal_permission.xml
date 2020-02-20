@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="employee_personal_permission_action">
+            <field name="name">Employee permission</field>
+            <field name="res_model">hr.personal.permission</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+      <record model="ir.ui.view" id="view_permission_calendar">
+            <field name="name">hr.personal.permission.calendar</field>
+            <field name="model">hr.personal.permission</field>
+            <field name="arch" type="xml">
+                <calendar string="Employee permission" date_start="date" color="date">
+
+                    <field name="date" type="measure"/>
+                </calendar>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="employee_personal_permission_form_view">
+            <field name="name">employee personal permission</field>
+            <field name="model">hr.personal.permission</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="send" string="submit" class="oe_highlight" type="object"
+                                states="draft" groups="base.group_user"/>
+                        <button name="direct_manager" string="Direct Manager Approve" class="oe_highlight" type="object"
+                                states="send" groups="hr_base.group_division_manager"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="send" groups="hr_base.group_division_manager"/>
+                        <button name="approve" string="Approve" class="oe_highlight" type="object"
+                                states="direct_manager" groups="hr.group_hr_user"/>
+                        <button name="refused" string="Refused" class="oe_highlight" type="object"
+                                states="direct_manager" groups="hr.group_hr_user"/>
+                        <button name="draft_state" string="RE-Draft" class="oe_highlight" type="object"
+                                states="approve" groups="hr.group_hr_user"/>
+                        <button name="draft_state" string="RE-Draft" class="oe_highlight" type="object"
+                                states="refused" groups="hr.group_hr_user"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="Permission Info">
+                                <field name="date" string="Date"
+                                       attrs="{'readonly':[('state','!=','draft')],'required':1}"/>
+                                <field name="date_from" string="Date From"
+                                       attrs="{'readonly':[('state' , '!=' , 'draft')],'required':1}"/>
+                                <field name="date_to" string="Date To"
+                                       attrs="{'readonly':[('state' , '!=' , 'draft')],'required':1}"/>
+                                <field name="duration" string="Duration" attrs="{'readonly':1}"/>
+                                <field name="balance" string="Balance" readonly="1"/>
+                                <field name="permission_number" force_save="True" string="Permission Number"/>
+                                <field name="early_exit" string="Early Exit"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </group>
+                            <group string="Employee Info">
+                                <field name="from_hr_department" string="Request from HR"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="employee_id" string="Employee"
+                                       attrs="{'readonly': [('from_hr_department','=',False)],'required':True}"/>
+                                <field name="employee_no" string="Employee No" readonly="1"/>
+                                <field name="job_id" string="Job Title" readonly="1"/>
+                                <field name="department_id" string="Department" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="mission_purpose" string="Reasons"
+                                   attrs="{'readonly':[('state','!=','draft')]}"/>
+                        </group>
+                        <notebook>
+                            <page string="Attachments" name="attachments">
+                                <field name="attach_ids" string="Attachments"
+                                       attrs="{'readonly':[('state','!=','draft')]}">
+                                    <tree editable="bottom">
+                                        <field name="name" string="attachment Name"/>
+                                        <field name="datas" string="file content"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Refusal Causes" name="refusal_causes">
+                                <field name="refuse_cause" placeholder="Refuse Cause .........."
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                            </page>
+                            <page string="Information" name="information">
+                                <group>
+                                    <field name="approved_by" string="Approved By"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                                    <field name="refused_by" string="Refused By"
+                                           attrs="{'readonly':[('state','!=','draft')]}"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="employee_personal_permission_tree_view">
+            <field name="name">Employee personal permission</field>
+            <field name="model">hr.personal.permission</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="state == 'refused'" decoration-info="state == 'draft'" string="Employee personal permission">
+                    <!--field name="date" string="Date"/-->
+                    <field name="employee_id" string="Employee"/>
+                    <!--field name="employee_no" string="Employee No"/-->
+                    <field name="date_from" string="Date From"/>
+                    <field name="date_to" string="Date To"/>
+                    <field name="duration" string="Duration"/>
+                    <field name="state" string="Status"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

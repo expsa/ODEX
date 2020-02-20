@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+<!-- Document Type -->
+        <record model="ir.ui.view" id="document_types_form_view">
+            <field name="name">hr.document.type.form.view</field>
+            <field name="model">documents.typed</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

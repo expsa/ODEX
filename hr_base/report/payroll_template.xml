@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="custom_external_layout_salary_payroll">
+        <div class="header">
+            <div class="row">
+                <div class="col-xs-3 mb4">
+                    <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)"
+                         style="max-height: 45px;"/>
+                </div>
+                <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+            </div>
+            <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                <div class="col-xs-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <div class="row">
+                <div style="text-align:left" name="company_address">
+                    <span t-field="company.partner_id"
+                          t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                          style="border-bottom: 1px solid black; display:inline-block;"/>
+                </div>
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-raw="0"/>
+            </div>
+        </div>
+        <div class="footer">
+
+        </div>
+    </template>
+
+
+    <template id="custom_external_layout_pay">
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id"/>
+        </t>
+
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company"/>
+        </t>
+
+        <div class="article">
+            <t t-call="hr_base.custom_external_layout_salary_payroll"/>
+            <t t-raw="0"/>
+        </div>
+
+    </template>
+
+
+    <template id="salary_letter_report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="hr_base.custom_external_layout_pay">
+                    <div class="page" style="font-family: 'Arial';direction:rtl">
+                        <div class="row">
+                            <span style="font-size: 20px;margin-right: 8%;">
+                                التاريخ :
+                            </span>
+                            <span style="font-size: 18px;" t-esc="o.change_current_date_hijri()"/>
+                            <br/>
+                            <span style="font-size: 20px;margin-right: 8%;">
+                                الموافق :
+                            </span>
+                            <span style="font-size: 18px;"
+                                  t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <span style="font-size: 20px;margin-right: 8%;">
+                                <strong>
+                                    الســـادة /
+                                    -------------------------------------------------------------------------
+                                    المـحـتـرمـيـن
+                                </strong>
+                            </span>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <p style="font-size: 20px;margin-right: 11%;">
+                                تفيد شركة
+                                <span t-field="o.company_id"/>
+                                <strong>
+                                    بأن الســيــد/ة
+                                    <span t-field="o.name"/>
+                                </strong>
+                                -
+                                <span t-field="o.country_id"/>
+                                الجـنـسـيـة
+                                ,
+                                بـموجـب الهـويـة رقـم
+                                <t t-if="o.country_id.name == 'Saudi Arabia' or o.country_id.name == 'المملكة العربية السعودية'">
+                                    <span t-field="o.saudi_number.saudi_id"/>
+                                </t>
+                                <t t-else="">
+                                    <span t-field="o.iqama_number.iqama_id"/>
+                                </t>
+                                أحـد مـنـسـوبـي الشـركـة ، والذي يـحـمـل الرقـم
+                                <span t-field="o.emp_no"/>
+                                ويعـمـل علـى وظـيـفـة
+                                <br/>
+                                <span t-field="o.job_id"/>
+                                اعـتـبـارا من
+                                <t t-if="o.first_hiring_date">
+                                    <span t-esc="datetime.datetime.strptime(o.first_hiring_date, '%Y-%m-%d').date()"/>
+                                </t>
+                                .
+                                و يتقاضى المذكور راتـبـا اجمالي مقداره
+                                <br/>
+                                (
+                                <span t-field="o.base_salary"/>
+                                ) ريــال فقط
+                                <span t-field="o.salary_in_words"/>
+                                ريال لاغير مقسما كما يلي :
+                                <table class="table table-bordered"
+                                       style="width:40%;border: 2px solid #DADADA;margin-right: 40%;">
+                                    <t t-set="i" t-value="1"/>
+                                    <tr t-foreach="o.payslip_lines" t-as="pay">
+                                        <td style="width:5%;border: 1px solid #DADADA;">
+                                            <span style="font-size: 18px;" t-esc="i"/>
+                                            <t t-set="i" t-value="i+1"/>
+                                        </td>
+                                        <td style="width:20%;border: 1px solid #DADADA;">
+                                            <span style="font-size: 18px;" t-field="pay.name"/>
+                                        </td>
+                                        <td style="width:20%;border: 1px solid #DADADA;">
+                                            <span style="font-size: 18px;" t-field="pay.total">
+                                            </span>
+                                            <strong>ريـــال</strong>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <span style="font-size: 20px;margin-right: 8%;">
+                                    و قد أعطي هذا الخطاب بناء على طلبـه دون ادني مسئولية على الشـركة .
+                                </span>
+                            </p>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <div class="text-center">
+                                <span style="font-size: 22px;">
+                                    <strong>شاكرين تعاونكم .. و لكم تحياتي ،،،،،،،</strong>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

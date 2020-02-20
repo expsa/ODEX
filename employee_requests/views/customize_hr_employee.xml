@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="view_employee_form_leave_inherit_001" model="ir.ui.view">
+            <field name="name">hr.employee.leave.form.inherit_2</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='country_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='identification_id']" position="replace">
+                    <group name="new_group" col="2" colspan="2">
+                        <field name="country_id" options='{"no_open": True, "no_create": True}'
+                               attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <!--field name="identification_id" groups="hr.group_hr_user"
+                               attrs="{'readonly':[('state','!=','draft')]}"/-->
+                        <field name="check_nationality" invisible="1"/>
+                        
+                        <field name="religion" string="Religion" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="blood_type" string="Blood Type" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="is_address_home_a_company" invisible="1"/>
+                    </group>
+                </xpath>
+
+                <!--xpath expr="//field[@name='passport_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath-->
+
+                <xpath expr="//page[@name='personal_information']/group/group[2]" position="after">
+                    <group name="passport_information" string="Passport or ID Information for employee" col="4"
+                           colspan="4">
+                        <field name="saudi_number" string="Saudi ID"
+                               domain="[('employee_ref','=',id),('document_type','=','saudi')]"
+                               context="{'default_employee_ref':id,'default_document_type':'saudi'}"
+                               attrs="{'invisible':[('check_nationality','=',False)],'required':[('check_nationality','=',True)]}"/>
+                        <field name="date_issuance_saudi_id" string="Date of issue" widget="date"
+                               attrs="{'invisible':[('check_nationality','=',False)],'required':[('check_nationality','=',True)]}"/>
+                        <field name="expiration_date_saudi_id" string="Expiration date" widget="date"
+                               attrs="{'invisible':[('check_nationality','=',False)],'required':[('check_nationality','=',True)]}"/>
+                        <field name="place_issuance_saudi_id" string="Place of issue"
+                               attrs="{'invisible':[('check_nationality','=',False)]}"/>
+
+                        <field name="passport_id" domain="[('employee_ref','=',id),('document_type','=','passport')]"
+                               attrs="{'required':[('check_nationality','=',False)],'readonly':[('state','!=','draft')]}"
+                               context="{'default_employee_ref':id,'default_document_type':'passport'}"/>
+                        <field name="iqama_number" string="Iqama Number"
+                               domain="[('employee_ref','=',id),('document_type','=','Iqama')]"
+                               attrs="{'invisible':[('check_nationality','=',True)],'required':[('check_nationality','=',False)],'readonly':[('state','!=','draft')]}"
+                               context="{'default_employee_ref':id,'default_document_type':'Iqama'}"/>
+                        <field name="date_issuance_passport" string="Date of issue passport" widget="date"
+                               attrs="{'required':[('check_nationality','=',False)]}"/>
+                        <field name="iqama_creat_date" string="Iqama Creation Date"
+                               attrs="{'invisible':[('check_nationality','=',True)],'required':[('check_nationality','=',False)]}"/>
+                        <field name="expiration_date_passport" string="Expiration date" widget="date"
+                               attrs="{'required':[('check_nationality','=',False)]}"/>
+                        <field name="iqama_expiy_date" string="Iqama Expiry Date"
+                               attrs="{'invisible':[('check_nationality','=',True)],'required':[('check_nationality','=',False)]}"/>
+
+                        
+                        <field name="place_issuance_passport" string="Place of issue passport"
+                               attrs="{'invisible':[('check_nationality','=',True)]}"/>
+                        
+                    </group>
+                </xpath>
+
+                <xpath expr="//field[@name='place_issuance_passport']" position="after">
+                    <field name="own_license" string="Own a license" attrs="{'readonly':[('state','!=','draft')]}"/>
+                </xpath>
+
+                <xpath expr="//field[@name='own_license']" position="after">
+                    <field name="license_number_id" string="License number"
+                           domain="[('employee_ref','=',id),('document_type','=','license')]"
+                           attrs="{'invisible':[('own_license','=',False)]}"
+                           context="{'default_employee_ref':id,'default_document_type':'license'}"/>
+                    <field name="expiry_license" string="Expiry date of license"
+                           attrs="{'invisible':[('own_license','=',False)]}" widget="date"/>
+                </xpath>
+                <xpath expr="//group[@name='work_permit']" position="replace">
+                </xpath>
+
+                <xpath expr="//page[@name='hr_settings']" position="after">
+                    <page name="medical_insurance" string="Accommodation and Medical insurance">
+                        <group>
+                            <group attrs="{'invisible':[('check_nationality','=',True)]}">
+                                <separator string="Guaranty" />
+                                <field name="on_company_guarantee" string="On company guarantee?"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="validity_transfer_sponsorship" string="validity transfer of sponsorship"
+                                       attrs="{'readonly':[('state','!=','draft')],'invisible':[('on_company_guarantee','=',False)]}"/>
+                               <field name="first_entry_into_saudi_arabia"
+                                       attrs="{'readonly':[('state','!=','draft')],'invisible':[('on_company_guarantee','=',False)]}"
+                                       string="First date entry into Saudi Arabia"/>
+                            </group>
+                            <group>
+                                <separator string="Residence"
+                                           attrs="{'invisible':[('on_company_guarantee','=',False)]}"/>
+                                <field name="residency_number" string="Residency number"
+                                       attrs="{'readonly':[('state','!=','draft')],'invisible':[('on_company_guarantee','=',False)]}"/>
+                                <field name="date_issuance_residence" string="Date of issuance residence"
+                                       widget="date"
+                                       attrs="{'readonly':[('state','!=','draft')],'invisible':[('on_company_guarantee','=',False)]}"/>
+                                <!--field name="expiration_date_residence" string="Expiration date of residence"
+                                       widget="date" attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="place_issuance_residence" string="Place issuance residence"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/-->
+                                
+                                <!--field name="number_of_visa" string="Number of Visa"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="medical_exam_check"
+                                       attrs="{'invisible':[('check_nationality','=',True)],'required':[('check_nationality','=',False)],'readonly':[('state','!=','draft')]}"/-->
+                            </group>
+
+                        </group>
+                        <group>
+                            <group>
+                                <separator string="Medical Insurance"/>
+                                <field name="medical_insurance" string="Medical insurance"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="degree_medical_insurance" string="Degree of medical insurance"
+                                       attrs="{'required':[('medical_insurance','=', True)],'readonly':[('state','!=','draft')]}"/>
+                                <field name="medical_insurance_number" string="Medical insurance number"
+                                       attrs="{'readonly':[('state','!=','draft')]}"/>
+                                <field name="copy_examination_file"
+                                       string="Copy of examination file"
+                                       domain="[('employee_ref','=',id),('document_type','=','medical_Examination')]"
+                                       attrs="{'readonly':[('state','!=','draft')]}"
+                                       context="{'default_employee_ref':id,'default_document_type':'medical_Examination'}"/>
+                                <field name="date_of_expiry" string="Date of expiry" widget="date"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

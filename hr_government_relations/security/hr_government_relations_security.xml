@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<odoo>
+<!--#########################################exist and returns<#####################-->
+
+    <record id="hr_exit_return_employee_rule" model="ir.rule">
+        <field name="name">Employee: views its exist and returns</field>
+        <field name="model_id" ref="model_hr_exit_return"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record id="hr_exit_return_manager_rule" model="ir.rule">
+        <field name="name"> Manager: views exist and returns of its subordinates </field>
+        <field name="model_id" ref="model_hr_exit_return"/>
+        <field name="domain_force">['|','|',('department_id.manager_id','=',False),
+                                            ('department_id.manager_id.user_id','child_of', [user.id]),
+                                            ('department_id.parent_id.manager_id.user_id','child_of', [user.id])]</field>
+        <field name="groups" eval="[(4, ref('hr_base.group_department_manager')),(4, ref('hr_base.group_division_manager'))]"/>
+    </record>
+
+    <record id="hr_exit_return_all_rule" model="ir.rule">
+        <field name="name"> Manager: views exist and returns of all employee </field>
+        <field name="model_id" ref="model_hr_exit_return"/>
+        <field name="domain_force">[(1 ,'=', 1)]</field>
+        <field name="groups" eval="[(4, ref('hr_base.group_executive_manager')),
+                                    (4, ref('hr_base.group_general_manager')),
+                                    (4, ref('hr.group_hr_manager')),
+                                    (4, ref('hr_base.group_government_relations')),
+                                    (4, ref('hr_loans_salary_advance.group_loan_user'))]"/>
+    </record>
+<!--#########################################Request Visa<###########################-->
+
+    <record id="hr_request_visa_employee_rule" model="ir.rule">
+        <field name="name">Employee: views its Request Visa</field>
+        <field name="model_id" ref="model_hr_request_visa"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+   <record id="hr_request_visa_manager_rule" model="ir.rule">
+        <field name="name"> Manager: views Request Visa of its subordinates </field>
+        <field name="model_id" ref="model_hr_request_visa"/>
+        <field name="domain_force">['|','|',('department_id.manager_id','=',False),
+                                            ('department_id.manager_id.user_id','child_of', [user.id]),
+                                            ('department_id.parent_id.manager_id.user_id','child_of', [user.id])]</field>
+        <field name="groups" eval="[(4, ref('hr_base.group_department_manager')),(4, ref('hr_base.group_division_manager'))]"/>
+    </record>
+
+    <record id="hr_request_visaall_rule" model="ir.rule">
+        <field name="name"> Manager: views Request Visa of all employee </field>
+        <field name="model_id" ref="model_hr_request_visa"/>
+        <field name="domain_force">[(1 ,'=', 1)]</field>
+        <field name="groups" eval="[(4, ref('hr_base.group_executive_manager')),
+                                    (4, ref('hr_base.group_general_manager')),
+                                    (4, ref('hr.group_hr_manager')),
+                                    (4, ref('hr_base.group_government_relations')),
+                                    (4, ref('hr_loans_salary_advance.group_loan_user'))]"/>
+    </record>
+</odoo>

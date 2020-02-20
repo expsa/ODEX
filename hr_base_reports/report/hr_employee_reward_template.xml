@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+
+<template id="report_employee_reward_template">
+            <div class="header" style="border-bottom: 2px solid black">
+                <h4 class="text-center">
+
+                    <strong style="color:#003c79">From</strong>:
+                    <span style="color:#999">
+                        <t t-esc="date_start"/>
+                    </span>
+                    <strong style="color:#003c79">To</strong>:
+                    <span style="color:#999">
+                        <t t-esc="date_end"/>
+                    </span>
+                    <h3 class="text-center"> Employees Reward Report</h3>
+                </h4>
+            </div>
+            <div class="article">
+                <table class="table table-condensed table-bordered" style="width: 100%">
+                    <thead>
+                        <thead>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Employee Number</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Employee Name</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Department Name</th>
+                             <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Job Title</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Reward Reason</th>
+                            <th class="text-center" style="width: 20%;background:#e9ebee;color:#003c79">Amount</th>
+
+                        </thead>
+                    </thead>
+                    <tbody>
+
+                        <t t-foreach="docs" t-as="doc">
+                            <tr>
+                                <td>
+                                    <span t-esc="doc['employee_no']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc['employee_name']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc['employee_depart']"/>
+                                </td>
+
+                                <td>
+                                    <span t-esc="doc['employee_job']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc['rewrad_reason']"/>
+                                </td>
+                                <td>
+                                    <span t-esc="doc['amount']"/>
+                                </td>
+
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+            <div class="footer">
+                <div class="row text-center" style="border-top: 1px solid black;">
+                    <div class="col-xs-3 col-xs-offset-9 text-right">
+                        <ul class="list-inline" style="margin-top:10px;">
+                            <li>Page:</li>
+                            <li>
+                                <span class="page"/>
+                            </li>
+                            <li>/</li>
+                            <li>
+                                <span class="topage"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </data>
+</odoo>

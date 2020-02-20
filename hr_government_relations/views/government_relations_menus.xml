@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Government Relations menu  -->
+        <menuitem name="Government Relations" id="hr_government_relations_menu" parent="hr.menu_hr_root"
+                  sequence="10"/>
+        <!-- Government Relations sub menu  -->
+        <menuitem name="Exit and Return" id="exit_and_return"
+                  parent="hr_government_relations.hr_government_relations_menu"
+                  sequence="1" action="exit_and_return_action"/>
+
+        <!-- Government Relations sub menu  -->
+        <menuitem name="Renew Official Paper" id="renew_official_paper"
+                  parent="hr_government_relations.hr_government_relations_menu"
+                  sequence="2" action="renew_official_paper_action"
+                  groups="hr.group_hr_user"/>
+
+       <!-- Government Relations sub menu  -->
+        <menuitem name="Request Visa" id="request_visa"
+                  parent="hr_government_relations.hr_government_relations_menu"
+                  sequence="4" action="request_visa_action"/>
+
+    </data>
+</odoo>
+
+

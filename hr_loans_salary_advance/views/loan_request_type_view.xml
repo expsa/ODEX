@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="loan_request_type_form_view">
+            <field name="name">loan.request.type.form.view</field>
+            <field name="model">loan.request.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Loan name" required="1"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="basic" string="Basic">
+                                <group>
+                                    <group>
+                                        <field name="loan_type" string="Loan type"/>
+                                        <field name="amount" string="Loan amount"
+                                               attrs="{'invisible':[('loan_type','=','percentage')]}"/>
+                                        <field name="percentage" string="Percentage"/>
+                                    </group>
+                                    <group>
+                                        <field name="number_of_request" string="Number of request"/>
+                                        <field name="allow_overlapping" string="Allow overlapping"
+                                               attrs="{'invisible':[('number_of_request','=','once')]}"/>
+                                        <field name="year" string="Years of service"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="salary_setting" string="Salary settings"
+                                  attrs="{'invisible':[('loan_type','=','fixed_amount')]}">
+                                <group>
+                                    <field name="allowance_id" string="Allowance" widget="many2many_tags"/>
+                                    <field name="factor" string="Coefficient of advances"/>
+                                </group>
+                            </page>
+                            <page name="account_settings" string="Account settings">
+                                <group>
+                                    <field name="journal_id" string="Journal" required="1"/>
+                                    <field name="account_id" string="Account" required="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="loans_request_type_tree_view" model="ir.ui.view">
+            <field name="name">loan.request.type.tree.view</field>
+            <field name="model">loan.request.type</field>
+            <field name="arch" type="xml">
+                <tree string="loans request type">
+                    <field name="name" string="Name"/>
+                    <field name="loan_type" string="Loan type"/>
+                    <field name="journal_id" string="Journal"/>
+                    <field name="account_id" string="Account"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="loan_request_type_action" model="ir.actions.act_window">
+            <field name="name">loan request type</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">loan.request.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="loan_request_type_menu" name="Request Type" parent="loans_menu_id"
+                  action="loan_request_type_action" sequence="2" groups="hr.group_hr_manager,hr_loans_salary_advance.group_loan_user,hr_loans_salary_advance.group_loan_manager"/>
+
+
+    </data>
+</odoo>
