@@ -1,0 +1,504 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * sale_timesheet
+# 
+# Translators:
+# Svante Suominen <svante.suominen@web-veistamo.fi>, 2017
+# Jussi Lehto <jussi@gulfeo.com>, 2017
+# Martin Trigaux, 2017
+# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2017
+# Veikko Väätäjä <veikko.vaataja@gmail.com>, 2017
+# Kari Lindgren <kari.lindgren@emsystems.fi>, 2017
+# Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2018
+# Janne Rättyä <janne.rattya@web-veistamo.fi>, 2019
+# Simo Suurla <simo@suurla.fi>, 2019
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-17 09:57+0000\n"
+"PO-Revision-Date: 2017-09-20 10:23+0000\n"
+"Last-Translator: Simo Suurla <simo@suurla.fi>, 2019\n"
+"Language-Team: Finnish (https://www.transifex.com/odoo/teams/41243/fi/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: fi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/account_invoice.py:32
+#: code:addons/sale_timesheet/models/project.py:26
+#, python-format
+msgid ""
+"\n"
+"                <p class=\"oe_view_nocontent_create\">\n"
+"                    Click to record timesheets.\n"
+"                </p><p>\n"
+"                    You can register and track your workings hours by project every\n"
+"                    day. Every time spent on a project will become a cost and can be re-invoiced to\n"
+"                    customers if required.\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "<b>Total</b>"
+msgstr "<b>Yhteensä</b>"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.project_project_view_kanban_inherit_sale_timesheet
+msgid "<span class=\"o_label\">Overview</span>"
+msgstr "Analyysi"
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Analyyttinen rivi"
+
+#. module: sale_timesheet
+#: selection:account.analytic.line,timesheet_invoice_type:0
+msgid "Billable Fixed"
+msgstr "Laskutettava kiinteä"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
+msgid "Billable Hours"
+msgstr "Laskutettavat tunnit"
+
+#. module: sale_timesheet
+#: selection:account.analytic.line,timesheet_invoice_type:0
+msgid "Billable Time"
+msgstr "Laskutettava aika"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line_timesheet_invoice_type
+msgid "Billable Type"
+msgstr "Laskutettavuuden tyyppi"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Billable fixed"
+msgstr "Laskutettavat kiinteät"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Billable time"
+msgstr "Laskutettava aika"
+
+#. module: sale_timesheet
+#: model:ir.filters,name:sale_timesheet.timesheet_filter_billing
+msgid "Billing Rate"
+msgstr "Laskutusaste"
+
+#. module: sale_timesheet
+#: model:ir.actions.act_window,name:sale_timesheet.timesheet_action_billing_report
+#: model:ir.ui.menu,name:sale_timesheet.menu_timesheet_billing_analysis
+msgid "By Billing Rate"
+msgstr "Laskutusasteen perusteella"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Cost"
+msgstr "Kulut"
+
+#. module: sale_timesheet
+#: model:ir.actions.act_window,name:sale_timesheet.timesheet_action_report_cost_revenue
+#: model:ir.ui.menu,name:sale_timesheet.menu_timesheet_report_cost_revenue
+msgid "Costs and Revenues"
+msgstr "Kulut ja tuotot"
+
+#. module: sale_timesheet
+#: selection:product.template,service_tracking:0
+msgid "Create a new project but no task"
+msgstr "Luo uusi projekti ilman tehtävää"
+
+#. module: sale_timesheet
+#: selection:product.template,service_tracking:0
+msgid "Create a task in a new project"
+msgstr "Luo uusi tehtävä uuteen projektiin"
+
+#. module: sale_timesheet
+#: selection:product.template,service_tracking:0
+msgid "Create a task in an existing project"
+msgstr "Luo uusi tehtävä olemassa olevaan projektiin"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_hr_employee_currency_id
+msgid "Currency"
+msgstr "Valuutta"
+
+#. module: sale_timesheet
+#: selection:product.template,service_tracking:0
+msgid "Don't create task"
+msgstr "Älä luo tehtävää"
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_hr_employee
+msgid "Employee"
+msgstr "Työntekijä"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Fixed"
+msgstr "Kiinteä"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
+msgid "Fixed Price Projects"
+msgstr "Kiinteähintaiset projektit"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.product_template_search_view_sale_timesheet
+msgid "Fixed price services"
+msgstr ""
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Hours"
+msgstr "Tunnit"
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_account_invoice
+#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line_timesheet_invoice_id
+msgid "Invoice"
+msgstr "Lasku"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_product_product_service_policy
+#: model:ir.model.fields,field_description:sale_timesheet.field_product_template_service_policy
+msgid "Invoice based on"
+msgstr "Laskutus perustuu"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,help:sale_timesheet.field_account_analytic_line_timesheet_invoice_id
+msgid "Invoice created from the timesheet"
+msgstr "Tuntikirjauksista luotu lasku"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Invoiced"
+msgstr "Laskutettu"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_sale_order_line_is_service
+msgid "Is a Service"
+msgstr "On palvelu"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.product_template_search_view_sale_timesheet
+msgid "Milestone services"
+msgstr "Virstanpylväspalvelut"
+
+#. module: sale_timesheet
+#: selection:product.template,service_policy:0
+msgid "Milestones (manually set quantities on order)"
+msgstr ""
+"Virstanpylväisiin (aseta manuaalisesti toteutuneet määrät tilaukselle)"
+
+#. module: sale_timesheet
+#: selection:account.analytic.line,timesheet_invoice_type:0
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "No task found"
+msgstr "Ilman tehtävää"
+
+#. module: sale_timesheet
+#: selection:account.analytic.line,timesheet_invoice_type:0
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Non Billable"
+msgstr "Ei-laskutettava"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_view_search
+msgid "Non Billable Hours"
+msgstr "Ei-laskutettavat tunnit"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Non billable"
+msgstr "Ei-laskutettava"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_account_invoice_timesheet_count
+msgid "Number of timesheets"
+msgstr "Tuntikorttien määrä"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,help:sale_timesheet.field_product_product_service_tracking
+#: model:ir.model.fields,help:sale_timesheet.field_product_template_service_tracking
+msgid ""
+"On Sales order confirmation, this product can generate a project and/or "
+"task. From those, you can track the service you are selling."
+msgstr ""
+
+#. module: sale_timesheet
+#: selection:product.template,service_policy:0
+msgid "Ordered quantities"
+msgstr "Tilattuihin määriin"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/project.py:45
+#, python-format
+msgid "Overview"
+msgstr "Analyysi"
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_product_template
+msgid "Product Template"
+msgstr "Tuotemalli"
+
+#. module: sale_timesheet
+#: model:ir.actions.act_window,name:sale_timesheet.product_template_action_fixed
+#: model:ir.actions.act_window,name:sale_timesheet.product_template_action_milestone
+#: model:ir.actions.act_window,name:sale_timesheet.product_template_action_time_based
+msgid "Products"
+msgstr "Tuotteet"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Profitability"
+msgstr "Kannattavuus"
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_project_project
+#: model:ir.model.fields,field_description:sale_timesheet.field_product_product_project_id
+#: model:ir.model.fields,field_description:sale_timesheet.field_product_template_project_id
+msgid "Project"
+msgstr "Projektit"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_sale_order_project_project_id
+msgid "Project associated to this sale"
+msgstr "Tähän myyntiin liittyvä projekti"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.view_order_form_inherit_sale_timesheet
+msgid "Project(s) Overview"
+msgstr "Projekti(e)n analyysi"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/sale_order.py:107
+#: model:ir.model.fields,field_description:sale_timesheet.field_sale_order_project_ids
+#, python-format
+msgid "Projects"
+msgstr "Projektit"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,help:sale_timesheet.field_sale_order_project_ids
+msgid "Projects used in this sales order."
+msgstr "Projekti jota käytetään tässä myyntitilauksessa."
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_sale_order
+msgid "Quotation"
+msgstr "Tarjous"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Rates"
+msgstr "Suhteet"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_account_analytic_line_timesheet_revenue
+msgid "Revenue"
+msgstr "Tulot"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,help:sale_timesheet.field_project_project_sale_line_id
+msgid ""
+"Sale order line from which the project has been created. Used for "
+"tracability."
+msgstr ""
+"Myyntitilauksen rivi, jonka perusteella projekti on luotu. Käytetään "
+"jäljitettävyyden vuoksi."
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.view_sale_service_inherit_form2
+msgid "Sales Order"
+msgstr "Myyntitilaus"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_task_sale_line_id
+#: model:ir.ui.view,arch_db:sale_timesheet.view_sale_service_inherit_form2
+msgid "Sales Order Item"
+msgstr "Myyntitilausrivi"
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_sale_order_line
+#: model:ir.model.fields,field_description:sale_timesheet.field_project_project_sale_line_id
+msgid "Sales Order Line"
+msgstr "Myyntitilauksen rivi"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,help:sale_timesheet.field_sale_order_line_is_service
+msgid ""
+"Sales Order item should generate a task and/or a project, depending on the "
+"product settings."
+msgstr ""
+"Myyntitilausrivin tulisi luoda tehtävä ja/tai projekti riippuen tuotteen "
+"asetuksista."
+
+#. module: sale_timesheet
+#: model:ir.model.fields,help:sale_timesheet.field_product_product_project_id
+#: model:ir.model.fields,help:sale_timesheet.field_product_template_project_id
+msgid ""
+"Select a non billable project on which tasks can be created. This setting "
+"must be set for each company."
+msgstr ""
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_product_product_service_tracking
+#: model:ir.model.fields,field_description:sale_timesheet.field_product_template_service_tracking
+msgid "Service Tracking"
+msgstr "Palvelun seuranta"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.res_config_settings_view_form
+msgid "Setup your fixed price services"
+msgstr "Aseta kiinteähiset palvelut"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.res_config_settings_view_form
+msgid "Setup your milestone services"
+msgstr "Aseta osissa laskutettavat palvelut"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.res_config_settings_view_form
+msgid "Setup your time-based services"
+msgstr "Aseta tuntilaskutettavat palvelut"
+
+#. module: sale_timesheet
+#: model:ir.model,name:sale_timesheet.model_project_task
+#: model:ir.model.fields,field_description:sale_timesheet.field_sale_order_line_task_id
+msgid "Task"
+msgstr "Tehtävä"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/sale_order.py:234
+#, python-format
+msgid ""
+"Task Created (%s): <a href=# data-oe-model=project.task data-oe-id=%d>%s</a>"
+msgstr ""
+"Tehtävä luotu (%s): <a href=# data-oe-model=project.task data-oe-"
+"id=%d>%s</a>"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,help:sale_timesheet.field_sale_order_line_task_id
+msgid "Task generated by the sales order item"
+msgstr "Myyntitilausrivin luomat tehtävät"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/controllers/main.py:109
+#: code:addons/sale_timesheet/controllers/main.py:141
+#: model:ir.model.fields,field_description:sale_timesheet.field_sale_order_tasks_count
+#: model:ir.ui.view,arch_db:sale_timesheet.view_order_form_inherit_sale_timesheet
+#, python-format
+msgid "Tasks"
+msgstr "Tehtävät"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_sale_order_tasks_ids
+msgid "Tasks associated to this sale"
+msgstr "Tähän myyntiin liittyvät tehtävät"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "There is no timesheet for now."
+msgstr "Täällä ei ole yhtään tuntikorttia nyt."
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/sale_order.py:251
+#, python-format
+msgid ""
+"This task has been created from: <a href=# data-oe-model=sale.order data-oe-"
+"id=%d>%s</a> (%s)"
+msgstr ""
+"Tämä tehtävä on luotu: <a href=# data-oe-model=sale.order data-oe-"
+"id=%d>%s</a> (%s)"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "Time by people"
+msgstr "Ajankäyttö henkilöittäin"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.product_template_search_view_sale_timesheet
+msgid "Time-based services"
+msgstr ""
+
+#. module: sale_timesheet
+#. openerp-web
+#: code:addons/sale_timesheet/static/src/js/timesheet_plan.js:143
+#: model:ir.actions.act_window,name:sale_timesheet.action_timesheet_from_invoice
+#: model:ir.actions.act_window,name:sale_timesheet.timesheet_action_from_plan
+#: model:ir.actions.act_window,name:sale_timesheet.timesheet_action_plan_pivot
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_view_pivot_revenue
+#, python-format
+msgid "Timesheet"
+msgstr "Tuntikortti"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_hr_employee_timesheet_cost
+msgid "Timesheet Cost"
+msgstr "Tuntikortin kulu"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_sale_order_timesheet_count
+msgid "Timesheet activities"
+msgstr "Tuntikorttien kirjaukset"
+
+#. module: sale_timesheet
+#: model:ir.model.fields,field_description:sale_timesheet.field_sale_order_timesheet_ids
+msgid "Timesheet activities associated to this sale"
+msgstr "Tähän myyntitilaukseen kytkeytyvät tuntikortit"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/controllers/main.py:104
+#: code:addons/sale_timesheet/controllers/main.py:133
+#: code:addons/sale_timesheet/models/account_invoice.py:26
+#: model:ir.model.fields,field_description:sale_timesheet.field_account_invoice_timesheet_ids
+#: model:ir.ui.view,arch_db:sale_timesheet.account_invoice_view_form_inherit_sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+#: model:ir.ui.view,arch_db:sale_timesheet.view_order_form_inherit_sale_timesheet
+#, python-format
+msgid "Timesheets"
+msgstr "Tuntikortit"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/project.py:20
+#, python-format
+msgid "Timesheets of %s"
+msgstr "Tuntikortit: %s"
+
+#. module: sale_timesheet
+#: selection:product.template,service_policy:0
+msgid "Timesheets on tasks"
+msgstr "Tuntikirjauksiin tehtävillä"
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
+msgid "To invoice"
+msgstr "Laskuta"
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/account.py:32
+#, python-format
+msgid ""
+"You can not modify already invoiced timesheets (linked to a Sales order "
+"items invoiced on Time and material)."
+msgstr ""
+
+#. module: sale_timesheet
+#: code:addons/sale_timesheet/models/project.py:74
+#, python-format
+msgid ""
+"You cannot delete a task related to a Sales Order. You can only archive this"
+" task."
+msgstr ""
+
+#. module: sale_timesheet
+#: model:ir.ui.view,arch_db:sale_timesheet.hr_timesheet_employee_extd_form
+msgid "per hour"
+msgstr "per tunti"
